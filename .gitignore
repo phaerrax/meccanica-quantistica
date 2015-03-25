@@ -1,0 +1,12 @@
+# Ignora i file generati nella compilazione con pdfLaTeX
+*.log
+*.aux
+*.out
+*.toc
+*.md5
+*.auxlock
+*.dpth
+# Ignora i file .pdf dei grafici e disegni creati con pgfplots...
+*.pdf
+# ...tranne l'output finale
+!meccanica-quantistica.pdf
