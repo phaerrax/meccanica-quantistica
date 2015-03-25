@@ -1,0 +1,240 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PER INCLUDERE QUESTE IMPOSTAZIONI %
+% \usepackage{quantum}              %
+% nel preambolo del documento       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{quantum}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pacchetti generici da caricare per i documenti
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{microtype}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{a4wide}
+\usepackage{amsthm}
+\usepackage{siunitx}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{mathrsfs}
+\usepackage{xfrac}
+\usepackage{graphicx}
+\usepackage{eufrak} % math fraktur font
+\usepackage[usenames,dvipsnames]{xcolor}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Impostazioni e caricamento di pgfplots
+\usepackage{pgfplots}
+	\pgfplotsset{compat=newest}
+	\tikzset{
+	small dot/.style={fill=black,circle,scale=0.3}
+	}
+	\pgfplotsset{
+		standard/.style={
+			axis lines=middle,
+			axis on top,
+			enlargelimits,
+			legend pos=outer north east,
+			every axis x label/.style={at={(current axis.right of origin)},anchor=west},
+			every axis y label/.style={at={(current axis.above origin)},anchor=south}
+		}
+	}
+\usepackage{tikz-3dplot}
+	\tdplotsetmaincoords{75}{60} % angoli di orientazione degli assi in 3d
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Altri pacchetti di formattazione del testo e PDF
+\usepackage{sectsty}
+	\sectionfont{\large}
+	\subsectionfont{\normalsize}
+	\subsubsectionfont{\itshape}
+	\paragraphfont{\normalsize}
+
+\usepackage{hyperref}
+	\hypersetup{
+		bookmarksnumbered=true,
+		bookmarksopen=true,
+		bookmarksopenlevel=1,
+		colorlinks=true,
+		linkcolor=blue!50!black,
+		pdfstartview=Fit,
+		pdfpagemode=UseOutlines
+	}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Font di dimensione più piccola in apici e pedici
+\makeatletter
+\DeclareMathSizes{\@xpt}{\@xpt}{6}{5}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Stile del titolo dei capitoli
+\usepackage{titlesec}
+\titleformat{\chapter}[display]{\bfseries\Large}{Capitolo \thechapter}{12pt}{\bfseries\Huge}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Altro (spaziatura, font, lettere greche etc.)
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\newcommand{\qqq}{\quad\longrightarrow\quad} % spazio lungo + --> + spazio lungo
+\newcommand{\qeq}{\quad\text{e}\quad} % spazio lungo + "e" + spazio lungo
+\newcommand{\tot}{_\textup{tot}} % pedice "tot"
+\renewcommand{\vec}[1]{\mathbf{#1}} % indica vettori in grassetto
+\newcommand{\CM}{_\textup{CM}} % pedice per indicare il centro di massa
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definizioni di nuovi colori
+\colorlet{darkgreen}{green!75!black}
+\colorlet{darkyellow}{yellow!75!orange}
+\colorlet{indigo}{blue!50!violet}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Simboli matematici
+\newcommand{\dd}{\textup{d}} % differenziale
+\newcommand{\abs}[1]{\left|{#1}\right|} % modulo di numeri complessi / valore assoluto
+\newcommand{\avg}[1]{\overline{#1}} % valore medio
+\newcommand{\norm}[1]{\left\|{#1}\right\|} % norma
+\newcommand{\ser}[1]{\sum_{{#1}=1}^{+\infty}} % simbolo di sommatoria da indice=1 a +inf (il simbolo dell'indice è specificato al momento nell'argomento del comando)
+\newcommand{\serz}[1]{\sum_{{#1}=0}^{+\infty}} % come sopra, ma la serie parte da 0 e non da 1
+\renewcommand{\emptyset}{\varnothing} % insieme vuoto
+\newcommand{\then}{\Rightarrow} % implicazione logica
+\renewcommand{\iff}{\Leftrightarrow} % "se e solo se"
+
+\renewcommand{\Re}[1]{\mathfrak{R}\!\left({#1}\right)} % parte reale
+\renewcommand{\Im}[1]{\mathfrak{I}\!\left({#1}\right)} % parte immaginaria
+\newcommand{\pinf}{+\infty} % simbolo del +inf
+\newcommand{\minf}{-\infty} % simbolo del -inf
+\newcommand{\partint}[1]{\left\lfloor{#1}\right\rfloor} % parte intera di un numero
+\newcommand{\conj}[1]{{#1}^*} % coniugato
+\newcommand{\cont}[1]{\mathscr{C}^{{#1}}} % spazio delle funzioni continue
+\newcommand{\hilbert}{\mathscr H} % spazio di Hilbert
+\newcommand{\ab}{\big([a,b]\big)} % "scorciatioia" per indicare tra parentesi leggermente più grandi ([a,b]) (i.e. quando si indica "integrabile in [a,b]" con il comando \rie)
+\newcommand{\grad}{\nabla}
+\renewcommand{\div}{\nabla\cdot}
+\newcommand{\rot}{\nabla\times}
+\newcommand{\lap}{\nabla^2}
+\newcommand{\lin}{\mathscr L} % spazio delle applicazioni lineari
+\newcommand{\gen}[1]{\left\langle{#1}\right\rangle} % spazio generato (da cosa è generato, è definito nell'argomento del comando)
+\newcommand{\scalar}[2]{{#1}\cdot{#2}} %  prodotto scalare tra i due argomenti specificati (con il punto)
+\newcommand{\intern}[2]{\left\langle{#1},{#2}\right\rangle} % prodotto interno tra due vettori
+\newcommand{\hermit}[2]{\left({#1},{#2}\right)} % prodotto hermitiano tra due vettori
+\newcommand{\adj}[1]{{#1}^\dagger} % coniugato trasposto (aka "aggiunto") di matrice/vettore/operatore (versione alternativa)
+\newcommand{\divides}{\!\mid\!} % simbolo di "divide" (in "x divide y")
+\newcommand{\quot}{\,/\,} % simbolo per indicare lo spazio quoziente
+\newcommand{\angl}[1]{\widehat{#1}} % indica gli angoli (tre lettere)
+\newcommand{\seg}[1]{\overline{#1}} % linea sopra le lettere per indicare la lunghezza di un segmento
+\newcommand{\drv}[2]{\frac{\dd {#1}}{\dd {#2}}} % derivata prima
+\newcommand{\ddrv}[2]{\frac{\dd^2 {#1}}{\dd {#2}^2}} % derivata seconda
+\newcommand{\drp}[2]{\frac{\partial {#1}}{\partial {#2}}} % derivata parziale
+\newcommand{\ddrp}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}} % derivata parziale seconda (non mista)
+%simbolo di uguaglianza per definizione
+\newcommand*{\defeq}{
+	\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt \hbox{\scriptsize.} \hbox{\scriptsize.}}} =
+}
+\newcommand{\bra}[1]{\left\langle{#1}\right|}
+\newcommand{\ket}[1]{\left|{#1}\right\rangle}
+\newcommand{\braket}[2]{\left\langle{#1}\middle|{#2}\right\rangle}
+\newcommand{\pois}[2]{\left\{ {#1},{#2}\right\}} % parentesi di Poisson
+\newcommand{\lag}{\mathcal L} % lagrangiana
+\newcommand{\ham}{\mathcal H} % hamiltoniana
+
+%OPERATORI MATEMATICI: come lim, sen, etc. che hanno dello spazio prima e dopo la parola stampata
+\DeclareMathOperator{\diam}{diam} % diametro (di un intervallo etc.)
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\jac}{J} % Jacobiana
+\DeclareMathOperator{\hes}{H} % Hessiana
+\DeclareMathOperator{\mat}{mat} % spazio delle matrici
+\DeclareMathOperator{\tr}{tr} % traccia
+\DeclareMathOperator{\Ker}{Ker} % nucleo di un'app lineare
+\DeclareMathOperator{\Imm}{Im} % immagine di un'app lineare
+\DeclareMathOperator{\rk}{rk} % rango di una matrice/operatore
+\DeclareMathOperator{\id}{\mathbb{I}} % operatore identità
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Vettori di lettere greche (per renderle in grassetto come le lettere latine)
+\usepackage{bm,upgreek}
+\newcommand{\valpha}{\bm{\upalpha}}
+\newcommand{\vbeta}{\bm{\upbeta}}
+\newcommand{\vgamma}{\bm{\upgamma}}
+\newcommand{\vdelta}{\bm{\updelta}}
+\newcommand{\vepsilon}{\bm{\upepsilon}}
+\newcommand{\vzeta}{\bm{\upzeta}}
+\newcommand{\veta}{\bm{\upeta}}
+\newcommand{\vtheta}{\bm{\uptheta}}
+\newcommand{\viota}{\bm{\upiota}}
+\newcommand{\vkappa}{\bm{\upkappa}}
+\newcommand{\vlambda}{\bm{\uplambda}}
+\newcommand{\vmu}{\bm{\upmu}}
+\newcommand{\vnu}{\bm{\upnu}}
+\newcommand{\vxi}{\bm{\upxi}}
+\newcommand{\vpi}{\bm{\uppi}}
+\newcommand{\vrho}{\bm{\uprho}}
+\newcommand{\vsigma}{\bm{\upsigma}}
+\newcommand{\vtau}{\bm{\uptau}}
+\newcommand{\vupsilon}{\bm{\upupsilon}}
+\newcommand{\vphi}{\bm{\upvarphi}}
+\newcommand{\vchi}{\bm{\upchi}}
+\newcommand{\vpsi}{\bm{\uppsi}}
+\newcommand{\vomega}{\bm{\upomega}}
+
+\newcommand{\vGamma}{\bm{\Upgamma}}
+\newcommand{\vDelta}{\bm{\Updelta}}
+\newcommand{\vTheta}{\bm{\Uptheta}}
+\newcommand{\vLambda}{\bm{\Uplambda}}
+\newcommand{\vXi}{\bm{\Upxi}}
+\newcommand{\vPi}{\bm{\Uppi}}
+\newcommand{\vSigma}{\bm{\Upsigma}}
+\newcommand{\vPhi}{\bm{\Upvarphi}}
+\newcommand{\vPsi}{\bm{\Uppsi}}
+\newcommand{\vOmega}{\bm{\Upomega}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Stili per i titoli dei teoremi, definizioni, etc.
+\theoremstyle{definition}
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{corollario}[teorema]{Corollario}
+\newtheorem{lemma}[teorema]{Lemma}
+\newtheorem{proprieta}[teorema]{Proprietà}
+
+\theoremstyle{plain}
+\newtheorem{definizione}[teorema]{Definizione}
+
+\theoremstyle{remark}
+\newtheorem{osservazione}[teorema]{Osservazione}
+
+%numerazione delle equazioni
+\numberwithin{equation}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Insiemi numerici e altri insiemi importanti
+\newcommand{\N}{\mathbb{N}} % naturali
+\newcommand{\Z}{\mathbb{Z}} % interi
+\newcommand{\Q}{\mathbb{Q}} % razionali
+\newcommand{\R}{\mathbb{R}} % reali
+\newcommand{\Rex}{\overline{\mathbb{R}}} % reali estesi
+\newcommand{\C}{\mathbb{C}} % complessi
+\newcommand{\obs}{\mathcal A} % spazio delle osservabili
+\newcommand{\phase}{\Gamma} % spazio delle fasi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Versori
+\newcommand{\ii}{\boldsymbol{\hat{\textbf{\i}}}}
+\newcommand{\jj}{\boldsymbol{\hat{\textbf{\j}}}}
+\newcommand{\kk}{\vec{\hat{k}}}
+\newcommand{\rr}{\vec{\hat{r}}}
+\newcommand{\ttheta}{\vec{\hat{\uptheta}}}
+\newcommand{\rrho}{\vec{\hat{\uprho}}}
+\newcommand{\pphi}{\vec{\hat{\upphi}}}
+%trovare altri nomi per gli ultimi tre ASAP
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inizia l'indice nella pagina indicata e non in una pag. a parte
+\setcounter{tocdepth}{1}
+\makeatletter
+\newcommand*{\toccontents}{\@starttoc{toc}}
+\makeatother
+

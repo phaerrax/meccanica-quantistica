@@ -1,0 +1,31 @@
+\documentclass[a4paper,notitlepage]{book}
+\usepackage{quantum}
+
+% PDF properties
+\hypersetup{
+	pdftitle={Meccanica Quantistica},
+	pdfauthor={Ferracin Davide},
+	pdfcreator={Ferracin Davide},
+	pdfsubject={Appunti del corso di Meccanica Quantistica},
+	pdfproducer={Rompileballealprossimo Editore}
+}
+
+% TikZ externalization settings
+\usetikzlibrary{external}
+\usepgfplotslibrary{external}
+\tikzexternalize[prefix=tex/] % output folder
+
+\title{
+	{\sffamily\fontsize{35}{42}\selectfont Meccanica Quantistica}
+}
+\author{}
+\date{\today}
+
+\pagestyle{headings}
+\usepackage{comment}
+
+\begin{document}
+\maketitle
+\vspace{2cm}
+\toccontents
+\end{document}
