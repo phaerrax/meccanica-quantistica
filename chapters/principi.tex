@@ -1,0 +1,83 @@
+\chapter{I princ\`ipi della meccanica quantistica}
+Vediamo in questo capitolo di porre le fondamenta di questa nuova teoria, inquadrando in una struttura matematica quello che avevamo già visto nell'introduzione, come gli stati, le osservabili e il loro comportamento.
+Abbiamo innanzitutto visto la necessità di descrivere gli stati in uno spazio vettoriale, in modo che valga il \emph{principio di sovrapposizione}, e questo stato dovrà essere sul campo complesso per dar luogo a fenomeni di interferenza come nella doppia fenditura.
+Lo spazio degli stati, che per ora indichiamo con $\hilbert$, avrà le seguenti proprietà:
+\begin{itemize}
+	\item è uno spazio vettoriale complesso;
+	\item in esso è definito un prodotto scalare definito positivo;
+	\item è \emph{completo}, come spazio metrico rispetto alla distanza definita dal prodotto scalare;
+	\item è \emph{separabile}, ossia esiste un suo sottoinsieme denso e numerabile;\footnote{Un esempio ``classico'' di spazio separabile è semplicemente $\R$, in cui troviamo $\Q\subset\R$ che è denso e numerabile.} 
+\end{itemize}
+La completezza implica che tutte le successioni di Cauchy in $\hilbert$ sono anche convergenti, mentre la separabilità assicura l'esistenza di una base ortonormale che abbia cardinalità al più numerabile.
+Lo spazio degli stati assuma quindi la struttura di uno \emph{spazio di Hilbert} complesso separabile.
+
+Nella notazione introdotta da Dirac, i vettori di $\hilbert$ sono indicati come \emph{ket}, scritti come $\ket{\cdot}$.
+Dobbiamo notare innanzitutto che la corrispondenza tra gli stati fisici e i vettori di questo spazio \emph{non è biunivoca}: mentre un vettore $\ket{x}\in\hilbert$ rappresenta uno e un solo stato fisico, lo stesso stato fisico è rappresentato da $\ket{x}$ e tutti i suoi multipli $\alpha\ket{x}$ per qualsiasi $\alpha\in\C$.
+Perciò tutte le informazioni che ricaveremo dal modello quantistico che costruiamo dovranno essere indipendenti da questa arbitrarietà.
+Se anzich\'e guardare ai vettori però guardiamo alla classe di vettori che sono tutti multipli (per uno scalare), cioè ai \emph{raggi} dello spazio, allora la corrispondenza diventa s\`i biunivoca.
+I ket, quindi, fanno parte di uno spazio vettoriale complesso, dunque ogni combinazione lineare $\alpha\ket{x}+\beta\ket{y}$ è ancora in $\hilbert$.
+Il prodotto scalare tra due \emph{ket} è indicato come $\braket{x}{y}$: questa notazione affianca il ket, a destra, con l'elemento a sinistra detto \emph{bra}.
+La notazione differente dei due elementi suggerisce una qualche differenza, e in effetti i \emph{ket} e i bra, seppur molto simili, appartengono a due spazi diversi; il prodotto scalare tra due \emph{ket} diventa quindi l'operazione del \emph{bra} associato al primo \emph{ket} sul secondo.
+Se i \emph{ket} sono dei vettori di $\hilbert$, possiamo pensare ai \emph{bra} come agli elementi del duale, cioè a funzionali lineari sui ket.
+Diamo quindi le proprietà del prodotto scalare cos\`i definito:
+\begin{itemize}
+	\item è antilineare, ossia $\braket{x}{y}=\braket{y}{x}^*$;
+	\item è lineare nella prima variabile, $\braket{x}{\alpha y_1+\beta y_2}=\alpha\braket{x}{y_1}+\beta\braket{x}{y_2}$;
+	\item è definito positivo, $\braket{x}{x}\geq 0$ per ogni $\ket{x}\in\hilbert$.
+\end{itemize}
+Dalle prime due troviamo che è antilineare nella seconda variabile: se vogliamo scomporre il prodotto scalare, dovremo introdurre il coniugato dei componenti, ossia $\braket{\alpha x_1+\beta x_2}{y}=\alpha^*\braket{x_1}{y}+\beta^*\braket{x_2}{y}$.
+Dalla terza notiamo infine che il prodotto scalare di un \emph{ket} con se stesso è sempre un numero reale.
+Vediamo come costruire questo prodotto scalare: se prendiamo una base ortonormale $\{\ket{e_i}\}$ (quindi $\braket{e_i}{e_j}=\delta_{ij}$), che per semplicità supponiamo finita di cardinalità $n$, allora possiamo esprimere un vettore $\ket{x}$ nei termini di questa base come
+\begin{equation}
+	\ket{x}=\sum_{i=1}^nx_i\ket{e_i}=x_i\ket{e_i}.
+\end{equation}
+Analogamente si dà l'espressione di $\ket{y}$, mentre il \emph{bra} associato ad esso è il trasposto coniugato del ket, ossia
+\begin{equation}
+	\bra{y}=\adj{\ket{y}}=y_i^*\bra{e_i}
+\end{equation}
+dunque il prodotto scalare tra i due è dato da
+\begin{equation}
+	\braket{y}{x}=y_j^*x_k\braket{e_j}{e_k}=y_j^*x_k\delta_{jk}=y_j^*x_j,
+\end{equation}
+che si può anche scrivere come $(y_jx_j^*)^*=\braket{x}{y}^*$, verificando quindi la prima proprietà.
+
+\section{Autovalori e autostati}
+Dopo aver inquadrato gli stati del sistema nello spazio di Hilbert con le dovute proprietà, passiamo a studiare le osservabili.
+Da un punto di vista prettamente pratico e non matematico possiamo definirle come degli apparecchi che agiscono sul sistema come delle \emph{scatole nere}, di cui non possiamo indagare il funzionamento; successivamente vedremo un modo di definirle anche matematicamente.
+Possiamo preoccuparci ora dell'\emph{effetto} che esse producono sul sistema: ad ogni osservabile è associata, chiaramente, una grandezza fisica del sistema, come l'energia, la posizione, eccetera, quindi agendo con un'osservabile sul sistema otteniamo un numero.
+Su \emph{come} sia fatto questo numero, però, c'è da discutere.
+Sappiamo bene che uno strumento di misura reale ci fornisce una misura con un numero di cifre inevitabilmente finito, quindi questa misura è un numero \emph{razionale}, e il numero di cifre è collegato alla precisione dello strumento.
+Possiamo immaginare di aumentare sempre di più questa precisione della misura, ad esempio utilizzando strumenti sempre più sofisticati: nella meccanica classica non si afferma l'esistenza di un limite da porre a questa precisione.
+Poich\'e il limite di una successione di numeri razionali è, in generale, un numero reale (dato che $\Q$ non è completo), se aumentiamo indefinitamente la precisione degli strumenti la misura, pur essendo un numero razionale, convergerà ad un numero reale; in effetti la meccanica classica studia i sistemi fisici tramite i numeri reali senza preoccuparsi di questo fatti.
+
+In meccanica quantistica, assumeremo che le osservabili, quindi i nostri strumenti di misura, restituiscano soltanto valori discreti (ma non c'è da preoccuparsi: lo spaziotempo è ancora considerato uno spazio continuo).
+Miglioriamo quindi la definizione precedente: diremo che $\xi$ è un'osservabile se è uno ``strumento di misura'' i cui risultati formano un insieme discreto $\{\xi_1,\xi_2,\dots,\xi_n,\dots\}$ (anche infinito).
+I valori $\xi_i$ sono detti \emph{autovalori} dell'osservabile $\xi$, e costituiscono quindi i \emph{possibili} risultati della misura.
+
+Torniamo all'esperimento con la lastra polaroid: l'osservabile è la lastra, e il risultato della misura è che il fotone ``passa'' o ``non passa'', e questi due risultati sono quindi gli autovalori.
+Associamo al passaggio del fotone l'autovalore 1 e al non passaggio l'autovalore 0.
+Non possiamo pretendere di predire il risultato della misura, in generale: sappiamo però che se il fotone è polarizzato linearmente lungo l'asse della lastra, sicuramente passerà, quindi in tale caso avremo con certezza l'autovalore 1.
+Analogamente se sappiamo che il fotone è polarizzato ortogonalmente all'asse della lastra, certamente avremo l'autovalore 0.
+
+Più in generale, esistono degli stati del sistema con questa caratteristica: chiamiamo \emph{autostato} un particolare stato del sistema in cui il risultato della misura è certo.
+Identificando lo stato con il corrispondente raggio in $\hilbert$, indicheremo con $\ket{\xi_i}$ tale raggio.
+Per la corrispondenza biunivoca tra i due elementi, però, spesso chiameremo (impropriamente) stati i raggi di $\hilbert$, per semplificare un poco la notazione.
+Dunque indicheremo con $\ket{\xi_i}$ l'autostato dell'osservabile $\xi$ relativo all'autovalore $\xi_i$.
+Misurando $\xi$ mentre il sistema è nello stato $\ket{\xi_i}$ siamo certi che otterremo l'autovalore $\xi_i$.
+Una volta compiuta la misura, inoltre, abbiamo rimosso ogni incertezza sullo stato attuale del sistema, perch\'e ora lo conosciamo, perciò continuando a misurare la medesima osservabile è chiaro che (almeno negli istanti successivi) otterremo sempre lo stesso risultato: possiamo affermare dunque che se effettuiamo la misura di $\xi$ sul sistema e otteniamo l'autovalore $\xi_i$, allora dopo la misura il sistema si troverà nello stato $\ket{\xi_i}$, che è l'autostato associato all'autovalore.
+In generale quindi non ci è dato sapere lo stato del sistema \emph{prima} della misura, ma sapremo in che stato si trova \emph{dopo} averla compiuta: questo è essenzialmente il motivo per cui, compiendo una misura, perturbiamo il sistema.
+
+Prendiamo stavolta due lastre polaroid, allineate lungo lo stesso asse di polarizzazione, e prendiamo gli autovalori 0 e 1 come prima.
+Se un fotone passa per le due lastre, è come se misurassimo due volte la sua polarizzazione, quindi rappresentano la stessa osservabile misurata una dopo l'altra.
+All'inizio, non sappiamo lo stato del fotone: quando esso passa per la prima lastra, però, può o passare o non passare.
+Se passa, cioè se otteniamo 1, il fotone risulta polarizzato lungo l'asse (chiamiamo questo stato $\ket{1}$), quindi certamente passerà anche per la seconda lastra.
+Quindi, ricapitolando, misurando il fotone otteniamo 1, dunque siamo sicuri che lo stato del fotone sia $\ket{1}$, che allora passerà anche per la seconda lastra, perch\'e si trova nell'autostato associato all'autovalore 1.
+Il discorso è analogo se il fotone non passa attraverso la prima lastra, anche se è una questione un po' delicata perch\'e per la seconda lastra non esiste nemmeno più il fotone da misurare; questo esperimento serve almeno per fissare le idee su questi concetti di base.
+
+Non sempre l'autostato di un autovalore è unico, ma possono esisterne anche di più, anche infiniti: in tal caso, la conoscenza dell'autovalore non determina ancora completamente lo stato del sistema.
+Distinguiamo quindi due tipi di osservabili:
+\begin{itemize}
+	\item quelle \emph{degeneri}, per cui eseguendo la misura non si conosce complessivamente lo stato del sistema (lo è la lastra polaroid: sappiamo la polarizzazione, ma non possiamo conoscere con questo esperiento la frequenza dei fotoni);
+	\item quelle \emph{non degeneri}, i cui autovalori determinano completamente lo stato del sistema (corrispondenza biunivoca tra autovalori e stati di $\hilbert$).
+\end{itemize}
+
