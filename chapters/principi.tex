@@ -81,3 +81,43 @@ Distinguiamo quindi due tipi di osservabili:
 	\item quelle \emph{non degeneri}, i cui autovalori determinano completamente lo stato del sistema (corrispondenza biunivoca tra autovalori e stati di $\hilbert$).
 \end{itemize}
 
+\section{Probabilità di transizione tra gli stati}
+Sappiamo che non possiamo predire il risultato di una misura, a meno che il sistema non sia in un certo autostato: negli altri casi possiamo però sapere la probabilità che un certo risultato si presenti rispetto agli altri.
+Il risultato dipenderà quindi sia dallo stato iniziale che da quello di arrivo: cerchiamo ora un metodo per calcolare la probabilità di passare da uno stato $\ket{x}$ allo stato $\ket{y}$.
+Questo valore è detto \emph{probabilità di transizione} (dal primo stato all'altro) e lo indicheremo con $P(\ket{x}\to\ket{y})$.
+Per determinare questa probabilità usiamo il prodotto scalare: per cominciare, ci serve un numero reale, quindi prendiamo il prodotto scalare $\braket{x}{y}$ per il suo coniugato, ottenendo $P(\ket{x}\to\ket{y})=\abs{\braket{x}{y}}^2$.
+Questo però non basta, perch\'e potremmo ottenere un numero maggiore di uno, mentre la probabilità deve essere in $[0,1]$: dobbiamo allora normalizzarla, ottenendo
+\begin{equation}
+	P(\ket{x}\to\ket{y})=\frac{\abs{\braket{x}{y}}^2}{\braket{x}{x}\braket{y}{y}}.
+	\label{eq:probabilita-transizione}
+\end{equation}
+Possiamo trascurare la normalizzazione se assumiamo tutti gli stati normalizzati: questa assunzione è del tutto legittima, poich\'e sappiamo che se $\ket{x}$ rappresenta un certo stato fisico del sistema allora anche $\alpha\ket{x}$ lo rappresenta per qualsiasi $\alpha\in\C$.
+Allora possiamo gli stati $\ket{x}$ e $\frac1{\braket{x}{x}}\ket{x}$ sono equivalenti nella rappresentazione, e il secondo è normalizzato.
+Per il momento però consideriamo ancora dei vettori generici, non già normalizzati.
+La \eqref{eq:probabilita-transizione} è una buona definizione di probabilità: è certamente positiva, perch\'e $\braket{x}{x}$ e $\braket{y}{y}$ sono positivi (in quanto non sono lo zero di $\hilbert$ e il prodotto scalare non è degenere), e per la disuguaglianza di Schwarz $\abs{\braket{x}{y}}^2\leq\braket{x}{x}\braket{y}{y}$ quindi è anche minore o uguale di 1.
+Inoltre essa non dipende dal fattore scalare arbitrario nella corrispondenza tra stati fisici e vettori di $\hilbert$: se al posto di $\ket{x}$ e $\ket{y}$ prendiamo $a\ket{x}$ e $b\ket{y}$ per qualunque $a,b\in\C$, abbiamo
+\begin{equation}
+	P(a\ket{x}\to b\ket{y})=\frac{\abs{a}^2\abs{b}^2\abs{\braket{x}{y}}^2}{\abs{a}^2\braket{x}{x}\abs{y}^2\braket{y}{y}}=\frac{\abs{\braket{x}{y}}^2}{\braket{x}{x}\braket{y}{y}}=P(\ket{x}\to\ket{y}).
+\end{equation}
+Infine, questa probabilità è commutativa, cioè $P(\ket{x}\to\ket{y})=P(\ket{y}\to\ket{x})$ come si verifica facilmente scambiando i due ket nella \eqref{eq:probabilita-transizione}.
+
+Prendiamo dunque un'osservabile non degenere $\xi$, e un generico stato $\ket{x}$.
+Non sappiamo quale sarà il risultato, ma ogni possibile autovalore $\xi_i$ dell'osservabile avrà una certa probabilità $P_i$ di accadere.
+Eseguendo una misura di $\xi$, la probabilità di trovare l'autovalore $\xi_i$ equivale alla probabilità di trovare, dopo la misura, il sistema nell'autostato $\ket{\xi_i}$, quindi è la probabilità di transizione tra $\ket{x}$ e questo autostato:
+\begin{equation}
+	P_i=\frac{\abs{\braket{\xi_i}{x}}^2}{\braket{\xi_i}{\xi_i}\braket{x}{x}}.
+\end{equation}
+Ovviamente ogni volta che compiamo la misura dobbiamo ottenere uno degli autovalori, qualunque esso sia, quindi $\sum_kP_k=1$ (gli indici $k$ possono anche essere infiniti).
+
+Se partiamo da un autostato $\ket{\xi_i}$, misurando $\xi$ otterremo sempre con certezza l'autovalore $\xi_i$, quindi la probabilità $P(\ket{\xi_i}\to\ket{\xi_i})$ vale 1.
+Come conseguenza abbiamo allora $P(\ket{\xi_i}\to\ket{\xi_k})=0$ per $i\neq k$, dato che la somma di tutte le probabilità è 1, ma allora
+\begin{equation}
+	P(\ket{\xi_i}\to\ket{\xi_k})=\frac{\abs{\braket{\xi_i}{\xi_k}}^2}{\braket{\xi_i}{\xi_i}\braket{\xi_k}{\xi_k}}=0 \iff \braket{\xi_i}{\xi_k}=0.
+	\label{eq:autostati-ortogonali}
+\end{equation}
+Troviamo allora che
+\begin{equation}
+	\braket{\xi_i}{\xi_k}=\delta_{ik}
+	\label{eq:autostati-ortonormali}
+\end{equation}
+cioè \emph{due autostati relativi a differenti autovalori sono ortonormali}.
