@@ -121,3 +121,57 @@ Troviamo allora che
 	\label{eq:autostati-ortonormali}
 \end{equation}
 cioè \emph{due autostati relativi a differenti autovalori sono ortonormali}.
+
+\section{Il postulato di Von Neumann}
+Abbiamo dimostrato che gli autostati di un'osservabile non degenere formano un insieme ortonormale.
+Esso è anche completo: infatti se esistesse un altro stato $\ket{\phi}$ ortogonale a tutti gli autostati $\ket{\xi_i}$, la probabilità di passare da uno qualunque di questi autostati a $\ket{\phi}$ sarebbe nulla, ma allora $\sum_i\abs{\braket{\xi_i}{\phi}}^2=0$ che è assurdo perch\'e deve essere 1.
+Quindi gli autostati (o meglio gli autovettori) di un'osservabile non degenere formano una \emph{base ortonormale} di $\hilbert$.
+Chiamiamo \emph{autospazio} relativo all'autovalore $\xi_i$ il sottospazio di $\hilbert$ costituito dagli autostati di tale autovalore.
+Se l'osservabile non è degenere, ad ogni autovalore corrisponde un unico autostato, quindi l'autospazio corrispondente ha dimensione 1 (ricordiamo che tutti gli autovettori multipli per uno scalare rappresentano il medesimo stato).
+Tutti questi autostati sono anche linearmente indipendenti, in quanto ortonormali, quindi gli autospazi di ciascun autovalore sono tra loro ortogonali (e, ancora, linearmente indipendenti).
+Allora detto $\hilbert_i$ l'autospazio dell'autovalore $\xi_i$, possiamo scomporre l'intero spazio $\hilbert$ come somma diretta
+\begin{equation}
+	\hilbert=\bigoplus_i\hilbert_i.
+\end{equation}
+
+Se quindi prendiamo una base di autostati $\{\ket{\xi_i}\}$, possiamo rappresentare ogni stato in termini di questi autostati come
+\begin{equation}
+	\ket{x}=\sum_ic_i\ket{\xi_i}
+\end{equation}
+dove i coefficienti $c_i\in\C$ devono soddisfare la condizione $\braket{x}{x}=\sum_ic_i^*c_i=\sum_i\abs{c_i}^2<+\infty$.
+Per l'ortonormalità della base possiamo quindi individuare tali coefficienti prendendo il prodotto scalare dello stato $\ket{x}$ con gli autostati, ossia
+\begin{equation}
+	\braket{\xi_k}{x}=\bra{\xi_k}\sum_ic_i\ket{xi_i}=\sum_ic_i\braket{\xi_k}{\xi_i}=\sum_ic_i\delta_{ik}=c_k,
+\end{equation}
+ma allora
+\begin{equation}
+	\ket{x}=\sum_i\braket{\xi_i}{x}\ket{\xi_i}=\sum_i\ket{\xi_i}\braket{\xi_i}{x}=\Big(\sum_i\ket{\xi_i}\bra{\xi_i}\Big)\ket{x}
+\end{equation}
+da cui ricaviamo che l'operatore $\sum_i\ket{\xi_i}\bra{\xi_i}$ è l'identità su $\hilbert$.
+In particolare, il singolo addendo $\ket{\xi_i}\bra{\xi_i}$ è un operatore di \emph{proiezione}, in quanto applicandolo due volte si ha
+\begin{equation}
+	\ket{\xi_i}\bra{\xi_i}\ket{\xi_i}\bra{\xi_i}=\ket{\xi_i}\braket{\xi_i}{\xi_i}\bra{\xi_i}=\ket{\xi_i}\bra{\xi_i}.
+\end{equation}
+Inoltre applicandolo ad un vettore si ottiene la sua componente nella direzione di $\ket{\xi_i}$, vale a dire la proiezione di $\ket{x}$ nell'autospazio $\hilbert_i$.
+Chiaramente sommando le proiezioni su tutti gli autospazi si ottiene il vettore di partenza, dunque si ha l'operatore identità: questa condizione indica la completezza della base degli autostati.
+
+I discorsi fatti finora valgono solo nel caso di osservabili non degeneri: nell'altro caso, sappiamo che ad un autovalore corrispondono più autostati, che chiaramente dovranno essere linearmente indipendenti (altrimenti rappresenterebbero lo stesso stato fisico).
+In questo caso non possiamo sapere in quale autostato si trovi il sistema, ma come al solito possiamo conoscere la probabilità che il sistema si trovi in uno o in un altro.
+Per semplicità, consideriamo il caso in cui esistano soltanto di autostati linearmente indipendenti relativi all'autovalore $\xi_1$ di $\xi$: chiamiamo tali autostati $\ket{\xi_1'}$ e $\ket{\xi_1''}$, e assumiamo che gli autovalori $\xi_k$ per $k>1$ non siano degeneri.
+Date queste ipotesi allora l'autospazio $\hilbert_1$ ha dimensione 2, ed è chiaramente ortogonale a tutti gli $\hilbert_k$ con $k>1$, quindi anche in questo caso tutti gli $\hilbert_i$ sono linearmente indipendenti e si può scrivere $\hilbert=\bigoplus_i\hilbert_i$.
+Possiamo comunque scegliere due vettori linearmente indipendenti da $\hilbert_1$ che insieme agli altri $\ket{\xi_k}$ (sempre $k>1$) formano ancora una base di $\hilbert$; la differenza con le osservabili non degeneri è che ora la base non è più unica, anche a meno di normalizzazioni dei vettori, questo perch\'e in $\hilbert_1$ esistono infinite coppie di vettori linearmente indipendenti anche normalizzati.\footnote{Un caso più ``quotidiano'' analogo a questo lo troviamo nelle basi di $\R$ e di $\R^2$: se consideriamo i vettori a meno di fattori scalari, allora in $\R$ la base può essere una sola (è l'unità) mentre in $\R^2$ ne troviamo infinite, ottenute ruotando la base canonica di un angolo qualsiasi.}
+
+Ad ogni modo, possiamo rappresentare anche in questo caso uno stato $\ket{x}$ in termini della base scelta: abbiamo $\ket{x}=c_1'\ket{\xi_1'}+c_1''\ket{\xi_1''}+\sum_{k>1}c_k\ket{\xi_k}$.
+Se abbiamo scelto una base ortonormale, avremo anche in questo caso partendo dallo stato $\ket{x}$ che assumiamo normalizzato, cos\`i come gli autostati, che
+\begin{equation}
+	\sum_iP_i=\sum_i\abs{\braket{\xi_i}{x}}^2=\sum_i\abs{c_i}^2=\abs{c_1'}^2+\abs{c_1''}^2+\sum_{k>1}\abs{c_k}^2=1,
+\end{equation}
+dunque per esclusione la probabilità di passare da $\ket{x}$ ad uno stato in $\hilbert_1$ è data da $P_1=1-\sum_{k>1}P_k=1-\sum_{k>1}\abs{c_k}^2=\abs{c_1'}^2+\abs{c_1''}^2$.
+Questo discorso è quindi riassunto nel \emph{postulato di Von Neumann}, che afferma
+\begin{quote}
+	Se una misura di $\xi$ nello stato $\ket{x}$ risulta nell'autovalore $\xi_i$, allora lo stato dopo al misura è dato dalla proiezione di $\ket{x}$ nell'autospazio di $\xi_i$.
+\end{quote}
+Nel caso precedente tale proiezione è proprio $c_1'\ket{\xi_1'}+c_1''\ket{\xi_1''}$, quindi la probabilità di trovare lo stato nell'autospazio $\hilbert_1$ è $\abs{c_1'}^2+\abs{c_1''}^2$.
+Il postulato si può anche riformulare affermando che dopo la misura lo stato del sistema è una combinazione lineare degli autostati relativi all'autovalore trovato: la differenza tra i due enunciati è che nel secondo, per avere gli autostati, dobbiamo specificare una base.
+La probabilità di transizione, dunque, non dipende dalla base scelta per $\hilbert$ (come era lecito aspettarsi).
+
