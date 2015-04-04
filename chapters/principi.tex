@@ -175,3 +175,92 @@ Nel caso precedente tale proiezione è proprio $c_1'\ket{\xi_1'}+c_1''\ket{\xi_1
 Il postulato si può anche riformulare affermando che dopo la misura lo stato del sistema è una combinazione lineare degli autostati relativi all'autovalore trovato: la differenza tra i due enunciati è che nel secondo, per avere gli autostati, dobbiamo specificare una base.
 La probabilità di transizione, dunque, non dipende dalla base scelta per $\hilbert$ (come era lecito aspettarsi).
 
+\section{Osservabili e operatori}
+Chiamiamo $E_i$ l'operatore dato da $\ket{\xi_i}\bra{\xi_i}$, con $\xi_i$ autovalore di un'osservabile $\xi$ generica.
+Per le proprietà viste in precedenza, $E_i^2=E_i$ perch\'e è una proiezione, inoltre ogni stato si può scrivere come $\ket{x}=\sum_i\ket{\xi_i}\braket{\xi_i}{x}=\sum_iE_i\ket{x}$, se scegliamo gli autostati $\ket{\xi_i}$ in modo da avere una base ortonormale.
+Assumiamo $\ket{x}$ e gli autostati della base normalizzati: allora se l'osservabile non è degenere la probabilità $P_i$ di trovare l'autovalore $\xi_i$ è la probabilità di transizione da $\ket{x}$ a $\ket{\xi_i}$, data da
+\begin{equation}
+	P_i=\abs{\braket{x}{\xi_i}}^2=\braket{x}{\xi_i}\braket{x}{\xi_i}^*=\braket{x}{\xi_i}\braket{\xi_i}{x}=\bra{x}E_i\ket{x}.
+	\label{eq:probabilita-proiezione-non-degenere}
+\end{equation}
+Anche nel caso l'osservabile non sia degenere, il risultato non cambia, se prendiamo comunque la proiezione su ogni vettore della base: per linearità, la proiezione di $\ket{x}$ nell'autospazio è la somma delle proiezioni su ciascun vettore della base che appartiene a tale autospazio.
+Più praticamente, riprendendo l'autovalore $\xi_1$ visto in precedenza, e assumendo che esso abbia due autovettori linearmente indipendenti $\ket{\xi_1'}$ e $\ket{\xi_1''}$ ortonormali, allora
+\begin{equation}
+	P_1=\abs{\braket{x}{\xi_1'}}^2+\abs{\braket{x}{\xi_1''}}^2=\bra{x}E_1'\ket{x}+\bra{x}E_1''\ket{x}=\bra{x}(E_1'+E_1'')\ket{x}.
+	\label{eq:probabilita-proiezione-degenere}
+\end{equation}
+
+Se compiamo un numero $N$ di misure di $\xi$ sullo stato $\ket{x}$ (ovviamente non possiamo farlo consecutivamente: dobbiamo avere $N$ sistemi tutti nello stesso stato e compiere la misura si ciascuno di essi), misureremo ogni autovalore $\xi_i$ un certo numero $n_i$ di volte, con $\sum_in_i=N$.
+Possiamo allora definire il valore medio $\avg{\xi}$ dell'osservabile come
+\begin{equation}
+	\avg{\xi}=\frac1{N}\sum_in_i\xi_i
+	\label{eq:valore-medio-finito}
+\end{equation}
+e per $N\to+\infty$, cioè con un numero infinito di misure, il rapporto $n_i/N$ tende alla probabilità di trovare $\xi_i$, perciò
+\begin{equation}
+	\avg{\xi}=\sum_iP_i\xi_i
+	\label{eq:valore-medio}
+\end{equation}
+dove le $P_i$ sono definite come al solito finora.
+Se il sistema è nello stato $\ket{x}$, dunque, il valore medio è
+\begin{equation}
+	\avg{\xi}=\sum_i\xi_i\bra{x}E_i\ket{x}=\bra{x}\sum_iE_i\xi_i\ket{x}.
+\end{equation}
+Definiamo dunque l'\emph{operatore associato} all'osservabile $\xi$ come
+\begin{equation}
+	\op{\xi}=\sum_i\xi_iE_i.
+	\label{eq:definizione-operatore}
+\end{equation}
+Si ha dunque, se $\ket{x}$ è normalizzato, che $\avg{\xi}=\bra{x}\op{\xi}\ket{x}$, il quale viene infatti chiamato \emph{valore di aspettazione} dell'osservabile $\xi$ sullo stato $\ket{x}$.
+
+Osserviamo subito che gli operatori associati sono hermitiani, ossia $\adj{\op\xi}=\op\xi$: infatti data una base ortonormale di autostati anche degeneri $\{\ket{\xi_i}\}$ si ha
+\begin{equation}
+	\bra{x}\op{\xi}\ket{y}=\bra{x}\sum_i\xi_iE_i\ket{y}=\sum_i\xi_i\bra{x}E_i\ket{y}=\sum_i\xi_i\braket{x}{\xi_i}\braket{\xi_i}{y},
+\end{equation}
+e allo stesso tempo
+\begin{equation}
+	\bra{x}\adj{\op{\xi}}\ket{y}=\bra{y}\op{\xi}\ket{x}^*=\Big(\sum_i\xi_i\braket{y}{\xi_i}\braket{\xi_i}{x}\Big)^*=\sum_i\xi_i\big(\braket{y}{\xi_i}\braket{\xi_i}{x}\big)^*=\sum_i\xi_i\braket{x}{\xi_i}\braket{\xi_i}{y}
+\end{equation}
+($\sum_i\xi_i\in\R$ quindi è il coniugato di s\'e stesso) che è dunque uguale a $\bra{x}\op{\xi}\ket{y}$.
+Inoltre gli autovalori $\xi_i$, che avevamo definito come i possibili risultati della misura dell'osservabile, sono in realtà anche gli autovalori, nel senso matematico, dell'operatore, perch\'e
+\begin{equation}
+	\op{\xi}\ket{\xi_i}=\sum_k\xi_kE_k\ket{\xi_i}=\sum_k\xi_k\ket{\xi_k}\braket{\xi_k}{\xi_i}=\sum_k\xi_k\ket{\xi_k}\delta_{ik}=\xi_i\ket{\xi_i}.
+\end{equation}
+
+Vediamo due importanti proprietà degli operatori hermitiani:
+\begin{itemize}
+	\item i suoi autovalori sono tutti reali.
+		Se infatti $\op\xi\ket{\xi}=\xi\ket{\xi}$, in generale l'autovalore $\xi$ è complesso, ma in questo caso se moltiplichiamo a sinistra per il \emph{bra} $\bra{\xi}$ otteniamo $\bra{\xi}\op\xi\ket{\xi}=\xi\braket{\xi}{\xi}$, ma $\op\xi=\adj{\op\xi}$ quindi $\bra{\xi}\op\xi\ket{\xi}=\bra{\xi}\adj{\op\xi}\ket{\xi}=\bra{\xi}\op\xi\ket{\xi}^*=(\xi\braket{\xi}{\xi})^*$, ossia
+		\begin{equation}
+			(\xi\braket{\xi}{\xi})^*=\xi\braket{\xi}{\xi}\quad\then\quad\xi^*=\xi
+		\end{equation}
+		perch\'e $\braket{\xi}{\xi}\in\R$, ma allora $\xi\in\R$.
+	\item gli autospazi corrispondenti a differenti autovalori sono ortogonali.
+		Prendiamo due autovalori $\eta'$ e $\eta''$ (ovviamente $\eta'\neq\eta''$) dell'operatore $\op\eta$ hermitiano.
+		Prendiamo inoltre l'azione di $\op\eta$ su due autostati corrispondenti ai due autovalori, cioè $\op\eta\ket{\eta'}=\eta'\ket{\eta'}$ e $\op\eta=\eta''\ket{\eta''}$.
+		Moltiplicando a sinistra per rispettivamente per $\bra{\eta''}$ e $\bra{\eta'}$ otteniamo
+		\begin{equation}
+			\begin{cases}
+				\bra{\eta''}\op\eta\ket{\eta'}=\eta'\braket{\eta''}{\eta'}\\
+				\bra{\eta'}\op\eta\ket{\eta''}=\eta''\braket{\eta'}{\eta''}
+			\end{cases}
+			\quad\then\quad
+			\begin{cases}
+				\bra{\eta''}\op\eta\ket{\eta'}=\eta'\braket{\eta''}{\eta'}\\
+				\bra{\eta''}\op\eta\ket{\eta'}=\eta''^*\braket{\eta''}{\eta'}
+			\end{cases}
+		\end{equation}
+		ma gli autovalori sono reali quindi nella seconda $\eta''^*=\eta''$.
+		Allora sottraendo la seconda equazione dalla prima troviamo
+		\begin{equation}
+			(\eta'-\eta'')\braket{\eta''}{\eta'}=0
+		\end{equation}
+		ma se $\eta'\neq\eta''$ allora $\braket{\eta''}{\eta'}=0$, ossia i due autostati sono ortogonali.
+\end{itemize}
+
+È dunque vero che tutte le osservabili sono operatori hermitiani?
+Per quanto visto finora e per come abbiamo associato gli operatori alle osservabili, s\`i, è vero.
+Non è vero però il contrario: sappiamo che con gli autostati di un'osservabile, degenere o meno, possiamo costruire una base ortonormale dello spazio degli stati, ma ciò non è sempre possibile con gli operatori hermitiani.
+Se lo spazio $\hilbert$ fosse di dimensione finita, allora per il teorema spettrale ogni operatore hermitiano ammette un insieme di autovettori che forma una base dello spazio, ma questo non è più vero in dimensione infinita.
+Alcuni operatori infatti, pur essendo hermitiani, non possiedono abbastanza autovettori linearmente indipendenti da poter costruire una base: gli operatori per cui questo accade, invece, si dicono \emph{autoaggiunti}.
+Solo quest'ultimo tipo di operatori corrisponde ad un'osservabile; analogamente tutte le osservabili sono operatori autoaggiunti.
