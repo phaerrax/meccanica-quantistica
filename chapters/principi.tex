@@ -311,4 +311,125 @@ Possiamo quindi formulare il seguente teorema.
 \end{proof}
 Gli autostati dell'osservabile sono quindi gli stati di \emph{minima indeterminazione} del risultato della misura.
 
+\section{Osservabili compatibili}
+Consideriamo due osservabili $\xi$ e $\eta$ sullo stato $\ket{x}$ del sistema.
+Misuriamo $\xi$, e lo troviamo in un autostato $\ket{\xi_i}$; se misuriamo ora $\eta$, in generale, non potremo dire niente sul risultato.
+Troveremo però il sistema in un autostato $\ket{\eta_j}$: se lo stato precedente $\ket{\xi_i}$ fosse un autostato di $\eta$, allora $\op\eta\ket{\xi_i}=\eta_j\ket{\xi_i}$, quindi la misura non ha alterato il sistema, che rimane nello stesso stato.
+Lo stato $\ket{\xi_i}$ è dunque autostato sia di $\xi$ che di $\eta$: se di tali autostati se ne trovano abbastanza da formare una base, le due osservabili si dicono \emph{compatibili}.
+\begin{definizione} \label{d:osservabili-compatibili}
+	Due osservabili si dicono \emph{compatibili} se ammettono una base di autovettori simultanei.
+\end{definizione}
+Quindi preso un autostato qualunque, effettuando la misura di un'osservabile compatibile il nuovo stato è ancora un autostato della prima osservabile.
+
+Chiaramente per verificare la compatibilità è impensabile effettuare una misura su tutti gli autostati, che sono infiniti.
+Fortunatamente esiste una caratterizzazione di tipo algebrico che permette di verificarlo più semplicemente.
+Introduciamo innanzitutto il \emph{commutatore} tra due operatori, definito come
+\begin{equation}
+	[\op\xi,\op\eta]=\op\xi\op\eta-\op\eta\op\xi.
+	\label{eq:commutatore}
+\end{equation}
+Il risultato del commutatore è a sua volta un operatore, e come anche suggerisce il nome esso fornisce una ``misura'' di quanto gli operatori \emph{non} commutano (e in generale non è nullo).
+Le proprietà fondamentali del commutatore sono:
+\begin{itemize}
+	\item $[\op\eta,\op\xi]=-[\op\xi,\op\eta]$;
+	\item per $a,b\in\C$, $[\op\eta,a\op\xi+b\op\lambda]=a[\op\eta,\op\xi]+b[\op\eta,\op\lambda]$;
+	\item $[\op\eta,\op\xi\op\lambda]=\op\lambda[\op\eta,\op\xi]+[\op\eta,\op\lambda]\op\xi$.
+\end{itemize}
+Le prime due sono evidenti dalla definizione del commutatore; per la terza, si ha
+\begin{equation}
+	\begin{split}
+		[\op\eta,\op\xi\op\lambda]&=\op\eta\op\xi\op\lambda-\op\xi\op\lambda\op\eta=\\
+		&=\op\eta\op\xi\op\lambda-\op\xi\op\lambda\op\eta+\op\lambda\op\eta\op\xi-\op\lambda\op\eta\op\xi=\\
+		&=\op\lambda(\op\eta\op\xi-\op\xi\op\eta)+(\op\eta\op\lambda-\op\lambda\op\eta)\op\xi=\\
+		&=\op\lambda[\op\eta,\op\xi]+[\op\eta,\op\lambda]\op\xi.
+	\end{split}
+\end{equation}
+Prima di collegare il commutatore alla compatibilità tra le osservabili, dimostriamo il seguente lemma.
+\begin{lemma} \label{l:autostati-compatibili}
+	Date due osservabili $\xi$ ed $\eta$, se $[\op\xi,\op\eta]=0$ e $\ket{\xi'}$ è un autostato di $\xi$, allora $\op\eta\ket{\xi'}$ è ancora un autostato di $\xi$ con lo stesso autovalore.
+\end{lemma}
+\begin{proof}
+	Dato che le osservabili commutano, $\op\xi\op\eta\ket{\xi'}=\op\eta\op\xi\ket{\xi'}=\op\eta(\xi'\ket{\xi'})=\xi'\op\eta\ket{\xi'}$, ossia
+	\begin{equation}
+		\op\xi(\op\eta\ket{\xi'})=\xi'(\op\eta\ket{\xi'}).\qedhere
+	\end{equation}
+\end{proof}
+Questo lemma \emph{non} significa che $\op\eta\ket{\xi'}=\ket{\xi'}$!
+Ciò accade soltanto se $\xi$ non è degenere: in tal caso, $\op\eta\ket{\xi'}$ sarebbe un multiplo di $\ket{\xi'}$, ma ricordando che i vettori multipli per uno scalare rappresentano il medesimo stato fisico i due stati sono uguali.
+Vediamo dunque come la compatibilità tra due osservabili è legata al loro commutatore, partendo dal caso delle osservabili compatibili; in seguito affronteremo il caso generale.
+\begin{teorema} \label{t:osservabili-compatibili}
+	Due osservabili $\xi$ e $\eta$ sono compatibili se e solo se $[\op\xi,\op\eta]=0$.
+\end{teorema}
+\begin{proof}
+	Assumiamo le due osservabili compatibili.
+	Chiamiamo $\ket{\xi'\eta'}$ uno degli autostati della base in comune, che è tale per cui $\op\xi\ket{\xi'\eta'}=\xi'\ket{\xi'\eta'}$ e $\op\eta\ket{\xi'\eta'}=\eta'\ket{\xi'\eta'}$.
+	Ma allora $\op\xi\op\eta\ket{\xi'\eta'}=\op\xi(\op\eta\ket{\xi'\eta'})=\eta'\op\xi\ket{\xi'\eta'}=\eta'\xi'\ket{\xi'\eta'}$, e analogamente $\op\eta\op\xi\ket{\xi'\eta'}=\xi'\eta'\ket{\xi'\eta'}$, quindi $\op\xi\op\eta=\op\eta\op\xi$ su ogni autostato simultaneo.
+	Questi autostati, però, formano un insieme completo nonch\'e una base dello spazio, quindi per linearità questo vale pe ogni stato di $\hilbert$.
+	Allora $[\op\xi,\op\eta]=0$.
+
+	Partiamo ora da $[\op\xi,\op\eta]=0$, e consideriamo $\xi$ non degenere.
+	Se $\ket{\xi_i}$ è un autostato di $\xi$ con autovalore $\xi_i$, allora $\op\eta\ket{\xi_i}$ per il lemma precedente è ancora autostato di $\xi$.
+	La dimensione dell'autospazio di tale autovalore però è 1, poich\'e non è degenere, quindi questo nuovo autostato sarà un multiplo del precedente, cioè $\op\eta\ket{\xi_i}=c\ket{\xi_i}$ con $c\in\C$.
+	Ma allora $\ket{\xi_i}$ è un autostato di $\eta$.
+	Poich\'e questo vale per ogni autostato, e gli autostati di $\xi$ formano già una base, essi sono tutti anche autostati di $\eta$ quindi le due osservabili sono compatibili.
+
+	Prendiamo ora $\xi$ degenere, e assumiamo per semplicità che solo l'autovalore $\xi_1$ sia degenere.
+	Possiamo scomporre $\hilbert$ nella somma diretta $\hilbert_1\oplus\hilbert^\perp_1$: il primo termine è l'autospazio dell'autovalore $\xi_1$, il secondo è il suo complemento ortogonale, che è anche la somma dei restanti autospazi (ricordiamo che sono tutti ortogonali tra loro).
+	Se $\ket{x}\in\hilbert_1$, per il lemma precedente anche $\op\eta\ket{x}\in\hilbert_1$, perch\'e devono avere lo stesso autovalore di $\xi$.
+	Prendiamo un altro stato $\ket{y}$: abbiamo che se $\ket{y}\in\hilbert_1^\perp$ allora $\op\eta\ket{y}\in\hilbert_1^\perp$.
+	Infatti $\bra{x}\op\eta\ket{y}=\bra{y}\op\eta\ket{x}^*=0$, perch\'e $\ket{y}$ e $\op\eta\ket{x}$ appartengono a spazi ortogonali, dunque anche $\ket{x}$ e $\op\eta\ket{y}$ appartengono a spazi ortogonali.
+	In $\hilbert_1$ possiamo scegliere una base di autostati di $\eta$: essi saranno anche autostati di $\xi$ e avranno lo stesso autovalore, trovandoci nel medesimo autospazio.
+	Ripetendo per tutti gli autospazi restanti giungiamo a una base dello spazio degli stati, che è composta da autostati simultanei: ciò prova che le osservabili sono compatibili.
+\end{proof}
+Anche se il commutatore non è nullo, due osservabili possono comunque avere degli autostati simultanei: certamente non potranno essere abbastanza da formare una base.
+Un insieme di osservabili che commutano tra loro, e tali che nessun autovalore sia degenere, formano un \emph{sistema completo di osservabili}; se le prime due presentano ancora delle degenerazioni, si può continuare aggiungendo altre osservabili che commutano fino ad arrivare a un sistema completo.
+
+In generale, però, due osservabili non commutano, e il seguente teorema collega l'indeterminazione nella misura di due osservabili qualunque con il loro commutatore, da cui segue facilmente il celebre principio di indeterminazione di Heisenberg.
+\begin{teorema} \label{t:indeterminazione}
+	Dato uno stato $\ket{x}$ e due osservabili $\xi$, $\eta$, il prodotto delle due indeterminazioni delle due misure è
+	\begin{equation}
+		\Delta_x\xi\Delta_x\eta\geq\frac12\abs{\bra{x}i[\op\xi,\op\eta]\ket{x}}.
+		\label{eq:indeterminazione}
+	\end{equation}
+\end{teorema}
+\begin{proof}
+	Costruiamo l'operatore $\op A=\op\xi+iz\op\eta$, con $z\in\R$: il suo aggiunto è $\adj{\op A}=\adj{\op\xi}-iz\adj{\op\eta}=\op\xi-iz\op\eta$.
+	Calcoliamo subito $\adj{\op A}\op A$, che vale
+	\begin{equation}
+		\adj{\op A}\op A=(\op\xi-iz\op\eta)(\op\xi+iz\op\eta)=\op\xi^2+z^2\op\eta^2-iz\op\eta\op\xi+iz\op\xi\op\eta=\op\xi^2+z^2\op\eta^2+iz[\op\xi,\op\eta].
+	\end{equation}
+	Assumiamo che lo stato $\ket{x}$ sia normalizzato, e calcoliamo la norma di $\op A\ket{x}$: prendendo una base ortonormale che include $\ket{x}$, l'insieme $\{\op E_i\}$ delle proiezioni sugli elementi della base è tale per cui $\sum_i\op E_i=\op 1$, quindi (possiamo assumere che $\ket{x}$ sia l'elemento della base con indice 1, perciò $E_1$ è la proiezione su $\ket{x}$)
+	\begin{equation}
+		\begin{split}
+			\bra{x}\adj{\op A}\op A\ket{x}&=\bra{x}\adj{\op A}\Big(\sum_i\op E_i\Big)\op A\ket{x}=\\
+			&=\sum_i\bra{x}\adj{\op A}\op E_i\op A\ket{x}=\\
+			&=\bra{x}\adj{\op A}\op E_1\op A\ket{x}+\sum_{i>1}\bra{x}\adj{\op A}\op E_i\op A\ket{x}=\\
+			&=\bra{x}\adj{\op A}\ket{x}\bra{x}\op A\ket{x}+\sum_{i>1}\bra{x}\adj{\op A}\op E_i\op A\ket{x},
+		\end{split}
+	\end{equation}
+	ma tutti gli addendi sono positivi, perch\'e corrispondono a $\big|\bra{e_i}\op A\ket{x}\big|^2$, dove $\ket{e_i}$ sono i vettori della base ortonormale considerata.
+	Possiamo quindi sottrarre tutti i termini per $i>1$, ottenendo
+	\begin{equation}
+		\bra{x}\adj{\op A}\op A\ket{x}\geq\bra{x}\adj{\op A}\ket{x}\bra{x}\op A\ket{x}
+	\end{equation}
+	I due fattori al secondo membro sono i valori di aspettazione di $\adj{\op A}\op A$	e $\op A$ rispettivamente, quindi dalla definizione di questi operatori troviamo
+	\begin{equation}
+		\avg{\xi^2}+z^2\avg{\eta^2}+iz\avg{[\xi,\eta]}\geq\avg{(\xi-iz\eta)}\avg{(\xi+iz\eta)}=\avg{\xi}^2+z^2\avg{\eta}^2
+	\end{equation}
+	e semplificando risulta
+	\begin{equation}
+		(\avg{\eta^2}-\avg{\eta}^2)z^2+iz\avg{[\xi,\eta]}+\avg{\xi^2}-\avg{\xi}^2\geq 0.
+	\end{equation}
+	Affinch\'e tale relazione valga per ogni $z\in\R$, il discriminante della forma quadratica deve essere negativo o nullo, quindi $\avg{i[\xi,\eta]}^2-4(\avg{\eta^2}-\avg{\eta}^2)(\avg{\xi^2}-\avg{\xi}^2)=\avg{i[\xi,\eta]}^2-4\Delta_x\xi^2\Delta_x\eta^2\leq 0$, che si riscrive come\footnote{La notazione usata per l'indeterminazione nelle osservabili è da intendersi come un oggetto unico, come il differenziale di una funzione, nel senso che $\Delta_x\xi^2=(\Delta_x\xi)^2$, e non è quindi l'indeterminazione di $\xi^2$ ma il quadrato dell'indeterminazione di $\xi$.}
+	\begin{equation}
+		\Delta_x\xi\Delta_x\eta\geq\frac12\avg{i[\xi,\eta]}=\frac12\abs{\bra{x}i[\op\xi,\op\eta]\ket{x}}.
+	\end{equation}
+\end{proof}
+La presenza di una $i$ nella \eqref{eq:indeterminazione} è dovuta al fatto che il commutatore non è hermitiano, cioè
+\begin{equation}
+	\adj{[\op\xi,\op\eta]}=\adj{(\op\xi\op\eta-\op\eta\op\xi)}=\adj{\op\eta}\adj{\op\xi}-\adj{\op\xi}\adj{\op\eta}=\op\eta\op\xi-\op\xi\op\eta=-[\op\xi,\op\eta],
+	\label{eq:commutatore-antihermitiano}
+\end{equation}
+quindi non può rappresentare un'osservabile, e il termine $\bra{x}[\op\xi,\op\eta]\ket{x}$ non avrebbe un senso fisico.
+Aggiungendo la $i$, come si può verificare facilmente, $i[\op\xi,\op\eta]$ è hermitiano, e automaticamente anche autoaggiunto perch\'e lo sono i due operatori.
 
