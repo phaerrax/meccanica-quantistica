@@ -1,0 +1,71 @@
+\chapter{L'oscillatore armonico}
+Il sistema fisico più semplice da studiare in meccanica quantistica, contrariamente alla tradizione, non è la particella libera, in quanto l'operatore impulso (che sarebbe l'unico ad apparire nell'hamiltoniana) è un po' particolare e richiede una trattazione dedicata, che faremo in seguito.
+Il sistema più semplice risulta invece essere l'oscillatore armonico, che studiamo qui in una dimensione.
+Occupiamoci del problema fondamentale di individuare gli autovalori possibili dell'operatore hamiltoniano, e la loro probabilità associata.
+Diamo innanzitutto l'operatore hamiltoniano, in cui sostituiamo già la costante $k$ della forza di richiamo con $m\omega^2$, in modo da evidenziare la frequenza naturale dell'oscillatore ($\omega^2=k/m$):
+\begin{equation}
+	\op H=\frac1{2m}(\op p^2+m^2\omega^2\op q^2).
+	\label{eq:H-oscillatore}
+\end{equation}
+Chiamiamo $E_0,E_1,\dots,E_n,\dots$ i suoi autovalori, ordinati in modo crescente, ossia con $E_i\leq E_{i+1}$ per ogni $i$, e indichiamo di conseguenza gli autostati corrispondenti con $\ket{E_i}$.
+L'autostato $\ket{E_0}$, per cui l'energia è minima, è anche chiamato \emph{autostato fondamentale}.
+Cominciamo con un primo importante risultato.
+\begin{teorema} \label{t:oscillatore-autovalori-positivi}
+	Gli autovalori di $\op H$ di un oscillatore armonico sono tutti positivi.
+\end{teorema}
+\begin{proof}
+	Preso uno stato qualunque $\ket{x}$, il valore di aspettazione dell'energia è
+	\begin{equation}
+		\avg{H}=\bra{x}\op H\ket{x}=\frac1{2m}(\bra{x}\op p^2\ket{x}+m^2\omega^2\bra{x}\op q^2\ket{x}).
+	\end{equation}
+	Ora, dato che $\op p$ è hermitiano, $\bra{x}\op p^2\ket{x}=\bra{x}\adj{\op p}\op p\ket{x}$ che è la norma di $\op p\ket{x}$, e lo stesso per la posizione, dunque sono entrambi positivi o nulli: allora $\bra{x}\op H\ket{x}\geq 0$ qualsiasi sia $\ket{x}$.
+	Se vale per qualsiasi stato, sarà vero anche per gli autostati $\ket{E_i}$, e se li prendiamo normalizzati allora
+	\begin{equation}
+		0\leq\bra{E_i}\op H\ket{E_i}=E_i\braket{E_i}{E_i}=E_i
+	\end{equation}
+	cioè tutti gli autovalori non sono negativi.
+	Se prendiamo poi l'autostato fondamentale $\ket{E_0}$, esso non può avere l'autovalore nullo: infatti $E_0=0$ se e solo se $\bra{E_0}\op H\ket{E_0}=0$, vale a dire
+	\begin{equation}
+		\frac1{2m}(\bra{E_0}\op p^2\ket{E_0}+m^2\omega^2\bra{E_0}\op q\ket{E_0})=0,
+	\end{equation}
+	ma sono tutti addendi non negativi quindi l'equazione è vera se e solo se $\bra{E_0}\op p^2\ket{E_0}=0$ e contemporaneamente $\bra{E_0}\op q^2\ket{E_0}$.
+	Come prima, però, questi due sono la norma di $\op p\ket{E_0}$ e $\op q\ket{E_0}$, e ciò significherebbe che questi due vettori siano nulli, vale a dire $\op q\ket{E_0}=0$ e $\op p\ket{E_0}=0$, e di conseguenza $\ket{E_0}$ sarebbe un autostato simultaneo di $q$ e $p$.
+	Questo fatto però viola il rapporto di indeterminazione per cui $\Delta q\Delta p\geq\frac{\hbar}2$ in \emph{qualsiasi} stato: in questo caso invece si avrebbe $\Delta q\Delta p=0$, in quanto sapremmo con precisione posizione e impulso (entrambi nulli).
+	Allora è assurdo che $E_0$ sia nullo: se non è nemmeno positivo per quanto dimostrato precedentemente, allora $E_0>0$.
+	Dato che $E_0$ è l'autovalore minimo, segue immediatamente che $E_i>0$ per ogni $i$, ossia ogni autovalore di $H$ è positivo.
+\end{proof}
+
+Nell'oscillatore armonico riconosciamo anche la simmetria che è presente anche nella controparte classica: i valori di aspettazione della posizione e dell'impulso sono zero, negli autostati di energia.
+Infatti, preso un qualunque operatore $\op A$,
+\begin{equation}
+	\bra{E_i}[\op H,\op A]\ket{E_i}=\bra{E_i}\op H\op A\ket{E_i}-\bra{E_i}\op A\op H\ket{E_i}=E_i^*\bra{E_i}\op p\ket{E_i}-E_i\bra{E_i}\op p\ket{E_i}=0
+\end{equation}
+in quanto $E_i\in\R$.
+Allo stesso tempo, il commutatore con $\op p$ vale
+\begin{equation}
+	[\op H,\op p]=\frac1{2m}[\op p^2+m^2\omega^2\op q^2,\op p]=\frac1{2m}[\op p^2,\op p]+\frac{m\omega^2}{2}[\op q^2,\op p]=\frac{m\omega^2}2(\op q[\op q,\op p]+[\op q,\op p]\op q)=i\hbar m\omega^2\op q\ne 0
+	\label{eq:commutatore-Hp}
+\end{equation}
+cioè $\op q=[\op H,\op p]/i\hbar m\omega^2$.
+Di conseguenza il valore di aspettazione di $q$ da un autostato di energia risulta
+\begin{equation}
+	\bra{E_i}\op q\ket{E_i}=\frac1{i\hbar m\omega^2}\bra{E_i}[\op H,\op p]\ket{E_i}=0.
+\end{equation}
+Con lo stesso ragionamento, calcolando $[\op H,\op q]$ si giunge a $\bra{E_i}\op p\ket{E_i}=0$.
+
+Calcoliamo infine lo stato di energia minima: assumendo $\braket{E_0}{E_0}=1$, abbiamo
+\begin{equation}
+	E_0=\bra{E_0}\op H\ket{E_0}=\frac1{2m}(\bra{E_0}\op p^2\ket{E_0}+m^2\omega^2\bra{E_0}\op q^2\ket{E_0}),
+\end{equation}
+ma $\bra{E_0}\op p^2\ket{E_0}=\avg{p^2}$, e dato che $\avg{p}=0$ si ha $\Delta p^2=\avg{p^2}-\avg{p}^2=\avg{p^2}$ (analogamente per $q$), quindi\footnote{Sfruttiamo la disuguaglianza $a^2+b^2\ge 2ab$, per $a,b\in\R$: basta considerare $(a-b)^2\ge 0$ per dimostrarla.}
+\begin{equation}
+	E_0=\frac1{2m}(\avg{p^2}+m^2\omega^2\avg{q^2})=\frac1{2m}(\Delta p^2+m^2\omega^2\Delta q^2)\ge \frac1{2m}2m\omega\Delta p\Delta q=\omega\Delta p\Delta q\ge\frac{\hbar\omega}2,
+\end{equation}
+e in particolare vale proprio $\hbar\omega/2$ soltanto se $\Delta p=m\omega\Delta q$.
+Pertanto lo stato di minima energia, che è allo stesso tempo lo stato di \emph{minima indeterminazione}, è dato da
+\begin{equation}
+	\begin{cases}
+		\Delta p=m\omega\Delta q\\ \Delta p\Delta q=\frac{\hbar}2.
+	\end{cases}
+	\label{eq:oscillatore-armonico-stato-minima-energia}
+\end{equation}
