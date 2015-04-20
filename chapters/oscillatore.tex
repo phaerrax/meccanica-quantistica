@@ -69,3 +69,38 @@ Pertanto lo stato di minima energia, che è allo stesso tempo lo stato di \emph{
 	\end{cases}
 	\label{eq:oscillatore-armonico-stato-minima-energia}
 \end{equation}
+
+\section{Operatori di creazione e distruzione}
+Per calcolare lo spettro dell'hamiltoniano, come faremo nella prossima sezione, ci conviene introdurre due nuovi operatori: definiamo
+\begin{equation}
+	\op\eta=\frac1{\sqrt{2\hbar m\omega}}(\op p-im\omega\op q)
+	\label{eq:operatore-distruzione}
+\end{equation}
+e di conseguenza il suo aggiunto
+\begin{equation}
+	\adj{\op\eta}=\frac1{\sqrt{2\hbar m\omega}}(\op p+im\omega\op q).
+	\label{eq:operatore-creazione}
+\end{equation}
+Essi sono chiamati rispettivamente operatore di \emph{distruzione} e di \emph{creazione}, per ragioni che vedremo più avanti.
+Il loro prodotto è dato da
+\begin{multline}
+	\adj{\op\eta}\op\eta=\frac1{2\hbar m\omega}(\op p+im\omega\op q)(\op p-im\omega\op q)=\frac1{2\hbar m\omega}(\op p^2+im\omega\op q\op p-im\omega\op p\op q+m^2\omega^2\op q^2)=\\=\frac1{2\hbar m\omega}(\op p^2+im\omega[\op q,\op p]+m^2\omega^2\op q^2)=\frac{\op H}{\hbar\omega}+\frac{im\omega[\op q,\op p]}{2\hbar m\omega}=\frac{\op H}{\hbar\omega}-\frac12,
+\end{multline}
+mentre
+\begin{equation}
+	\op\eta\adj{\op\eta}=\frac{\op H}{\hbar\omega}+\frac12.
+\end{equation}
+Il commutatore tra i due operatori è dunque $[\op\eta,\adj{\op\eta}]=1$.
+Possiamo anche ricavare l'hamiltoniano da questi due operatori, trovando che $\op H=\hbar\omega(\adj{\op\eta}\op\eta+\frac12)=\hbar\omega(\op\eta\adj{\op\eta}-\frac12)$, e di conseguenza
+\begin{equation}
+	[\op H,\op\eta]=\hbar\omega[\adj{\op\eta}\op\eta,\eta]=\hbar\omega([\adj{\op\eta}[\op\eta,\op\eta]+[\adj{\op\eta},\op\eta]\op\eta)=-\hbar\omega\op\eta,
+\end{equation}
+e anche, dato che il commutatore è antihermitiano, $[\op H,\adj{\op\eta}]=-\adj{[\op H,\op\eta]}=\hbar\omega\adj{\op\eta}$.
+
+Ulteriormente, possiamo definire $\op N=\adj{\op\eta}\op\eta$ per ottenere i tre commutatori
+\begin{equation}
+	[\op\eta,\adj{\op\eta}]=1,\qquad [\op N,\op\eta]=-\op\eta,\qquad [\op N,\adj{\op\eta}]=\adj{\op\eta}.
+	\label{eq:algebra-heisenberg}
+\end{equation}
+L'insieme di questi tre operatori forma un'algebra detta \emph{algebra di Heisenberg}, o algebra del conteggio.
+
