@@ -151,7 +151,18 @@ Questi devono necessariamente essere tutti e soli gli autovalori perch\'e, se ne
 Non conoscendo se $H$ sia degenere o meno, non possiamo però affermare che gli autostati $\ket{E_n}$ relativi a tali autovalori sono unici.\footnote{L'hamiltoniano \emph{non è} degenere, quindi sono realmente tutti e soli gli autostati, ma questo lo dimostreremo più avanti.}
 
 \section{Autostati di energia}
-Semplifichiamo dunque la notazione e indichiamo solo con $\ket{n}$ (per $n\in\N_0$) gli autostati dell'hamiltoniano: per quanto visto essi si ottengono tutti applicando ripetutamente $\adj{\op a}$ allo stato fondamentale $\ket{0}$, ma in generale $(\adj{\op a})^n\ket{0}=\ket{n}$ non è normalizzato, anche se lo è $\ket{0}$.
+Semplifichiamo dunque la notazione e indichiamo gli autostati dell'hamiltoniano solo con $\ket{n}$, con $n\in\{0,1,\dots\}$, dove 
+\begin{equation}
+	\op H\ket{n}=\hbar\omega\Big(n+\frac12\Big)\ket{n}.
+\end{equation}
+In questa notazione, gli operatori di creazione e distruzione agiscono sugli autostati di $H$ con la regola $\op a\ket{n}=\sqrt{n}\ket{n-1}$ e $\adj{\op a}\ket{n}=\sqrt{n+1}\ket{n+1}$.
+L'operatore ``numero'' $\op N$ agisce invece come
+\begin{equation}
+	\op N\ket{n}=\adj{\op a}\op a\ket{n}=\sqrt{n}\adj{\op a}\ket{n-1}=\sqrt{n}\sqrt{n}\ket{n}=n\ket{n}.
+	\label{eq:oscillatore-armonico-operatore-numero}
+\end{equation}
+
+Per quanto abbiamo visto, questi stati si ottengono tutti applicando ripetutamente $\adj{\op a}$ allo stato fondamentale $\ket{0}$, ma in generale $(\adj{\op a})^n\ket{0}=\ket{n}$ non è normalizzato, anche se lo è $\ket{0}$.
 Per calcolare la sua norma, vediamo prima come commutano $\op a$ e $(\adj{\op a})^n$, dato che dobbiamo calcolare $\bra{0}\op a^n(\adj{\op a})^n\ket{0}$.
 Abbiamo già visto che $[\op a,\adj{\op a}]=[\op a,(\adj{\op a})^1]=1=1(\adj{\op a})^{1-1}$, dunque potremmo supporre che $[\op a,(\adj{\op a})^n]=n(\adj{\op a})^{n-1}$.
 Dimostriamolo per induzione: se assumiamo che $[\op a,(\adj{\op a})^{n-1}]=(n-1)(\adj{\op a})^{n-2}$, allora troviamo
@@ -188,4 +199,28 @@ Per normalizzare gli autostati dell'hamiltoniana li ridefiniamo quindi come
 	\label{eq:oscillatore-armonico-autostati-ortonormali}
 \end{equation}
 perciò se $\braket{0}{0}=1$ allora anche $\braket{n}{n}=1$ per ogni $n\in\N_0$.
+
+Essi ora formano un sistema ortonormale completo, quindi possiamo assumerli come base per il nostro spazio degli stati.
+Infatti
+\begin{equation}
+	\begin{split}
+		\braket{n}{m}&=\bra{0}\frac{\op a^n}{\sqrt{n!}}\frac{(\adj{\op a})^n}{\sqrt{m!}}\ket{0}=\\
+		&=\frac1{\sqrt{n!m!}}\bra{0}\op a^{n-1}\op a(\adj{\op a})^m\ket{0}=\\
+		&=\frac1{\sqrt{n!m!}}\bra{0}\op a^{n-1}[\op a,(\adj{\op a})^m]\ket{0}=\\
+		&=\frac{m}{\sqrt{n!m!}}\bra{0}\op a^{n-1}(\adj{\op a})^{m-1}\ket{0}=\dots
+	\end{split}
+	\label{eq:oscillatore-armonico-ortonormalita-autostati}
+\end{equation}
+diminuendo ad ogni successivo passo le potenze di $\op a$ e $\adj{\op a}$, fino ad esaurirle, perciò
+\begin{itemize}
+	\item se $n<m$, si giunge a un multiplo di $\bra{0}\op a^{m-n}\ket{0}$, che è nullo;
+	\item se $n>m$, si giunge a un multiplo di $\bra{0}(\adj{\op a})^{n-m}\ket{0}$, che è ancora nullo;
+	\item se $n=m$, entrambi gli operatori arrivano alla potenza nulla, chè è l'identità, perciò si arriva a
+		\begin{equation}
+			\frac{m!}{\sqrt{n!m!}}\braket{0}{0}=\frac{m!}{m!}\braket{0}{0}=\braket{0}{0}=1,
+		\end{equation}
+\end{itemize}
+quindi $\braket{n}{m}=\delta_{nm}$.
+
+
 
