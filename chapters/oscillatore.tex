@@ -73,50 +73,50 @@ Pertanto lo stato di minima energia, che è allo stesso tempo lo stato di \emph{
 \section{Operatori di creazione e distruzione}
 Per calcolare lo spettro dell'hamiltoniano, come faremo nella prossima sezione, ci conviene introdurre due nuovi operatori: definiamo
 \begin{equation}
-	\op\eta=\frac1{\sqrt{2\hbar m\omega}}(\op p-im\omega\op q)
+	\op a=\frac1{\sqrt{2\hbar m\omega}}(\op p-im\omega\op q)
 	\label{eq:operatore-distruzione}
 \end{equation}
 e di conseguenza il suo aggiunto
 \begin{equation}
-	\adj{\op\eta}=\frac1{\sqrt{2\hbar m\omega}}(\op p+im\omega\op q).
+	\adj{\op a}=\frac1{\sqrt{2\hbar m\omega}}(\op p+im\omega\op q).
 	\label{eq:operatore-creazione}
 \end{equation}
 Essi sono chiamati rispettivamente operatore di \emph{distruzione} e di \emph{creazione}, per ragioni che vedremo più avanti.
 Il loro prodotto è dato da
 \begin{multline}
-	\adj{\op\eta}\op\eta=\frac1{2\hbar m\omega}(\op p+im\omega\op q)(\op p-im\omega\op q)=\frac1{2\hbar m\omega}(\op p^2+im\omega\op q\op p-im\omega\op p\op q+m^2\omega^2\op q^2)=\\=\frac1{2\hbar m\omega}(\op p^2+im\omega[\op q,\op p]+m^2\omega^2\op q^2)=\frac{\op H}{\hbar\omega}+\frac{im\omega[\op q,\op p]}{2\hbar m\omega}=\frac{\op H}{\hbar\omega}-\frac12,
+	\adj{\op a}\op a=\frac1{2\hbar m\omega}(\op p+im\omega\op q)(\op p-im\omega\op q)=\frac1{2\hbar m\omega}(\op p^2+im\omega\op q\op p-im\omega\op p\op q+m^2\omega^2\op q^2)=\\=\frac1{2\hbar m\omega}(\op p^2+im\omega[\op q,\op p]+m^2\omega^2\op q^2)=\frac{\op H}{\hbar\omega}+\frac{im\omega[\op q,\op p]}{2\hbar m\omega}=\frac{\op H}{\hbar\omega}-\frac12,
 \end{multline}
 mentre
 \begin{equation}
-	\op\eta\adj{\op\eta}=\frac{\op H}{\hbar\omega}+\frac12.
+	\op a\adj{\op a}=\frac{\op H}{\hbar\omega}+\frac12.
 \end{equation}
-Il commutatore tra i due operatori è dunque $[\op\eta,\adj{\op\eta}]=1$.
-Possiamo anche ricavare l'hamiltoniano da questi due operatori, trovando che $\op H=\hbar\omega(\adj{\op\eta}\op\eta+\frac12)=\hbar\omega(\op\eta\adj{\op\eta}-\frac12)$, e di conseguenza
+Il commutatore tra i due operatori è dunque $[\op a,\adj{\op a}]=1$.
+Possiamo anche ricavare l'hamiltoniano da questi due operatori, trovando che $\op H=\hbar\omega(\adj{\op a}\op a+\frac12)=\hbar\omega(\op a\adj{\op a}-\frac12)$, e di conseguenza
 \begin{equation}
-	[\op H,\op\eta]=\hbar\omega[\adj{\op\eta}\op\eta,\eta]=\hbar\omega([\adj{\op\eta}[\op\eta,\op\eta]+[\adj{\op\eta},\op\eta]\op\eta)=-\hbar\omega\op\eta,
+	[\op H,\op a]=\hbar\omega[\adj{\op a}\op a, a]=\hbar\omega([\adj{\op a}[\op a,\op a]+[\adj{\op a},\op a]\op a)=-\hbar\omega\op a,
 \end{equation}
-e anche, dato che il commutatore è antihermitiano, $[\op H,\adj{\op\eta}]=-\adj{[\op H,\op\eta]}=\hbar\omega\adj{\op\eta}$.
+e anche, dato che il commutatore è antihermitiano, $[\op H,\adj{\op a}]=-\adj{[\op H,\op a]}=\hbar\omega\adj{\op a}$.
 
-Ulteriormente, possiamo definire $\op N=\adj{\op\eta}\op\eta$ per ottenere i tre commutatori
+Ulteriormente, possiamo definire $\op N=\adj{\op a}\op a$ per ottenere i tre commutatori
 \begin{equation}
-	[\op\eta,\adj{\op\eta}]=1,\qquad [\op N,\op\eta]=-\op\eta,\qquad [\op N,\adj{\op\eta}]=\adj{\op\eta}.
+	[\op a,\adj{\op a}]=1,\qquad [\op N,\op a]=-\op a,\qquad [\op N,\adj{\op a}]=\adj{\op a}.
 	\label{eq:algebra-heisenberg}
 \end{equation}
 L'insieme di questi tre operatori forma un'algebra detta \emph{algebra di Heisenberg}, o algebra del conteggio.
 
 \section{Spettro dell'hamiltoniano}
-Sia $\ket{E}$ un autostato di $H$: prendiamo lo stato che risulta applicando l'operatore di distruzione $\op\eta$ introdotto precedentemente, e questa volta l'azione dell'hamiltoniana è
+Sia $\ket{E}$ un autostato di $H$: prendiamo lo stato che risulta applicando l'operatore di distruzione $\op a$ introdotto precedentemente, e questa volta l'azione dell'hamiltoniana è
 \begin{equation}
-	\op H\op\eta\ket{E}=(\op H\op\eta-\op\eta\op H+\op\eta\op H)\ket{E}=([\op H,\op\eta]+\op\eta\op H)\ket{E}=-\hbar\omega\op\eta\ket{E}+\op\eta E\ket{E}=(E-\hbar\omega)\op\eta\ket{E},
+	\op H\op a\ket{E}=(\op H\op a-\op a\op H+\op a\op H)\ket{E}=([\op H,\op a]+\op a\op H)\ket{E}=-\hbar\omega\op a\ket{E}+\op a E\ket{E}=(E-\hbar\omega)\op a\ket{E},
 \end{equation}
-ossia $\op\eta\ket{E}$ è ancora un autostato dell'hamiltoniano, ma con l'autovalore (di $H$) diminuito di $\hbar\omega$.
-Applicando nuovamente $\op\eta$ si ottiene un ulteriore autostato con autovalore diminuito di $2\hbar\omega$ rispetto a quello di partenza.
+ossia $\op a\ket{E}$ è ancora un autostato dell'hamiltoniano, ma con l'autovalore (di $H$) diminuito di $\hbar\omega$.
+Applicando nuovamente $\op a$ si ottiene un ulteriore autostato con autovalore diminuito di $2\hbar\omega$ rispetto a quello di partenza.
 Troviamo quindi una catena di autovalori $\{E,E-\hbar\omega,E-2\hbar\omega,\dots\}$: essa non potrà continuare indefinitamente, perch\'e gli autovalori di $H$ sono tutti positivi.
-Infatti si arriverà ad un certo stato $\ket{x}$ tale che $\op\eta\ket{x}=0$: applicando ancora $\op\eta$, non troviamo un autovalore diminuito di $\hbar\omega$, ma l'equazione	$\op H\op\eta\ket{x}=(E-\hbar\omega)\op\eta\ket{x}$ ma $\op\eta\ket{x}=0$ quindi essa si riduce a $0=0$, e ci si deve fermare a questo punto della catena di autovalori.
-Se $E_0$ è l'autovalore minimo e $\ket{E_0}$ è il suo autostato, esso dovrà avere il valore minimo accettabile di energia, e sarà quindi tale che $\op\eta\ket{E_0}=0$.
+Infatti si arriverà ad un certo stato $\ket{x}$ tale che $\op a\ket{x}=0$: applicando ancora $\op a$, non troviamo un autovalore diminuito di $\hbar\omega$, ma l'equazione	$\op H\op a\ket{x}=(E-\hbar\omega)\op a\ket{x}$ ma $\op a\ket{x}=0$ quindi essa si riduce a $0=0$, e ci si deve fermare a questo punto della catena di autovalori.
+Se $E_0$ è l'autovalore minimo e $\ket{E_0}$ è il suo autostato, esso dovrà avere il valore minimo accettabile di energia, e sarà quindi tale che $\op a\ket{E_0}=0$.
 Di conseguenza anche la sua norma è nulla, perciò
 \begin{equation}
-	0=\bra{E_0}\adj{\op\eta}\op\eta\ket{E_0}=\bra{E_0}\frac{\op H}{\hbar\omega}-\frac12\ket{E_0}=\Big(\frac{E_0}{\hbar\omega}-\frac12\Big)\braket{E_0}{E_0}
+	0=\bra{E_0}\adj{\op a}\op a\ket{E_0}=\bra{E_0}\frac{\op H}{\hbar\omega}-\frac12\ket{E_0}=\Big(\frac{E_0}{\hbar\omega}-\frac12\Big)\braket{E_0}{E_0}
 \end{equation}
 poich\'e $\bra{E_0}\op H=\adj{\op H\ket{E_0}}=\op H\ket{E_0}=E_0\ket{E_0}$.
 Risulta quindi
@@ -125,21 +125,21 @@ Risulta quindi
 	\label{eq:oscillatore-armonico-energia-minima}
 \end{equation}
 
-Se ora guardiamo a $\adj{\op\eta}$, con un ragionamento analogo troviamo in un autostato di $H$ che
+Se ora guardiamo a $\adj{\op a}$, con un ragionamento analogo troviamo in un autostato di $H$ che
 \begin{equation}
-	\op H\adj{\op\eta}\ket{E}=([\op H,\adj{\op\eta}]+\adj{\op\eta}\op H)\ket{E}=(E+\hbar\omega)\adj{\op\eta}\ket{E},
+	\op H\adj{\op a}\ket{E}=([\op H,\adj{\op a}]+\adj{\op a}\op H)\ket{E}=(E+\hbar\omega)\adj{\op a}\ket{E},
 \end{equation}
-ossia $\adj{\op\eta}$ porta ogni autostato dell'hamiltoniano in un altro autostato con autovalore (sempre di $H$) aumentato di $\hbar\omega$.
+ossia $\adj{\op a}$ porta ogni autostato dell'hamiltoniano in un altro autostato con autovalore (sempre di $H$) aumentato di $\hbar\omega$.
 Dunque, se partiamo da $\ket{E_0}$, possiamo applicare indefinitamente l'operatore o esiste un'energia massima che non si può oltrepassare?
-Se esistesse un autostato $\ket{E_M}$ (per il quale $\op H\ket{E_M}=E_M\ket{E_M}$) tale che $\adj{\op\eta}\ket{E_M}=0$, si avrebbe come prima
+Se esistesse un autostato $\ket{E_M}$ (per il quale $\op H\ket{E_M}=E_M\ket{E_M}$) tale che $\adj{\op a}\ket{E_M}=0$, si avrebbe come prima
 \begin{equation}
-	0=\bra{E_M}\op\eta\adj{\op\eta}\ket{E_M}=\bra{E_M}\frac{\op H}{\hbar\omega}+\frac12\ket{E_M}=\Big(\frac{E_M}{\hbar\omega}+\frac12\Big)\braket{E_M}{E_M},
+	0=\bra{E_M}\op a\adj{\op a}\ket{E_M}=\bra{E_M}\frac{\op H}{\hbar\omega}+\frac12\ket{E_M}=\Big(\frac{E_M}{\hbar\omega}+\frac12\Big)\braket{E_M}{E_M},
 \end{equation}
 ma $E_M=-\hbar\omega/2$ contraddice il fatto che tutti gli autovalori di $H$ sono positivi, quindi un tale autostato non può esistere.
 
 Abbiamo trovato dunque che gli autostati di $H$ soddisfano l'equazione
 \begin{equation}
-	\op H(\adj{\op\eta})^k\ket{E_0}=(E_0+k\hbar\omega)(\adj{\op\eta})^k\ket{E_0}=\Big(\frac{\hbar\omega}2+k\hbar\omega\Big)(\adj{\op\eta})^k\ket{E_0}=\Big(k+\frac12\Big)\hbar\omega(\adj{\op\eta})^k\ket{E_0},
+	\op H(\adj{\op a})^k\ket{E_0}=(E_0+k\hbar\omega)(\adj{\op a})^k\ket{E_0}=\Big(\frac{\hbar\omega}2+k\hbar\omega\Big)(\adj{\op a})^k\ket{E_0}=\Big(k+\frac12\Big)\hbar\omega(\adj{\op a})^k\ket{E_0},
 \end{equation}
 ossia che gli autovalori $E_n$ sono dati da
 \begin{equation}
@@ -147,43 +147,43 @@ ossia che gli autovalori $E_n$ sono dati da
 	\label{eq:oscillatore-armonico-autovalori-hamiltoniano}
 \end{equation}
 per $n\in\{0,1,2,\dots\}$.
-Questi devono necessariamente essere tutti e soli gli autovalori perch\'e, se ne esistesse uno con un espressione diversa, applicando $\op\eta$ ripetutamente non si incontrerebbe più l'autovalore $E_0$ (scendendo a ``gradini'' di $\hbar\omega$, verrebbe saltato) e si scenderebbe cos\`i in autovalori negativi, che è assurdo.
+Questi devono necessariamente essere tutti e soli gli autovalori perch\'e, se ne esistesse uno con un espressione diversa, applicando $\op a$ ripetutamente non si incontrerebbe più l'autovalore $E_0$ (scendendo a ``gradini'' di $\hbar\omega$, verrebbe saltato) e si scenderebbe cos\`i in autovalori negativi, che è assurdo.
 Non conoscendo se $H$ sia degenere o meno, non possiamo però affermare che gli autostati $\ket{E_n}$ relativi a tali autovalori sono unici.\footnote{L'hamiltoniano \emph{non è} degenere, quindi sono realmente tutti e soli gli autostati, ma questo lo dimostreremo più avanti.}
 
-Semplifichiamo dunque la notazione e indichiamo solo con $\ket{n}$ (per $n\in\N_0$) gli autostati dell'hamiltoniano: per quanto visto essi si ottengono tutti applicando ripetutamente $\adj{\op\eta}$ allo stato fondamentale $\ket{0}$, ma in generale $(\adj{\op\eta})^n\ket{0}=\ket{n}$ non è normalizzato, anche se lo è $\ket{0}$.
-Per calcolare la sua norma, vediamo prima come commutano $\op\eta$ e $(\adj{\op\eta})^n$, dato che dobbiamo calcolare $\bra{0}\op\eta^n(\adj{\op\eta})^n\ket{0}$.
-Abbiamo già visto che $[\op\eta,\adj{\op\eta}]=[\op\eta,(\adj{\op\eta})^1]=1=1(\adj{\op\eta})^{1-1}$, dunque potremmo supporre che $[\op\eta,(\adj{\op\eta})^n]=n(\adj{\op\eta})^{n-1}$.
-Dimostriamolo per induzione: se assumiamo che $[\op\eta,(\adj{\op\eta})^{n-1}]=(n-1)(\adj{\op\eta})^{n-2}$, allora troviamo
+Semplifichiamo dunque la notazione e indichiamo solo con $\ket{n}$ (per $n\in\N_0$) gli autostati dell'hamiltoniano: per quanto visto essi si ottengono tutti applicando ripetutamente $\adj{\op a}$ allo stato fondamentale $\ket{0}$, ma in generale $(\adj{\op a})^n\ket{0}=\ket{n}$ non è normalizzato, anche se lo è $\ket{0}$.
+Per calcolare la sua norma, vediamo prima come commutano $\op a$ e $(\adj{\op a})^n$, dato che dobbiamo calcolare $\bra{0}\op a^n(\adj{\op a})^n\ket{0}$.
+Abbiamo già visto che $[\op a,\adj{\op a}]=[\op a,(\adj{\op a})^1]=1=1(\adj{\op a})^{1-1}$, dunque potremmo supporre che $[\op a,(\adj{\op a})^n]=n(\adj{\op a})^{n-1}$.
+Dimostriamolo per induzione: se assumiamo che $[\op a,(\adj{\op a})^{n-1}]=(n-1)(\adj{\op a})^{n-2}$, allora troviamo
 \begin{equation}
 	\begin{split}
-		[\op\eta,(\adj{\op\eta})^n]&=[\op\eta,\adj{\op\eta}(\adj{\op\eta})^{n-1}]=\\
-		&=\adj{\op\eta}[\op\eta,(\adj{\op\eta})^{n-1}]+[\op\eta,\adj{\op\eta}](\adj{\op\eta})^{n-1}=\\
-		&=\adj{\op\eta}(n-1)(\adj{\op\eta})^{n-2}+(\adj{\op\eta})^{n-1}=\\
-		&=(n-1)(\adj{\op\eta})^{n-1}+(\adj{\op\eta})^{n-1}=\\
-		&=n(\adj{\op\eta})^{n-1}.
+		[\op a,(\adj{\op a})^n]&=[\op a,\adj{\op a}(\adj{\op a})^{n-1}]=\\
+		&=\adj{\op a}[\op a,(\adj{\op a})^{n-1}]+[\op a,\adj{\op a}](\adj{\op a})^{n-1}=\\
+		&=\adj{\op a}(n-1)(\adj{\op a})^{n-2}+(\adj{\op a})^{n-1}=\\
+		&=(n-1)(\adj{\op a})^{n-1}+(\adj{\op a})^{n-1}=\\
+		&=n(\adj{\op a})^{n-1}.
 	\end{split}
 \end{equation}
 Allora, abbiamo
 \begin{equation}
 	\begin{split}
-		\bra{0}\op\eta^n(\adj{\op\eta})^n\ket{0}&=\bra{0}\op\eta^{n-1}\op\eta(\adj{\op\eta})^n\ket{0}=\\
-		&=\bra{0}\op\eta^{n-1}\big(\op\eta(\adj{\op\eta})^n-(\adj{\op\eta})^n\op\eta+(\adj{\op\eta})^n\op\eta\big)\ket{0}=\\
-		&=\bra{0}\op\eta^{n-1}[\op\eta,(\adj{\op\eta})^n]\ket{0}+\bra{0}\op\eta^{n-1}(\adj{\op\eta})^n\op\eta\ket{0}=\\
-		&=\bra{0}\op\eta^{n-1}[\op\eta,(\adj{\op\eta})^n]\ket{0}
+		\bra{0}\op a^n(\adj{\op a})^n\ket{0}&=\bra{0}\op a^{n-1}\op a(\adj{\op a})^n\ket{0}=\\
+		&=\bra{0}\op a^{n-1}\big(\op a(\adj{\op a})^n-(\adj{\op a})^n\op a+(\adj{\op a})^n\op a\big)\ket{0}=\\
+		&=\bra{0}\op a^{n-1}[\op a,(\adj{\op a})^n]\ket{0}+\bra{0}\op a^{n-1}(\adj{\op a})^n\op a\ket{0}=\\
+		&=\bra{0}\op a^{n-1}[\op a,(\adj{\op a})^n]\ket{0}
 	\end{split}
 \end{equation}
-dove $\bra{0}\op\eta^{n-1}(\adj{\op\eta})^n\op\eta\ket{0}=0$ poich\'e $\op\eta\ket{0}=0$.
+dove $\bra{0}\op a^{n-1}(\adj{\op a})^n\op a\ket{0}=0$ poich\'e $\op a\ket{0}=0$.
 Sostituendo il commutatore con quanto trovato in precedenza, otteniamo
 \begin{equation}
-	\bra{0}\op\eta^n(\adj{\op\eta})^n\ket{0}=n\bra{0}\op\eta^{n-1}(\adj{\op\eta})^{n-1}\ket{0},
+	\bra{0}\op a^n(\adj{\op a})^n\ket{0}=n\bra{0}\op a^{n-1}(\adj{\op a})^{n-1}\ket{0},
 \end{equation}
 di conseguenza iteriamo il calcolo fino ad ottenere
 \begin{equation}
-	\bra{0}\op\eta^n(\adj{\op\eta})^n\ket{0}=n!\braket{0}{0}.
+	\bra{0}\op a^n(\adj{\op a})^n\ket{0}=n!\braket{0}{0}.
 \end{equation}
 Per normalizzare gli autostati dell'hamiltoniana li ridefiniamo quindi come
 \begin{equation}
-	\ket{n}=\frac1{\sqrt{n!}}(\adj{\op\eta})^n\ket{0},
+	\ket{n}=\frac1{\sqrt{n!}}(\adj{\op a})^n\ket{0},
 	\label{eq:oscillatore-armonico-autostati-ortonormali}
 \end{equation}
 perciò se $\braket{0}{0}=1$ allora anche $\braket{n}{n}=1$ per ogni $n\in\N_0$.
