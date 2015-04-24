@@ -222,5 +222,57 @@ diminuendo ad ogni successivo passo le potenze di $\op a$ e $\adj{\op a}$, fino 
 \end{itemize}
 quindi $\braket{n}{m}=\delta_{nm}$.
 
+\section{Stati coerenti}
+Matematicamente, gli \emph{stati coerenti} sono definiti come gli autostati ``destri'' dell'operatore di distruzione, cioè\footnote{L'attributo \emph{destri} attribuito agli autostati è importante in questo caso, perch\'e l'operatore di distruzione non è hermitiano, quindi se $\op a\ket{\alpha}=\alpha\ket{\alpha}$ non vale la relazione duale $\bra{\alpha}\op a=\alpha\bra{\alpha}$.}
+\begin{equation}
+	\op a\ket{\alpha}=\alpha\ket{\alpha}.
+	\label{eq:stato-coerente}
+\end{equation}
+Possiamo esprimere questo stato in termini della base di autostati dell'hamiltoniano, ottenendo una serie $\serz{n}a_n\ket{n}$ con i coefficienti $a_n\in\C$ da determinare.
+Dalla \eqref{eq:stato-coerente} otteniamo la relazione
+\begin{equation}
+	\alpha\serz{n}a_n\ket{n}=\op a\serz{n}a_n\ket{n}=\serz{n}a_n\op a\ket{n}=\serz{n}a_n\sqrt{n}\ket{n-1}.
+\end{equation}
+Nell'ultima serie, il primo termine è nullo per la presenza di $\sqrt{n}$, quindi possiamo far iniziare la sommatoria da $n=1$: allora traslando gli indici con $m=n-1$ abbiamo
+\begin{equation}
+	\serz{n}a_n\sqrt{n}\ket{n}=\ser{n}a_n\sqrt{n}\ket{n}=\serz{m}a_{m+1}\sqrt{m+1}\ket{m}.
+\end{equation}
 
+Per l'ortonormalità degli autostati dell'hamiltoniano allora possiamo ricavare una relazione di ricorrenza per i coefficienti: per $n,m\in\N_0$,
+\begin{equation}
+	\begin{aligned}
+		\bra{n}\serz{m}a_{m+1}\sqrt{m+1}\ket{m}&=\bra{n}\alpha\serz{m}a_m\ket{m}\\
+		\serz{m}a_{m+1}\sqrt{m+1}\braket{n}{m}&=\alpha\serz{m}a_m\braket{n}{m}\\
+		\serz{m}a_{m+1}\sqrt{m+1}\delta_{nm}&=\serz{m}\alpha a_m\delta_{nm}\\
+		a_{m+1}=\frac{\alpha}{\sqrt{m+1}}a_m.
+	\end{aligned}
+	\label{eq:ricorrenza-stati-coerenti}
+\end{equation}
+Per determinarli completamente ci basta dunque fissare il primo valore, per cui poniamo $a_0=1$ ottenendo cos\`i
+\begin{equation}
+	a_1=\alpha,\quad a_2=\frac{\alpha^2}{\sqrt{2}},\quad a_3=\frac{\alpha^3}{\sqrt{6}},\dots\quad a_n=\frac{\alpha^n}{\sqrt{n!}}.
+	\label{eq:coefficienti-stati-coerenti}
+\end{equation}
+Completiamo l'opera normalizzandoli: la norma di uno stato coerente con autovalore $\alpha$ è
+\begin{equation}
+	\begin{split}
+		\braket{\alpha}{\alpha}&=\serz{m}\frac{(\alpha^*)^m}{\sqrt{m!}}\bra{m}\serz{n}\frac{\alpha^n}{\sqrt{n!}}\ket{n}=\\
+		&=\serz{m}\frac{(\alpha^*)^m}{\sqrt{m!}}\serz{n}\frac{\alpha^n}{\sqrt{n!}}\delta_{nm}=\\
+		&=\serz{m}\frac{(\alpha^*)^m}{\sqrt{m!}}\frac{\alpha^m}{\sqrt{m!}}=\\
+		&=\serz{m}\frac{(\alpha^*\alpha)^m}{m!}=\\
+		&=\serz{m}\frac{\abs{\alpha}^{2m}}{m!}=e^{\abs{\alpha}^2}
+	\end{split}
+	\label{eq:norma-stato-coerente}
+\end{equation}
+dunque possiamo rappresentare gli stati coerenti come
+\begin{equation}
+	\ket{\alpha}=\exp\Big(\!\!-\frac{\abs{\alpha}^2}2\Big)\serz{n}\frac{\alpha^n}{\sqrt{n!}}\ket{n}.
+	\label{eq:stato-coerente-autostati-H}
+\end{equation}
+
+Notiamo infine che lo stato fondamentale $\ket{0}$ è anch'esso uno stato coerente: possiamo allora scrivere
+\begin{equation}
+	\ket{\alpha}=\serz{n}\frac{\alpha^n}{\sqrt{n!}}\ket{n}=\serz{n}\frac{\alpha^n}{\sqrt{n!}}\frac{(\adj{\op a})^n}{\sqrt{n!}}\ket{0}=\serz{n}\frac{(\alpha\adj{\op a})^n}{n!}\ket{0}=\exp\big(\alpha\adj{\op a}\big)\ket{0}.
+	\label{eq:stato-coerente-exp}
+\end{equation}
 
