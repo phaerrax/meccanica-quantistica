@@ -85,3 +85,13 @@ In generale, la matrice di $\xi$ anche in questo caso sarà ancora a blocchi: ma
 Quindi, se $\xi$ è rappresentata da una matrice diagonale, ossia in cui tutti i blocchi hanno dimensione 1, allora anche la matrice di $\eta$ è diagonale.
 
 Aggiungendo altre osservabili compatibili a $\xi$ fino a raggiungere un sistema completo di osservabili, si giunge infine ad una base di autostati ben determinata (senza ``libertà di scelta'' tra autostati linearmente indipendenti in un autospazio) di conseguenza la matrice rappresentativa sarà finalmente diagonale.
+
+Questa rappresentazione di Heisenberg risulta forse familiare, perch\'e le successioni di $\ell^2(\C)$ possono sembrare una naturale estensione dei vettori di numeri complessi.
+In realtà l'uso è poco pratico, perch\'e individuare gli autovalori è generalmente difficile: l'equazione $\op H\ket{x}=E\ket{x}$ si rappresenta come
+\begin{equation}
+	\ser{m}H_{nm}x_m=Ex_n\quad\then\quad\ser{m}(H_{nm}-E\delta_{nm})x_m=0
+\end{equation}
+che è un sistema lineare.
+Il problema è che questo sistema ha un numero infinito di equazioni!
+Ulteriormente, gli autovalori $E$ si ricavano imponendo $\det(H-E\id)=0$, ma un determinante di dimensione infinita (e di conseguenza un polinomio di grado infinito) semplicemente non esiste: dobbiamo quindi ricercare un metodo più astratto di calcolarli.
+Inoltre, posizione e impulso sono osservabili particolari: sappiamo che sono impossibili da determinare con infinita precisione, per il principio di Heisenberg; gli autovalori di $\op q$ o $\op p$ meritano quindi una discussione particolare, soprattutto perch\'e tutte le altre osservabili si possono costruire come funzioni di queste due.
