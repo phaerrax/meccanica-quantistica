@@ -95,3 +95,46 @@ che è un sistema lineare.
 Il problema è che questo sistema ha un numero infinito di equazioni!
 Ulteriormente, gli autovalori $E$ si ricavano imponendo $\det(H-E\id)=0$, ma un determinante di dimensione infinita (e di conseguenza un polinomio di grado infinito) semplicemente non esiste: dobbiamo quindi ricercare un metodo più astratto di calcolarli.
 Inoltre, posizione e impulso sono osservabili particolari: sappiamo che sono impossibili da determinare con infinita precisione, per il principio di Heisenberg; gli autovalori di $\op q$ o $\op p$ meritano quindi una discussione particolare, soprattutto perch\'e tutte le altre osservabili si possono costruire come funzioni di queste due.
+
+\section{Operatori di traslazione}
+Costruiamo dall'operatore di impulso $\op p$ l'operatore
+\begin{equation}
+	\op T(z)=\exp\Big(-\frac{i}{\hbar}\op p z\Big)=\serz{n}\frac1{n!}\Big(-\frac{i}{\hbar}\op p z\Big)^k
+	\label{eq:operatore-traslazione}
+\end{equation}
+in dipendenza dal parametro $z\in\R$.
+Verifichiamo subito una sua importante proprietà, ossia\footnote{Se $A$ e $B$ non commutano, non è detto che $e^Ae^B=e^{A+B}$, ma deve essere usata la più generale formula di Baker-Campbell-Hausdorff. In questo caso, i due operatori chiaramente commutano quindi l'operazione è lecita.}
+\begin{equation}
+	\adj{\op T}(z)\op T(z)=\exp\Big(\frac{i}{\hbar}\op pz\Big)\exp\Big(-\frac{i}{\hbar}\op pz\Big)=\exp(\op 0)=\op 1
+	\label{eq:unitarieta-traslazione}
+\end{equation}
+e analogamente $\op T(z)\adj{\op T}(z)=\op 1$: dunque $\op T(z)$ (indipendente dal parametro $z$) è un operatore unitario, e preserva il prodotto scalare.\footnote{Più in generale, è vero che se $\op K$ è antihermitiano allora il suo esponenziale $\exp\op K$ è unitario, con una dimostrazione analoga a questa (gli operatori antihermitiani sono sempre operatori normali, quindi commutano con il loro aggiunto). In questo caso, l'operatore antihermitiano, a meno di altre costanti, è $i\op p$, dato che $\op p$ è hermitiano.} 
+
+Ammettiamo ora che esista un autostato dell'operatore posizione, che chiamiamo $\ket{q}$, tale che $\op q\ket{q}=q\ket{q}$.
+Vogliamo vedere come l'operatore $\op T$ modifica questo stato, ossia calcoliamo $\op q\op T(z)\ket{q}$.
+Non conoscendo l'effetto di $\op T(z)$ su tale stato, scambiamo l'ordine degli operatori scrivendo $\op q\op T(z)=\op q\op T(z)+\op T(z)\op q-\op T(z)\op q=[\op q,\op T(z)]+\op T(z)\op q$.
+Il commutatore che abbiamo ricavato vale
+\begin{equation}
+	\begin{split}
+		[\op q,\op T(z)]&=\Big[\op q,\serz{n}\frac1{n!}\Big(-\frac{i}{\hbar}\op pz\Big)^n\Big]=\\
+		&=\serz{n}\frac1{n!}\Big[\op q,\Big(-\frac{i}{\hbar}\op pz\Big)^n\Big]=\\
+		&=\serz{n}\frac1{n!}\Big(-\frac{iz}{\hbar}\Big)^n[\op q,\op p^n]=\\
+		&=\serz{n}\frac1{n!}\Big(-\frac{iz}{\hbar}\Big)^ni\hbar n\op p^{n-1}=\\
+		&=z\ser{n}\frac1{(n-1)!}\Big(-\frac{iz}{\hbar}\Big)^{n-1}\hbar\op p^{n-1}=\\
+		&=z\serz{k}\frac1{k!}\Big(-\frac{iz}{\hbar}\Big)^ki\hbar \op p^k=\\
+		&=z\op T(z).
+	\end{split}
+	\label{eq:commutatore-posizione-traslazione}
+\end{equation}
+Di conseguenza risulta
+\begin{equation}
+	\op q\op T(z)\ket{q}=(z\op T(z)+\op T(z)\op q)\ket{q}=z\op T(z)\ket{q}+\op T(z)q\ket{q}=(z+q)\op T(z)\ket{q},
+\end{equation}
+ossia il nuovo stato $\op T(z)\ket{q}$ è ancora un autostato di $\op q$, ma con autovalore $q+z$: $\op T(z)$ dunque \emph{trasla} gli autostati di $\op q$ di un fattore $z$.
+Solitamente, indicando l'autovalore direttamente nel ket, questo si scrive come $\op T(z)\ket{q}=\ket{q+z}$.
+L'operatore $\op T$ cos\`i definito è a tutti gli effetti un \emph{operatore di traslazione}, e infatti l'impulso (a cui abbiamo applicato una funzione esponenziale) è proprio il generatore delle traslazioni.
+
+Questo risultato però ci porta ad un grave problema: poich\'e non c'è alcun vincolo sulla lunghezza $z$ della traslazione, che può essere un qualsiasi numero reale, abbiamo trovato che se esiste un autostato $\ket{q}$ di $\op q$ allora ne esiste un'\emph{infinità non numerabile}, poich\'e anche $\ket{q+z}$ è un autostato e $z\in\R$ qualunque!
+Questo è in contraddizione con la struttura dello spazio degli stati, che è uno spazio di Hilbert \emph{separabile}: di conseguenza, non possono esistere autostati di $\op q$.
+Lo stesso si può dire di $\op p$, con una costruzione analoga.
+Nella prossima sezione vedremo come risolvere questo problema, analizzando più a fondo questi due particolari operatori.
