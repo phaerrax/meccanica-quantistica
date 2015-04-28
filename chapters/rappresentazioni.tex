@@ -1,0 +1,87 @@
+\chapter{Rappresentazioni}
+Poich\'e i risultati possibili delle misure di osservabili sono gli autovalori dell'operatore associato, è di fondamentale importanza nella meccanica quantistica saper ricavare lo spettro degli operatori.
+Gli autovalori più ``importanti'' sono quelli di energia, che formano lo spettro dell'operatore hamiltoniano: dobbiamo quindi risolvere l'\emph{equazione agli autovalori}
+\begin{equation}
+	\op H\ket{E}=E\ket{E}.
+	\label{eq:equazione-autovalori-hamiltoniano}
+\end{equation}
+
+Cos\`i come in algebra lineare, per agevolare i calcoli, si è soliti fissare una base e trasformare i vettori di $\R^n$ alle $n$-uple di numeri reali, anche in questo caso conviene passare da una trattazione generica di stati e operatori ad un formalismo più pratico per i calcoli.
+Anche in questo caso troviamo degli isomorfismi che trasformano lo spazio degli stati in spazi di Hilberti più comodi: questi isomorfismi sono detti \emph{rappresentazioni}.
+Tra le varie rappresentazioni, vedremo quella di Heisenberg e quella di Schr\"odinger.
+
+\section{Rappresentazione di Heisenberg}
+Prendiamo un insieme completo ortonormale $\{\ket{i}\}_{i\in\N}$, che forma quindi una base per lo spazio degli stati: possiamo pensare a questa base come al sistema completo di autostati di un'osservabile non degenere.
+Abbiamo già visto che si può rappresentare uno stato qualsiasi $\ket{x}$ nei termini di questa base, tramite le proiezioni sui suoi elementi:
+\begin{equation}
+	\ket{x}=\ser{i}\ket{i}\braket{i}{x}=\ser{i}x_i\ket{i}.
+	\label{eq:rappresentazione-stato-heisenberg}
+\end{equation}
+Il braket $\braket{i}{x}$ fornisce quindi il coefficiente dell'$i$-esimo stato della base.
+Il prodotto scalare è dato come, sempre inserendo l'operatore identità,
+\begin{equation}
+	\braket{x}{y}=\bra{x}\Big(\ser{i}\ket{i}\bra{i}\Big)\ket{y}=\ser{i}\braket{x}{i}\braket{i}{y}=\ser{i}\braket{i}{x}^*\braket{i}{y}=\ser{i}x_i^*y_i
+	\label{eq:prodotto-scalare}
+\end{equation}
+e la norma di uno stato (al quadrato)
+\begin{equation}
+	\braket{x}{x}=\ser{i}x_i^*x_i=\ser{i}\abs{x_i}^2.
+	\label{eq:norma-stato}
+\end{equation}
+Gli stati $\ket{x}$ e $\ket{y}$ chiaramente esistono e hanno un loro significato indipendentemente dalla base in cui li rappresentiamo.
+Con queste associazioni, però, fissata una base possiamo identificare qualsiasi stato tramite i suoi coefficienti $x_i$ che appaiono nella \eqref{eq:rappresentazione-stato-heisenberg}: l'insieme ordinato $\{x_i\}_{i\in\N}$ forma dunque una successione, o un vettore colonna di infinite componenti.
+Abbiamo però un ulteriore vincolo, ossia la limitatezza della norma di uno stato: $\braket{x}{x}<+\infty$.
+Dunque avremo che
+\begin{equation}
+	\ser{i}\abs{x_i}^2<+\infty
+	\label{eq:successione-quadrato-sommabile}
+\end{equation}
+ossia la successione $\{x_i\}$ è a \emph{quadrato sommabile}.
+
+Abbiamo trovato dunque un isomorfismo tra lo spazio degli stati e lo spazio delle successioni complesse a quadrato sommabile, che si indica con $\ell^2(\C)$, anch'esso ovviamente uno spazio di Hilbert.
+Questo isomorfismo non è canonico, nel senso che è possibile farlo solo tramite la scelta di una base: perciò è sbagliato affermare che la successione $\{x_i\}$ \emph{è} lo stato $\ket{x}$, ma è corretto dire che la successione \emph{rappresenta} lo stato (in una certa base).
+Questo isomorfismo è la \emph{rappresentazione di Heisenberg}.
+
+Fissata la rappresentazione degli stati, dobbiamo vedere ora come rappresentare gli operatori: anche qui, l'espressione $\ket{y}=\op A\ket{x}$ non necessita della scelta di una base.
+Prendiamo la base $\{\ket{i}\}_{i\in\N}$: per trovare la $i$-esima componente, in questa base, di $\ket{y}$, moltiplichiamo a sinistra i membri per il bra fondamentale $\bra{i}$, ottenendo
+\begin{equation}
+	\braket{i}{y}=y_i=\bra{i}\op A\ket{x}.
+\end{equation}
+Introducendo la risoluzione dell'identità tra $\op A$ e $\ket{x}$ troviamo dunque
+\begin{equation}
+	y_i=\bra{i}\op A\Big(\ser{j}\ket{j}\bra{j}\Big)\ket{x}=\ser{j}\bra{i}\op A\ket{j}\braket{j}{x}=\ser{j}\bra{i}\op A\ket{j}x_j.
+	\label{eq:rappresentazione-operatore-matrice}
+\end{equation}
+Vediamo quindi che l'azione di $\op A$ sullo stato $\ket{x}$ si esprime tramite gli elementi $\bra{i}\op A\ket{j}\defeq A_{ij}$, che sono dei numeri complessi con un doppio indice: chiaramente questi indicano una matrice (di dimensioni infinite). 
+L'applicazione dell'operatore $\op A$ allo stato $\ket{x}$ si rappresenta dunque come il prodotto riga per colonna tra la matrice rappresentativa di $\op A$ e il vettore/successione rappresentativo di $\ket{x}$.
+Dato un altro operatore $\op B$, il prodotto $\op A\op B$ è rappresentato dalla matrice di componenti $(AB)_{ij}=\bra{i}\op A\op B\ket{j}$, e vediamo che
+\begin{equation}
+	(AB)_{ij}=\bra{i}\op A\op B\ket{j}=\bra{i}\op A\ser{k}\ket{k}\bra{k}\op B\ket{j}=\ser{k}\bra{i}\op A\ket{k}\bra{k}\op B\ket{j}=\ser{k}A_{ik}B_{kj}
+	\label{eq:prodotto-operatori-matrici}
+\end{equation}
+che è proprio il prodotto riga per colonna delle due matrici rappresentative.
+L'aggiunto dell'operatore inoltre è tale che $\bra{i}\adj{\op A}\ket{j}=\bra{j}\op A\ket{i}^*$, cioè $(\adj A)_{ij}=A_{ji}^*$: la matrice rappresentativa dell'aggiunto è la trasposta coniugata di $A$.
+
+Chiarito dunque come si rappresentano stati e operatori, torniamo all'equazione agli autovalori vista all'inizio del capitolo: nella rappresentazione di Heisenberg che abbiamo visto, il metodo più conveniente per risolverla è esprimerla in una base di autostati dell'operatore coinvolto.
+Se prendiamo un'osservabile $\xi$ non degenere e i suoi autostati $\{\ket{\xi_i}\}$, che prendiamo normalizzati, abbiamo che
+\begin{equation}
+	\bra{\xi_i}\op\xi\ket{\xi_j}=\xi_j\braket{\xi_i}{\xi_j}=\xi_j\delta_{ij}
+\end{equation}
+quindi la matrice rappresentativa è diagonale.
+
+Per la non degenerazione dell'osservabile, ad ogni autovalore corrisponde un solo autovettore, a meno di costanti scalari: questo però non è un problema se ricordiamo che ad uno stato fisico corrisponde un \emph{raggio} nello spazio dei ket, quindi l'autovettore e i suoi multipli rappresentano in realtà lo stesso stato fisico.
+La normalizzazione degli autostati già risolve parzialmente questo problema, ma lo stato $\ket{\xi_i}$ e $e^{i\phi_i}\ket{\xi_i}$ rappresentano lo stesso stato fisico e hanno entrambi norma unitaria, di conseguenza c'è ancora una certa arbitrarietà, nella scelta di queste fasi $\phi_i$.
+In ogni caso, se al posto di $\ket{\xi_i}$ e $\ket{\xi_j}$ prendiamo gli stati $\ket{\xi_i'}=e^{i\phi_i}\ket{\xi_i}$ e $\ket{\xi_j'}=e^{i\phi_j}\ket{\xi_j}$ troviamo
+\begin{equation}
+	\braket{\xi_i'}{\xi_j'}=e^{-i\phi_i}\bra{\xi_i}e^{i\phi_j}\ket{\xi_j}=e^{i(\phi_j-\phi_i)}\braket{\xi_i}{\xi_j}=e^{i(\phi_j-\phi_i)}\delta_{ij}
+\end{equation}
+quindi sono ancora ortonormali: se $i=j$ le fasi si cancellano, mentre se $i\ne j$ si ha $e^{i(\phi_j-\phi_i)}\ne 1$ ma $\delta_{ij}=0$ quindi è comunque nullo.
+
+Se l'osservabile invece è degenere, la scelta di un sistema ortonormale completo di autostati non è più univocamente determinata (a meno di fattori scalari), perch\'e ad ogni autovalore possono corrispondere anche più autostati linearmente indipendenti.
+Prendiamo un autovalore degenere $\xi_0$ dell'osservabile $\xi$: se scriviamo la matrice rappresentativa di $\op\xi$ nella base di autostati, l'autospazio $\hilbert_0$ di tale autovalore è lasciato invariato dall'operatore, di conseguenza il blocco di matrice relativo all'autovalore $\xi_0$ è un multiplo dell'identità, e ha dimensione pari al grado di degenerazione dell'autovalore.
+La matrice rappresentativa è quindi una matrice a blocchi.
+Se prendiamo ora un'osservabile $\eta$ compatibile con $\xi$, le due condividono una base di autostati, perciò possiamo cambiare base in quest'ultima.
+In generale, la matrice di $\xi$ anche in questo caso sarà ancora a blocchi: ma lo è anche quella di $\eta$, perch\'e sono compatibili.
+Quindi, se $\xi$ è rappresentata da una matrice diagonale, ossia in cui tutti i blocchi hanno dimensione 1, allora anche la matrice di $\eta$ è diagonale.
+
+Aggiungendo altre osservabili compatibili a $\xi$ fino a raggiungere un sistema completo di osservabili, si giunge infine ad una base di autostati ben determinata (senza ``libertà di scelta'' tra autostati linearmente indipendenti in un autospazio) di conseguenza la matrice rappresentativa sarà finalmente diagonale.
