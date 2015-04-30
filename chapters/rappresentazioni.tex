@@ -138,3 +138,35 @@ Questo risultato però ci porta ad un grave problema: poich\'e non c'è alcun vi
 Questo è in contraddizione con la struttura dello spazio degli stati, che è uno spazio di Hilbert \emph{separabile}: di conseguenza, non possono esistere autostati di $\op q$.
 Lo stesso si può dire di $\op p$, con una costruzione analoga.
 Nella prossima sezione vedremo come risolvere questo problema, analizzando più a fondo questi due particolari operatori.
+
+\section{Operatori posizione e impulso}
+Abbiamo dunque visto tramite un operatore di traslazione che $\op q$ (cos\`i come $\op p$) non può ammettere autostati.
+Ciò potrebbe sembrare un grave problema, dal momento che è su questi due operatori che si costruiscono tutte le osservabili, ma nasconde in realtà un concetto diverso.
+
+Se assumiamo di poter scrivere equazioni come $\op q\ket{q}=q\ket{q}$, stiamo ammettendo che $\op q$ possiede uno \emph{spettro continuo}.
+Ricordiamo il principio di indeterminazione di Heisenberg, che afferma che il prodotto delle indeterminazioni di posizione e impulso è
+\begin{equation}
+	\Delta q\Delta p\geq\frac{\hbar}2.
+\end{equation}
+Da esso ricaviamo che è impossibile sapere con assoluta precisione la posizione o l'impulso del sistema in esame.
+Di conseguenza dire che $\op q$ o $\op p$ hanno degli autovalori significherebbe ammettere che dopo una misura sul sistema possiamo conoscere con infinita precisione il valore della posizione o dell'impulso.
+Dovrebbe essere ormai chiaro che una situazione del genere è impossibile, pertanto degli operatori con queste proprietà non hanno senso fisico.
+Vediamo come possiamo risolvere il problema.
+
+Quando misuriamo una posizione, quello che possiamo sapere è in realtà soltanto se la particella (o chi per essa) si trovi entro un certo intervallo di spazio, più o meno preciso.
+Matematicamente, se diciamo che la particella è in $x$ stiamo in verità affermando che essa si trova nell'intervallo $[x-\Delta x, x+\Delta x]$ per un certo $\Delta x$: questa ampiezza $\Delta x$ indica la precisione della misura effettuata, ma per quanto detto tale $\Delta x$ non potrà mai essere zero.
+Un'osservabile che restituisca questo tipo di risultato è assolutamente lecita: se lo strumento ha una sensibilità di $2\epsilon$ (fissata: possiamo prenderla quanto piccola vogliamo, ma mai tendente a zero), possiamo partizionare l'asse reale in tanti intervalli di ampiezza $\epsilon$, ossia in $(2n\epsilon-\epsilon,2n\epsilon+\epsilon]\equiv \big((2n-1)\epsilon,(2n+1)\epsilon\big]$, con $n\in\Z$.
+L'insieme di questi intervalli è ovviamente numerabile, e la loro unione per tutti gli $n\in\Z$ ricopre tutto l'asse reale.
+L'atto della misura consiste nel determinare in quale di questi intervalli si trova la particella: possiamo indicare ogni intervallo con il suo centro $q_n\defeq 2n\epsilon$, e con questo indicare il risultato della misura, ossia gli autovalori della posizione.
+Possiamo quindi definire un operatore $\op q_\epsilon$ i cui autovalori sono questi $q_n$, ossia se otteniamo $\op q_\epsilon\ket{x}=q_n\ket{x}$ significa che la particella al momento della misura si trova nell'intervallo $[q_n-\epsilon,q_n+\epsilon]$.
+Questi autovalori formano uno spettro discreto, e a questo operatore possiamo applicare tutte le regole già studiate senza alcun problema di definizione.
+Sebbene questo operatore rispecchi fedelmente la realtà, però, è evidente che diventa scomodissimo non appena bisogna usarlo nei calcoli.
+Oltretutto, esisterebbero infiniti operatori rappresentanti la posizione, uno per ogni valore della sensibilità $\epsilon$ assegnabile!
+
+Cosa rappresenta dunque il ``vero'' operatore posizione?
+Possiamo vederlo come un limite dell'operatore $\op q_\epsilon$ che abbiamo introdotto per una precisione sempre più piccola, cioè per $\epsilon\to 0$.
+Questo passaggio al limite è però soltanto un'astrazione matematica, non rappresenta qualcosa di reale, di ``fisico''.
+Tutto il discorso svolto fino a questo punto vale, ovviamente, anche per l'operatore impulso.
+Tenendo ciò in mente possiamo riportare al caso continuo i risultati ottenuti finora nel caso discreto, e procedere con essi.
+Accettiamo, dunque, \emph{con riserva} l'esistenza di questi operatori posizione e impulso con spettro continuo.
+
