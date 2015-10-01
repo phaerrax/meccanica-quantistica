@@ -170,3 +170,137 @@ Tutto il discorso svolto fino a questo punto vale, ovviamente, anche per l'opera
 Tenendo ciò in mente possiamo riportare al caso continuo i risultati ottenuti finora nel caso discreto, e procedere con essi.
 Accettiamo, dunque, \emph{con riserva} l'esistenza di questi operatori posizione e impulso con spettro continuo.
 
+\section{Rappresentazione di Schr\"odinger}
+Nel caso di uno spettro discreto possiamo \emph{contare} gli elementi della base di autostati, perch\'e è un insieme numerabile: pertanto preso uno stato $\ket{A}$ e una base $\{\ket{n}\}_{n\in\N}$ possiamo associare ad ogni numero naturale un numero complesso, che è il coefficiente dell'elemento $n$-esimo della base.
+Otteniamo, come già visto, una successione $\{a_n\}$ definita da $a_n=\braket{n}{A}$.
+La risoluzione dell'identità $\ser{n}\ket{n}\bra{n}=\op 1$ permette di ``ricostruire'' lo stato con l'operazione $\ket{A}=\ser{n}\ket{n}\braket{n}{A}=\ser{n}a_n\ket{n}$.
+Nel caso di uno spettro continuo, troviamo invece una base non numerabile di autostati, che possiamo perciò porre in corrispondenza (almeno nel caso unidimensionale) con un numero reale.
+Se $\{\ket{q}\colon q\in\R\}$ è la base di autostati della posizione, associamo dunque al prodotto scalare $\braket{q}{A}$ un numero dell'asse reale: stiamo definendo quindi una funzione
+\begin{equation}
+	\braket{q}{A}=a(q).
+\end{equation}
+Questa funzione $a(q)$ è ciò che è comunemente chiamata \emph{funzione d'onda} dello stato $\ket{A}$: solitamente la indicheremo con $\psi_A(q)$.
+Cos\`i come si moltiplica per $\bra{q}$ si può prendere anche una base di autostati dell'impulso $\{\ket{p}\colon p\in\R\}$ e definire una \emph{funzione d'onda degli impulsi}	$\braket{p}{A}=\tilde{\psi}_A(p)$; qui la notazione per distinguere i due tipi di funzioni d'onda non è universale, ma si dovrebbe riuscire sempre a distinguere le due funzioni guardando alla variabile, $q$ o $p$.
+
+La risoluzione dell'identità si riscrive, passando da una somma discreta a una \emph{somma continua}, ossia a un integrale su $\R$, come
+\begin{equation}
+	\int_\R\ket{q}\bra{q}\dd q=\op 1
+	\label{eq:risoluzione-identita-continua}
+\end{equation}
+per cui possiamo scrivere lo stato $\ket{A}$ come sovrapposizione degli autostati $\ket{q}$ con
+\begin{equation}
+	\ket{A}=\int_\R\ket{q}\braket{q}{A}\dd q=\int_\R\psi_A(q)\ket{q}\dd q
+	\label{eq:sovrapposizione-stati-continuo}
+\end{equation}
+e il prodotto scalare come
+\begin{equation}
+	\braket{B}{A}=\int_\R\braket{B}{q}\braket{q}{A}\dd q=\int_\R\psi_B^*(q)\psi_A(q)\,\dd q.
+	\label{eq:prodotto-scalare-continuo}
+\end{equation}
+La norma di uno stato è allora
+\begin{equation}
+	\braket{A}{A}=\int_\R\braket{A}{q}\braket{q}{A}\dd q=\int_\R\psi_A^*(q)\psi_A(q)\,\dd q=\int_\R\abs{\psi_A(q)}^2\,\dd q.
+	\label{eq:norma-stato-continuo}
+\end{equation}
+La condizione che la norma sia limitata rimane anche in questo caso; con questo la funzione d'onda, sia della posizione che dell'impulso, è una funzione \emph{a quadrato sommabile}, cioè appartiene allo spazio $L^2(\R)$.
+Abbiamo individuato dunque un isomorfismo tra lo spazio degli stati e lo spazio di Hilbert $L^2(\R)$: esso è la \emph{rappresentazione di Schr\"odinger}.
+
+Per quanto riguarda la normalizzazione degli \emph{autostati}, invece, dobbiamo adottare una convenzione più particolare.
+Se definissimo
+\begin{equation}
+	\braket{q}{q'}=
+	\begin{cases*}
+		1& se $q=q'$\\ 0& se $q\ne q'$
+	\end{cases*}
+\end{equation}
+i risultati trovati sopra non sarebbero più validi.
+Definiamo invece la condizione con quello che piò essere visto come un analogo continuo della delta di Kronecker, ossia la delta di Dirac:
+\begin{equation}
+	\braket{q}{q'}=\delta(q-q'),\qquad\braket{p}{p'}=\delta(p-p').
+	\label{eq:normalizzazione-autostati-continui}
+\end{equation}
+Finch\'e $q\ne q'$ o $p\ne p'$, tutto è a posto perch\'e gli autostati risultano ancora ortogonali.
+Il problema è che la norma di un autostato diventa in questo modo $\braket{q}{q}=\delta(q-q)=\delta(0)=+\infty$.
+La spiegazione a ciò è che gli autostati di osservabili continue \emph{non sono fisici}, in quanto è impossibile definire uno stato in cui posizione o impulso sono perfettamente determinati: come per gli operatori, sono soltanto un'utile astrazione matematica.
+Tutti gli autostati \emph{realistici} di posizione e momento avranno sempre norma finita.
+Notiamo infine che $\delta(q-q')$ è anche la funzione d'onda $\psi(q)$ dell'autostato $\ket{q'}$.
+
+Ora che abbiamo visto come rappresentare gli stati, passiamo agli operatori.
+Chiaramente la loro rappresentazione è diversa a seconda della base scelta: per la fondamentale importanza che rivestono $\op q$ e $\op p$, studieremo come operano gli operatori sulle funzioni d'onda in entrambi i casi.
+
+\subsection{Rappresentazione nelle coordinate}
+Nella rappresentazione delle coordinate si usa la base di autostati $\ket{q}$ della posizione per descrivere gli stati: l'operatore posizione sarà quindi diagonale, ossia
+\begin{equation}
+	\op q\ket{q'}=q'\ket{q'}.
+	\label{eq:posizione-diagonale}
+\end{equation}
+Otteniamo la rappresentazione di questo operatore su uno stato $\ket{A}$ moltiplicando a sinistra per $\bra{q}$: risulta $\bra{q}\op q=q\bra{q}$, perciò
+\begin{equation}
+	\bra{q}\op q\ket{A}=q\braket{q}{A}=q\psi_A(q).
+	\label{eq:rappresentazione-posizione-diagonale}
+\end{equation}
+L'operatore inoltre è hermitiano, perch\'e
+\begin{equation}
+	\bra{B}\op q\ket{A}^*=\bigg(\int_\R\psi_B^*(q)q\psi_A(q)\,\dd q\bigg)^*=\int_\R\psi_B(q)q\psi_A^*(q)\,\dd q=\bra{A}\op q\ket{B}
+	\label{eq:posizione-hermitiano}
+\end{equation}
+Il valore di aspettazione di $\op q$ su uno stato $\ket{A}$ (normalizzato) è dato da
+\begin{equation}
+	\bra{A}\op q\ket{A}=\int_{-\infty}^{+\infty}\psi_A^*(q)q\psi_A(q)\,\dd q=\int_{-\infty}^{+\infty}q\abs{\psi_A(q)}^2\,\dd q,
+	\label{eq:valor-medio-posizione}
+\end{equation}
+e in generale per funzioni solamente di tale operatore si ha, in via analoga,
+\begin{equation}
+	\bra{A}f(\op q)\ket{A}=\int_{-\infty}^{+\infty}f(q)\abs{\psi_A(q)}^2\,\dd q
+\end{equation}
+che corrisponde, matematicamente, al valore medio di $f$ secondo una distribuzione di probabilità la cui funzione di densità è $\abs{\psi_A}^2$ (se $\psi_A$ è normalizzata).
+Da sola, quindi, il modulo quadro della funzione d'onda $\abs{\psi(q)}^2$ nella base delle coordinate rappresenta la (densità di) probabilità di trovare la particella nel punto $q$.
+
+Vediamo come rappresentare l'impulso: sappiamo che l'operatore di traslazione equivale a $\op T(x)=\exp\big(-\frac{i}{\hbar}\op px\big)$.
+Per una traslazione infinitesima, possiamo sviluppare in serie di Taylor di $x$ l'operatore ottenendo $\op T(x)=\op 1-\frac{i}{\hbar}\op px+o(x)$.
+Nella base della posizione, esso agisce su uno stato $\ket{A}$ come $\bra{q}\op T(x)\ket{A}=\braket{q-x}{A}$ che a sua volta può essere sviluppata come $\braket{q}{A}-x\drv{}{q}\braket{q}{A}+o(x)$.
+Passando ancora alla base delle coordinate e uguagliando le due espressioni, otteniamo
+\begin{equation}
+	\braket{q}{A}-\frac{ix}{\hbar}\bra{q}\op p\ket{A}=\braket{q}{A}-x\drv{}{q}\braket{q}{A}
+\end{equation}
+da cui, semplificando,
+\begin{equation}
+	\bra{q}\op p\ket{A}=-i\hbar\drv{}{q}\braket{q}{A}
+\end{equation}
+che è la rappresentazione dell'operatore impulso.
+Anch'esso è hermitiano: supponendo le funzioni d'onda $\braket{q}{A}$ e $\braket{q}{B}$ sufficientemente differenziabili in modo da poter integrare per parti,
+\begin{equation}
+	\begin{split}
+		\bra{B}\op p\ket{A}^*&=\bigg[\int_{-\infty}^{+\infty}-i\hbar\drv{\psi_A}{q}\psi_B^*(q)\,\dd q\bigg]^*=\\
+		&=\bigg[-i\hbar\psi_A(q)\psi_B^*(q)\Big|_{-\infty}^{+\infty}+i\hbar\int_{-\infty}^{+\infty}\psi_A(q)\drv{\psi_B^*}{q}(q)\,\dd q\bigg]^*=\\
+		&=-i\hbar\int_{-\infty}^{+\infty}\psi_A^*(q)\drv{\psi_B}{q}(q)\,\dd q=\bra{A}\op p\ket{B},
+	\end{split}
+\end{equation}
+dato che $\psi_A,\psi_B\to 0$ per $\abs{q}\to+\infty$, essendo continue e in $L^2(\R)$.
+
+Infine, possiamo ritrovare le relazioni di commutazione anche in questa rappresentazione: scrivendo $[\op q,\op p]\ket{A}$ nella base della posizione, come operatori sulle funzioni d'onda, risulta
+\begin{multline}
+	\bra{q}[\op q,\op p]\ket{A}=\big[q,-i\hbar\drv{}{q}\big]\psi_A(q)=\big[i\hbar\drv{}{q},q\big]\psi_A(q)=i\hbar\bigg[\drv{}{q}\big[q\psi_A(q)\big]-q\drv{\psi_A}{q}(q)\bigg]=\\
+	=i\hbar\big[\psi_A(q)+q\drv{\psi_A}{q}(q)-q\drv{\psi_A}{q}(q)\big]=i\hbar\psi_A(q)
+\end{multline}
+come ci aspettavamo.
+Anche le relazioni $[q,q]=0$ e $[-i\hbar\drv{}{q},-i\hbar\drv{}{q}]=0$ valgono in modo ovvio.
+Nel caso di più gradi di libertà, gli operatori di moltiplicazione $q_i$ e di derivazione $\drp{}{q_j}$ commutano, dato che si riferiscono a variabili differenti, mentre se $i=j$ vale quanto detto prima; riassumendo, per gli operatori posizione e impulso in $L^2(\R)$ vale la relazione
+\begin{equation}
+	\bigg[q_i,-i\hbar\drp{}{q_j}\bigg]=i\hbar\delta_{ij}.
+	\label{eq:commutatori-fondamentali-L2}
+\end{equation}
+
+Torniamo all'equazione di Schr\"odinger $\op H\ket{E}=E\ket{E}$: una particella soggetta ad un potenziale $V(\vec q)$ ha un'hamiltoniana $H(\vec q,\vec p)=\frac1{2m}\vec p^2+V(\vec q)$, a cui è associato l'operatore $\op H=\frac1{2m}\sum_{i=1}^3\op p_i^2+V(\op{\vec q})$, dunque risulta
+\begin{equation}
+	\bra{q}\op H\ket{E}=\bigg[-\frac1{2m}\sum_{i=1}^3\bigg(-i\hbar\drp{}{q_i}\bigg)^2+V(\vec q)\bigg]\braket{q}{E}=E\braket{q}{E}
+	\label{eq:hamiltoniano-coordinate}
+\end{equation}
+da cui ricaviamo l'equazione differenziale alle derivate parziali, del secondo ordine,
+\begin{equation}
+	\frac{\hbar^2}{2m}\lap\psi_E(\vec q)+\big[E-V(\vec q)\big]\psi_E(\vec q)=0
+	\label{eq:schroedinger}
+\end{equation}
+da risolvere per una soluzione $\psi_E\in L^2(\R^3)$.
+Le soluzioni (indipendenti) sono solo due, per ogni valore di $E$, ma non tutte sono accettabili da un punto di vista fisico: in particolare deve essere $\abs{\psi_E(\vec q)}\to 0$ per $\norm{\vec q}\to+\infty$, inoltre solo per alcuni valori di $E$ si avrà che $\psi_E$ è a quadrato sommabile.
+
