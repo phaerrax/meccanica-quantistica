@@ -276,3 +276,70 @@ Notiamo infine che lo stato fondamentale $\ket{0}$ è anch'esso uno stato coeren
 	\label{eq:stato-coerente-exp}
 \end{equation}
 
+\section{Soluzioni dell'equazione di Schr\"odinger}
+In una dimensione, con un potenziale della forma $V(q)=q^2$, l'equazione di Schr\"odinger per la funzione d'onda $\psi$ nella base della posizione è
+\begin{equation}
+	\frac{\hbar^2}{2m}\psi''(q)+(E-q^2)\psi(q)=0.
+	\label{eq:schrodinger-oscillatore-1d}
+\end{equation}
+In questa forma però risulta difficile da risolvere, anche perch\'e non conosciamo il valore di $E$.
+Per evitarla usiamo, come abbiamo già fatto per ricavare lo spettro dell'hamiltoniano, gli operatori di creazione e distruzione.
+Nella base delle coordinate, abbiamo per uno stato $\ket{\psi}$ (con la funzione d'onda $\psi(q)=\braket{q}{\psi}$)
+\begin{multline}
+	\bra{q}\op a\ket{\psi}=\bra{q}\frac{\op p-im\omega\op q}{\sqrt{2m\hbar\omega}}\ket{\psi}=\frac1{\sqrt{2m\hbar\omega}}(\bra{q}\op p\ket{\psi}-im\omega\bra{q}\op q\ket{\psi})=\\
+	=\frac1{\sqrt{2m\hbar\omega}}\bigg[-ih\drv{\psi}{q}(q)-im\omega q\psi(q)\bigg]
+\end{multline}
+Possiamo dunque rappresentare $\op a$ come l'operatore in $L^2(\R)$
+\begin{equation}
+	f(q)\mapsto-\frac{i}{\sqrt{2}}\bigg[\sqrt{\frac{\hbar}{m\omega}}\drv{f}{q}(q)+\sqrt{\frac{m\omega}{\hbar}}qf(q)\bigg].
+\end{equation}
+Possiamo semplificare il tutto con un cambio di variabili: poniamo $y=\big(\frac{m\omega}{\hbar})^{-\frac12}q$, da cui $\drv{}{q}=\drv{y}{q}\drv{}{y}=\big(\frac{m\omega}{\hbar})^{-\frac12}\drv{}{q}$, ottenendo
+\begin{equation}
+	\op a=-\frac{i}{\sqrt{2}}\bigg(\drv{}{y}+y\bigg)
+\end{equation}
+ricordando sempre che $y$ (anche come variabile della funzione d'onda) non è più la variabile posizione ma il suo riscalamento definito poco fa.
+Detto ciò, sappiamo che lo stato fondamentale soddisfa l'equazione $\op a\ket{0}=0$, da cui otteniamo l'equazione differenziale per la funzione d'onda $\psi_0$
+\begin{equation}
+	-\frac{i}{\sqrt{2}}\bigg[\drv{\psi_0}{y}(y)+y\psi_0(y)\bigg]=0\quad\longrightarrow\quad \drv{\psi_0}{y}(y)=-y\psi_0(y)
+\end{equation}
+che ha come soluzione (accettabile) $\psi_0(y)=A\exp(-y^2/2)$.
+Normalizzando la funzione troviamo
+\begin{equation}
+	1=\norm{\psi_0}_2^2=\int_{-\infty}^{+\infty}\abs{\psi_0(y)}^2\,\dd y=A^2\int_{-\infty}^{+\infty}e^{-\frac{y^2}2}\,\dd y=A^2\sqrt{\pi}
+\end{equation}
+dunque $\psi_0(y)=\pi^{-\frac14}\exp(-y^2/2)$.
+
+Analogamente, possiamo rappresentare in $L^2(\R)$ nella base della posizione anche l'operatore di creazione $\adj{\op a}$ come $-\frac{i}2\big(\drv{}{y}-y\big)$.
+Possiamo dunque determinare le funzioni d'onda degli stati più energetici con l'equazione $\braket{y}{n}=\frac1{\sqrt{n!}}\bra{y}(\adj{\op a})^n\ket{0}$ per cui
+\begin{equation}
+	\psi_n(y)=\frac{(-i)^n}{\sqrt{n!}}\bigg[-\frac{i}{\sqrt{2}}\bigg(\drv{}{y}-y\bigg)\bigg]^n\psi_0(y)=\frac1{\sqrt{2^nn!}}\bigg(y-\drv{}{y}\bigg)^n\psi_0(y)=\frac1{\sqrt{2^nn!}}\bigg(y-\drv{}{y}\bigg)^ne^{-\frac{y^2}2}.
+\end{equation}
+
+Possiamo costruire una soluzione come di seguito: per grandi valori di $y$, ipotizziamo che l'autostato di ordine $n$ abbia una funzione d'onda asintotica a $y^n\exp(-y^2/2)$.
+Dato che $\psi_n\to 0$ per $\abs{y}\to+\infty$, possiamo approssimare l'equazione di Schr\"odinger da $-\psi_n''(y)+y^2\psi_n(y)=(2n+1)\psi_n(y)$ a $-\psi_n''(y)+y^2\psi_n(y)=0$, e nel momento in cui trascuro il secondo membro l'equazione non dipende più da $n$.
+Cominciamo quindi a costruire la soluzione: partiamo da una funzione prova del tipo $\psi_n(y)=\exp(-\beta y^k)$.
+Risulta $\psi_n'(y)=-\beta ky^{k-1}\exp(-\beta y^k)=-\beta ky^{k-1}\psi_n(y)$ e $\psi_n''(y)=-\beta k(k-1)y^{k-2}\psi_n(y)+\beta ky^{k-1}\psi_n'(y)$ dunque riscriviamo l'equazione di Schrodinger come
+\begin{equation}
+	-\psi_n''(y)+y^2\psi_n(y)=e^{-\beta y^k}\big[-\beta^2k^2y^{2k-2}+\beta k(k-1)y^{k-2}+y^2\big]\sim e^{-\beta y^k}(-\beta^2k^2y^{2k-2}+y^2)
+\end{equation}
+e affinch\'e l'espressione tenda a zero per $\abs{y}\to+\infty$ deve essere uguali le potenze di $y$, ossia $k=2$.
+A questo punto troviamo
+\begin{equation}
+	-\psi_n''(y)+y^2\psi_n(y)\sim e^{-\beta y^2}(1-4\beta^2)y^2
+\end{equation}
+e con gli stessi vincoli ($\psi_n\to 0$) troviamo che $1-4\beta^2=0$, ossia $\beta=\frac12$.
+La funzione $\exp(-y^2/2)$ è una buona approssimazione iniziale, per grandi valori di $\abs{y}$, della funzione d'onda del sistema.
+Possiamo fare di meglio: aggiungiamo un termine polinomiale, con $\psi_n(y)=y^a\exp(-y^2/2)$.
+Otteniamo $\psi_n'(y)=(ay^{a-1}-y^{a+1})\exp(-y^2/2)$ e $\psi_n''(y)=\big[a(a-1)y^{a-2}-(2a+1)y^a+y^{a+2}\big]\exp(-y^2/2)$, perciò
+\begin{equation}
+	\begin{aligned}
+		\big[-a(a-1)y^{a-2}+(2a+1)y^a-y^{a+2}\big]e^{-\frac{y^2}2}+y^ae^{-\frac{y^2}2}y^2&=(2n+1)y^ae^{-\frac{y^2}2}\\
+		\big[-a(a-1)y^{a-2}+(2a+1)y^a\big]e^{-\frac{y^2}2}&=(2n+1)y^ae^{-\frac{y^2}2}
+	\end{aligned}
+\end{equation}
+e mantenendo solo i termini di ordine maggiore risulta
+\begin{equation}
+	(2a+1)y^ae^{-\frac{y^2}2}=(2n+1)y^ae^{-\frac{y^2}2}
+\end{equation}
+per cui evidentemente $a=n$, perciò la soluzione è la funzione $\psi_n(y)=y^n\exp(-y^2/2)$.
+Potremmo ancora proseguire aggiungendo altri termini ``correttivi'', ma ci fermiamo qui.
