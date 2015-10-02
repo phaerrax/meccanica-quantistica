@@ -31,3 +31,41 @@ Nella rappresentazione delle coordinate troviamo l'equazione differenziale per l
 	i\hbar\drp{}{t}\psi(\vec q,t)=H\psi(\vec q,t).
 	\label{eq:schrodinger-tempo-coordinate}
 \end{equation}
+
+\section{Stati stazionari}
+Esistono degli stati \emph{stazionari}, che non dipendono dal tempo?
+Chiedere che $\ket{\psi(t)}$ sia uguale a $\ket{\psi(0)}$ è eccessivo, perch\'e allora $\ket{\psi(0)}$ sarebbe un autostato di $\op U(t)$ con autovalore 1, ossia
+\begin{equation}
+	\ket{\psi(0)}=e^{-\frac{i}{\hbar}\op Ht}\ket{\psi(0)}=\sum_{k=0}^{+\infty}\frac1{k!}\bigg(-\frac{i}{\hbar}\op Ht\bigg)^k\ket{\psi(0)}=\ket{\psi(0)}+\sum_{k=1}^{+\infty}\frac1{k!}\bigg(-\frac{i}{\hbar}\op Ht\bigg)^k\ket{\psi(0)}
+\end{equation}
+che vale a dire che $\ket{\psi(0)}$ è un autostato di $\op H$ con autovalore nullo, situazione impossibile per uno stato fisico.
+Sappiamo però che due vettori multipli per uno scalare rappresentano lo stesso stato fisico, perciò anche se $\op U(t)\ket{\psi(0)}=c(t)\ket{\psi(0)}$ lo stato fisico rimane invariato, come vogliamo.
+Oltre ad apparire nell'espressione del propagatore, l'hamiltoniano gioca un ruolo cruciale nell'evoluzione temporale, come nel seguente teorema.
+\begin{teorema} \label{t:autostati-hamiltoniano-stazionari}
+	Uno stato è stazionario se e solo se è un autostato dell'hamiltoniano.
+\end{teorema}
+\begin{proof}
+	Sia $\ket{\psi(0)}$ un autostato di $\op H$: allora $\op H\ket{\psi(0)}=E\ket{\psi(0)}$ per un certo $E\in\R$.
+	Sviluppando in serie l'esponenziale, ogni termine ha una potenza di $\op H$ e chiaramente $\op H^k\ket{\psi(0)}=E^k\ket{\psi(0)}$, quindi $\op U(t)\ket{\psi(0)}=\exp\big(-\frac{i}{\hbar}\op Ht\big)\ket{\psi(0)}=\exp\big(-\frac{i}{\hbar}Et\big)\ket{\psi(0)}$.
+
+	Sia ora $\ket{\psi(0)}$ uno stato stazionario, per cui esiste una funzione $c(t)$ tale che $\ket{\psi(t)}=c(t)\ket{\psi(0)}$.
+	Allora dall'equazione \eqref{eq:schrodinger-tempo} applicata a $\ket{\psi(0)}$ troviamo
+	\begin{equation}
+		i\hbar\dot{c}(t)\ket{\psi(0)}=c(t)\op H\ket{\psi(0)}\quad\longrightarrow\quad i\hbar\frac{\dot{c}(t)}{c(t)}\ket{\psi(0)}=\op H\ket{\psi(0)}.
+	\end{equation}
+	Ora, se $\op H$ non dipende dal tempo, anche il primo membro è una costante.
+	Poniamo dunque porre $E\defeq i\hbar\frac{\dot{c}(t)}{c(t)}$ ottenendo l'equazione differenziale $\dot{c}(t)=-\frac{i}{\hbar}Ec(t)$.
+	La condizione iniziale è $c(0)=1$, dato che deve valere evidentemente $\ket{\psi(0)}=c(0)\ket{\psi(0)}$.
+	Troviamo di conseguenza la soluzione $c(t)=\exp\big(-\frac{i}{\hbar}Et\big)$, vale a dire $\ket{\psi(0)}$ è un autostato di $\op H$ come si può vedere ricalcando il ragionamento della prima parte della dimostrazione.
+\end{proof}
+
+Conoscendo lo spettro dell'hamiltoniano e i suoi autostati $\ket{E_n}$, potremmo sviluppare lo stato in questa base scrivendo
+\begin{equation}
+	\ket{\psi(0)}=\sum_{n=0}^{+\infty}\ket{E_n}\braket{E_n}{\psi(0)}=\sum_{n=0}^{+\infty}a_n\ket{E_n}
+\end{equation}
+da cui ricaviamo
+\begin{equation}
+	\ket{\psi(t)}=\op U(t)\sum_{n=0}^{+\infty}a_n\ket{E_n}=\sum_{n=0}^{+\infty}a_n\op U(t)\ket{E_n}=\sum_{n=0}^{+\infty}a_ne^{-\frac{i}{\hbar}E_nt}\ket{E_n},
+\end{equation}
+quindi i coefficienti dello sviluppo nella base di autostati di $\op H$ evolvono secondo l'equazione $a_n(t)=a_n(0)\exp\big(-\frac{i}{\hbar}E_nt\big)$, poich\'e gli autostati sono stazionari.
+
