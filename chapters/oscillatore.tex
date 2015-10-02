@@ -370,3 +370,61 @@ In generale, il grado di degenerazione dello stato $N$ è il numero di modi in c
 \end{equation}
 Notiamo anche qui che se $N=0$ si ha sempre 1.
 
+Poich\'e il potenziale $V(\op{\vec q})$ è centrale, dato che dipende dalla norma al quadrato della posizione, l'hamiltoniano è invariante per rotazioni, le trasformazioni del gruppo $SO(n)$.
+
+Definiamo il momento angolare orbitale, in analogia con la sua controparte classica, come
+\begin{equation}
+	\op{\vec L}=\op{\vec q}\times\op{\vec p}
+\end{equation}
+o per ciascuna componente $\op L_k=\epsilon_{ijk}\op q_i\op p_j$.
+Nella definizione non troviamo problemi di commutazione in quanto posizione e impulso si riferiscono a coordinate diverse.
+In questo caso, dato che l'hamiltoniano è invariante per rotazioni, si ha $[\op H,\op{\vec L}]=0$.
+Definiamo per ciascuna coordinata l'operatore, simile a quello di distruzione, $\op\eta_i=\frac1{\sqrt{2m\hbar\omega}}(\op p_i-im\omega\op q_i)$.
+Con questa definizione risulta $\op H=\sum_{i=1}^d\big(\adj{\op\eta_i}\op\eta_i+\frac12\big)$.
+Possiamo inoltre ricavare gli operatori di posizione e impulso da $\op\eta_i$ e $\adj{\op\eta_i}$ in modo analogo al caso unidimensionale.
+Notiamo subito che tutti questi operatori commutano, anche con i loro aggiunti, cioè $[\op\eta_i,\op\eta_j]=[\adj{\op\eta_i},\adj{\op\eta_j}]=[\adj{\op\eta_i},\op\eta_j]=0$.
+Poniamoci per semplicità in un sistema bidimensionale ($d=2$): il momento angolare ha una sola componente $\op L$ che vale
+\begin{equation}
+	\begin{split}
+		\op L&=-i\sqrt{\frac{m\hbar\omega}2}\sqrt{\frac{\hbar}{2m\omega}}\big[(\adj{\op\eta_1}-\op\eta_1)(\adj{\op\eta_2}+\op\eta_2)-(\adj{\op\eta_2}-\op\eta_2)(\adj{\op\eta_1}+\op\eta_1)\big]=\\
+		&=-\frac{i\hbar}2(\adj{\op\eta_1}\op\eta_2-\op\eta_1\adj{\op\eta_2}-\adj{\op\eta_2}\op\eta_1+\op\eta_2\adj{\op\eta_1})=\\
+		&=i\hbar(\op\eta_1\adj{\op\eta_2}-\adj{\op\eta_1}\op\eta_2)
+	\end{split}
+\end{equation}
+perciò commuta con l'hamiltoniano come
+\begin{equation}
+	[\op H,\op L]=i\hbar[\op H,\op\eta_1\adj{\op\eta_2}-\adj{\op\eta_1}\op\eta_2]=i\hbar[\op H,\op\eta_1\adj{\op\eta_2}]-i\hbar[\op H,\adj{\op\eta_1}\op\eta_2]=0
+\end{equation}
+come si può verificare.
+
+Nello stato fondamentale $\ket{0,0}$, il momento angolare è $\op L\ket{0,0}=i\hbar(\adj{\op\eta_2}\op\eta_1-\adj{\op\eta_1}\op\eta_2)\ket{0,0}=0$, cioè è nullo.
+Il primo stato eccitato è invece una combinazione lineare di $\ket{1,0}$ e $\ket{0,1}$: prendiamo questi due stati come base e applichiamo $\op L$ ad essi, ottenendo
+\begin{equation}
+	\op L\ket{1,0}=i\hbar(\op\eta_1\adj{\op\eta_2}\ket{1,0}-\adj{\op\eta_1}\op\eta_2\ket{1,0})=i\hbar\op\eta_1\ket{1,1}=i\hbar\ket{0,1}
+\end{equation}
+e analogamente $\op L\ket{0,1}=-i\hbar\ket{1,0}$.
+Possiamo quindi rappresentare, in questa base, l'operatore con la matrice $i\hbar\begin{psmallmatrix}0&-1\\1&0\end{psmallmatrix}$, che ha $\hbar,-\hbar$ come autovalori a cui corrispondono gli autostati, rispettivamente, $\ket{1,0}+i\ket{0,1}$ e $\ket{1,0}-i\ket{0,1}$: gli autovalori di $\op L$ nello stato con $N=1$ sono dunque $\pm\hbar$.
+
+Definiamo ora gli operatori
+\begin{equation}
+	\op a_-=\frac{\op\eta_1+i\op\eta_2}{\sqrt{2}},\quad\op a_+=\frac{\op\eta_1-i\op\eta_2}{\sqrt{2}},\quad\op N=\adj{\op a_+}\op a_+-\adj{\op a_-}\op a_-.
+\end{equation}
+Risulta che $\adj{\op a_+}\ket{0,0}=\frac1{\sqrt{2}}(\ket{1,0}+i\ket{0,1})$, ossia $\adj{\op a_+}$ ``crea'' un quanto con momento angolare $\hbar$, mentre $\adj{\op a_-}$ ne crea uno con momento angolare $-\hbar$; $\op a_+$ e $\op a_-$ invece li ``distruggono''.
+Come per il caso unidimensionale, da questi operatori possiamo ritrovare l'hamiltoniano con $\op H=\adj{\op a_+}\op a_++\adj{\op a_-}\op a_-$.
+Poich\'e
+\begin{equation}
+	[\op H,\adj{\op a_+}\op a_-]=0,\quad [\op H,\op L]=0,\quad [\op L,\adj{\op a_+}\op a_-]=2\hbar\adj{\op a_+}\op a_-,
+\end{equation}
+siamo in presenza di una degenerazione.
+
+Per ``creare'' $N$ quanti, possiamo scegliere di crearne un certo numero con $\adj{\op a_+}$ e i restanti con $\adj{\op a_-}$: scelto $k\in\{0,\dots,N\}$, otteniamo dunque uno stato $(\adj{\op a_+})^k(\adj{\op a_-})^{N-k}\ket{0,0}$.
+Per $k=N$, ad esempio, si ha lo stato $(\adj{\op a_+})^N\ket{0,0}$ che ha come autovalore dell'energia $\hbar\omega(N+1)$ e momento angolare orbitale $N\hbar$.
+Ci possiamo chiedere a questo punto se il momento angolare può essere reso grande a piacere.
+La risposta è no, perch\'e risulta
+\begin{equation}
+	\adj{\op a_+}\op a_-(\adj{\op a_+})^N\ket{0,0}=\adj{\op a_+}\big[\op a_-(\adj{\op a_+})^N-(\adj{\op a_+})^N\op a_+(\adj{\op a_+})^N\op a_-\big]\ket{0,0}=\adj{\op a_+}[\op a_-,(\adj{\op a_-})^N]\ket{0,0}=0
+\end{equation}
+e, diversamente, $\adj{\op a_-}\op a_+(\adj{\op a_-})^N\ket{0,0}=\adj{\op a_-}[\op a_+,(\adj{\op a_+})^N]\ket{0,0}=N\adj{\op a_-}(\adj{\op a_+})^{N-1}\ket{0,0}$.
+Dallo stato con momento angolare $N$ si scende dunque di due in due con gli autovalori $N-2$, $N-4$\dots fino a quando?
+Giunti alla situazione simmetrica, nell'altro verso di rotazione, troviamo che $-N$ è il minimo, infatti $\adj{\op a_-}\op a_+(\adj{\op a_-})^N\ket{0,0}=\adj{\op a_-}[\op a_+,(\adj{\op a_-})^N]\ket{0,0}=0$ e il processo si ferma qui.
+
