@@ -343,3 +343,30 @@ e mantenendo solo i termini di ordine maggiore risulta
 \end{equation}
 per cui evidentemente $a=n$, perciò la soluzione è la funzione $\psi_n(y)=y^n\exp(-y^2/2)$.
 Potremmo ancora proseguire aggiungendo altri termini ``correttivi'', ma ci fermiamo qui.
+
+\section{Oscillatore armonico multidimensionale}
+In più dimensioni, l'operatore hamiltoniano dell'oscillatore armonico è analogo alla versione unidimensionale, ma con gli operatori posizione e impulso vettoriali anzich\'e scalari, ossia
+\begin{equation}
+	\op H=\frac1{2m}(\op{\vec p}^2+m^2\omega^2\op{\vec q}^2)=\frac1{2m}\sum_{i=1}^d(\op p_i^2+m^2\omega^2\op q_i^2)
+	\label{eq:hamiltoniano-oscillatore-armonico-multidim}
+\end{equation}
+dove $d$ è la dimensione del sistema.
+Possiamo definire l'hamiltoniano della coordinata $i$-esima $\op H_i=\frac1{2m}(\op p_i^2+m^2\omega^2\op q_i^2)$ cos\`i che $\op H=\sum_{i=1}^d\op H_i$.
+Dal commutatore $[\op q_i,\op p_j]=i\hbar\delta_{ij}$ è evidente che gli hamiltoniani di differenti coordinate sono compatibili.
+
+Chiamiamo $\ket{n_1,\dots,n_d}$ lo stato tale per cui $\op H_j\ket{n_1,\dots,n_d}=\hbar\omega(n_j+\frac12)$: sono gli stati in cui i vari $\op H_i$ sono diagonali.
+Inoltre
+\begin{equation}
+	\op H\ket{n_1,\dots,n_d}=\sum_{i=1}^d\op H_i\ket{n_1,\dots,n_d}=\sum_{i=1}^d\Big(n_i+\frac12\Big)\hbar\omega\ket{n_1,\dots,n_d}=\hbar\omega\Big(\!N+\frac{d}2\Big)\ket{n_1,\dots,n_d}
+\end{equation}
+dove $N\defeq\sum_{i=1}^dn_i$.
+
+Lo stato fondamentale ha $N=0$, e dato che ogni $n_i$ è non negativo l'unico modo per ottenere zero è che $n_i=0$ per ogni $i\in\{1,\dots,d\}$.
+Dato che ognuno di questi numeri è univocamente determinato, lo stato fondamentale non è degenere.
+Gli stati di energia maggiore però non lo sono: se già $N=1$ si hanno $d$ possibili combinazioni che danno $N=1$.
+In generale, il grado di degenerazione dello stato $N$ è il numero di modi in cui si può ottenere $N$ con $d$ interi positivi o nulli, ossia
+\begin{equation}
+	\frac{d(N+d-1)!}{d!N!}=\frac{(N+d-1)!}{(d-1)!N!}=\binom{N+d-1}{N}.
+\end{equation}
+Notiamo anche qui che se $N=0$ si ha sempre 1.
+
