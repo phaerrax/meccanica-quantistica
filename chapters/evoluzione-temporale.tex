@@ -69,3 +69,35 @@ da cui ricaviamo
 \end{equation}
 quindi i coefficienti dello sviluppo nella base di autostati di $\op H$ evolvono secondo l'equazione $a_n(t)=a_n(0)\exp\big(-\frac{i}{\hbar}E_nt\big)$, poich\'e gli autostati sono stazionari.
 
+\section{Evoluzione delle osservabili}
+Finora abbiamo visto gli stati variare nel tempo, mentre le osservabili rimangono costanti: è lo \emph{schema di Schr\"odinger}.
+Potremmo invece lasciare fissati gli stati e far variare, secondo le medesime equazioni, le osservabili.
+Possiamo individuare delle osservabili i cui valori medi rimangono costanti?
+Il valore medio, come funzione del tempo, è ancora definito come $\avg{\xi(t)}=\bra{\psi(t)}\op\xi\ket{\psi(t)}$.
+Calcolando la sua derivata rispetto al tempo e uguagliandola a zero troviamo, dato che $\bra{\psi(0)}$ e $\ket{\psi(0)}$ sono costanti,
+\begin{multline}
+	0=\drp{}{t}[\adj{\op U}(t)\op\xi\op U(t)]=\bigg(\drp{}{t}\adj{\op U}(t)\bigg)\op\xi\op U(t)+\adj{\op U}(t)\op\xi\drp{}{t}\op U(t)=\\
+	=\frac{i}{\hbar}\big[\adj{\op U}(t)\op H\op\xi\op U(t)-\adj{\op U}(t)\op\xi\op H\op U(t)\big]=\frac{i}{\hbar}\adj{\op U}(t)[\op H,\op\xi]\op U(t)
+\end{multline}
+ossia $[\op H,\op\xi]=0$.
+Dunque $\op\xi$ è una ``costante del moto'' se commuta con $\op H$: in questo caso sono compatibili (se $\op H$ non è degenere) e possiamo scegliere una base di autostati simultanei, che sono quindi autostati di $\op\xi$ stazionari.
+
+Nell'equazione $\bra{\psi(t)}\op\xi\ket{\psi(t)}=\bra{\psi(0)}\adj{\op U}(t)\op\xi\op U(t)\ket{\psi(0)}$ possiamo definire l'operatore variabile nel tempo $\op\xi(t)\defeq\adj{\op U}(t)\op\xi\op U(t)$ ottenendo $\bra{\psi(t)}\op\xi\ket{\psi(t)}=\bra{\psi(0)}\op\xi(t)\ket{\psi(0)}$.
+Se $\op\xi$ è hermitiano chiaramente lo è anche $\op\xi(t)$, inoltre vale ancora
+\begin{equation}
+	\drp{}{t}\op\xi(t)=\frac{i}{\hbar}\adj{\op U}(t)[\op H,\op\xi]\op U(t)=\frac{i}{\hbar}[\op H,\op\xi(t)],
+	\label{eq:evoluzione-osservabili-heisenberg}
+\end{equation}
+detta qui \emph{equazione di Heisenberg}.
+A meno del fattore $i/\hbar$, questa equazione non è altro che la già nota relazione in meccanica classica per l'evoluzione temporale delle osservabili $\dot{f}=\{f,H\}$.
+
+Ad esempio, prendiamo l'hamiltoniano $\op H=\frac1{2m}\op p^2+V(\op q)$ di una particella soggetta, in una dimensione, ad un generico potenziale $V(q)$.
+L'evoluzione della posizione è
+\begin{equation}
+	\drp{}{t}\op q(t)=\frac{i}{\hbar}[\op H,\op q]=\frac{i}{2\hbar m}[\op p^2,\op q]=\frac{i\op p}{\hbar m}[\op p,\op q]=\frac{\op p}{m},
+\end{equation}
+mentre quella della posizione è
+\begin{equation}
+	\drp{}{t}\op p(t)=\frac{i}{\hbar}[\op H,\op p]=\frac{i}{\hbar}[V(\op q),\op p]=-\drp{V}{q}(\op q).
+\end{equation}
+Notare la forte somiglianza di queste due equazioni con quelle di Hamilton in meccanica classica.
