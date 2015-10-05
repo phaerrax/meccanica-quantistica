@@ -1,0 +1,19 @@
+\chapter{Il limite classico}
+Nella meccanica classica la posizione e l'impulso sono grandezze precise e ben determinate, cosa che sappiamo non accade mai in ambito quantistico.
+In alcuni casi potremmi riportarci al primo caso, ad esempio prendendo $\avg{q}$ e $\avg{p}$ alla stregua di variabili classiche se $\Delta q$ e $\Delta p$ sono trascurabili, in quanto i risultati veri mostrerebbero delle fluttuazioni attorno ai valori medi insignificanti.
+
+Ammesso di trovare una situazione ``ideale'', essa può conservarsi nel tempo?
+Traduciamo l'equazione di Newton usando i valori medi in $m\ddot{\avg{q}}=\avg{F(q)}$: in linea di principio però $F(\avg{q})\ne\avg{F(q)}$, cosa che accade solo se $F$ è lineare in $q$.
+Sviluppando l'espressione della forza centrando in $\avg q$ troviamo $F(q)=F(\avg{q})+(q-\avg{q})F'(\avg{q})+o(q-\avg{q})$ che assume una forma \emph{approssimativamente lineare} quando il resto $o(q-\avg{q})$ è trascurabile.
+Tale resto contiene come primo termine, oltretutto, lo scarto quadratico $(q-\avg{q})^2$, che è la quantità da minimizzare per poter compiere l'approssimazione con i valori medi.
+
+Prendiamo il sistema di una particella libera: classicamente abbiamo le equazioni del moto $\dot{p}(t)=0$ e $\dot{q}(t)=\frac{p(t)}m$.
+Chiamiamo direttamente $p(t)=p$, che è costante, ottenendo $q(t)=q(0)+\frac{p}{m}t$.
+Risulta dunque
+\begin{multline}
+	\delta q(t)^2=\avg{q^2(t)}-\avg{q(t)}^2=\avg{q^2}+\frac{\avg{p^2}}{m^2}t^2+\frac{t}{m}(\avg{pq}+\avg{qp})-\avg{q}^2-\frac{\avg{p}^2}{m^2}t^2-\frac2{m}\avg{p}\avg{q}t=\\
+	=\Delta q(0)^2+\frac{t}{m}(\avg{pq}+\avg{qp}-2\avg{p}\avg{q})+\frac{\Delta p(0)^2}{m^2}t^2
+\end{multline}
+che è l'equazione di una parabola.
+Inesorabilmente quindi avremo $\Delta q(t)\sim\frac{\Delta p}{m}t$ per tempi molto grandi; possiamo concludere che $\Delta q(t)\sim 0$ se la massa della particella è molto grande.
+
