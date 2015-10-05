@@ -17,3 +17,86 @@ Risulta dunque
 che è l'equazione di una parabola.
 Inesorabilmente quindi avremo $\Delta q(t)\sim\frac{\Delta p}{m}t$ per tempi molto grandi; possiamo concludere che $\Delta q(t)\sim 0$ se la massa della particella è molto grande.
 
+\section{Approssimazione WKB}
+Mostriamo il metodo di approssimazione dovuto a Wentzel, Kramers e Brillouin, detto anche \emph{approssimazione semiclassica}.
+Consideriamo un sistema di una particella, in una dimensione: se il potenziale è costante, la soluzione dell'equazione di Schr\"odinger è una sovrapposizione di onde piane date da
+\begin{equation}
+	\psi(x)=\psi(0)e^{\pm ipx/\hbar}
+\end{equation}
+dove $p=\sqrt{2m(E-V)}$.
+Supponiamo ora che $V(x)$, seppur non costante, vari ``lentamente'' in una regione di spazio: qui la funzione d'onda potrebbe essere approssimata proprio come un'onda piana.
+Quanto lentamente deve variare il potenziale?
+Per trovare la corretta approssimazione pensiamo al fatto che $\hbar$ sia una quantità piccola, trascurabile.
+Scriviamo la funzione d'onda nella forma
+\begin{equation}
+	\psi(x)=e^{i\phi(x)/\hbar}
+	\label{eq:WKB-funzione-prova}
+\end{equation}
+dove $\phi$ è una generica funzione complessa, che sviluppiamo in una serie di potenze di $\hbar$: ogni termine contiene una potenza $\hbar^k$ che moltiplica una certa funzione $\phi_k$, che possiamo vedere come una correzione sempre più fine, all'aumentare di $k$, alla vera funzione d'onda.
+Ai nostri fini ci interessano i primi termini: $\phi=\phi_0+\phi_1\hbar+o(\hbar)$.
+Prima di tutto calcoliamo le derivate della \eqref{eq:WKB-funzione-prova}: $\psi'=\frac{i}{\hbar}\phi'\psi$ e $\psi''=\frac{i}{\hbar}\phi''\psi-\frac1{\hbar^2}(\phi')^2\psi$.
+Riscriviamo l'equazione di Schr\"odinger indipendente dal tempo come
+\begin{equation}
+	-\frac{\hbar^2}{2m}\psi''+\big[V-E\big]\psi=0\qqq \psi''+\frac{p^2}{\hbar^2}\psi=0
+\end{equation}
+dove $[p(x)]^2=\frac{2m}{\hbar^2}[E-V(x)]$ e inserendo la \eqref{eq:WKB-funzione-prova} otteniamo
+\begin{equation}
+	\frac{i}{\hbar}\phi''\psi-\frac1{\hbar^2}(\phi')^2\psi+\frac{p^2}{\hbar^2}\psi=0
+\end{equation}
+in cui possiamo semplificare $\psi$ in quanto non è mai nulla (è un'esponenziale).
+Sostituiamo dunque $\phi$ con il suo sviluppo in serie di potenze di $\hbar$ fino al primo ordine: risulta
+\begin{equation}
+	\begin{gathered}
+		\frac{i}{\hbar}\big[\phi_0''+\phi_1''\hbar+o(\hbar)\big]-\frac1{\hbar^2}\big[\phi_0'+\phi_1'+o(\hbar)\big]^2+\frac{p^2}{\hbar^2}=0\\
+		\frac{i}{\hbar}\phi_0''+i\phi_1''+o(1)-\frac1{\hbar^2}\big[(\phi_0')^2+(\phi_1')^2\hbar^2+2\phi_0'\phi_1'\hbar+o(\hbar)\big]+\frac{p^2}{\hbar^2}=0\\
+		\frac{i}{\hbar}\phi_0''+i\phi_1''+o(1)-\frac{(\phi_0')^2}{\hbar^2}-(\phi_1')^2-\frac{2\phi_0'\phi_1'}{\hbar}+o\Big(\frac1{\hbar}\Big)=0.
+	\end{gathered}
+\end{equation}
+Moltiplicando tutto per $\hbar^2$ abbiamo
+\begin{equation}
+	i\hbar\phi_0''+i\hbar^2\phi_1''+o(\hbar^2)-(\phi_0')^2-\hbar^2(\phi_1')^2-2\hbar\phi_0'\phi_1'+p^2+o(\hbar)=0.
+\end{equation}
+Il termine $o(\hbar^2)$ e tutti gli altri che contengono $\hbar^2$ sono dunque ``assorbiti'' in $o(\hbar)$: abbiamo infine
+\begin{equation}
+	p^2-(\phi_0')^2+(i\phi_o''-2\phi_0'\phi_1')\hbar+o(\hbar)=0.
+	\label{eq:WKB-schroedinger-approssimata}
+\end{equation}
+
+Possiamo effettuare dunque un'approssimazione all'ordine zero, cioè considerando solo i termini con la potenza $\hbar^0$ e trascurando i restanti: troviamo $\phi_0'=\abs{p}$, dunque la soluzione dell'equazione di Schr\"odinger con questa approssimazione è
+\begin{equation}
+	\psi(x)=Ae^{\pm\frac{i}{\hbar}\int p(x')\,\dd x'},
+	\label{eq:soluzione-WKB-ordine-0}
+\end{equation}
+nel senso che una soluzione generale è combinazione lineare delle due onde (una per ciascun segno dell'esponente).
+L'integrale è lasciato indefinito in quanto un'eventuale costante arbitraria è assorbita in $A$:
+\begin{equation}
+	\psi(x)=Ae^{\pm\frac{i}{\hbar}\int p(x')\,\dd x'+c}=Ae^ce^{\pm\frac{i}{\hbar}\int p(x')\,\dd x'}=\tilde{A}e^{\pm\frac{i}{\hbar}\int p(x')\,\dd x'}.
+\end{equation}
+A questo punto possiamo anche scegliere l'estremo inferiore di integrazione come un generico $x_0$ (nel dominio adatto), trovando
+\begin{equation}
+	\psi(x)=\psi(0)e^{\pm\frac{i}{\hbar}\int_{x_0}^x p(x')\,\dd x'}.
+\end{equation}
+
+Compiamo il passo successivo e consideriamo anche il termine del primo ordine: la funzione d'onda sarà dunque $\psi(x)=A\exp\big(\frac{i}{\hbar}\phi_0(x)+i\phi_1(x)\big)$.
+Uguagliando a zero i due termini otteniamo per $\phi_0$ la stessa soluzione trovata poco fa, mentre per il termine in $\hbar$ abbiamo
+\begin{equation}
+	i\phi_0''=2\phi_0'\phi_1'\qqq \frac{\phi_0''}{\phi_0'}=-2i\phi_1'\qqq \log\phi_0'=-2i\phi_1+k
+\end{equation}
+per un $k\in\C$ generico.
+Risolvendo per $\phi_1$ troviamo, ricordando che $\phi_0'=p$,
+\begin{equation}
+	\phi_1=\frac{i}2\log\phi_0'+c=i\log\sqrt{\abs{p}}+k'
+\end{equation}
+perciò la funzione d'onda approssimata è
+\begin{equation}
+	\psi(x)=Be^{\pm\frac{i}{\hbar}\int^xp(x')\,\dd x'+ik'-\log\sqrt{\abs{p}}}=\frac{B}{\sqrt{p}}e^{\pm\frac{i}{\hbar}\int^xp(x')\,\dd x'},
+	\label{eq:soluzione-WKB-ordine-1}
+\end{equation}
+intendendo anche qui che la soluzione generale è combinazione lineare delle due funzioni, per ciascun segno.
+
+È necessario infine discutere della validità di questa approssimazione: essa è valida se il termine in $\hbar$ è trascurabile, ossia se
+\begin{equation}
+	\hbar\abs{\drv{}{x}\frac1{p(x)}}\ll 1.
+	\label{eq:condizione-approssimazione-WKB}
+\end{equation}
+
