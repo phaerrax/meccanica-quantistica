@@ -1,2 +1,33 @@
 \chapter{Sistemi unidimensionali}
 In queto capitolo affronteremo una serie di esempi ``accademici'' di sistemi in una dimensione, cercando di risolvere dove possibile l'equazione di Schr\"odinger per la funzione d'onda e lo spettro di energia, o di trovare la migliore approssimazione sfruttando le tecniche acquisite.
+
+\section{Particella libera}
+Contrariamente al caso classico, in cui questo era il sistema più semplice da studiare, nel caso quantistico troviamo qualche complicazione.
+L'hamiltoniano del sistema è semplicemente
+\begin{equation}
+	\op H=\frac1{2m}\op p^2.
+	\label{eq:H-particella-libera}
+\end{equation}
+Notiamo immediatamente che $[\op p,\op H]=0$ essendo $\op H$ funzione unicamente di $\op p$, dunque le due osservabili sono compatibili.
+L'impulso dunque è una quantità conservata: a questo corrisponde la simmetria (evidente) del sistema per traslazioni spaziali, che sono generate da $\op p$.
+Preso un autostato $\ket{p}$ dell'impulso (di autovalore $p$), troviamo $\op H\ket{p}=\frac1{2m}\op p^2\ket{p}=\frac1{2m}p^2\ket{p}$.
+D'altro canto, $\frac1{2m}p^2$ è l'autovalore dell'hamiltoniano dunque è l'energia $E$ del sistema; se fissiamo dunque questo valore, troviamo due autostati di $\op p$ aventi questa energia, che sono $\ket{p}$ e $\ket{-p}$.
+Ciò significa che l'hamiltoniano è degenere, ossia un suo autostato $\ket{E}$ si scrive come $\alpha\ket{p}+\beta\ket{-p}$.
+
+Nella base degli autostati della posizione, la funzione d'onda è soluzione dell'equazione di Schr\"odinger
+\begin{equation}
+	\frac{\hbar^2}{2m}\psi''(x)=E\psi(x)
+	\label{eq:schrodinger-particella-libera}
+\end{equation}
+da cui
+\begin{equation}
+	\psi(x)=Ae^{-\frac{i}{\hbar}\sqrt{2mE}x}+Be^{\frac{i}{\hbar}\sqrt{2mE}x}
+	\label{eq:wf-particella-libera}
+\end{equation}
+per qualche $A,B\in\C$.
+L'energia $E$ è necessariamente positiva in quanto, come visto prima, è uguale a $\frac{p^2}{2m}$.
+Alternativamente, se $E$ fosse negativa allora $\sqrt{E}$ avrebbe anche una parte immaginaria, che moltiplicata per $\pm i$ negli esponenti porterebbe a un'espressione della forma $e^{\pm\lambda x}$: in tal caso la funzione d'onda divergerebbe per $\abs{x}\to+\infty$ e non sarebbe accettabile (fisicamente) come soluzione.
+Oltre a questo, $E$ può assumere qualsiasi valore reale positivo; in ogni caso, per nessun valore risulta $\psi\in L^2(\R)$, dato che la soluzione è oscillante.
+Questo fatto non ci deve turbare, perch\'e sappiamo che l'impulso di uno stato non può essere conosciuto con assoluta precisione, mentre all'inizio del problema abbiamo preso proprio un autostato di $\op p$.
+Dopotutto, se il sistema fosse nell'autostato $\ket{\pm p}$, avrebbe un'indeterminazione \emph{nulla} sull'impulso e di conseguenza, per il principio di Heisenberg, l'indeterminazione sulla posizione dovrà essere \emph{infinita} (ed è questo il caso) affinch\'e il prodotto $\Delta q\Delta p$ possa essere finito.
+
