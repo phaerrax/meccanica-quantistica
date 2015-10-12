@@ -55,17 +55,6 @@
 	\subsubsectionfont{\itshape}
 	\paragraphfont{\normalsize}
 
-\usepackage{hyperref}
-	\hypersetup{
-		bookmarksnumbered=true,
-		bookmarksopen=true,
-		bookmarksopenlevel=1,
-		colorlinks=true,
-		linkcolor=blue!50!black,
-		pdfstartview=Fit,
-		pdfpagemode=UseOutlines
-	}
-	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Font di dimensione più piccola in apici e pedici
 \makeatletter
@@ -234,9 +223,22 @@
 %trovare altri nomi per gli ultimi tre ASAP
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Inizia l'indice nella pagina indicata e non in una pag. a parte
+% Elenca nell'indice analitico i titoli di non oltre le sezioni
+% (cioè le sottosezioni sono nascoste)
 \setcounter{tocdepth}{1}
-\makeatletter
-\newcommand*{\toccontents}{\@starttoc{toc}}
-\makeatother
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Impostazioni di hyperref per collegamenti interni e proprietà
+% del documento PDF; deve essere caricato dopo titlesec per evitare
+% conflitti nei comandi (e.g. pdfbookmark non funziona)
+\usepackage{hyperref}
+	\hypersetup{
+		bookmarksnumbered=true,
+		bookmarksopen=true,
+		bookmarksopenlevel=1,
+		colorlinks=true,
+		linkcolor=blue!50!black,
+		pdfstartview=Fit,
+		pdfpagemode=UseOutlines
+	}
+	
