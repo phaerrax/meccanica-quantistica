@@ -119,3 +119,62 @@ Torniamo dunque allo spazio della posizione con la trasformata di Fourier:
 ponendo $p'=\frac{p}{\hbar}\big(\frac{2am}{\hbar^2}\big)^{-\frac13}$.
 Il risultato è un'espressione integrale proprio della funzione $\Ai(\xi)$, dunque (dopo una normalizzazione per determinare il valore di $\tilde{A}$) si ottiene $\psi(\xi)$.
 
+\section{Buca di potenziale}
+Studiamo un sistema composto da una particella in una buca di potenziale di altezza $V_0$, larghezza $2a$ e centrata nell'origine, ossia soggetta al potenziale
+\begin{equation}
+	V(x)=
+	\begin{cases}
+		0	&x\in[-a,a]\\
+		V_0	&x\in(-\infty,-a)\cup(a,+\infty)
+	\end{cases}.
+	\label{eq:buca-potenziale-finita}
+\end{equation}
+La discontinuità di $V$ è finita, dunque le funzioni d'onda dovranno essere di classe $\cont{1}(\R)$.
+Inoltre $V$ è pari dunque dovranno essere di parità definita (autostati dell'operatore di inversione spaziale).
+Supponiamo che l'energia $E$ del sistema sia minore di $V_0$, e risolviamo l'equazione di Schr\"odinger
+\begin{equation}
+	\begin{cases}
+		\psi''(x)=-\frac{2mE}{\hbar^2}\psi(x)		&x\in(-a,a)\\
+		\psi''(x)=\frac{2mE}{\hbar^2}(V_0-E)\psi(x)	&x\in(-\infty,-a)\cup(a,+\infty)
+	\end{cases}
+	\label{eq:schrodinger-buca-finita}
+\end{equation}
+da cui la soluzione generale
+\begin{equation}
+	\begin{cases}
+		\psi(x)=A_2e^{-k_2x}+B_2e^{k_2x}	&x\in(-\infty,-a)\\
+		\psi(x)=A_1e^{-ik_1x}+B_1e^{ik_1x}	&x\in(-a,a)\\
+		\psi(x)=A_3e^{-k_2x}+B_3e^{k_2x}	&x\in(a,+\infty)
+	\end{cases}
+	\label{eq:soluzione-generale-schrodinger-buca-finita}
+\end{equation}
+definendo $k_1\defeq\sqrt{\frac{2mE}{\hbar^2}}$ e $k_2\defeq\sqrt{\frac{2m(V_0-E)}{\hbar^2}}$.
+Possiamo riscrivere le soluzioni nei termini delle autofunzioni dell'operatore di inversione come
+\begin{equation}
+	\begin{cases}
+		\psi(x)=A_2e^{-k_2x}+B_2e^{k_2x}	&x\in(-\infty,-a)\\
+		\psi(x)=A\cos(k_1x)+B\sin(k_1x)		&x\in(-a,a)\\
+		\psi(x)=A_3e^{-k_2x}+B_3e^{k_2x}	&x\in(a,+\infty)
+	\end{cases}
+	\label{eq:schrodinger-buca-potenziale-finita-autofunzioni-inversione}
+\end{equation}
+
+A questo punto dobbiamo raccordare le soluzioni in modo che $\psi\in\cont{1}(\R)$, e questo ci darà i valori ammessi di $E$.
+Innanzitutto dovrà essere $A_2=B_3=0$ affinch\'e $\psi\in L^2(\R)$.
+La funzione d'onda dello stato fondamentale non ha nodi, perciò deve essere pari: nella regione $(-a,a)$ allora risulta $B=0$ da cui $\psi(x)=A\cos(k_1x)$, mentre all'esterno si ha $B_2=A_3$ sempre per la parità.
+Uguagliando le espressioni di $\psi$ in $x=-a$ ricaviamo $A\cos(k_1a)=B_2e^{k_2a}$; otteniamo il medesimo risultato in $x=a$ per la parità della funzione.
+Ripetiamo il procedimento per la derivata (che sarà dispari) ottenendo $-k_2B_2e^{-k_2a}=-k_1A\sin(k_1a)$.
+Dividiamo le due espressioni trovate ottenendo $k_2\tan(k_1a)=k_1$: dato che $a\ne 0$ nella regione interessata, moltiplichiamo per $a$ e definiamo $\gamma=k_1a$ e $\eta=k_2a$.
+Otteniamo il sistema
+\begin{equation}
+	\begin{cases}
+		\gamma\tan\gamma=\eta\\
+		\gamma^2+\eta^2=\frac{2mV_0a^2}{\hbar^2}
+	\end{cases}
+	\label{eq:sistema-soluzioni-buca-potenziale-finita}
+\end{equation}
+Per trovare le soluzioni dobbiamo ricorrere alla via grafica, mostrata in figura \ref{fig:soluzione-grafica-buca-potenziale}.
+\input{grafici/soluzione-grafica-buca-potenziale.tex}
+Il numero di intersezioni dei due grafici, che dà il numero di soluzioni $(\gamma,\eta)$ del sistema, è il numero di possibili valori di $k_1$ e $k_2$ per cui la $\psi$ è una funzione accettabile per il sistema, che tornando alle loro definizioni è poi il numero di valori di $E$.
+Notiamo che, qualunque siano i valori di $V_0$ e $a$, il sistema ammette sempre una soluzione: è lo stato fondamentale.
+

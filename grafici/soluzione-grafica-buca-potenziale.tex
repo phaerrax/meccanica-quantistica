@@ -1,0 +1,23 @@
+\begin{figure}
+	\tikzsetnextfilename{soluzione-grafica-buca-potenziale}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+				standard,
+				enlargelimits,
+				xlabel=$\gamma$,
+				xmin=0, xmax=5,
+				xtick={1.5213,3.1416,4.6629}, xticklabels={$\frac{\pi}2$,$\pi$,$\frac{3\pi}2$},
+				ylabel=$\eta$,
+				ymin=0, ymax=4,
+				ytick=\empty
+			]
+			\addplot[thick,densely dashed,domain=0:2] function {sqrt(4-x**2)};
+			\addplot[thick, domain=0:pi/2-0.01] function {x*tan(x)};
+			\addplot[thick, domain=pi:3*pi/2-0.01] function {x*tan(x)};
+			\legend{$\gamma^2+\eta^2=\frac{2mV_0}{\hbar^2}$,$\eta=\gamma\tan\gamma$}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Soluzione grafica per il sistema di equazioni \eqref{eq:sistema-soluzioni-buca-potenziale-finita}.}
+	\label{fig:soluzione-grafica-buca-potenziale}
+\end{figure}
