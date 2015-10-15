@@ -177,4 +177,9 @@ Per trovare le soluzioni dobbiamo ricorrere alla via grafica, mostrata in figura
 \input{grafici/soluzione-grafica-buca-potenziale.tex}
 Il numero di intersezioni dei due grafici, che dà il numero di soluzioni $(\gamma,\eta)$ del sistema, è il numero di possibili valori di $k_1$ e $k_2$ per cui la $\psi$ è una funzione accettabile per il sistema, che tornando alle loro definizioni è poi il numero di valori di $E$.
 Notiamo che, qualunque siano i valori di $V_0$ e $a$, il sistema ammette sempre una soluzione: è lo stato fondamentale.
+Inoltre, come accade spesso in meccanica quantistica, anche se il sistema parte con un'energia minore del livello del potenziale esiste comunque una probabilità non nulla di individuare la particella ``fuori dalla buca''.
 
+Guardiamo infine al caso di una buca di potenziale infinita: questa volta non è più garantita la continuità di $\psi'$, ma in ogni caso (affinch\'e sia ben definita la probabilità associata alla $\abs{\psi}^2$) dovrà essere $\psi\in\cont{}(\R)$.
+Innanzitutto nella figura \ref{fig:soluzione-grafica-buca-potenziale} vediamo subito che il numero di soluzioni diventa infinito.
+Inoltre, il coefficiente $k_2$ degli esponenziali tende a $+\infty$, dunque le ``code'' della funzione d'onda, che decadono esponenzialmente a 0, sono del tipo $e^{-k_2\abs{x}}$ cioè diventano sempre più ``basse'': allora $\psi=0$ per $x\notin(-a,a)$.
+In una buca di potenziale infinita perciò si ha una barriera impenetrabile di potenziale, cioè stavolta la particella è \emph{davvero} confinata nella regione $(-a,a)$.
