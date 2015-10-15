@@ -31,3 +31,91 @@ Oltre a questo, $E$ può assumere qualsiasi valore reale positivo; in ogni caso,
 Questo fatto non ci deve turbare, perch\'e sappiamo che l'impulso di uno stato non può essere conosciuto con assoluta precisione, mentre all'inizio del problema abbiamo preso proprio un autostato di $\op p$.
 Dopotutto, se il sistema fosse nell'autostato $\ket{\pm p}$, avrebbe un'indeterminazione \emph{nulla} sull'impulso e di conseguenza, per il principio di Heisenberg, l'indeterminazione sulla posizione dovrà essere \emph{infinita} (ed è questo il caso) affinch\'e il prodotto $\Delta q\Delta p$ possa essere finito.
 
+\section{Potenziale lineare}
+Consideriamo il sistema formato da una particella soggetta al potenziale $V(x)=-ax$.
+L'hamiltoniano del sistema è l'operatore
+\begin{equation}
+	\op H=\frac1{2m}\op p^2-a\op q.
+	\label{eq:H-potenziale-lineare}
+\end{equation}
+Possiamo ricavare qualitativamente alcune informazioni sul sistema guardando al potenziale:
+\begin{itemize}
+	\item dato che $V\to-\infty$ per $x\to+\infty$, non ammette un minimo, perciò lo spettro di $\op H$ non potrà essere discreto e non possono esistere, di conseguenza, stati legati;
+	\item d'altro canto $V\to+\infty$ per $x\to-\infty$ dunque $\op H$ non sarà degenere.
+\end{itemize}
+Nella base della posizione l'equazione di Schr\"odinger è
+\begin{equation}
+	-\frac{\hbar^2}{2m}\psi''(x)-(ax+E)\psi(x)=0
+	\label{eq:schrodinger-posizione-potenziale-lineare}
+\end{equation}
+ossia
+\begin{equation}
+	\psi''(x)+\frac{2m}{\hbar^2}(E+ax)\psi(x)=0.
+\end{equation}
+Osserviamo che $\frac{2ma}{\hbar^2}$ ha le dimensioni di una $\textup{lunghezza}^{-3}$, e che possiamo raggruppare $a$ nell'equazione nel termine $(E+ax)\psi(x)$.
+La variabile $x+\frac{E}{a}$ ha dunque le dimenzioni di una lunghezza: nell'equazione di Schr\"odinger operiamo dunque il cambio di variabile
+\begin{equation}
+	\xi=\bigg(\frac{2ma}{\hbar^2}\bigg)^{\frac13}\bigg(x-\frac{E}{a}\bigg).
+\end{equation}
+Per la derivata, abbiamo
+\begin{equation}
+	\drv{}{x}=\drv{}{\xi}\drv{\xi}{x}=\bigg(\frac{2ma}{\hbar^2}\bigg)^{\frac13}\drv{}{\xi}
+\end{equation}
+ottenendo la nuova equazione
+\begin{equation}
+	\begin{gathered}
+		\bigg(\frac{2ma}{\hbar^2}\bigg)^{\frac23}\psi''(\xi)+\frac{2ma}{\hbar^2}\bigg(\frac{2ma}{\hbar^2}\bigg)^{-\frac13}\xi\psi(\xi)=0\\
+		\bigg(\frac{2ma}{\hbar^2}\bigg)^{\frac23}\psi''(\xi)+\bigg(\frac{2ma}{\hbar^2}\bigg)^{\frac23}\xi\psi(\xi)=0\\
+		\psi''(\xi)+\xi\psi(\xi)=0.
+	\end{gathered}
+	\label{eq:soluzione-potenziale-lineare}
+\end{equation}
+Cambiamo ancora variabile con $\zeta=-\xi$ (per cui si ha $\ddrv{}{\xi}=\ddrv{}{\zeta}$) per ottenere l'\emph{equazione di Airy}
+\begin{equation}
+	\psi''(\zeta)+\zeta\psi(\zeta)=0
+	\label{eq:airy-potenziale-lineare}
+\end{equation}
+le cui due soluzioni indipendenti sono le omonime \emph{funzioni di Airy} del primo e del secondo tipo, denominate rispettivamente $\Ai\zeta$ e $\Bi\zeta$.
+Sono funzioni particolari, non esprimibili solamente in termini di funzioni elementari.
+In particolare, hanno un comportamento oscillatorio per $\zeta<0$ ed esponenziale per $\zeta>0$.
+Dato che $\Bi\to+\infty$ esponenzialmente per $\zeta\to+\infty$, ci interessiamo d'ora in poi solo della funzione del primo tipo, $\Ai$: la funzione d'onda soluzione di \eqref{eq:airy-potenziale-lineare} ha dunque la forma $\psi(\zeta)=c\Ai(\zeta)$, o tornando nella variabile $\xi$ precedente $\psi(\xi)=c\Ai(-\xi)$, per qualche $c\in\C$.
+
+Cerchiamo ora il comportamento asintotico di $\psi$ per valori molto grandi di $\xi$: ipotizzando che $\psi(\xi)\sim\exp(-\gamma{\xi}^s)$, con $\gamma,s>0$, troviamo
+\begin{gather*}
+	\psi'(\xi)=-(\sgn\xi)\gamma s\abs{\xi}^{s-1}e^{-\gamma\abs{\xi}^s}\\
+	\psi''(\xi)=\big[s^2\gamma^2\abs{\xi}^{2s-2}-(\sgn\xi)\gamma s(s-1)\abs{\xi}^{s-2}\big]e^{-\gamma\abs{\xi}^s}.
+\end{gather*}
+Sostituendole nella \eqref{eq:soluzione-potenziale-lineare} otteniamo che deve essere $\abs{\xi}^{2s-2}\sim\abs{\xi}$ e $s^2\gamma^2=1$ affinch\'e la soluzione sia accettabile, perciò troviamo $s=\frac32$ e $\gamma=\frac23$.
+La funzione d'onda approssimata per grandi valori di $\xi$ è dunque
+\begin{equation}
+	\psi(\xi)\sim ce^{-\frac23\abs{\xi}^{3/2}}
+\end{equation}
+con $c$ da determinare normalizzando.
+Otteniamo una soluzione più ``fine'' ipotizzando che $\psi(\xi)\sim c\exp(-\frac23\abs{\xi}^{3/2})\abs{\xi}^\beta$ per la quale si ottiene $\beta=-\frac14$.
+
+Sebbene sia più ``naturale'' lavorare nella base della posizione, in questo caso risulta più comodo usare la base dell'impulso, perch\'e non appaiono potenze maggiori di $\op q$ nell'hamiltoniano: si ottiene dunque un'equazione differenziale del primo, e non del secondo, ordine.
+L'equazione di Schr\"odinger (chiamiamo $\tilde{\psi}$ la funzione d'onda nello spazio degli impulsi per evitare confusioni) in questa base è dunque
+\begin{equation}
+	\frac1{2m}p^2\tilde{\psi}(p)-ia\hbar\tilde{\psi}'(p)=E\tilde{\psi}(p)
+	\label{eq:schrodinger-impulso-potenziale-lineare}
+\end{equation}
+da cui
+\begin{equation}
+	\tilde{\psi}'(p)=\frac{i}{a\hbar}\bigg(E-\frac{p^2}{2m}\bigg)\tilde{\psi}(p)
+\end{equation}
+che ha come soluzione la funzione d'onda
+\begin{equation}
+	\tilde{\psi}(p)=Ae^{\frac{i}{a\hbar}\big(Ep-\frac{p^3}{6m}\big)}.
+\end{equation}
+
+Torniamo dunque allo spazio della posizione con la trasformata di Fourier:
+\begin{equation}
+	\begin{split}
+		\psi(x)&=(\four{\tilde{\psi}})(x)=\frac{A}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}px}\tilde{\psi}(p)\,\dd p=\\
+		&=\frac{A}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\exp\bigg[\frac{i}{\hbar}p\bigg(x+\frac{E}{a}\bigg)+\frac{ip^3}{6am\hbar}\bigg]\,\dd p=\\
+		&=\frac{A}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\exp\bigg[\frac{i}{\hbar}p\xi\bigg(\frac{2am}{\hbar^2}\bigg)^{-\frac13}+\frac{ip^3}{6am\hbar}\bigg]\,\dd p=\\ &=\tilde{A}\int_{-\infty}^{+\infty}\exp\bigg(ip'\xi+\frac{ip'^3}3\bigg)\,\dd p'
+	\end{split}
+\end{equation}
+ponendo $p'=\frac{p}{\hbar}\big(\frac{2am}{\hbar^2}\big)^{-\frac13}$.
+Il risultato è un'espressione integrale proprio della funzione $\Ai(\xi)$, dunque (dopo una normalizzazione per determinare il valore di $\tilde{A}$) si ottiene $\psi(\xi)$.
+
