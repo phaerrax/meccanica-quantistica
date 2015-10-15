@@ -183,3 +183,113 @@ Guardiamo infine al caso di una buca di potenziale infinita: questa volta non è
 Innanzitutto nella figura \ref{fig:soluzione-grafica-buca-potenziale} vediamo subito che il numero di soluzioni diventa infinito.
 Inoltre, il coefficiente $k_2$ degli esponenziali tende a $+\infty$, dunque le ``code'' della funzione d'onda, che decadono esponenzialmente a 0, sono del tipo $e^{-k_2\abs{x}}$ cioè diventano sempre più ``basse'': allora $\psi=0$ per $x\notin(-a,a)$.
 In una buca di potenziale infinita perciò si ha una barriera impenetrabile di potenziale, cioè stavolta la particella è \emph{davvero} confinata nella regione $(-a,a)$.
+
+\section{Potenziale delta attrattivo}
+Dopo una buca di potenziale ``standard'', vediamone la versione infinitamente alta e stretta, modellizzata dall'equazione del potenziale
+\begin{equation}
+	V(x)=-\lambda\delta(x).
+	\label{eq:potenziale-delta-attrattivo}
+\end{equation}
+Possiamo risolvere questo problema in tre metodi diversi, che ora presentiamo.
+\paragraph{Limite della buca di altezza finita}
+Riprendendo direttamente l'esempio precedente, consideriamo una buca centrata nell'origine, di altezza $V_0$ e larghezza $a$, e prendiamone il limite per $a\to 0$, $V_0\to+\infty$ tali che $aV_0\to\lambda$, un valore finito.
+Prendiamo un potenziale della forma
+\begin{equation}
+	V(x)=
+	\begin{cases}
+		-V_0	&x\in\big[-\frac{a}2,\frac{a}2\big]\\
+		0		&x\in\big(-\infty,-\frac{a}2\big)\cup\big(\frac{a}2,+\infty\big)
+	\end{cases}
+\end{equation}
+Il potenziale è sempre pari, dunque la funzione d'onda dello stato fondamentale è anch'essa pari.
+Scegliamo arbitrariamente il suo valore nell'origine ponendo $\psi(0)=1$, e in modo simile alle equazioni \eqref{eq:soluzione-generale-schrodinger-buca-finita} otteniamo\footnote{La scelta di porre $\psi(0)=1$ non lede la generalità del problema, dato che la funzione d'onda è poi da normalizzare.}
+\begin{equation}
+	\psi(x)=
+	\begin{cases}
+		\cos\big(k\frac{a}2\big)e^{\alpha(x+\frac{a}2)}		&x<-\frac{a}2\\
+		\cos\big(kx\big)									&\abs{x}\le\frac{a}2\\
+		\cos\big(k\frac{a}2\big)e^{-\alpha(x-\frac{a}2)}	&x>\frac{a}2
+	\end{cases}
+	\label{eq:soluzione-generale-delta-attrattivo}
+\end{equation}
+dove $k=\sqrt{\frac{2m(E+V_0)}{\hbar^2}}$ e $\alpha=\sqrt{\frac{-2mE}{\hbar^2}}$, con un'energia iniziale del sistema $-V_0<E<0$.
+Per come è scritta, la $\psi$ è già continua; imponendo anche $\psi\in\cont{1}(\R)$ otteniamo
+\begin{equation}
+	k\sin\frac{ka}2=\alpha\cos\frac{ka}2\qqq k\tan\frac{ka}2=\alpha
+	\label{eq:condizione-C1-delta-attrattivo}
+\end{equation}
+e portando al limite $V_0\to+\infty$ si ottiene $ka\to 0$, dunque possiamo approssimare
+\begin{equation}
+	\alpha=k\tan\frac{ka}2\approx k^2\frac{a}2,
+\end{equation}
+da cui troviamo l'energia dello stato fondamentale
+\begin{equation}
+	-\frac{2mE}{\hbar^2}=\frac{m^2\lambda^2}{\hbar^4}\qqq E=-\frac{m\lambda^2}{2\hbar^2}.
+	\label{eq:E-fondamentale-delta-attrattivo}
+\end{equation}
+Con $a\to 0$ si ha inoltre la funzione d'onda $\psi(x)=e^{-\alpha\abs{x}}$.
+La sua derivata non è continua in $x=0$, ma non è un problema dato che il potenziale ha una discontinuità infinita in quel punto.
+Risulta, in particolare, $\psi'(x)=-\alpha e^{-\alpha\abs{x}}\sgn x$, che integrata in $[-\epsilon,\epsilon]$ dà
+\begin{equation}
+	\psi'(\epsilon)-\psi'(-\epsilon)=\int_{-\epsilon}^{\epsilon}-\alpha e^{-\alpha\abs{x}}\sgn x\,\dd x=-2\alpha=-\frac{2m\lambda}{\hbar^2}\psi(0)=-\frac{2m\lambda}{\hbar^2}
+	\label{eq:discontinuita-derivata-wf-delta-attrattivo}
+\end{equation}
+che misura la discontinuità di $\psi'$ nell'origine.
+
+\paragraph{Equazione di Schr\"odinger}
+Scriviamo direttamente l'equazione di Schr\"odinger del sistema, con energia $E$, che è
+\begin{equation}
+	-\frac{\hbar^2}{2m}\psi''(x)-\lambda\delta(x)\psi(x)=E\psi(x)\qqq \psi''(x)=-\frac{2m}{\hbar^2}\big[E+\lambda\delta(x)\big]\psi(x).
+	\label{eq:schrodinger-delta-attrattivo}
+\end{equation}
+Integrando i due membri dell'equazione nell'intervallo $[-\epsilon,\epsilon]$ abbiamo
+\begin{equation}
+	\begin{split}
+		\psi'(\epsilon)-\psi'(-\epsilon)&=\int_{-\epsilon}^{\epsilon}-\frac{2m}{\hbar^2}\big[E+\lambda\delta(x)\big]\psi(x)\,\dd x=\\
+		&=-\frac{2mE}{\hbar^2}\int_{-\epsilon}^{\epsilon}\psi(x)\,\dd x-\frac{2m\lambda}{\hbar^2}\int_{-\epsilon}^{\epsilon}\delta(x)\psi(x)\,\dd x=\\
+		&=-\frac{2mE}{\hbar^2}\int_{-\epsilon}^{\epsilon}\psi(x)\,\dd x-\frac{2m\lambda}{\hbar^2}\psi(0)=\\
+		&=-\frac{2m\lambda}{\hbar^2}\psi(0)
+	\end{split}
+\end{equation}
+nel limite, all'ultimo passaggio, per $\epsilon\to 0^+$, e dato che $\psi$ è continua il primo addendo è nullo.
+Escludendo l'origine, l'equazione di Schr\"odinger si scrive più semplicemente come $\psi''(x)=-\frac{2mE}{\hbar^2}\psi(x)$, che ha come soluzione $\psi(x)=\psi(0)\exp(-\alpha\abs{x})$ dove $\alpha$ è definita come prima.
+Imponendo la discontinuità di $\psi'$ nell'origine, appena trovata integrando la \eqref{eq:schrodinger-delta-attrattivo}, troviamo lo stesso valore per $\alpha$ del paragrafo precedente; si ha un solo valore di energia ammissibile.
+
+\paragraph{Spazio degli impulsi}
+Nella notazione di Dirac la \eqref{eq:schrodinger-delta-attrattivo} si scrive, in uno stato legato $\ket{E}$, come
+\begin{equation}
+	\bigg(\frac1{2m}\op p^2+V(\op q)\bigg)\ket{E}=E\ket{E}\qqq\bigg(\frac1{2m}\op p^2-E\bigg)\ket{E}=-V(\op q)\ket{E}.
+	\label{eq:schrodinger-delta-attrattivo-dirac}
+\end{equation}
+Anzich\'e rappresentarla nella base della posizione, lavoriamo nella base degli impulsi: moltiplicando per $\bra{p}$ otteniamo
+\begin{equation}
+	\frac1{2m}\bra{p}\op p^2\ket{E}-E\braket{p}{E}=-\bra{p}V(\op q)\ket{E}
+\end{equation}
+da cui (chiamiamo ancora $\psi$ la funzione d'onda nello spazio degli impulsi)
+\begin{equation}
+	\frac{p^2}{2m}\psi(p)-E\psi(p)=-\int_{-\infty}^{+\infty}\bra{p}V(\op q)\ket{p'}\braket{p'}{E}\,\dd p'=-\int_{-\infty}^{+\infty}\bra{p}V(\op q)\ket{p'}\psi(p')\,\dd p'.
+\end{equation}
+Calcoliamo l'elemento di matrice $\bra{p}V(\op q)\ket{p'}$: l'espressione del potenziale nella base della posizione è troppo comoda per non essere usata, dunque introduciamo a destra del potenziale una risoluzione dell'identità con gli autostati $\ket{x}$ della posizione, ottenendo
+\begin{multline}
+	\bra{p}V(\op q)\ket{p'}=\int_{-\infty}^{+\infty}\bra{p}V(\op q)\ket{x}\braket{x}{p'}\,\dd x=\int_{-\infty}^{+\infty}V(x)\braket{p}{x}\braket{x}{p'}\,\dd x=\\
+	=\frac1{2\pi\hbar}\int_{-\infty}^{+\infty}V(x)\exp\bigg[\frac{i}{\hbar}(p'-p)x\bigg]\,\dd x=-\frac{\lambda}{2\pi\hbar}\int_{-\infty}^{+\infty}\delta(x)\exp\bigg[\frac{i}{\hbar}(p'-p)x\bigg]\,\dd x=-\frac{\lambda}{2\pi\hbar}.
+\end{multline}
+Sostituendo questo nell'equazione precedente, troviamo dunque
+\begin{equation}
+	\bigg(\frac{p^2}{2m}-E\bigg)\psi(p)=\frac{\lambda}{2\pi\hbar}\int_{-\infty}^{+\infty}\psi(p')\,\dd p'=\frac{\lambda}{\sqrt{2\pi\hbar}}\psi_0
+\end{equation}
+dove $\psi_0$ è il valore della funzione d'onda \emph{delle coordinate} nel punto $x=0$.
+Troviamo infine
+\begin{equation}
+	\psi(p)=\frac{\lambda\psi_0}{\sqrt{2\pi\hbar}}\frac1{\frac{p^2}{2m}-E}.
+	\label{eq:wf-impulsi-delta-attrattivo}
+\end{equation}
+Integrando in $p$ (su tutto $\R$) e dividendo per $\sqrt{2\pi\hbar}$ i due membri si può trovare la relazione che lega $E$ a $\lambda$, con
+\begin{equation}
+	\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\psi(p)\,\dd p=\psi_0\frac1{2\pi\hbar}\int_{-\infty}^{+\infty}\frac1{\frac{p^2}{2m}-E}\,\dd p
+\end{equation}
+da cui, considerando $\psi$ normalizzata, e ricordando che $\psi_0=1$ (dai paragrafi precedenti) affinch\'e sia normalizzata anche la funzione d'onda nella base della posizione, si ottiene l'equazione
+\begin{equation}
+	\int_{-\infty}^{+\infty}\frac1{p^2+2mE}\,\dd p=\frac{\pi\hbar}{m\lambda}.
+\end{equation}
+
