@@ -101,3 +101,32 @@ intendendo anche qui che la soluzione generale è combinazione lineare delle due
 	\label{eq:condizione-approssimazione-WKB}
 \end{equation}
 
+\section{Principi variazionali}
+Spesso è necessario ricavare i livelli energetici, in particolare quello fondamentale, di un sistema anche quando la soluzione analitica è difficile da trovare.
+A questo scopo è utile il metodo variazionale, che ha come punto di partenza la disuguaglianza
+\begin{equation}
+	E_0\ge\frac{\bra{\psi}\op H\ket{\psi}}{\braket{\psi}{\psi}}
+	\label{eq:principio-variazionale}
+\end{equation}
+per ogni stato $\ket{\psi}$ del sistema, dove $E_0$ è l'autovalore minimo dell'hamiltoniano, ossia il livello di energia dello stato fondamentale.
+Infatti, espandendo il valore medio $\bra{\psi}\op H\ket{\psi}$ in una base di autostati $\ket{E_n}$ di $\op H$, otteniamo
+\begin{equation}
+	\bra{\psi}\op H\ket{\psi}=\sum_{n,m}\braket{\psi}{E_n}\bra{E_n}\op H\ket{E_m}\braket{E_m}{\psi}=\sum_{n,m}c_n^*E_m\delta_{nm}c_m=\sum_nE_n\abs{c_n}^2
+\end{equation}
+dove $c_j=\braket{E_j}{\psi}$.
+D'altra parte si ha chiaramente $\braket{\psi}{\psi}=\sum_n\abs{c_n}^2$, perciò
+\begin{equation}
+	\frac{\bra{\psi}\op H\ket{\psi}}{\braket{\psi}{\psi}}=\frac{\sum_nE_n\abs{c_n}^2}{\sum_n\abs{c_n}^2}\ge\frac{\sum_nE_0\abs{c_n}^2}{\sum_n\abs{c_n}^2}=E_0.
+\end{equation}
+Possiamo interpretare la frazione come una media pesata degli autovalori $E_n$, dove i pesi sono dati da $\abs{c_n}/\sum_k\abs{c_k}^2$ (sono compresi tra 1 e 0 e la loro somma è 1).
+
+Con questa disuguaglianza potremmo dunque determinare lo stato fondamentale di un sistema, calcolando il valore atteso di $\op H$ per tutti gli stati normalizzati e prendiamo il valore minimo; per ovvi motivi, non è una via perseguibile in pratica.
+Ciò che si fa solitamente è considerare, invece che l'intero spazio degli stati possibili, un suo ragionevole sottoinsieme, i cui stati possono essere parametrizzati con delle variabili, in base alle caratteristiche di $\op H$ (in particolare, del potenziale).
+Con questa restrizione il valore medio di $\op H$ nella \eqref{eq:principio-variazionale} diventa una funzione di queste variabili scelte, di cui possiamo comodamente calcolare il minimo, che è quindi una maggiorazione di $E_0$.
+Ad esempio, se il potenziale è pari e vogliamo cercare lo stato fondamentale, proveremo uno stato caratterizzato da una funzione d'onda pari, senza nodi e che ovviamente sia a quadrato sommabile.
+Una volta trovato un valore però non possiamo sapere, senza altre informazioni, se è una buona stima di $E_0$; potremmo addirittura trovare il valore esatto di $E_0$.
+La bontà della stima è data innanzitutto da come modelliamo lo ``stato prova'' su cui calcoliamo $\bra{\psi}\op H\ket{\psi}$: ad esempio uno stato con funzione d'onda dispari e qualche nodo non darà certamente buoni risultati per lo stato fondamentale.
+Possiamo ad esempio riprovare la stima questa volta aggiungendo altri parametri allo stato, cercando di trovare una stima di $E_0$ minore della precedente.
+Più elaborato è il modello di prova, migliore sarà l'approssimazione: d'altro canto, continuando ad aggiungere parametri la mole di calcoli da compiere aumenta sempre di più, e potrebbe non valerne la pena se i miglioramenti su $E_0$ non sono apprezzabili.
+Lo scopo di questo metodo è, in un certo senso, trovare la migliore approssimazione con il minor lavoro possibile.
+
