@@ -14,9 +14,9 @@ Notiamo come con questa forma il propagatore rispetta, in modo ovvio, le proprie
 	\item è lineare e continuo, quindi $U(t)\to\op 1$ per $t\to 0$;
 	\item si compone con la regola $\op U(t_1)\op U(t_2)=\op U(t_1+t_2)$.
 \end{itemize}
-In altre parole, qusti operatori formano un gruppo unitario continuo ad un parametro.
+In altre parole, questi operatori formano un gruppo unitario continuo ad un parametro.
 
-Dalla derivata temporale dello stato all'istante $t$, passando alla derivata di $\op U(t)$, possiamo ottenere l'equazione differenziale
+Per studiare come uno stato varia nel tempo consideriamo la sua derivata temporale all'istante $t$, passando alla derivata di $\op U(t)$, possiamo ottenere l'equazione differenziale
 \begin{equation}
 	\drp{}{t}\ket{\psi(t)}=\drp{}{t}\op U(t)\ket{\psi(0)}=-\frac{i}{\hbar}\op H\op U(t)\ket{\psi(0)}=-\frac{i}{\hbar}\op H\ket{\psi(t)}\quad\longrightarrow\quad \op H=i\hbar\drp{}{t}.
 \end{equation}
@@ -26,7 +26,7 @@ Nel caso in cui anche l'hamiltoniano dipenda dal tempo, generalizziamo l'equazio
 	\label{eq:schrodinger-tempo}
 \end{equation}
 detta \emph{equazione di Schr\"odinger dipendente dal tempo}.
-Nella rappresentazione delle coordinate troviamo l'equazione differenziale per la funzione d'onda, che è $\bra{q}i\hbar\drp{}{t}\ket{\psi(t)}=\bra{q}\op H(t)\ket{\psi(t)}$ da cui
+Nella rappresentazione delle coordinate troviamo l'equazione differenziale per la funzione d'onda, che è $\bra{q}i\hbar\drp{}{t}\ket{\psi(t)}=\bra{q}\op H(t)\ket{\psi(t)}$, da cui
 \begin{equation}
 	i\hbar\drp{}{t}\psi(\vec q,t)=H\psi(\vec q,t).
 	\label{eq:schrodinger-tempo-coordinate}
@@ -71,7 +71,7 @@ quindi i coefficienti dello sviluppo nella base di autostati di $\op H$ evolvono
 
 \section{Evoluzione delle osservabili}
 Finora abbiamo visto gli stati variare nel tempo, mentre le osservabili rimangono costanti: è lo \emph{schema di Schr\"odinger}.
-Potremmo invece lasciare fissati gli stati e far variare, secondo le medesime equazioni, le osservabili.
+Potremmo invece lasciare fissati gli stati e far variare, secondo le medesime equazioni, le osservabili ( \emph{schema di Heisenberg}).
 Possiamo individuare delle osservabili i cui valori medi rimangono costanti?
 Il valore medio, come funzione del tempo, è ancora definito come $\avg{\xi(t)}=\bra{\psi(t)}\op\xi\ket{\psi(t)}$.
 Calcolando la sua derivata rispetto al tempo e uguagliandola a zero troviamo, dato che $\bra{\psi(0)}$ e $\ket{\psi(0)}$ sono costanti,
@@ -96,7 +96,7 @@ L'evoluzione della posizione è
 \begin{equation}
 	\drp{}{t}\op q(t)=\frac{i}{\hbar}[\op H,\op q]=\frac{i}{2\hbar m}[\op p^2,\op q]=\frac{i\op p}{\hbar m}[\op p,\op q]=\frac{\op p}{m},
 \end{equation}
-mentre quella della posizione è
+mentre quella degli impulsi è
 \begin{equation}
 	\drp{}{t}\op p(t)=\frac{i}{\hbar}[\op H,\op p]=\frac{i}{\hbar}[V(\op q),\op p]=-\drp{V}{q}(\op q).
 \end{equation}
