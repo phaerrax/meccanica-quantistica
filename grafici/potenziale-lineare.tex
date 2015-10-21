@@ -1,0 +1,22 @@
+\begin{figure}
+	\tikzsetnextfilename{potenziale-lineare}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+				standard,
+				enlargelimits,
+				height=.5\linewidth, width=\linewidth,
+				xlabel=$\xi$,
+				xmin=-5, xmax=8.5,
+				ymin=-0.5, ymax=0.6,
+				xtick={-4,-2,0,2,4,6}, ytick={-0.5,0.5},
+				yticklabels={$-\frac12$,$\frac12$}
+			]
+			\addplot[thick,samples=1000,densely dotted,domain=-5:8] function {airy(-x)};
+			\addplot[thick,samples=1000,domain=-5:8] function {(airy(-x))**2};
+			\legend{$\psi(\xi)$,$\abs{\psi(\xi)}^2$}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Soluzione dell'equazione di Schr\"odinger per il potenziale lineare, nella variabile $\xi=\big(\frac{2ma}{\hbar^2}\big)^{1/3}\big(x-\frac{E}{a}\big)$. Il punto $\xi=0$ corrisponde al punto di inversione, in cui $x=\frac{E}{a}$, dove $E$ è l'energia del sistema e $a$ è la costante in $V(x)=-ax$.}
+	\label{fig:potenziale-lineare}
+\end{figure}
