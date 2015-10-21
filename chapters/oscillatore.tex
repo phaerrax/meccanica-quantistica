@@ -314,6 +314,8 @@ Possiamo dunque determinare le funzioni d'onda degli stati più energetici con l
 \begin{equation}
 	\psi_n(y)=\frac{(-i)^n}{\sqrt{n!}}\bigg[-\frac{i}{\sqrt{2}}\bigg(\drv{}{y}-y\bigg)\bigg]^n\psi_0(y)=\frac1{\sqrt{2^nn!}}\bigg(y-\drv{}{y}\bigg)^n\psi_0(y)=\frac1{\sqrt{2^nn!}}\bigg(y-\drv{}{y}\bigg)^ne^{-\frac{y^2}2}.
 \end{equation}
+Nella figura \ref{fig:oscillatore-probabilita} sono mostrate le densità di probabilità nella variabile $y$, per alcuni dei primi autostati.
+\input{grafici/oscillatore-probabilita}
 
 Possiamo costruire una soluzione come di seguito: per grandi valori di $y$, ipotizziamo che l'autostato di ordine $n$ abbia una funzione d'onda asintotica a $y^n\exp(-y^2/2)$.
 Dato che $\psi_n\to 0$ per $\abs{y}\to+\infty$, possiamo approssimare l'equazione di Schr\"odinger da $-\psi_n''(y)+y^2\psi_n(y)=(2n+1)\psi_n(y)$ a $-\psi_n''(y)+y^2\psi_n(y)=0$, e nel momento in cui trascuro il secondo membro l'equazione non dipende più da $n$.

@@ -1,0 +1,24 @@
+\begin{figure}
+	\tikzsetnextfilename{oscillatore-probabilita}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+				standard,
+				height=.5\linewidth, width=\linewidth,
+				enlargelimits,
+				xlabel=$y$,
+				xmin=-5, xmax=5,
+				ymin=0, ymax=.4,
+				ytick=\empty
+			]
+			\addplot[thick, samples=1000, domain=-5:5] function {(pi)**(-1)*exp(-x**2)}; % n=0
+			\addplot[thick, samples=1000, densely dashed, domain=-5:5] function {(2*sqrt(pi))**(-1)*(2*x)**2*exp(-x**2)}; % n=1
+			%\addplot[thick, samples=1000, black!40!white, domain=-6:6] function {(2**2*2!*sqrt(pi))**(-1)*(4*x**2-2)**2*exp(-x**2)}; % n=2
+			\addplot[thick, samples=1000, densely dotted, domain=-5:5] function {(2**5*5!*sqrt(pi))**(-1)*(32*x**5-160*x**3+120*x)**2*exp(-x**2)}; % n=5
+			%\addplot[thick, samples=1000, black!80!white, domain=-6:6] function {(2**10*10!*sqrt(pi))**(-1)*(1024*x**10-23040*x**8+161280*x**6-403200*x**4+302400*x**2-30240)**2*exp(-x**2)}; % n=10
+			\legend{$n=0$, $n=1$, $n=5$}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Distribuzioni di probabilità, in unità $y=\big(\frac{m\omega}{\hbar}\big)^{-\frac12}q$, dell'oscillatore armonico per alcuni dei primi autostati $\ket{n}$ dell'hamiltoniano, ossia gli stati eccitati del sistema per energie $E_n=\hbar\omega\big(n+\frac12\big)$.}
+	\label{fig:oscillatore-probabilita}
+\end{figure}
