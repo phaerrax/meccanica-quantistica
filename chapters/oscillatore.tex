@@ -97,12 +97,22 @@ Possiamo anche ricavare l'hamiltoniano da questi due operatori, trovando che $\o
 \end{equation}
 e anche, dato che il commutatore è antihermitiano, $[\op H,\adj{\op a}]=-\adj{[\op H,\op a]}=\hbar\omega\adj{\op a}$.
 
-Ulteriormente, possiamo definire $\op N=\adj{\op a}\op a$ per ottenere i tre commutatori
+Semplificando ulteriormente, definiamo l'operatore \emph{numero} $\op N=\adj{\op a}\op a$, con il quale possiamo riscrivere l'hamiltoniano come
+\begin{equation}
+	\op H=\hbar\omega\bigg(\op N+\frac12\bigg).
+	\label{eq:hamiltoniano-numero}
+\end{equation}
+L'operatore $\op N$ è evidentemente hermitiano, e vediamo che i suoi autostati sono anche autostati dell'hamiltoniano: se esiste uno stato $\ket{n}$ tale che $\op N\ket{n}=n\ket{n}$, allora
+\begin{equation}
+	\op H\ket{n}=\hbar\omega\bigg(\op N+\frac12\bigg)\ket{n}=\hbar\omega\bigg(n+\frac12\bigg)\ket{n}.
+	\label{eq:autostato-H-N}
+\end{equation}
+Abbiamo inoltre i commutatori
 \begin{equation}
 	[\op a,\adj{\op a}]=1,\qquad [\op N,\op a]=-\op a,\qquad [\op N,\adj{\op a}]=\adj{\op a}.
-	\label{eq:algebra-heisenberg}
+	\label{eq:commutatori-algebra-heisenberg}
 \end{equation}
-L'insieme di questi tre operatori forma un'algebra detta \emph{algebra di Heisenberg}, o algebra del conteggio.
+L'insieme di questi tre operatori forma un'algebra detta \emph{algebra di Heisenberg}.
 
 \section{Spettro dell'hamiltoniano}
 Sia $\ket{E}$ un autostato di $H$: prendiamo lo stato che risulta applicando l'operatore di distruzione $\op a$ introdotto precedentemente, e questa volta l'azione dell'hamiltoniana è
@@ -112,7 +122,7 @@ Sia $\ket{E}$ un autostato di $H$: prendiamo lo stato che risulta applicando l'o
 ossia $\op a\ket{E}$ è ancora un autostato dell'hamiltoniano, ma con l'autovalore (di $H$) diminuito di $\hbar\omega$.
 Applicando nuovamente $\op a$ si ottiene un ulteriore autostato con autovalore diminuito di $2\hbar\omega$ rispetto a quello di partenza.
 Troviamo quindi una catena di autovalori $\{E,E-\hbar\omega,E-2\hbar\omega,\dots\}$: essa non potrà continuare indefinitamente, perch\'e gli autovalori di $H$ sono tutti positivi.
-Infatti si arriverà ad un certo stato $\ket{x}$ tale che $\op a\ket{x}=0$: applicando ancora $\op a$, non troviamo un autovalore diminuito di $\hbar\omega$, ma l'equazione	$\op H\op a\ket{x}=(E-\hbar\omega)\op a\ket{x}$ ma $\op a\ket{x}=0$ quindi essa si riduce a $0=0$, e ci si deve fermare a questo punto della catena di autovalori.
+Infatti si arriverà ad un certo stato $\ket{x}$ tale che $\op a\ket{x}=0$: applicando ancora $\op a$, non troviamo un autovalore diminuito di $\hbar\omega$, ma troviamo l'equazione $\op H\op a\ket{x}=(E-\hbar\omega)\op a\ket{x}$: dato che $\op a\ket{x}=0$, quindi essa si riduce a $0=0$, e non ha senso proseguire con gli autovalori.
 Se $E_0$ è l'autovalore minimo e $\ket{E_0}$ è il suo autostato, esso dovrà avere il valore minimo accettabile di energia, e sarà quindi tale che $\op a\ket{E_0}=0$.
 Di conseguenza anche la sua norma è nulla, perciò
 \begin{equation}
@@ -148,22 +158,22 @@ ossia che gli autovalori $E_n$ sono dati da
 \end{equation}
 per $n\in\{0,1,2,\dots\}$.
 Questi devono necessariamente essere tutti e soli gli autovalori perch\'e, se ne esistesse uno con un espressione diversa, applicando $\op a$ ripetutamente non si incontrerebbe più l'autovalore $E_0$ (scendendo a ``gradini'' di $\hbar\omega$, verrebbe saltato) e si scenderebbe cos\`i in autovalori negativi, che è assurdo.
-Non conoscendo se $H$ sia degenere o meno, non possiamo però affermare che gli autostati $\ket{E_n}$ relativi a tali autovalori sono unici.\footnote{L'hamiltoniano \emph{non è} degenere, quindi sono realmente tutti e soli gli autostati, ma questo lo dimostreremo più avanti.}
+Non conoscendo se $H$ sia degenere o meno, non possiamo però affermare che gli autostati $\ket{E_n}$ relativi a tali autovalori sono unici.\footnote{L'hamiltoniano \emph{non è} degenere, quindi sono realmente tutti e soli gli autostati, ma questo non lo dimostriamo ora.}
 
 \section{Autostati di energia}
-Semplifichiamo dunque la notazione e indichiamo gli autostati dell'hamiltoniano solo con $\ket{n}$, con $n\in\{0,1,\dots\}$, dove 
+Abbiamo dunque ora un insieme di autostati $\{\ket{E_n}\}_{n=0}^{+\infty}$ dell'hamiltoniano, tali che
 \begin{equation}
-	\op H\ket{n}=\hbar\omega\Big(n+\frac12\Big)\ket{n}.
+	\op H\ket{E_n}=\hbar\omega\Big(n+\frac12\Big)\ket{E_n}.
 \end{equation}
-In questa notazione, gli operatori di creazione e distruzione agiscono sugli autostati di $H$ con la regola $\op a\ket{n}=\sqrt{n}\ket{n-1}$ e $\adj{\op a}\ket{n}=\sqrt{n+1}\ket{n+1}$.
-L'operatore ``numero'' $\op N$ agisce invece come
+Su di essi, gli operatori di creazione e distruzione agiscono come
 \begin{equation}
-	\op N\ket{n}=\adj{\op a}\op a\ket{n}=\sqrt{n}\adj{\op a}\ket{n-1}=\sqrt{n}\sqrt{n}\ket{n}=n\ket{n}.
-	\label{eq:oscillatore-armonico-operatore-numero}
+	\op H\op a\ket{E_n}=\hbar\omega\bigg((n-1)+\frac12\bigg)\op a\ket{E_n}=\op H\ket{E_{n-1}}
 \end{equation}
+dunque $\op a\ket{E_n}=\ket{E_{n-1}}$ (per $n\le 1$, altrimenti $\op a\ket{E_0}=0$ come abbiamo già visto) e analogamente $\adj{\op a}\ket{E_n}=\ket{E_{n+1}}$.
 
-Per quanto abbiamo visto, questi stati si ottengono tutti applicando ripetutamente $\adj{\op a}$ allo stato fondamentale $\ket{0}$, ma in generale $(\adj{\op a})^n\ket{0}=\ket{n}$ non è normalizzato, anche se lo è $\ket{0}$.
-Per calcolare la sua norma, vediamo prima come commutano $\op a$ e $(\adj{\op a})^n$, dato che dobbiamo calcolare $\bra{0}\op a^n(\adj{\op a})^n\ket{0}$.
+Ci rimane da capire se questo insieme forma un sistema ortonormale completo per lo spazio di Hilbert degli stati.
+Per quanto abbiamo visto, questi stati si ottengono tutti applicando ripetutamente $\adj{\op a}$ allo stato fondamentale $\ket{E_0}$, ma in generale $(\adj{\op a})^n\ket{0}=\ket{E_n}$ non è normalizzato.
+Per calcolare la sua norma dobbiamo calcolare $\bra{E_0}\op a^n(\adj{\op a})^n\ket{E_0}$: sarebbe comodo se ci trovassimo con dei termini $\bra{E_0}\adj{\op a}$ oppure $\op a\ket{E_0}$, che sono nulli, in modo da semplificare i calcoli: vediamo allora come commutano $\op a$ e $(\adj{\op a})^n$.
 Abbiamo già visto che $[\op a,\adj{\op a}]=[\op a,(\adj{\op a})^1]=1=1(\adj{\op a})^{1-1}$, dunque potremmo supporre che $[\op a,(\adj{\op a})^n]=n(\adj{\op a})^{n-1}$.
 Dimostriamolo per induzione: se assumiamo che $[\op a,(\adj{\op a})^{n-1}]=(n-1)(\adj{\op a})^{n-2}$, allora troviamo
 \begin{equation}
@@ -175,32 +185,51 @@ Dimostriamolo per induzione: se assumiamo che $[\op a,(\adj{\op a})^{n-1}]=(n-1)
 		&=n(\adj{\op a})^{n-1}.
 	\end{split}
 \end{equation}
-Allora, abbiamo
+Allora abbiamo
 \begin{equation}
 	\begin{split}
-		\bra{0}\op a^n(\adj{\op a})^n\ket{0}&=\bra{0}\op a^{n-1}\op a(\adj{\op a})^n\ket{0}=\\
-		&=\bra{0}\op a^{n-1}\big(\op a(\adj{\op a})^n-(\adj{\op a})^n\op a+(\adj{\op a})^n\op a\big)\ket{0}=\\
-		&=\bra{0}\op a^{n-1}[\op a,(\adj{\op a})^n]\ket{0}+\bra{0}\op a^{n-1}(\adj{\op a})^n\op a\ket{0}=\\
-		&=\bra{0}\op a^{n-1}[\op a,(\adj{\op a})^n]\ket{0}
+		\bra{E_0}\op a^n(\adj{\op a})^n\ket{E_0}&=\bra{E_0}\op a^{n-1}\op a(\adj{\op a})^n\ket{E_0}=\\
+		&=\bra{E_0}\op a^{n-1}\big(\op a(\adj{\op a})^n-(\adj{\op a})^n\op a+(\adj{\op a})^n\op a\big)\ket{E_0}=\\
+		&=\bra{E_0}\op a^{n-1}[\op a,(\adj{\op a})^n]\ket{E_0}+\bra{E_0}\op a^{n-1}(\adj{\op a})^n\op a\ket{E_0}=\\
+		&=\bra{E_0}\op a^{n-1}[\op a,(\adj{\op a})^n]\ket{E_0}
 	\end{split}
 \end{equation}
-dove $\bra{0}\op a^{n-1}(\adj{\op a})^n\op a\ket{0}=0$ poich\'e $\op a\ket{0}=0$.
+dove $\bra{E_0}\op a^{n-1}(\adj{\op a})^n\op a\ket{E_0}=0$ poich\'e $\op a\ket{E_0}=0$.
 Sostituendo il commutatore con quanto trovato in precedenza, otteniamo
 \begin{equation}
-	\bra{0}\op a^n(\adj{\op a})^n\ket{0}=n\bra{0}\op a^{n-1}(\adj{\op a})^{n-1}\ket{0},
+	\bra{E_0}\op a^n(\adj{\op a})^n\ket{E_0}=n\bra{E_0}\op a^{n-1}(\adj{\op a})^{n-1}\ket{E_0},
 \end{equation}
 di conseguenza iteriamo il calcolo fino ad ottenere
 \begin{equation}
-	\bra{0}\op a^n(\adj{\op a})^n\ket{0}=n!\braket{0}{0}.
+	\bra{E_0}\op a^n(\adj{\op a})^n\ket{E_0}=n!\braket{E_0}{E_0}.
 \end{equation}
-Per normalizzare gli autostati dell'hamiltoniana li ridefiniamo quindi come
+Definiamo quindi un nuovo insieme di stati $\{\ket{n}\}_{n=0}^{+\infty}$ con
 \begin{equation}
-	\ket{n}=\frac1{\sqrt{n!}}(\adj{\op a})^n\ket{0},
-	\label{eq:oscillatore-armonico-autostati-ortonormali}
+	\ket{n}\defeq\frac1{\sqrt{n!}}(\adj{\op a})^n\ket{E_0},
+	\label{eq:sonc-oscillatore-armonico}
 \end{equation}
-perciò se $\braket{0}{0}=1$ allora anche $\braket{n}{n}=1$ per ogni $n\in\N_0$.
+e $\ket{0}\defeq\ket{E_0}$.
+Sono evidentemente ancora autostati dell'hamiltoniano, e adesso se $\braket{0}{0}=1$ allora anche $\braket{n}{n}=1$ per ogni $n\in\N$.
 
-Essi ora formano un sistema ortonormale completo, quindi possiamo assumerli come base per il nostro spazio degli stati.
+Calcoliamo nuovamente l'azione degli operatori di creazione e distruzione su questi nuovi stati: notiamo innanzitutto che, essendo $\ket{n}$ multiplo di $\ket{E_n}$, abbiamo sempre $\op H\ket{n}=\hbar\omega\big(n+\frac12\big)\ket{n}$.
+Inoltre $\op a\ket{E_n}=\ket{E_{n-1}}$ (per $n\ge 1$), dunque una relazione simile si avrà anche per gli stati $\ket{n}$: poniamo $\op a\ket{n}=\lambda_n\ket{n-1}$.
+Prendendone la norma, abbiamo $\bra{n}\adj{\op a}\op a\ket{n}=\lambda_n^*\lambda_n\braket{n-1}{n-1}=\abs{\lambda_n}^2$.
+Allo stesso tempo, si ha $\adj{\op a}\op a=\op N$, e dalla \eqref{eq:hamiltoniano-numero} risulta dunque
+\begin{equation}
+	\abs{\lambda_n}^2=\bra{n}\adj{\op a}\op a\ket{n}=\bra{n}\bigg(\frac{\op H}{\hbar\omega}-\frac12\bigg)\ket{n}=\bra{n}\bigg(n+\frac12-\frac12\bigg)\ket{n}=n\braket{n}{n}=n.
+\end{equation}
+Di conseguenza $\lambda_n=e^{i\theta_n}\sqrt{n}$ per un certo $\theta_n\in\R$ arbitrario: scegliamo ovviamente $\theta_n=0$ ottenendo\footnote{Dato che multipli dello stesso \emph{ket} rappresentano il medesimo stato fisico, la scelta della fase è arbitraria poich\'e per ogni $\theta_n$ scelto lo stato risulta comunque normalizzato.}
+\begin{equation}
+	\op a\ket{n}=\sqrt{n}\ket{n-1}.
+\end{equation}
+Con un ragionamento del tutto analogo, ipotizzando questa volta che $\adj{\op a}\ket{n}=\lambda_n'\ket{n+1}$, si trova $\adj{\op a}\ket{n}=\sqrt{n+1}\ket{n+1}$.
+L'operatore numero allora è tale che
+\begin{equation}
+	\op N\ket{n}=\adj{\op a}\op a\ket{n}=\sqrt{n}\adj{\op a}\ket{n-1}=\sqrt{n(n-1+1)}\ket{n}=n\ket{n}
+\end{equation}
+ossia ``conta'' i quanti $\hbar\omega$ di energia, o il livello energetico dello stato (da cui il suo nome).
+
+Gli stati $\ket{n}$ formano dunque un sistema ortonormale completo, quindi possiamo assumerli come base per il nostro spazio degli stati.
 Infatti
 \begin{equation}
 	\begin{split}
