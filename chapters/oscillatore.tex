@@ -235,10 +235,10 @@ Dalla \eqref{eq:stato-coerente} otteniamo la relazione
 \end{equation}
 Nell'ultima serie, il primo termine è nullo per la presenza di $\sqrt{n}$, quindi possiamo far iniziare la sommatoria da $n=1$: allora traslando gli indici con $m=n-1$ abbiamo
 \begin{equation}
-	\serz{n}a_n\sqrt{n}\ket{n}=\ser{n}a_n\sqrt{n}\ket{n}=\serz{m}a_{m+1}\sqrt{m+1}\ket{m}.
+	\serz{n}a_n\sqrt{n}\ket{n-1}=\ser{n}a_n\sqrt{n}\ket{n-1}=\serz{m}a_{m+1}\sqrt{m+1}\ket{m}.
 \end{equation}
 
-Per l'ortonormalità degli autostati dell'hamiltoniano allora possiamo ricavare una relazione di ricorrenza per i coefficienti: per $n,m\in\N_0$,
+Per l'ortonormalità degli autostati dell'hamiltoniano allora possiamo ricavare una relazione di ricorrenza per i coefficienti: per $n,m\in\N_0$\footnote{LA FORMULA È OTTENUTA MEDIANTE RIASSEGNAZIONE DEI NOMI DEGLI INDICI, I DELTA DI KRONECKER PRESENTI NON SONO UGUALI...RIGUARDARE.},
 \begin{equation}
 	\begin{aligned}
 		\bra{n}\serz{m}a_{m+1}\sqrt{m+1}\ket{m}&=\bra{n}\alpha\serz{m}a_m\ket{m}\\
@@ -277,9 +277,9 @@ Notiamo infine che lo stato fondamentale $\ket{0}$ è anch'esso uno stato coeren
 \end{equation}
 
 \section{Soluzioni dell'equazione di Schr\"odinger}
-In una dimensione, con un potenziale della forma $V(q)=q^2$, l'equazione di Schr\"odinger per la funzione d'onda $\psi$ nella base della posizione è
+In una dimensione, con un potenziale della forma $V(q)= \frac{m \omega^2 q^2}{2}$, l'equazione di Schr\"odinger per la funzione d'onda $\psi$ nella base della posizione è
 \begin{equation}
-	\frac{\hbar^2}{2m}\psi''(q)+(E-q^2)\psi(q)=0.
+	\frac{\hbar^2}{2m}\psi''(q)+(E-\frac{m \omega^2 q^2}{2})\psi(q)=0.
 	\label{eq:schrodinger-oscillatore-1d}
 \end{equation}
 In questa forma però risulta difficile da risolvere, anche perch\'e non conosciamo il valore di $E$.
@@ -305,18 +305,18 @@ Detto ciò, sappiamo che lo stato fondamentale soddisfa l'equazione $\op a\ket{0
 che ha come soluzione (accettabile) $\psi_0(y)=A\exp(-y^2/2)$.
 Normalizzando la funzione troviamo
 \begin{equation}
-	1=\norm{\psi_0}_2^2=\int_{-\infty}^{+\infty}\abs{\psi_0(y)}^2\,\dd y=A^2\int_{-\infty}^{+\infty}e^{-\frac{y^2}2}\,\dd y=A^2\sqrt{\pi}
+	1=\norm{\psi_0}_2^2=\int_{-\infty}^{+\infty}\abs{\psi_0(y)}^2\,\dd y=A^2\int_{-\infty}^{+\infty}e^{-y^2}\,\dd y=A^2\sqrt{\pi}
 \end{equation}
 dunque $\psi_0(y)=\pi^{-\frac14}\exp(-y^2/2)$.
 
 Analogamente, possiamo rappresentare in $L^2(\R)$ nella base della posizione anche l'operatore di creazione $\adj{\op a}$ come $-\frac{i}2\big(\drv{}{y}-y\big)$.
 Possiamo dunque determinare le funzioni d'onda degli stati più energetici con l'equazione $\braket{y}{n}=\frac1{\sqrt{n!}}\bra{y}(\adj{\op a})^n\ket{0}$ per cui
 \begin{equation}
-	\psi_n(y)=\frac{(-i)^n}{\sqrt{n!}}\bigg[-\frac{i}{\sqrt{2}}\bigg(\drv{}{y}-y\bigg)\bigg]^n\psi_0(y)=\frac1{\sqrt{2^nn!}}\bigg(y-\drv{}{y}\bigg)^n\psi_0(y)=\frac1{\sqrt{2^nn!}}\bigg(y-\drv{}{y}\bigg)^ne^{-\frac{y^2}2}.
+	\psi_n(y)=\frac{(-i)^n}{\sqrt{n!}}\bigg[-\frac{i}{\sqrt{2}}\bigg(\drv{}{y}-y\bigg)\bigg]^n\psi_0(y)=\frac1{\sqrt{2^nn!}}\bigg(y-\drv{}{y}\bigg)^n\psi_0(y)=\frac1{\sqrt{2^nn!}}\bigg(y-\drv{}{y}\bigg)^ne^\pi^{-\frac14}{-\frac{y^2}2}.
 \end{equation}
 
 Possiamo costruire una soluzione come di seguito: per grandi valori di $y$, ipotizziamo che l'autostato di ordine $n$ abbia una funzione d'onda asintotica a $y^n\exp(-y^2/2)$.
-Dato che $\psi_n\to 0$ per $\abs{y}\to+\infty$, possiamo approssimare l'equazione di Schr\"odinger da $-\psi_n''(y)+y^2\psi_n(y)=(2n+1)\psi_n(y)$ a $-\psi_n''(y)+y^2\psi_n(y)=0$, e nel momento in cui trascuro il secondo membro l'equazione non dipende più da $n$.
+Dato che $\psi_n\to 0$ per $\abs{y}\to+\infty$, possiamo approssimare l'equazione di Schr\"odinger da $-\psi_n''(y)+y^2\psi_n(y)=(2n+1)\psi_n(y)$\footnote{Sono state trascurate le costanti e manca un $\frac12$ che moltiplica il termine dato dagli autovalori.} a $-\psi_n''(y)+y^2\psi_n(y)=0$, e nel momento in cui trascuro il secondo membro l'equazione non dipende più da $n$.
 Cominciamo quindi a costruire la soluzione: partiamo da una funzione prova del tipo $\psi_n(y)=\exp(-\beta y^k)$.
 Risulta $\psi_n'(y)=-\beta ky^{k-1}\exp(-\beta y^k)=-\beta ky^{k-1}\psi_n(y)$ e $\psi_n''(y)=-\beta k(k-1)y^{k-2}\psi_n(y)+\beta ky^{k-1}\psi_n'(y)$ dunque riscriviamo l'equazione di Schrodinger come
 \begin{equation}
@@ -329,7 +329,7 @@ A questo punto troviamo
 \end{equation}
 e con gli stessi vincoli ($\psi_n\to 0$) troviamo che $1-4\beta^2=0$, ossia $\beta=\frac12$.
 La funzione $\exp(-y^2/2)$ è una buona approssimazione iniziale, per grandi valori di $\abs{y}$, della funzione d'onda del sistema.
-Possiamo fare di meglio: aggiungiamo un termine polinomiale, con $\psi_n(y)=y^a\exp(-y^2/2)$.
+Possiamo fare di meglio: aggiungiamo un termine polinomiale, con $\psi_n(y)=y^a\exp(-y^2/2)$\footnote{I passaggi di seguito non sono motivati e sembra ci sia nuovamente la mancanza del termine $\frac12$ nel termine degli autovalori}.
 Otteniamo $\psi_n'(y)=(ay^{a-1}-y^{a+1})\exp(-y^2/2)$ e $\psi_n''(y)=\big[a(a-1)y^{a-2}-(2a+1)y^a+y^{a+2}\big]\exp(-y^2/2)$, perciò
 \begin{equation}
 	\begin{aligned}
