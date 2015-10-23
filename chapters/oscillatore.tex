@@ -325,7 +325,7 @@ Possiamo semplificare il tutto con un cambio di variabili: poniamo $y=\big(\frac
 \begin{equation}
 	\op a=-\frac{i}{\sqrt{2}}\bigg(\drv{}{y}+y\bigg)
 \end{equation}
-ricordando sempre che $y$ (anche come variabile della funzione d'onda) non è più la variabile posizione ma il suo riscalamento definito poco fa.
+ricordando sempre che $y$ (anche come variabile della funzione d'onda) è il riscalamento di $x$ definito poco fa.
 Detto ciò, sappiamo che lo stato fondamentale soddisfa l'equazione $\op a\ket{0}=0$, da cui otteniamo l'equazione differenziale per la funzione d'onda $\psi_0$
 \begin{equation}
 	-\frac{i}{\sqrt{2}}\bigg[\drv{\psi_0}{y}(y)+y\psi_0(y)\bigg]=0\quad\longrightarrow\quad \drv{\psi_0}{y}(y)=-y\psi_0(y)
@@ -337,14 +337,89 @@ Normalizzando la funzione troviamo
 \end{equation}
 dunque $\psi_0(y)=\pi^{-\frac14}\exp(-y^2/2)$.
 
-Analogamente, possiamo rappresentare in $L^2(\R)$ nella base della posizione anche l'operatore di creazione $\adj{\op a}$ come $-\frac{i}2\big(\drv{}{y}-y\big)$.
-Possiamo dunque determinare le funzioni d'onda degli stati più energetici con l'equazione $\braket{y}{n}=\frac1{\sqrt{n!}}\bra{y}(\adj{\op a})^n\ket{0}$ per cui
+Analogamente, possiamo rappresentare in $L^2(\R)$ nella base della posizione (e nella variabile $y$) anche l'operatore di creazione $\adj{\op a}$ come $-\frac{i}{\sqrt{2}}\big(\drv{}{y}-y\big)$.
+Possiamo dunque determinare le funzioni d'onda degli stati più energetici dalla \eqref{eq:sonc-oscillatore-armonico}, trovando\footnote{Notare il fattore $(-i)^n$ che moltiplica i vari membri: abbiamo ridefinito, in un certo senso, l'operatore di creazione come $i\adj{\op a}$. Questo, almeno per l'oscillatore armonico unidimensionale che stiamo studiando, non cambia il significato fisico delle soluzioni: alla fine la funzione d'onda apparirà moltiplicata per $i^n$ (per compensare l'altro fattore), ma essa rimane comunque normalizzata e la densità di probabilità associata non cambia.}
 \begin{equation}
-	\psi_n(y)=\frac{(-i)^n}{\sqrt{n!}}\bigg[-\frac{i}{\sqrt{2}}\bigg(\drv{}{y}-y\bigg)\bigg]^n\psi_0(y)=\frac1{\sqrt{2^nn!}}\bigg(y-\drv{}{y}\bigg)^n\psi_0(y)=\frac1{\sqrt{2^nn!}}\bigg(y-\drv{}{y}\bigg)^ne^{-\frac{y^2}2}.
+	\begin{split}
+		\psi_n(y)&=\frac{(-i)^n}{\sqrt{n!}}\bigg[-\frac{i}{\sqrt{2}}\bigg(\drv{}{y}-y\bigg)\bigg]^n\psi_0(y)=\\
+		&=\frac1{\sqrt{2^nn!}}\bigg(y-\drv{}{y}\bigg)^n\psi_0(y)=\\
+		&=\frac1{\sqrt{2^nn!\sqrt{\pi}}}\bigg(y-\drv{}{y}\bigg)^ne^{-\frac{y^2}2}=\\
+		&=\frac1{\sqrt{2^nn!\sqrt{\pi}}}e^{-\frac{y^2}2}e^{\frac{y^2}2}\bigg(y-\drv{}{y}\bigg)^ne^{-\frac{y^2}2}=\\
+		&=\frac1{\sqrt{2^nn!\sqrt{\pi}}}e^{-\frac{y^2}2}H_n(y)=h_n(y)
+	\end{split}
+	\label{eq:autofunzioni-oscillatore-hermite}
 \end{equation}
+dove $H_n(y)$ è il \emph{polinomio di Hermite} di grado $n$, definito appunto da
+\begin{equation}
+	H_n(y)=e^{\frac{y^2}2}\bigg(y-\drv{}{y}\bigg)^ne^{-\frac{y^2}2}
+	\label{eq:def-polinomio-hermite}
+\end{equation}
+mentre $h_n(y)$ è la \emph{funzione di Hermite} di grado $n$.
 Nella figura \ref{fig:oscillatore-probabilita} sono mostrate le densità di probabilità nella variabile $y$, per alcuni dei primi autostati.
 \input{grafici/oscillatore-probabilita}
 
+\paragraph{Funzioni di Hermite}
+Approfondiamo per un momento la trattazione di queste funzioni speciali.
+Dei polinomi di Hermite esistono varie definizioni: una delle più importanti è data tramite la funzione generatrice, nella quale i polinomi appaiono nello sviluppo in serie
+\begin{equation}
+	\exp(2ty-t^2)=\sum_{n=0}^{+\infty}\frac{H_n(y)}{n!}t^n.
+	\label{eq:funzione-generatrice-polinomi-hermite}
+\end{equation}
+Essi soddisfano le relazioni di ricorrenza
+\begin{equation}
+	\begin{gathered}
+		H_{n+1}(y)=2yH_n(y)-2nH_{n-1}(y)\\
+		H_n'(y)=2nH_{n-1}(y).
+	\end{gathered}
+	\label{eq:ricorrenza-polinomi-hermite}
+\end{equation}
+che si possono ricavare differenziando i due membri dell'equazione precedente rispetto a $t$ o $y$ (rispettivamente) e uguagliando ogni addendo delle somme.
+Proviamo a verificare la \eqref{eq:def-polinomio-hermite} sostituendola nella serie di potenze: otteniamo una funzione
+\begin{equation}
+	\begin{split}
+		f(t,y)&=\sum_{n=0}^{+\infty}e^{\frac{y^2}2}\bigg(y-\drv{}{y}\bigg)^ne^{-\frac{y^2}2}\frac{t^n}{n!}=\\
+		&=\sum_{n=0}^{+\infty}\frac1{n!}e^{\frac{y^2}2}\bigg[t\bigg(y-\drv{}{y}\bigg)\bigg]^ne^{-\frac{y^2}2}=\\
+		&=\exp\bigg(\frac{y^2}2\bigg)\exp\bigg[t\bigg(y-\drv{}{y}\bigg)\bigg]\exp\bigg(-\frac{y^2}2\bigg).
+	\end{split}
+\end{equation}
+Non possiamo scambiare liberamente l'ordine degli esponenziali, dato che alcuni sono operatori di $L^2(\R)$ e potrebbero non commutare.
+Cerchiamo però di scindere l'operatore che si trova in mezzo in due esponenziali distinti: innanzitutto abbiamo $\big[y,-\drv{}{y}\big]=1$, dato che
+\begin{equation}
+	\bigg[y,\drv{}{y}\bigg]f(y)=y\drv{}{y}f(y)-\drv{}{y}\big[yf(y)\big]=y\drv{}{y}f(y)-f(y)-y\drv{}{y}f(y)=-f(y).
+\end{equation}
+Inoltre, con la formula di Baker-Campbell-Hausdorff, risulta
+\begin{equation}
+	\exp(ty)\exp\bigg(-t\drv{}{y}\bigg)=\exp\bigg\{t\bigg(y-\drv{}{y}\bigg)+\frac{t^2}2\big[y,-\drv{}{y}\big]+\cdots\bigg\}=\exp\bigg[t\bigg(y-\drv{}{y}\bigg)+\frac{t^2}2\bigg]
+\end{equation}
+dato che i termini di ordine superiore al secondo contengono tutti commutatori di $\big[y,-\drv{}{y}\big]$ con altri termini, ma quest'ultimo è uno scalare quindi commuta con tutti gli operatori; di conseguenza, questi termini sono tutti nulli.
+Allora risulta, invertendo la formula,
+\begin{equation}
+	\exp\bigg[t\bigg(y-\drv{}{y}\bigg)\bigg]=\exp\bigg(-\frac{t^2}2\bigg)\exp(ty)\exp\bigg(t\drv{}{y}\bigg).
+\end{equation}
+L'azione di questi esponenziali, in particolare l'ultimo, su una funzione $f$ è\footnote{Assumendo che $f$ sia analitica, in modo che coincida con il suo sviluppo di Taylor.}
+\begin{equation}
+	\exp\bigg(-t\drv{}{y}\bigg)f(y)=\bigg[\sum_{n=0}^{+\infty}\frac{(-t)^n}{n!}\frac{\dd^n}{\dd y^n}\bigg]f(y)=\sum_{n=0}^{+\infty}\frac{(-t)^nf^{(n)}(y)}{n!}
+\end{equation}
+che è lo sviluppo in serie di Taylor di $f(y-t)$ centrato in $y$.
+Di conseguenza
+\begin{equation}
+	\begin{split}
+		f(y,t)&=\exp\bigg(\frac{y^2}2\bigg)\exp\bigg[t\bigg(y-\drv{}{y}\bigg)\bigg]\exp\bigg(-\frac{y^2}2\bigg)=\\
+		&=\exp\bigg(\frac{y^2}2\bigg)\exp\bigg(\frac{t^2}2\bigg)\exp(ty)\exp\bigg(-t\drv{}{y}\bigg)\exp\bigg(-\frac{y^2}2\bigg)=\\
+		&=\exp\bigg(\frac{y^2}2\bigg)\exp\bigg(\frac{t^2}2\bigg)\exp(ty)\exp\bigg[-\frac{(y-t)^2}2\bigg]=\\
+		&=\exp\bigg[\frac{y^2}2+\frac{t^2}2+ty-\frac{(y-t)^2}2\bigg]=\\
+		&=\exp(2ty-t^2)
+	\end{split}
+\end{equation}
+che è proprio la funzione generatrice dei polinomi di Hermite.
+La proprietà fondamentale dei polinomi è che formano un insieme ortogonale nello spazio $L^2(\R,e^{-x^2}\dd x)$, ossia
+\begin{equation}
+	\int_{\R}e^{-x^2}H_n(x)H_m(x)\,\dd x=0\quad\text{se }n\ne m.
+	\label{eq:ortogonalita-polinomi-hermite}
+\end{equation}
+Di conseguenza le funzioni di Hermite $h_n$, per come sono definite, formano invece un insieme \emph{ortonormale} in $L^2(\R)$.\footnote{L'insieme delle funzioni di Hermite è anche \emph{completo}, dunque può essere preso come base di $L^2(\R)$. Il punto chiave per dimostrarlo è che queste funzioni sono anche autofunzioni della trasformata di Fourier, che è un'operatore unitario.}
+
+\paragraph{Soluzione asintotica}
 Possiamo costruire una soluzione come di seguito: per grandi valori di $y$, ipotizziamo che l'autostato di ordine $n$ abbia una funzione d'onda asintotica a $y^n\exp(-y^2/2)$.
 Dato che $\psi_n\to 0$ per $\abs{y}\to+\infty$, possiamo approssimare l'equazione di Schr\"odinger da $-\psi_n''(y)+y^2\psi_n(y)=(2n+1)\psi_n(y)$ a $-\psi_n''(y)+y^2\psi_n(y)=0$, e nel momento in cui trascuro il secondo membro l'equazione non dipende più da $n$.
 Cominciamo quindi a costruire la soluzione: partiamo da una funzione prova del tipo $\psi_n(y)=\exp(-\beta y^k)$.
