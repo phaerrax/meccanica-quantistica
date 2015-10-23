@@ -254,56 +254,55 @@ quindi $\braket{n}{m}=\delta_{nm}$.
 \section{Stati coerenti}
 Matematicamente, gli \emph{stati coerenti} sono definiti come gli autostati ``destri'' dell'operatore di distruzione, cioè\footnote{L'attributo \emph{destri} attribuito agli autostati è importante in questo caso, perch\'e l'operatore di distruzione non è hermitiano, quindi se $\op a\ket{\alpha}=\alpha\ket{\alpha}$ non vale la relazione duale $\bra{\alpha}\op a=\alpha\bra{\alpha}$.}
 \begin{equation}
-	\op a\ket{\alpha}=\alpha\ket{\alpha}.
+	\op a\ket{\alpha}=\alpha\ket{\alpha}
 	\label{eq:stato-coerente}
 \end{equation}
-Possiamo esprimere questo stato in termini della base di autostati dell'hamiltoniano, ottenendo una serie $\serz{n}a_n\ket{n}$ con i coefficienti $a_n\in\C$ da determinare.
+per un $\alpha\in\C$.
+Possiamo sviluppare $\ket{\alpha}$ nella base di autostati $\{\ket{n}\}_{n=0}^{+\infty}$ dell'hamiltoniano, ottenendo una serie $\sum_{n=0}^{+\infty}a_n\ket{n}$ con i coefficienti $\braket{n}{\alpha}\defeq a_n$ da determinare.
 Dalla \eqref{eq:stato-coerente} otteniamo la relazione
 \begin{equation}
-	\alpha\serz{n}a_n\ket{n}=\op a\serz{n}a_n\ket{n}=\serz{n}a_n\op a\ket{n}=\serz{n}a_n\sqrt{n}\ket{n-1}.
+	\op a\sum_{n=0}^{+\infty}a_n\ket{n}=\sum_{n=0}^{+\infty}a_n\op a\ket{n}=\sum_{n=0}^{+\infty}a_n\sqrt{n}\ket{n-1}.
 \end{equation}
-Nell'ultima serie, il primo termine è nullo per la presenza di $\sqrt{n}$, quindi possiamo far iniziare la sommatoria da $n=1$: allora traslando gli indici con $m=n-1$ abbiamo
+Il primo addendo è nullo per $\sqrt{n}$, quindi possiamo far iniziare la sommatoria da $n=1$: traslando poi gli indici con $m=n-1$ abbiamo
 \begin{equation}
-	\serz{n}a_n\sqrt{n}\ket{n}=\ser{n}a_n\sqrt{n}\ket{n}=\serz{m}a_{m+1}\sqrt{m+1}\ket{m}.
+	\sum_{n=0}^{+\infty}a_n\sqrt{n}\ket{n}=\sum_{n=1}^{+\infty}a_n\sqrt{n}\ket{n}=\sum_{m=0}^{+\infty}a_{m+1}\sqrt{m+1}\ket{m}.
 \end{equation}
-
-Per l'ortonormalità degli autostati dell'hamiltoniano allora possiamo ricavare una relazione di ricorrenza per i coefficienti: per $n,m\in\N_0$,
+Allo stesso modo di prima sviluppiamo anche $\alpha\ket{\alpha}=\sum_{m=0}^{+\infty}\alpha a_m\ket{m}$ e uguagliando ogni addendo con il risultato precedente otteniamo\footnote{Un risultato uguale si ottiene moltiplicando la \eqref{eq:stato-coerente} a sinistra per $\bra{n}$, ottenendo $\bra{n}\op a\ket{\alpha}=\alpha\braket{n}{\alpha}$ e introducendo la risoluzione dell'identità $\sum_{m=0}^{+\infty}\ket{m}\bra{m}=1$, in pratica sviluppando nella base $\ket{m}$, come prima, dato che è un sistema ortonormale completo.}
 \begin{equation}
-	\begin{aligned}
-		\bra{n}\serz{m}a_{m+1}\sqrt{m+1}\ket{m}&=\bra{n}\alpha\serz{m}a_m\ket{m}\\
-		\serz{m}a_{m+1}\sqrt{m+1}\braket{n}{m}&=\alpha\serz{m}a_m\braket{n}{m}\\
-		\serz{m}a_{m+1}\sqrt{m+1}\delta_{nm}&=\serz{m}\alpha a_m\delta_{nm}\\
-		a_{m+1}=\frac{\alpha}{\sqrt{m+1}}a_m.
-	\end{aligned}
+	a_{m+1}=\frac{\alpha}{\sqrt{m+1}}a_m.
 	\label{eq:ricorrenza-stati-coerenti}
 \end{equation}
-Per determinarli completamente ci basta dunque fissare il primo valore, per cui poniamo $a_0=1$ ottenendo cos\`i
+per $m\in\N_0$.
+Per determinarli completamente ci basta dunque fissare il primo valore, dunque poniamo $a_0=1$ e troviamo $a_1=\alpha$, $a_2=\frac{\alpha^2}{\sqrt{2}}$, $a_3=\frac{\alpha^3}{\sqrt{6}}$ e cos\`i via.
+Completiamo dimostrando per induzione: se $a_k=\frac{\alpha^k}{\sqrt{k!}}$, allora il coefficiente di posto $k+1$ è
 \begin{equation}
-	a_1=\alpha,\quad a_2=\frac{\alpha^2}{\sqrt{2}},\quad a_3=\frac{\alpha^3}{\sqrt{6}},\dots\quad a_n=\frac{\alpha^n}{\sqrt{n!}}.
-	\label{eq:coefficienti-stati-coerenti}
+	a_{k+1}=\frac{\alpha}{\sqrt{k+1}}a_k=\frac{\alpha}{\sqrt{k+1}}\frac{\alpha^k}{\sqrt{k!}}=\frac{\alpha^{k+1}}{\sqrt{(k+1)!}},
 \end{equation}
-Completiamo l'opera normalizzandoli: la norma di uno stato coerente con autovalore $\alpha$ è
+dunque lo stato coerente si scrive come
 \begin{equation}
-	\begin{split}
-		\braket{\alpha}{\alpha}&=\serz{m}\frac{(\alpha^*)^m}{\sqrt{m!}}\bra{m}\serz{n}\frac{\alpha^n}{\sqrt{n!}}\ket{n}=\\
-		&=\serz{m}\frac{(\alpha^*)^m}{\sqrt{m!}}\serz{n}\frac{\alpha^n}{\sqrt{n!}}\delta_{nm}=\\
-		&=\serz{m}\frac{(\alpha^*)^m}{\sqrt{m!}}\frac{\alpha^m}{\sqrt{m!}}=\\
-		&=\serz{m}\frac{(\alpha^*\alpha)^m}{m!}=\\
-		&=\serz{m}\frac{\abs{\alpha}^{2m}}{m!}=e^{\abs{\alpha}^2}
-	\end{split}
+	\ket{\alpha}=\sum_{n=0}^{+\infty}\frac{\alpha^n}{\sqrt{n!}}\ket{n}.
+\end{equation}
+Resta soltanto da normalizzarli: dato che
+\begin{multline}
+	\braket{\alpha}{\alpha}=\sum_{m=0}^{+\infty}\frac{(\alpha^*)^m}{\sqrt{m!}}\bra{m}\sum_{n=0}^{+\infty}\frac{\alpha^n}{\sqrt{n!}}\ket{n}=
+	\sum_{m=0}^{+\infty}\frac{(\alpha^*)^m}{\sqrt{m!}}\sum_{n=0}^{+\infty}\frac{\alpha^n}{\sqrt{n!}}\delta_{nm}=\\=
+	\sum_{m=0}^{+\infty}\frac{(\alpha^*)^m}{\sqrt{m!}}\frac{\alpha^m}{\sqrt{m!}}=
+	\sum_{m=0}^{+\infty}\frac{(\alpha^*\alpha)^m}{m!}=
+	\sum_{m=0}^{+\infty}\frac{\abs{\alpha}^{2m}}{m!}=
+	e^{\abs{\alpha}^2}
 	\label{eq:norma-stato-coerente}
-\end{equation}
-dunque possiamo rappresentare gli stati coerenti come
+\end{multline}
+possiamo rappresentare gli stati coerenti, ora di norma unitaria, con
 \begin{equation}
 	\ket{\alpha}=\exp\Big(\!\!-\frac{\abs{\alpha}^2}2\Big)\serz{n}\frac{\alpha^n}{\sqrt{n!}}\ket{n}.
-	\label{eq:stato-coerente-autostati-H}
+	\label{eq:stato-coerente-normalizzato}
 \end{equation}
-
-Notiamo infine che lo stato fondamentale $\ket{0}$ è anch'esso uno stato coerente: possiamo allora scrivere
+In un'ulteriore semplificazione, possiamo sostituire $\ket{n}$ con la \eqref{eq:sonc-oscillatore-armonico}, con la quale otteniamo
 \begin{equation}
 	\ket{\alpha}=\serz{n}\frac{\alpha^n}{\sqrt{n!}}\ket{n}=\serz{n}\frac{\alpha^n}{\sqrt{n!}}\frac{(\adj{\op a})^n}{\sqrt{n!}}\ket{0}=\serz{n}\frac{(\alpha\adj{\op a})^n}{n!}\ket{0}=\exp\big(\alpha\adj{\op a}\big)\ket{0}.
 	\label{eq:stato-coerente-exp}
 \end{equation}
+Notiamo che lo stato fondamentale è anch'esso uno stato coerente, corrispondente ad $\alpha=0$.
 
 \section{Soluzioni dell'equazione di Schr\"odinger}
 In una dimensione, con un potenziale della forma $V(q)=q^2$, l'equazione di Schr\"odinger per la funzione d'onda $\psi$ nella base della posizione è
