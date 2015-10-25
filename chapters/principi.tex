@@ -468,23 +468,23 @@ Dalle proprietà del commutatore, notiamo che tra esso e le parentesi di Poisson
 Per come sono definiti, le parentesi di Poisson coinvolgono derivate e somme, e hanno come risultato una funzione, mentre il commutatore riguarda semplicemente il prodotto dei due operatori e come risultato dà un altro operatore, quindi non possiamo postulare che i risultati siano i medesimi, ma solo proporzionali: vediamo ora come.
 Innanzitutto, siccome $\pois{q_i}{q_j}=0$ e $\pois{p_i}{p_j}=0$, si avrà anche
 \begin{equation}
-	[q_i,q_j]=0\quad\text{e}\quad[p_i,p_j]=0.
+	[\op q_i,\op q_j]=0\quad\text{e}\quad[\op p_i,\op p_j]=0.
 \end{equation}
-La rimanente parentesi è $\pois{q_i}{p_j}=\delta_{ij}$: non possiamo semplicemente porre $[q_i,p_j]=\delta_{ij}$ (vale a dire $[q_i,p_j]=\delta_{ij}\op 1$), poich\'e il commutatore è antihermitiano, cioè $\adj{[q_i,p_j]}=-[q_i,p_j]$, ma allora risulterebbe $\adj{\delta_{ij}\op 1}=-\delta_{ij}\op 1$, che è falso perch\'e $\delta_{ij}\op 1$ è chiaramente hermitiano (è un multiplo reale dell'identità).
-Dobbiamo allora far s\`i che il risultato di $[q_i,p_j]$, oltre che multiplo dell'identità, sia anche antihermitiano: lo scalare $z$ per cui moltiplichiamo $\op 1$ deve essere quindi tale che $z^*=-z$.
+La rimanente parentesi è $\pois{q_i}{p_j}=\delta_{ij}$: non possiamo semplicemente porre $[\op q_i,\op p_j]=\delta_{ij}$ (vale a dire $[\op q_i,\op p_j]=\delta_{ij}\op 1$), poich\'e il commutatore è antihermitiano, cioè $\adj{[\op q_i,\op p_j]}=-[\op q_i,\op p_j]$, ma allora risulterebbe $\adj{\delta_{ij}\op 1}=-\delta_{ij}\op 1$, che è falso perch\'e $\delta_{ij}\op 1$ è chiaramente hermitiano (è un multiplo reale dell'identità).
+Dobbiamo allora far s\`i che il risultato di $[\op q_i,\op p_j]$, oltre che multiplo dell'identità, sia anche antihermitiano: lo scalare $z$ per cui moltiplichiamo $\op 1$ deve essere quindi tale che $z^*=-z$.
 Questo succede se $z$ è immaginario puro, ossia se $z=ic$ con $c\in\R$.
-Allora $[q_i,p_j]=ic\delta_{ij}$.
+Allora $[\op q_i,\op p_j]=ic\delta_{ij}$.
 La costante $c$ di proporzionalità chiaramente non è ancora ben definita: la chiameremo $\hbar$, senza preoccuparci ora di quanto valga realmente.
 I tre commutatori fondamentali sono quindi
 \begin{equation}
-	[q_i,q_j]=0\qquad[p_i,p_j]=0\qquad[q_i,p_j]=i\hbar\delta_{ij}.
+	[\op q_i,\op q_j]=0\qquad[\op p_i,\op p_j]=0\qquad[\op q_i,\op p_j]=i\hbar\delta_{ij}.
 	\label{eq:commutatori-fondamentali}
 \end{equation}
 Da queste regole deduciamo quindi che osservabili di posizione $\op q$ riferiti a gradi di libertà ($i$ e $j$) qualsiasi sono compatibili, e lo stesso per gli impulsi $\op p$; inoltre, anche posizione e impulso riferiti a gradi di libertà \emph{differenti} sono compatibili.
 Le osservabili di posizione e impulso di un medesimo grado di libertà invece non lo sono, perch\'e il loro commutatore non è nullo.
 Dal teorema \ref{t:indeterminazione} troviamo infine il principio di indeterminazione di Heisenberg, poich\'e se lo stato di partenza $\ket{x}$ è normalizzato allora
 \begin{equation}
-	\Delta q\Delta p\geq\frac12\abs{\bra{x}i[q,p]\ket{x}}=\frac12\abs{\bra{x}i^2\hbar\ket{x}}=\frac{\hbar}2\abs{\braket{x}{x}}=\frac{\hbar}2.
+	\Delta q\Delta p\geq\frac12\abs{\bra{x}i[\op q,\op p]\ket{x}}=\frac12\abs{\bra{x}i^2\hbar\ket{x}}=\frac{\hbar}2\abs{\braket{x}{x}}=\frac{\hbar}2.
 	\label{eq:indeterminazione-heisenberg}
 \end{equation}
 
