@@ -265,52 +265,6 @@ Se lo spazio $\hilbert$ fosse di dimensione finita, allora per il teorema spettr
 Alcuni operatori infatti, pur essendo hermitiani, non possiedono abbastanza autovettori linearmente indipendenti da poter costruire una base: gli operatori per cui questo accade, invece, si dicono \emph{autoaggiunti}.
 Solo quest'ultimo tipo di operatori corrisponde ad un'osservabile; analogamente tutte le osservabili sono operatori autoaggiunti.
 
-\section{Indeterminazione nella misura}
-Come non ci annoiamo mai di ripetere, il risultato della misura di un'osservabile non può essere, in generale, previsto con certezza.
-L'unico caso in cui sappiamo che certamente otterremo un dato autovalore è se il sistema si trova nel corrispondente autostato.
-Se anche non possiamo conoscere il risultato, però, non significa che la misura darà risultati distribuiti senza criterio: ad esempio, se lo stato $\ket{x}$ del sistema è ``molto vicino'' ad un autostato $\ket{\xi_i}$ dell'osservabile $\xi$, ossia $\abs{\braket{x}{\xi_i}}^2\approx 1$ (prendendo i due stati normalizzati), allora la probabilità di ottenere proprio l'autovalore $\xi_i$ è più alta rispetto a quella di ottenere altri autovalori, e di conseguenza ci aspettiamo che l'indeterminazione nel risultato sia bassa.
-
-Dato uno stato ``di partenza'' $\ket{x}$ del sistema, e in seguito alla misura di $\xi$, sappiamo qual è il valore di aspettazione, ma possiamo anche chiederci come fluttua (statisticamente parlando) il risultato della misura attorno a questo valore.
-La quantità più naturale da scegliere a questo scopo è lo \emph{scarto quadratico medio}, che chiamiamo $\Delta_x\xi$, che sarà dunque
-\begin{equation}
-	\Delta_x\xi=\avg{(\xi-\avg{\xi})^2}=\sqrt{\avg{\xi^2}-\avg{\xi}^2}.
-	\label{eq:deviazione-standard}
-\end{equation}
-Elevando al quadrato, dunque, troviamo
-\begin{equation}
-	\Delta_x\xi^2=\avg{\xi^2}-\avg{\xi}^2=\bra{x}\op\xi^2\ket{x}-\bra{x}\op\xi\ket{x}^2.
-	\label{eq:varianza}
-\end{equation}
-Guardiamo al quadrato dell'operatore $\op\xi$: esso non è altro che $\op\xi$ applicato consecutivamente, perciò sugli autostati accade che
-\begin{equation}
-	\op\xi^2\ket{\xi_i}=\op\xi(\op\xi\ket{\xi_i})=\op\xi(\xi_i\ket{\xi_i})=\xi_i\op\xi\ket{\xi_i}=\xi_i^2\ket{\xi_i}
-\end{equation}
-quindi i suoi autovalori sono il quadrato dei corrispondenti autovalori dell'operatore originario, con i medesimi autostati.
-
-D'altro canto, nella \eqref{eq:deviazione-standard}, $(\xi-\avg{\xi})^2$ è ancora un'osservabile, e possiamo dunque scrivere il suo valore di aspettazione dallo stato $\ket{x}$ come $\bra{x}(\op\xi-\avg\xi)^2\ket{x}$, che a sua volta è esprimibile come\footnote{Rigorosamente, $\avg\xi$ non è un'osservabile n\'e un operatore, ma un numero reale. Possiamo considerarlo tale se supponiamo in realtà $\avg\xi=\avg\xi\id$, ossia come multiplo dell'identità, per cui sarebbe anche un operatore autoaggiunto.}
-\begin{equation}
-	\bra{x}(\op\xi-\avg\xi)^2\ket{x}=\bra{x}(\op\xi-\avg\xi)(\op\xi-\avg\xi)\ket{x}=\bra{x}\adj{(\op\xi-\avg\xi)}(\op\xi-\avg\xi)\ket{x}
-\end{equation}
-dato che l'operatore $\op\xi-\avg\xi$ che abbiamo introdotto è anch'esso hermitiano, poich\'e $\adj{(\op\xi-\avg\xi)}=\adj{\op\xi}-\adj{\avg\xi}=\op\xi-\avg\xi$.
-
-Possiamo quindi formulare il seguente teorema.
-\begin{teorema} \label{t:autostato-indeterminazione-nulla}
-	Dato uno stato $\ket{x}$ del sistema e un'osservabile $\xi$, $\Delta_x\xi=0$ se e solo se $\ket{x}$ è un autostato di $\xi$.
-\end{teorema}
-\begin{proof}
-	Se $\Delta_x\xi=0$, allora per quanto abbiamo visto prima $\bra{x}(\op\xi-\avg\xi)(\op\xi-\avg\xi)\ket{x}=0$, ma questo termine è anche la norma del vettore $(\op\xi-\avg\xi)\ket{x}$, che dunque è nullo poich\'e il prodotto scalare non è degenere.
-	Allora $(\op\xi-\avg\xi)\ket{x}=0$, vale a dire $\op\xi\ket{x}=\avg\xi\ket{x}$ cioè $\ket{x}$ è un autostato dell'osservabile (con autovalore $\avg\xi$).
-
-	Se invece partiamo dall'ipotesi che $\ket{x}$ sia autostato di $\xi$, allora (chiamiamo $\xi'$ il rispettivo autovalore) $\op\xi=\xi'\ket{x}$.
-	Per l'operatore $\op\xi^2$ si ha analogamente $\op\xi^2\ket{x}=\xi'^2\ket{x}$, e moltiplicando a sinistra le due equazioni per $\bra{x}$ otteniamo, supponendo $\ket{x}$ normalizzato,
-	\begin{gather}
-		\bra{x}\op\xi\ket{x}=\bra{x}\xi'\ket{x}=\xi'\braket{x}{x}=\xi'\\
-		\bra{x}\op\xi^2\ket{x}=\bra{x}\xi'^2\ket{x}=\xi'^2\braket{x}{x}=\xi'^2
-	\end{gather}
-	quindi $\Delta_x\xi^2=\bra{x}\op\xi^2\ket{x}-\bra{x}\op\xi\ket{x}^2=0$.
-\end{proof}
-Gli autostati dell'osservabile sono quindi gli stati di \emph{minima indeterminazione} del risultato della misura.
-
 \section{Osservabili compatibili}
 Consideriamo due osservabili $\xi$ e $\eta$ sullo stato $\ket{x}$ del sistema.
 Misuriamo $\xi$, e lo troviamo in un autostato $\ket{\xi_i}$; se misuriamo ora $\eta$, in generale, non potremo dire niente sul risultato.
@@ -384,7 +338,54 @@ Vediamo dunque come la compatibilità tra due osservabili è legata al loro comm
 Anche se il commutatore non è nullo, due osservabili possono comunque avere degli autostati simultanei: certamente non potranno essere abbastanza da formare una base.
 Un insieme di osservabili che commutano tra loro, e tali che nessun autovalore sia degenere, formano un \emph{sistema completo di osservabili}; se le prime due presentano ancora delle degenerazioni, si può continuare aggiungendo altre osservabili che commutano fino ad arrivare a un sistema completo.
 
-In generale, però, due osservabili non commutano, e il seguente teorema collega l'indeterminazione nella misura di due osservabili qualunque con il loro commutatore, da cui segue facilmente il celebre principio di indeterminazione di Heisenberg.
+
+\section{Indeterminazione nella misura}
+Come non ci annoiamo mai di ripetere, il risultato della misura di un'osservabile non può essere, in generale, previsto con certezza.
+L'unico caso in cui sappiamo che certamente otterremo un dato autovalore è se il sistema si trova nel corrispondente autostato.
+Se anche non possiamo conoscere il risultato, però, non significa che la misura darà risultati distribuiti senza criterio: ad esempio, se lo stato $\ket{x}$ del sistema è ``molto vicino'' ad un autostato $\ket{\xi_i}$ dell'osservabile $\xi$, ossia $\abs{\braket{x}{\xi_i}}^2\approx 1$ (prendendo i due stati normalizzati), allora la probabilità di ottenere proprio l'autovalore $\xi_i$ è più alta rispetto a quella di ottenere altri autovalori, e di conseguenza ci aspettiamo che l'indeterminazione nel risultato sia bassa.
+
+Dato uno stato ``di partenza'' $\ket{x}$ del sistema, e in seguito alla misura di $\xi$, sappiamo qual è il valore di aspettazione, ma possiamo anche chiederci come fluttua (statisticamente parlando) il risultato della misura attorno a questo valore.
+La quantità più naturale da scegliere a questo scopo è lo \emph{scarto quadratico medio}, che chiamiamo $\Delta_x\xi$, che sarà dunque
+\begin{equation}
+	\Delta_x\xi=\avg{(\xi-\avg{\xi})^2}=\sqrt{\avg{\xi^2}-\avg{\xi}^2}.
+	\label{eq:deviazione-standard}
+\end{equation}
+Elevando al quadrato, dunque, troviamo
+\begin{equation}
+	\Delta_x\xi^2=\avg{\xi^2}-\avg{\xi}^2=\bra{x}\op\xi^2\ket{x}-\bra{x}\op\xi\ket{x}^2.
+	\label{eq:varianza}
+\end{equation}
+Guardiamo al quadrato dell'operatore $\op\xi$: esso non è altro che $\op\xi$ applicato consecutivamente, perciò sugli autostati accade che
+\begin{equation}
+	\op\xi^2\ket{\xi_i}=\op\xi(\op\xi\ket{\xi_i})=\op\xi(\xi_i\ket{\xi_i})=\xi_i\op\xi\ket{\xi_i}=\xi_i^2\ket{\xi_i}
+\end{equation}
+quindi i suoi autovalori sono il quadrato dei corrispondenti autovalori dell'operatore originario, con i medesimi autostati.
+
+D'altro canto, nella \eqref{eq:deviazione-standard}, $(\xi-\avg{\xi})^2$ è ancora un'osservabile, e possiamo dunque scrivere il suo valore di aspettazione dallo stato $\ket{x}$ come $\bra{x}(\op\xi-\avg\xi)^2\ket{x}$, che a sua volta è esprimibile come\footnote{Rigorosamente, $\avg\xi$ non è un'osservabile n\'e un operatore, ma un numero reale. Possiamo considerarlo tale se supponiamo in realtà $\avg\xi=\avg\xi\id$, ossia come multiplo dell'identità, per cui sarebbe anche un operatore autoaggiunto.}
+\begin{equation}
+	\bra{x}(\op\xi-\avg\xi)^2\ket{x}=\bra{x}(\op\xi-\avg\xi)(\op\xi-\avg\xi)\ket{x}=\bra{x}\adj{(\op\xi-\avg\xi)}(\op\xi-\avg\xi)\ket{x}
+\end{equation}
+dato che l'operatore $\op\xi-\avg\xi$ che abbiamo introdotto è anch'esso hermitiano, poich\'e $\adj{(\op\xi-\avg\xi)}=\adj{\op\xi}-\adj{\avg\xi}=\op\xi-\avg\xi$.
+
+Possiamo quindi formulare il seguente teorema.
+\begin{teorema} \label{t:autostato-indeterminazione-nulla}
+	Dato uno stato $\ket{x}$ del sistema e un'osservabile $\xi$, $\Delta_x\xi=0$ se e solo se $\ket{x}$ è un autostato di $\xi$.
+\end{teorema}
+\begin{proof}
+	Se $\Delta_x\xi=0$, allora per quanto abbiamo visto prima $\bra{x}(\op\xi-\avg\xi)(\op\xi-\avg\xi)\ket{x}=0$, ma questo termine è anche la norma del vettore $(\op\xi-\avg\xi)\ket{x}$, che dunque è nullo poich\'e il prodotto scalare non è degenere.
+	Allora $(\op\xi-\avg\xi)\ket{x}=0$, vale a dire $\op\xi\ket{x}=\avg\xi\ket{x}$ cioè $\ket{x}$ è un autostato dell'osservabile (con autovalore $\avg\xi$).
+
+	Se invece partiamo dall'ipotesi che $\ket{x}$ sia autostato di $\xi$, allora (chiamiamo $\xi'$ il rispettivo autovalore) $\op\xi=\xi'\ket{x}$.
+	Per l'operatore $\op\xi^2$ si ha analogamente $\op\xi^2\ket{x}=\xi'^2\ket{x}$, e moltiplicando a sinistra le due equazioni per $\bra{x}$ otteniamo, supponendo $\ket{x}$ normalizzato,
+	\begin{gather}
+		\bra{x}\op\xi\ket{x}=\bra{x}\xi'\ket{x}=\xi'\braket{x}{x}=\xi'\\
+		\bra{x}\op\xi^2\ket{x}=\bra{x}\xi'^2\ket{x}=\xi'^2\braket{x}{x}=\xi'^2
+	\end{gather}
+	quindi $\Delta_x\xi^2=\bra{x}\op\xi^2\ket{x}-\bra{x}\op\xi\ket{x}^2=0$.
+\end{proof}
+Gli autostati dell'osservabile sono quindi gli stati di \emph{minima indeterminazione} del risultato della misura.
+
+In generale sappiamo che due osservabili non commutano, e il loro commutatore fornisce una stima di questo fatto: vediamo come tutto ciò si traduce nell'indeterminazione sulle misure.
 \begin{teorema} \label{t:indeterminazione}
 	Dato uno stato $\ket{x}$ e due osservabili $\xi$, $\eta$, il prodotto delle due indeterminazioni delle due misure è
 	\begin{equation}
@@ -425,6 +426,9 @@ In generale, però, due osservabili non commutano, e il seguente teorema collega
 		\Delta_x\xi\Delta_x\eta\geq\frac12\avg{i[\xi,\eta]}=\frac12\abs{\bra{x}i[\op\xi,\op\eta]\ket{x}}.
 	\end{equation}
 \end{proof}
+Di conseguenza se misuriamo due osservabili su uno stato ed esse non sono compatibili non potremo mai determinarle con assoluta precisione, ma dobbiamo accettare inevitabilmente un'indeterminazione sui risultati.\footnote{La misura delle due osservabili deve essere svolta ``in rapida successione'', nel senso che la seconda deve essere svolta \emph{immediatamente} dopo la prima. Questo perch\'e uno stato non è necessariamente costante nel tempo, ma può evolvere, quindi potremmi trovarci a misurare due osservabili su stati \emph{differenti}, e in tal caso chiaramente questo teorema non si applica più.}
+Da questo deriva inoltre il famoso \emph{principio di indeterminazione di Heisenberg}, ad esempio per la coppia di osservabili posizione-impulso.
+
 La presenza di una $i$ nella \eqref{eq:indeterminazione} è dovuta al fatto che il commutatore non è hermitiano, cioè
 \begin{equation}
 	\adj{[\op\xi,\op\eta]}=\adj{(\op\xi\op\eta-\op\eta\op\xi)}=\adj{\op\eta}\adj{\op\xi}-\adj{\op\xi}\adj{\op\eta}=\op\eta\op\xi-\op\xi\op\eta=-[\op\xi,\op\eta],
