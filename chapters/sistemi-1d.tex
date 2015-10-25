@@ -1,6 +1,72 @@
 \chapter{Sistemi unidimensionali}
 In queto capitolo affronteremo una serie di esempi ``accademici'' di sistemi in una dimensione, cercando di risolvere dove possibile l'equazione di Schr\"odinger per la funzione d'onda e lo spettro di energia, o di trovare la migliore approssimazione sfruttando le tecniche acquisite.
 
+\section{Operatore di inversione spaziale}
+Introduciamo un importante operatore che ci servirà spesso negli esempi che incontreremo, l'operatore di \emph{inversione spaziale}, detto anche operatore di \emph{parità}.
+Chiamiamo $\op I$ l'operatore (in una dimensione) che, nella rappresentazione di Schr\"odinger della posizione, agisce sulla funzione d'onda $\psi(q)=\braket{q}{\psi}$ dello stato $\ket{\psi}$ come
+\begin{equation}
+	\bra{q}\op I\ket{\psi}=\psi(-q).
+	\label{eq:inversione-spaziale-posizione}
+\end{equation}
+La sua rappresentazione nella base dell'impulso la otteniamo con il cambiamento di base usando la trasformata di Fourier: detta $\tilde{\psi}(p)=\braket{p}{\psi}$, risulta
+\begin{equation}
+	\begin{split}
+		\bra{p}\op I\ket{\psi}&=\four(\op I\psi)(p)=\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}pq}(\op I\psi)(q)\,\dd q=\\
+		&=\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}pq}\psi(-q)\,\dd q=\\
+		&=\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}(-p)(-q)}\psi(-q)\,\dd q=\\
+		&=\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}(-p)q'}\psi(q')\,\dd q'=\\
+		&=\tilde{\psi}(-p)
+	\end{split}
+	\label{eq:inversione-spaziale-impulso}
+\end{equation}
+con il cambiamento di variabile $q'=-q$.
+Dunque l'operatore $\op I$ cambia segno sia alla posizione che all'impulso.
+Tornando nella notazione di Dirac, senza passare nella rappresentazione di Schr\"odinger, abbiamo dunque $\op I\ket{q}=\ket{-q}$ e $\op I\ket{p}=\ket{-p}$.
+
+Ovviamente l'operatore è anche il suo stesso inverso, ossia $\op I^2=1$, inoltre
+\begin{multline}
+	\bra{A}\adj{\op I}\ket{B}=\bra{B}\op I\ket{A}^*=\bigg[\int_{-\infty}^{+\infty}\psi_B^*(q)\psi_A(-q)\,\dd q\bigg]^*=\int_{-\infty}^{+\infty}\psi_B(q)\psi_A^*(-q)\,\dd q=\\
+	=\int_{-\infty}^{+\infty}\psi_B(-q')\psi_A^*(q')\,\dd q'=\bra{A}\op I\ket{B}
+	\label{eq:operatore-inversione-spaziale-hermitiano}
+\end{multline}
+dunque $\op I$ è hermitiano, ma allora $1=\op I^2=\adj{\op I}\op I=\op I\adj{\op I}$ per cui è anche unitario.
+Dato che è sia hermitiano che unitario, i suoi autovalori sono di modulo unitario e reali, quindi lo spettro è $\{-1,1\}$.
+Le sue autofunzioni sono tali che $f(-x)=f(x)$ oppure $f(-x)=-f(x)$, ossia sono le funzioni pari o dispari.\footnote{Dato che lo spettro è discreto, abbiamo autovalori \emph{propri} a cui corrispondono autofunzioni \emph{proprie} quindi, ad esempio, la delta di Dirac è esclusa.}
+Ogni funzione $g$ dopotutto si può scrivere come
+\begin{equation}
+	g(x)=\frac{g(x)+g(-x)}2+\frac{g(x)-g(-x)}2
+	\label{eq:decomposizione-funzione-pari-dispari}
+\end{equation}
+e il primo addendo è pari mentre il secondo è dispari.
+
+Completiamo il quadro con le relazioni tra $\op I$ e gli operatori di posizione e impulso: anzich\'e calcolare i commutatori direttamente su una funzione di $L^2(\R)$, calcoliamo
+\begin{equation}
+	\bra{q}\op I\op q\op I\ket{\psi}=\bra{-q}\op q\op I\ket{\psi}=-q\bra{-q}\op I\ket{\psi}=-q\braket{q}{\psi}
+\end{equation}
+da cui $\op I\op q\op I=-\op q$.
+Moltiplicando a destra per $\op I$ troviamo $-\op q\op I=\op I\op q\op I^2=\op I\op q$, dunque i due operatori non commutano.
+Ripetiamo i calcoli per $\op q^2$: con lo stesso metodo di prima abbiamo
+\begin{equation}
+	\bra{q}\op I\op q^2\op I\ket{\psi}=\bra{-q}\op q^2\op I\ket{\psi}=(-q)^2\bra{-q}\op I\ket{\psi}=q^2\braket{q}{\psi}
+\end{equation}
+perciò $\op I\op q^2\op I=\op q^2$.
+Ancora moltiplicando a destra per $\op I$ troviamo $\op q^2\op I=\op I\op q^2\op I^2=\op I\op q^2$ quindi i due commutano.
+
+Per l'impulso troviamo un risultato analogo, dato che l'azione di $\op I$ sugli autostati di $\op p$ è la stessa che su quelli di $\op q$.
+Abbiamo dunque
+\begin{equation}
+	\begin{gathered}
+		[\op q,\op I]=-2\op I\op q,\hspace{1cm}[\op q^2,\op I]=0;\\
+		[\op p,\op I]=-2\op I\op p,\hspace{1cm}[\op p^2,\op I]=0.
+	\end{gathered}
+	\label{eq:commutatori-inversione-posizione-impulso}
+\end{equation}
+È evidente che, oltre a $\op q^2$ (o $\op p^2$), l'operatore di inversione commuta anche con una qualsiasi funzione pari di $\op q$ (o di $\op p$).\footnote{Si intende ovviamente una funzione \emph{soltanto} di $\op q$ o soltanto di $\op p$, altrimenti il risultato in generale non è valido.}
+Un esempio di questo fatto lo troviamo nell'oscillatore armonico unidimensionale: il potenziale era pari, oltre che un multiplo di $\op q^2$, quindi l'operatore di inversione commuta con esso.
+Dato inoltre che l'intera hamiltoniana è una somma di un multiplo di $\op p^2$ e un multiplo di $\op q^2$, abbiamo addirittura $[\op H,\op I]=0$.
+Questo significa che esistono degli autostati simultanei di $\op H$ e di $\op I$: dato che l'hamiltoniano in questo caso non è degenere, ciascun autostato è direttamente anche un autostato dell'operatore di inversione, senza possibilità di avere delle combinazioni lineari.
+Di conseguenza ogni autostato di $\op H$ ha una parità definita: dopotutto sappiamo che le autofunzioni sono le funzioni di Hermite, ed esse stesse hanno una parità definita, ossia $h_n(-x)=(-1)^nh_n(x)$; in altre parole, $\op I\ket{n}=(-1)^n\ket{n}$.
+
 \section{Particella libera}
 Contrariamente al caso classico, in cui questo era il sistema più semplice da studiare, nel caso quantistico troviamo qualche complicazione.
 L'hamiltoniano del sistema è semplicemente
