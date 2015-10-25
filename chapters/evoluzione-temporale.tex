@@ -1,14 +1,14 @@
 \chapter{Evoluzione temporale}
 Poich\'e finora ci siamo interessati degli stati di equilibrio dei sistemi  e delle loro energie, ci è servito studiare soltanto una descrizione indipendente dal tempo.
 Per analizzare i fenomeni dinamici e variabili nel tempo, però, ci occorre capire come gli stati dei sistemi quantistici evolvono nel tempo: dato uno stato $\ket{\psi(0)}$ noto ad un certo istante iniziale di tempo, come determinare la sua evoluzione $\ket{\psi(t)}$ ad un generico istante?
-Nella meccanica classica questo fenomeno è descritto dall'evoluzione delle coordinate canoniche nello spazio delle fasi; in meccanica quantistica, esso è descritto da un \emph{operatore di propagazione} (o soltanto \emph{propagatore}), sia esso $\op U(t)$, per il quale $\ket{\psi(t)}=\op U(t)\ket{\psi(0)}$.
+Nella meccanica classica questo fenomeno è descritto dall'evoluzione delle coordinate canoniche nello spazio delle fasi; in meccanica quantistica, esso è descritto da un opportuno \emph{operatore di evoluzione temporale}, sia esso $\op U(t)$, per il quale $\ket{\psi(t)}=\op U(t)\ket{\psi(0)}$.
 Seguendo l'esempio della meccanica classica, assumiamo anche qui che l'hamiltoniano sia il generatore delle traslazioni temporali infinitesime.
 Se l'hamiltoniano stesso non dipende dal tempo, scriviamo dunque
 \begin{equation}
 	\op U(t)=e^{-\frac{i}{\hbar}\op Ht}.
-	\label{eq:propagatore}
+	\label{eq:operatore-evoluzione-temporale}
 \end{equation}
-Notiamo come con questa forma il propagatore rispetta, in modo ovvio, le proprietà che ci aspettiamo possieda:
+Notiamo che con questa forma l'operatore $\op U(t)$ rispetta, in modo ovvio, le proprietà che ci aspettiamo possieda:
 \begin{itemize}
 	\item conserva la probabilità: $\braket{\psi(t)}{\psi(t)}=\bra{\psi(0)}\adj{\op U}(t)\op U(t)\ket{\psi(0)}=\braket{\psi(0)}{\psi(0)}$;
 	\item è lineare e continuo, quindi $U(t)\to\op 1$ per $t\to 0$;
@@ -40,7 +40,7 @@ Chiedere che $\ket{\psi(t)}$ sia uguale a $\ket{\psi(0)}$ è eccessivo, perch\'e
 \end{equation}
 che vale a dire che $\ket{\psi(0)}$ è un autostato di $\op H$ con autovalore nullo, situazione impossibile per uno stato fisico.
 Sappiamo però che due vettori multipli per uno scalare rappresentano lo stesso stato fisico, perciò anche se $\op U(t)\ket{\psi(0)}=c(t)\ket{\psi(0)}$ lo stato fisico rimane invariato, come vogliamo.
-Oltre ad apparire nell'espressione del propagatore, l'hamiltoniano gioca un ruolo cruciale nell'evoluzione temporale, come nel seguente teorema.
+Oltre ad apparire nell'espressione dell'operatore $\op U(t)$, l'hamiltoniano gioca un ruolo cruciale nell'evoluzione temporale, come spiegato nel seguente teorema.
 \begin{teorema} \label{t:autostati-hamiltoniano-stazionari}
 	Uno stato è stazionario se e solo se è un autostato dell'hamiltoniano.
 \end{teorema}
@@ -88,7 +88,7 @@ Se $\op\xi$ è hermitiano chiaramente lo è anche $\op\xi(t)$, inoltre vale anco
 	\drp{}{t}\op\xi(t)=\frac{i}{\hbar}\adj{\op U}(t)[\op H,\op\xi]\op U(t)=\frac{i}{\hbar}[\op H,\op\xi(t)],
 	\label{eq:evoluzione-osservabili-heisenberg}
 \end{equation}
-detta qui \emph{equazione di Heisenberg}.
+detta \emph{equazione di Heisenberg}.
 A meno del fattore $i/\hbar$, questa equazione non è altro che la già nota relazione in meccanica classica per l'evoluzione temporale delle osservabili $\dot{f}=\{f,H\}$.
 
 Ad esempio, prendiamo l'hamiltoniano $\op H=\frac1{2m}\op p^2+V(\op q)$ di una particella soggetta, in una dimensione, ad un generico potenziale $V(q)$.
