@@ -140,3 +140,41 @@ In tal caso si dimostra che la corrente di probablità soddisfa l'equazione
 dove $\rho(\vec x,t)=\abs{\psi(\vec x,t)}^2$, che è la versione più generale dell'equazione di continuità precedente.
 Se in particolare $\psi(\vec x,t)$ è un'autofunzione dell'hamiltoniano $\psi_n(\vec x)e^{-iE_nt/\hbar}$, allora $\vec J(\vec x,t)=0$ e la densità di probabilità $\rho$ si conserva nel tempo, come abbiamo già visto.
 
+\section{Teorema di Ehrenfest}
+Nel caso classico abbiamo il teorema del viriale che lega i valori medi nel tempo dell'energia cinetica e potenziale.
+Ai fini della dimostrazione è necessario il seguente risultato.
+\begin{teorema}[Eulero] \label{t:eulero-funzioni-omogenee}
+	Se $f\colon\R^n\to\R$ è una funzione omogenea sufficientemente liscia di grado $k$, ossia $f(\lambda\vec x)=\lambda^kf(\vec x)$, allora
+	\begin{equation}
+		\sum_{i=1}^nx_i\drp{V}{x_i}(\vec x)=kV(\vec x).
+		\label{eq:eulero-funzioni-omogenee}
+	\end{equation}
+\end{teorema}
+\begin{proof}
+	Derivando l'identità $f(\lambda\vec x)=\lambda^kf(\vec x)$ rispetto alla componente $i$-esima troviamo $\lambda\drp{f}{x_i}(\lambda\vec x)=\lambda^k\drp{f}{x_i}(\vec x)$ ossia
+	\begin{equation}
+		\drp{f}{x_i}(\lambda\vec x)\lambda^{k-1}f(\vec x).
+	\end{equation}
+	Sommando su tutte le componenti
+	\begin{equation}
+		\sum_{i=1}^nx_i\drp{f}{x_i}(\lambda\vec x)=k\lambda^{k-1}f(\vec x)
+	\end{equation}
+	e basta prendere $\lambda=1$ per ottenere la \eqref{eq:eulero-funzioni-omogenee}.
+\end{proof}
+
+\begin{teorema}[del viriale] \label{t:viriale}
+	Se il potenziale $V$ di un sistema è una funzione omogenea di grado $k$, allora $k\avg{V}=2\avg{T}$.
+\end{teorema}
+\begin{proof}
+	Prendiamo la parentesi di Poisson $\pois{\sum_iq_ip_i}{\ham}$: risulta
+	\begin{equation}
+		\sum_i\pois{q_ip_i}{\ham}=\sum_i\big(q_i\pois{p_i}{\ham}+\pois{q_i}{\ham}p_i\big)=\sum_i\bigg(-q_i\drp{\ham}{q_i}+p_i\drp{\ham}{p_i}\bigg)=-kV+2T
+	\end{equation}
+	sfruttando le equazioni canoniche di Hamilton e il fatto che $T$ è omogenea di grado $2$ mentre $V$ lo è di grado $k$.
+	Integrando su un periodo risulta
+	\begin{equation}
+		0=\frac1{T}\int_0^T\drv{}{t}\bigg(\sum_iq_ip_i\bigg)\,\dd t=\frac1{T}\int_0^T\pois{\sum_iq_ip_i}{\ham}\,\dd t=-k\avg{V}+2\avg{T}
+	\end{equation}
+	da cui $k\avg{V}=2\avg{T}$.
+\end{proof}
+
