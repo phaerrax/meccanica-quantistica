@@ -338,6 +338,16 @@ Vediamo dunque come la compatibilità tra due osservabili è legata al loro comm
 Anche se il commutatore non è nullo, due osservabili possono comunque avere degli autostati simultanei: certamente non potranno essere abbastanza da formare una base.
 Un insieme di osservabili che commutano tra loro, e tali che nessun autovalore sia degenere, formano un \emph{sistema completo di osservabili}; se le prime due presentano ancora delle degenerazioni, si può continuare aggiungendo altre osservabili che commutano fino ad arrivare a un sistema completo.
 
+Con delle osservabili compatibili possiamo inoltre verificare se un'altra osservabile è degenere o meno, con il seguente teorema.
+\begin{teorema} \label{t:degenerazione}
+	Siano $\xi,\eta,\zeta$ tre osservabili tali che $[\op\xi,\op\eta]=[\op\xi,\op\zeta]=0$ e $[\op\eta,\op\zeta]\ne 0$.
+	Allora $\xi$ è degenere.
+\end{teorema}
+\begin{proof}
+	Se $\xi$ non fosse degenere, allora i suoi autostati formerebbero un insieme completo, e coinciderebbero sia con quelli di $\eta$ che con quelli di $\zeta$.
+	In tal caso però $\eta$ e $\zeta$ ammetterebbero un insieme completo di autostati simultanei (gli stessi di $\xi$, per transitività) cioè sarebbero compatibili, dunque per il teorema \ref{t:osservabili-compatibili} avremmo $[\op\eta,\op\zeta]=0$ che contraddice le ipotesi.
+	Allora $\xi$ deve essere degenere.
+\end{proof}
 
 \section{Indeterminazione nella misura}
 Come non ci annoiamo mai di ripetere, il risultato della misura di un'osservabile non può essere, in generale, previsto con certezza.
