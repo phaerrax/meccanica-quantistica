@@ -178,3 +178,23 @@ Ai fini della dimostrazione è necessario il seguente risultato.
 	da cui $k\avg{V}=2\avg{T}$.
 \end{proof}
 
+Nei sistemi quantistici, l'analogo del teorema del viriale è dato dal teorema di Ehrenfest.
+Anche la dimostrazione è molto simile, ma è svolta considerando soltanto gli autostati dell'hamiltoniano.
+\begin{teorema}[Ehrenfest] \label{t:ehrenfest}
+	Sia $\ket{E}$ un autostato dell'hamiltoniano, tale che $\op H\ket{E}=E\ket{E}$.
+	Se il potenziale $V$ è una funzione di $\op q$ omogenea di grado $k$ allora
+	\begin{equation}
+		k\bra{E}V(\op q)\ket{E}=2\bra{E}T(\op p)\ket{E}
+		\label{eq:ehrenfest}
+	\end{equation}
+	dove $T$ è l'energia cinetica, come funzione di $\op p$ omogenea di grado 2.
+\end{teorema}
+\begin{proof}
+	Abbiamo già visto che per un qualsiasi operatore $\op\xi$ si ha $\ket{E}[\op\xi,\op H]\ket{E}=0$.
+	Ponendo $\op\xi=\sum_i\op q_i\op p_i$ allora risulta
+	\begin{equation}
+		0=\sum_i\bra{E}[\op q_i\op p_i,\op H]\ket{E}=\sum_i\bra{E}\op q_i[\op p_i,\op H]+[\op q_i,\op H]\op p_i\ket{E}=\bra{E}-kV(\op q)+2T(\op p)\ket{E}
+	\end{equation}
+	da cui la tesi.
+\end{proof}
+
