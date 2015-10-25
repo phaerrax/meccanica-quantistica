@@ -111,3 +111,32 @@ mentre quella degli impulsi è
 \end{equation}
 Notare la forte somiglianza di queste due equazioni con quelle di Hamilton in meccanica classica.
 
+\section{Corrente di probabilità}
+Dato che l'equazione di Schr\"odinger non dipendente dal tempo è a coefficienti reali, se $\psi$ è una sua soluzione anche la coniugata $\psi^*$ lo è, ossia $\psi$ e $\psi^*$ soddisfano le equazioni
+\begin{equation}
+	-\frac{\hbar^2}{2m}\lap\psi(\vec x)+\big[V(\vec x)-E\big]\psi(\vec x)=0\qeq	-\frac{\hbar^2}{2m}\lap\psi^*(\vec x)+\big[V(\vec x)-E\big]\psi^*(\vec x)=0.
+\end{equation}
+Moltiplicando (a sinistra) la prima per $\psi^*$, la seconda per $\psi$ e sottraendole otteniamo allora
+\begin{equation}
+	-\frac{\hbar^2}{2m}\big[\psi^*(\vec x)\lap\psi(\vec x)-\psi(\vec x)\lap\psi^*(\vec x)\big]=0
+\end{equation}
+da cui
+\begin{equation}
+	0=-\frac{\hbar^2}{2m}\psi^*(\vec x)\lap\psi(\vec x)-\psi(\vec x)\lap\psi^*(\vec x)=-\frac{\hbar^2}{2m}\div\big(\psi^*(\vec x)\grad\psi(\vec x)-\psi(\vec x)\grad\psi^*(\vec x)\big).
+\end{equation}
+Definiamo dunque la \emph{corrente di probabilità} $\vec J(\vec x)$ come la quantità
+\begin{equation}
+	\vec J(\vec x)=-\frac{i\hbar}{2m}\big(\psi^*(\vec x)\grad\psi(\vec x)-\psi(\vec x)\grad\psi^*(\vec x)\big)
+	\label{eq:corrente-probabilita}
+\end{equation}
+che in questo caso soddisfa l'equazione di continuità $\div\vec J(\vec x)=0$.
+
+La corrente di probabilità $\vec J$ si definisce allo stesso modo anche per sistemi variabili nel tempo, secondo l'equazione \eqref{eq:schrodinger-tempo-coordinate}, con le $\psi$ e $\psi^*$ ovviamente a loro volta dipendenti dal tempo.
+In tal caso si dimostra che la corrente di probablità soddisfa l'equazione
+\begin{equation}
+	\div\vec J(\vec x,t)+\drp{\rho}{t}(\vec x,t)=0,
+	\label{eq:continuita-corrente-probabilita}
+\end{equation}
+dove $\rho(\vec x,t)=\abs{\psi(\vec x,t)}^2$, che è la versione più generale dell'equazione di continuità precedente.
+Se in particolare $\psi(\vec x,t)$ è un'autofunzione dell'hamiltoniano $\psi_n(\vec x)e^{-iE_nt/\hbar}$, allora $\vec J(\vec x,t)=0$ e la densità di probabilità $\rho$ si conserva nel tempo, come abbiamo già visto.
+
