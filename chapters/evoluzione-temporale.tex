@@ -1,26 +1,34 @@
 \chapter{Evoluzione temporale}
 Poich\'e finora ci siamo interessati degli stati di equilibrio dei sistemi  e delle loro energie, ci è servito studiare soltanto una descrizione indipendente dal tempo.
 Per analizzare i fenomeni dinamici e variabili nel tempo, però, ci occorre capire come gli stati dei sistemi quantistici evolvono nel tempo: dato uno stato $\ket{\psi(0)}$ noto ad un certo istante iniziale di tempo, come determinare la sua evoluzione $\ket{\psi(t)}$ ad un generico istante?
-Nella meccanica classica questo fenomeno è descritto dall'evoluzione delle coordinate canoniche nello spazio delle fasi; in meccanica quantistica, esso è descritto da un opportuno \emph{operatore di evoluzione temporale}, sia esso $\op U(t)$, per il quale $\ket{\psi(t)}=\op U(t)\ket{\psi(0)}$.
+Nella meccanica classica questo fenomeno è descritto dall'evoluzione delle coordinate canoniche nello spazio delle fasi; in meccanica quantistica, esso è descritto da un opportuno \emph{operatore di evoluzione temporale}, sia esso $\op U(t,t_0)$, per il quale $\ket{\psi(t)}=\op U(t,t_0)\ket{\psi(0)}$.
+L'operatore $\op U(t,t_0)$ deve rispettare tre principali proprietà:
+\begin{itemize}
+	\item deve essere unitario, in modo che si conservi la probabilità: se $\adj{\op U(t,t_0)}=U(t,t_0)^{-1}$ allora $\braket{\psi(t)}{\psi(t)}=\bra{\psi(0)}\adj{\op U(t,t_0)}\op U(t,t_0)\ket{\psi(0)}=\braket{\psi(0)}{\psi(0)}$;
+	\item deve essere continuo e ridursi all'identità per $t\to t_0$, ossia $U(t_0,t_0)=1$;
+	\item si compone con la regola $\op U(t_2,t_1)\op U(t_1,t_0)=\op U(t_2,t_0)$, in modo che se facciamo evolvere il sistema da un tempo $t_0$ a $t_1$ e successivamente da $t_1$ a $t_2$, otteniamo lo stesso risultato che se lo facessimo evolvere direttamente da $t_0$ e $t_2$.
+\end{itemize}
+
+Da qui in poi assumiamo che l'hamiltoniano non sia esplicitamente dipendente dal tempo, come sarà il caso in tutti gli esempi che vedremo.
 Seguendo l'esempio della meccanica classica, assumiamo anche qui che l'hamiltoniano sia il generatore delle traslazioni temporali infinitesime.
-Se l'hamiltoniano stesso non dipende dal tempo, scriviamo dunque
+Dato che l'argomento dell'esponenziale deve essere adimensionale, dobbiamo dividere $\op Ht$ per un'opportuna costante: essa è ancora $\hbar$, e l'operatore $\op U(t,t_0)$ è dato dalla formula\footnote{Non mostriamo qui le ragioni per cui la costante dimensionale debba essere proprio la stessa $\hbar$ usata finora.}
 \begin{equation}
-	\op U(t)=e^{-\frac{i}{\hbar}\op Ht}.
+	\op U(t,t_0)=\exp\bigg[-\frac{i}{\hbar}\op H(t-t_0)\bigg]
 	\label{eq:operatore-evoluzione-temporale}
 \end{equation}
-Notiamo che con questa forma l'operatore $\op U(t)$ rispetta, in modo ovvio, le proprietà che ci aspettiamo possieda:
-\begin{itemize}
-	\item conserva la probabilità: $\braket{\psi(t)}{\psi(t)}=\bra{\psi(0)}\adj{\op U}(t)\op U(t)\ket{\psi(0)}=\braket{\psi(0)}{\psi(0)}$;
-	\item è lineare e continuo, quindi $U(t)\to\op 1$ per $t\to 0$;
-	\item si compone con la regola $\op U(t_1)\op U(t_2)=\op U(t_1+t_2)$.
-\end{itemize}
-In altre parole, questi operatori formano un gruppo unitario continuo ad un parametro.
+che mostra come il sistema dipenda in realtà solamente dal tempo trascorso $t-t_0$ (sempre se $\op H$ è indipendente dal tempo) e non dagli specifici istanti di tempo.
+Possiamo indicare direttamente con $t$ il tempo trascorso, oppure porre $t_0=0$, ottenendo
+\begin{equation}
+	\op U(t)=\exp\bigg(-\frac{i}{\hbar}\op Ht\bigg).
+\end{equation}
+L'operatore di evoluzione temporale commuta dunque con l'hamiltoniano.
+Nel caso di una dipendenza esplicita dal tempo dell'hamiltoniano, non esiste in generale una formula per $\op U(t,t_0)$, ed esso non commuta necessariamente con $\op H(t)$.
 
 Per studiare come uno stato varia nel tempo consideriamo la sua derivata temporale all'istante $t$, passando alla derivata di $\op U(t)$, possiamo ottenere l'equazione differenziale
 \begin{equation}
 	\drp{}{t}\ket{\psi(t)}=\drp{}{t}\op U(t)\ket{\psi(0)}=-\frac{i}{\hbar}\op H\op U(t)\ket{\psi(0)}=-\frac{i}{\hbar}\op H\ket{\psi(t)}\quad\longrightarrow\quad \op H=i\hbar\drp{}{t}.
 \end{equation}
-Nel caso in cui anche l'hamiltoniano dipenda dal tempo, generalizziamo l'equazione nella forma
+Nel caso in cui anche l'hamiltoniano dipenda dal tempo, l'equazione si generalizza nella forma
 \begin{equation}
 	i\hbar\drp{}{t}\op U(t)=\op H(t)\op U(t)
 	\label{eq:schrodinger-tempo}
@@ -28,9 +36,10 @@ Nel caso in cui anche l'hamiltoniano dipenda dal tempo, generalizziamo l'equazio
 detta \emph{equazione di Schr\"odinger dipendente dal tempo}.
 Nella rappresentazione delle coordinate troviamo l'equazione differenziale per la funzione d'onda, che è $\bra{q}i\hbar\drp{}{t}\ket{\psi(t)}=\bra{q}\op H(t)\ket{\psi(t)}$, da cui
 \begin{equation}
-	i\hbar\drp{}{t}\psi(\vec q,t)=H\psi(\vec q,t).
+	i\hbar\drp{}{t}\psi(q,t)=H\psi(q,t)
 	\label{eq:schrodinger-tempo-coordinate}
 \end{equation}
+dove $H$ nell'equazione si riferisce all'operatore di $L^2(\R)$ corrispondente all'hamiltoniano.
 
 \section{Stati stazionari}
 Esistono degli stati \emph{stazionari}, che non dipendono dal tempo?
@@ -101,3 +110,4 @@ mentre quella degli impulsi è
 	\drp{}{t}\op p(t)=\frac{i}{\hbar}[\op H,\op p]=\frac{i}{\hbar}[V(\op q),\op p]=-\drp{V}{q}(\op q).
 \end{equation}
 Notare la forte somiglianza di queste due equazioni con quelle di Hamilton in meccanica classica.
+
