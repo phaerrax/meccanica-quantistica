@@ -251,6 +251,67 @@ diminuendo ad ogni successivo passo le potenze di $\op a$ e $\adj{\op a}$, fino 
 \end{itemize}
 quindi $\braket{n}{m}=\delta_{nm}$.
 
+Usando questo insieme come base di Hilbert per lo spazio degli stati, possiamo dunque rappresentare gli operatori incontrati finora come matrici.
+Cominciamo dagli operatori di creazione e distruzione: risulta
+\begin{multline}
+	(\adj{\op a})_{nm}=\bra{n}\adj{\op a}\ket{m}=\frac1{\sqrt{m!}}\bra{n}\adj{\op a}(\adj{\op a})^m\ket{0}=\frac1{\sqrt{m!}}\bra{n}(\adj{\op a})^{m+1}\ket{0}=\\
+	=\frac1{\sqrt{m!}}\bra{n}\sqrt{(m+1)!}\ket{m+1}=\sqrt{\frac{(m+1)!}{m!}}\delta_{n,m+1}=\sqrt{n}\delta_{n,m+1}.
+	\label{eq:matrice-operatore-creazione-oscillatore}
+\end{multline}
+L'operatore di creazione è l'aggiunto di quest'ultimo quindi $(\op a)_{nm}=(\adj{\op a})_{mn}^*$.
+Abbiamo dunque le matrici\footnote{Volendo essere rigorosi, il simbolo di uguaglianza è sbagliato in questo caso, dato che le matrici \emph{non sono} i rispettivi operatori, ma \emph{li rappresentano} in un determinato spazio, che qui è $\ell^2(\C)$. Per mantenere una notazione più semplice continueremo comunque con questa notazione.}
+\begin{equation}
+	\adj{\op a}=
+	\begin{bmatrix}
+		0		&0			&0			&0		&0		&\cdots\\
+		1		&0			&0			&0		&0		&\cdots\\
+		0		&\sqrt{2}	&0			&0		&0		&\cdots\\
+		0		&0			&\sqrt{3}	&0		&0		&\cdots\\
+		0		&0			&0			&2		&0		&\cdots\\
+		\vdots	&\vdots		&\vdots		&\vdots	&\vdots	&\ddots
+	\end{bmatrix}
+	\qeq
+	\op a=
+	\begin{bmatrix}
+		0		&1			&0			&0			&0			&\cdots\\
+		0		&0			&\sqrt{2}	&0			&0			&\cdots\\
+		0		&0			&0			&\sqrt{3}	&0			&\cdots\\
+		0		&0			&0			&0			&2			&\cdots\\
+		0		&0			&0			&0			&0			&\cdots\\
+		\vdots	&\vdots		&\vdots		&\vdots		&\vdots		&\ddots
+	\end{bmatrix}.
+	\label{eq:matrici-operatori-scala-oscillatore}
+\end{equation}
+Per risalire alla posizione e al momento, invertiamo le \eqref{eq:operatore-distruzione} e \eqref{eq:operatore-creazione} ottenendo
+\begin{equation}
+	\op q=i\sqrt{\frac{\hbar}{2m\omega}}(\op a-\adj{\op a})\qeq\op p=\sqrt{\frac{m\hbar\omega}2}(\op a+\adj{\op a}).
+\end{equation}
+I due operatori sono allora rappresentati in $\ell^2(\C)$ dalle matrici
+\begin{equation}
+	\op q=i\sqrt{\frac{\hbar}{2m\omega}}
+	\begin{bmatrix}
+		0		&1			&0			&0			&0		&\cdots\\
+		-1		&0			&\sqrt{2}	&0			&0		&\cdots\\
+		0		&-\sqrt{2}	&0			&\sqrt{3}	&0		&\cdots\\
+		0		&0			&-\sqrt{3}	&0			&2		&\cdots\\
+		0		&0			&0			&-2			&0		&\cdots\\
+		\vdots	&\vdots		&\vdots		&\vdots		&\vdots	&\ddots
+	\end{bmatrix}
+	\qeq
+	\op p=\sqrt{\frac{m\hbar\omega}2}
+	\begin{bmatrix}
+		0		&1			&0			&0			&0		&\cdots\\
+		1		&0			&\sqrt{2}	&0			&0		&\cdots\\
+		0		&\sqrt{2}	&0			&\sqrt{3}	&0		&\cdots\\
+		0		&0			&\sqrt{3}	&0			&2		&\cdots\\
+		0		&0			&0			&2			&0		&\cdots\\
+		\vdots	&\vdots		&\vdots		&\vdots		&\vdots	&\ddots
+	\end{bmatrix}.
+	\label{eq:matrici-posizione-impulso}
+\end{equation}
+È evidente che le matrici di $\op q$ e $\op p$ sono hermitiane, e verificano la relazione $[\op q,\op p]=i\hbar$, dove $i\hbar$ è inteso come multiplo della matrice identità.
+È importante inoltre notare che queste due rappresentazioni matriciali degli operatori di posizione e impulso valgono sempre in $\ell^2(\C)$, non solo quando si studia l'oscillatore armonico, a patto ovviamente di rappresentare gli stati nella base degli autostati $\ket{n}$ come definiti in precedenza.
+
 \section{Stati coerenti}
 Matematicamente, gli \emph{stati coerenti} sono definiti come gli autostati ``destri'' dell'operatore di distruzione, cioè\footnote{L'attributo \emph{destri} attribuito agli autostati è importante in questo caso, perch\'e l'operatore di distruzione non è hermitiano, quindi se $\op a\ket{\alpha}=\alpha\ket{\alpha}$ non vale la relazione duale $\bra{\alpha}\op a=\alpha\bra{\alpha}$.}
 \begin{equation}
