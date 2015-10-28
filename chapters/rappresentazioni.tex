@@ -304,3 +304,57 @@ da cui ricaviamo l'equazione differenziale alle derivate parziali, del secondo o
 da risolvere per una soluzione $\psi_E\in L^2(\R^3)$.
 Le soluzioni (indipendenti) sono solo due, per ogni valore di $E$, ma non tutte sono accettabili da un punto di vista fisico: in particolare deve essere $\abs{\psi_E(\vec q)}\to 0$ per $\norm{\vec q}\to+\infty$, inoltre solo per alcuni valori di $E$ si avrà che $\psi_E$ è a quadrato sommabile.
 
+\subsection{Rappresentazione nell'impulso}
+Analogamente alla precedente è naturale introdurre anche la rappresentazione di Schr\"odinger degli stati nella base di autostati dell'impulso.
+Poich\'e questi autostati formano una base di non numerabile, esattamente come quella della posizione, i fondamenti teorici sono esattamente gli stessi: i coefficienti $\braket{p}{A}$ di uno stato rispetto a questa base formeranno ancora una funzione dello spazio $L^2(\R)$ (o l'analogo in più dimensioni), anch'essa chiamata solitamente funzione d'onda.
+Cambierà certamente la forma degli operatori su questo spazio, ed è quello di cui ci interessiamo ora.
+
+L'operatore dell'impulso è chiaramente diagonale in questa rappresentazione, dunque detta $\psi_A(p)\defeq\braket{p}{A}$ la funzione d'onda dello stato $\ket{A}$ abbiamo $\bra{p}\op p\ket{A}=p\braket{p}{A}=p\psi_A(p)$.
+L'operatore della posizione si trova in modo analogo a quanto fatto in precedenza per l'impulso: dopo aver definito un operatore $\op W(k)\defeq\exp\big(-\frac{i}{\hbar}\op qk\big)$ che trasla l'impulso da $p$ a $p-k$, ossia tale per cui $\op W(b)\ket{p}=\ket{p-k}$, si scrive una traslazione degli impulsi infinitesima sviluppando in serie di Taylor in $k$.\footnote{Notare che in questo caso, nonostante la definizione sia analoga, l'impulso è traslato di $-k$ anzich\'e di $k$ come ci si potrebbe aspettare. Se si ricalca la dimostrazione fatta nel caso delle traslazioni spaziali, ci si trova ad un certo punto con il commutatore $[\op p,\op q^n]$ che vale $-i\hbar n\op q^{n-1}$ (mentre nell'altro caso si aveva $[\op q,\op p^n]=i\hbar n\op p^{n-1}$) di conseguenza $[\op p,\op W(k)]=-k\op W(k)$ con il segno meno.}
+Si ottiene cos\`i
+\begin{equation}
+	\bra{p}\op q\ket{A}=i\hbar\drp{}{p}\braket{p}{A}=i\hbar\drp{}{p}\psi_A(p).
+	\label{eq:rappresentazione-posizione-base-impulso}
+\end{equation}
+Il modulo quadro $\abs{\psi(p)}^2$ rappresenta questa volta la funzione di densità di probabilità di osservabili che dipendono solamente dall'impulso, o da solo la densità di probabilità di misurare un impulso pari a $p$.
+
+Solitamente la rappresentazione nella posizione è la preferita: il problema principale che troveremo è infatti trovare le autofunzioni dell'operatore hamiltoniano in $L^2(\R)$, e solitamente questo operatore è della forma $\frac1{2m}\op p^2+V(\op q)$, in cui si ha il quadrato dell'impulso e un generico potenziale con $\op q$ come variabile.
+Nella rappresentazione delle coordinate, il potenziale come operatore in $L^2(\R)$ si scrive semplicemente ``sostituendo'' $\op q$ con la variabile della posizione, mentre si ottengono derivate seconde con l'impulso al quadrato.
+Al contrario, nella rappresentazone nell'impulso, il termine $\frac1{2m}\op p^2$ è diagonale, ma troviamo invece una funzione $V\big(i\hbar\drv{}{p}\big)$ che può rivelarsi molto difficile da risolvere.
+
+Infine, è utile studiare come passare da una rappresentazione all'altra, ossia il cambio di base in $L^2(\R)$.
+Ci aspettiamo che si svolga tramite un operatore unitario, dato che si troviamo in spazi di Hilbert.
+Prendiamo le funzioni d'onda $\psi_A(q)=\braket{q}{A}$ e $\tilde{\psi}_A(p)=\braket{p}{A}$ nelle due rappresentazioni: introducendo la risoluzione dell'identità troviamo
+\begin{equation}
+	\tilde{\psi}_A(p)=\braket{p}{A}=\int_{-\infty}^{+\infty}\braket{p}{q}\braket{q}{A}\,\dd q=\int_{-\infty}^{+\infty}\braket{p}{q}\psi_A(q)\,\dd q
+\end{equation}
+dunque l'operatore di cambio di base è un operatore integrale avente la funzione $\braket{p}{q}$ come nucleo.
+Possiamo ricavarlo, ad esempio, valutando $\bra{p}\op q\ket{q}$ nelle due rappresentazioni: si ha, dato che $\op q$ è hermitiano,
+\begin{equation}
+	\begin{gathered}
+		\bra{p}\op q\ket{q}=i\hbar\drv{}{p}\braket{p}{q}\\
+		\bra{p}\op q\ket{p}=\bra{q}\op q\ket{p}^*=(q\braket{q}{p})^*=q\braket{p}{q}
+	\end{gathered}
+\end{equation}
+dunque uguagliando le due espressioni otteniamo
+\begin{equation}
+	\drv{}{p}\braket{p}{q}=-\frac{i}{\hbar}q\braket{p}{q}\qqq\braket{p}{q}=ke^{-\frac{i}{\hbar}pq}
+	\label{eq:nucleo-operatore-cambio-base-pq}
+\end{equation}
+per qualche $k\in\C$.
+Da $\braket{p}{p'}$ possiamo ricavare la costante arbitraria:
+\begin{multline}
+	\braket{p}{p'}=\int_{-\infty}^{+\infty}\braket{p}{q}\braket{q}{p'}\,\dd q=
+	\int_{-\infty}^{+\infty}ke^{-\frac{i}{\hbar}pq}\big(ke^{\frac{i}{\hbar}p'q}\big)^*\,\dd q=
+	\abs{k}^2\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}(p-p')q}\,\dd q=\\=
+	2\pi\abs{k}^2\delta\bigg(\frac{p-p'}{\hbar}\bigg)=
+	2\pi\hbar\abs{k}^2\delta(p-p').
+\end{multline}
+Per trovare ancora la condizione di normalizzazione come nella \eqref{eq:normalizzazione-autostati-continui}, $\braket{p}{p'}=\delta(p-p')$, prendiamo $\abs{k}^2=\frac1{2\pi\hbar}$.
+Dato che la fase è arbitraria, scegliamo dunque $k=\frac1{\sqrt{2\pi\hbar}}$ per cui
+\begin{equation}
+	\tilde{\psi}_A(p)=\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}pq}\psi_A(q)\,\dd q
+	\label{eq:cambiamento-base-posizione-impulso}
+\end{equation}
+che è la trasformata di Fourier di $\psi_A(q)$, con un riscalamento delle variabili.
+
