@@ -1,6 +1,93 @@
 \chapter{Sistemi unidimensionali}
 In queto capitolo affronteremo una serie di esempi ``accademici'' di sistemi in una dimensione, cercando di risolvere dove possibile l'equazione di Schr\"odinger per la funzione d'onda e lo spettro di energia, o di trovare la migliore approssimazione sfruttando le tecniche acquisite.
 
+\section{Metodo costruttivo}
+Verifichiamo innanzitutto quante soluzioni accettabili (cioè a quadrato sommabile) possiamo ricavare dall'equazione di Schr\"odinger.
+Prendiamo un valore $E\in\R$ appartenente allo spettro discreto dell'hamiltoniano, e prendiamo l'equazione nella rappresentazione nella posizione
+\begin{equation}
+	\psi''(x)=-\frac{2m}{\hbar^2}\big[E-V(x)\big]\psi(x)
+	\label{eq:schroedinger-coordinate}
+\end{equation}
+Supponiamo, per assurdo, che esistano due soluzioni $\psi_1,\psi_2$: moltiplichiamo l'equazione di $\psi_1$ per $\psi_2$ e viceversa, ottenendo
+\begin{equation}
+	\begin{gathered}
+		\psi_1''(x)\psi_2(x)+\frac{2m}{\hbar^2}\big[E-V(x)\big]\psi_1(x)\psi_2(x)=0;\\
+		\psi_2''(x)\psi_1(x)+\frac{2m}{\hbar^2}\big[E-V(x)\big]\psi_2(x)\psi_1(x)=0.
+	\end{gathered}
+\end{equation}
+Sottraendole otteniamo $\psi_1''(x)\psi_2(x)-\psi_2''(x)\psi_1(x)=0$, vale a dire\footnote{Trascuriamo d'ora in poi, per alleggerire la notazione, la dipendenza $(x)$ delle funzioni.}
+\begin{equation}
+	0=\psi_1''\psi_2-\psi_2''\psi_1+\psi_1'\psi_2'-\psi_2'\psi_1'=\drv{}{x}(\psi_1'\psi_2-\psi_2'\psi_1)
+\end{equation}
+da cui $\psi_1'\psi_2-\psi_1\psi_2'=k$ ($k\in\R$).
+Otteniamo il valore di $k$ valutando il primo membro: per $x\to+\infty$, le due funzioni $\psi_1$ e $\psi_2$ devono essere a quadrato sommabile, perciò devono tendere a zero: allora $\psi_1'\psi_2=\psi_1\psi_2'$.
+Dividiamo per $\psi_1\psi_2$ e integriamo ricavando
+\begin{equation}
+	\int\frac{\psi_1'}{\psi_1}\,\dd x=\int\frac{\psi_2'}{\psi_2}\,\dd x\qqq\log\psi_1=\log\psi_2+k
+\end{equation}
+cioè $\psi_1=e^k\psi_2$: le due soluzioni sono linearmente dipendenti.
+Esiste dunque un \emph{unica} soluzione accettabile dell'equazione di Schr\"odinger per ciascun valore di $E$ dello spettro discreto dell'hamiltoniano.
+
+\subsection{Potenziale limitato inferiormente}
+Cerchiamo ora di estrarre delle informazioni qualitative sulla funzione d'onda (nella rappresentazione della posizione) di un sistema unidimensionale composto da una singola particella dalle caratteristiche dell'hamiltoniano.
+Supponiamo di avere una funzione del potenziale limitata inferiormente: dato che $\frac1{2m}p^2$ non è mai negativo, si ha sempre $H(x,p)\ge V(x)\ge\min_{x\in\R}V(x)$.
+Fissata un'energia $E$ iniziale del sistema, esistono dei punti, detti \emph{punti di inversione}, in cui $V(x)=E$: in tali punti la particella ha velocità nulla, dato che l'energia cinetica è $T=E-V(x)$; dato che $T$ non può essere negativa, in una visione classica del sistema la particella resta confinata tra questi punti di inversione: fissata dunque un'energia e un punto $x\in\R$ iniziale del moto, determiniamo univocamente la regione in cui potremo trovare la particella.
+Chiamiamo queste regioni \emph{classicamente accessibili}.
+Abbiamo visto però, nell'oscillatore armonico, che la funzione d'onda dello stato fondamentale (una tra tutte) non è mai nulla in nessun punto dell'asse reale.
+Se, classicamente, la particella si troverebbe soltanto nell'intervallo limitato dai punti $\pm\frac{\hbar\omega}2$, troviamo comunque una probabilità non nulla di poterla misurare \emph{in qualsiasi posizione}.
+Non sappiamo bene cosa aspettarci dal sistema nelle regioni classicamente \emph{non accessibili}: una velocità negativa?
+Non possiamo conoscere con precisione la velocità, se vogliamo mantenere le informazioni sulla posizione.
+
+Studiamo il comportamento della funzione d'onda nei due tipi di regione.
+Tra i tipi di soluzioni, ossia di autofunzioni dell'hamiltoniano, distinguiamo quelle:
+\begin{itemize}
+	\item proprie, ossia in $L^2(\R)$;
+	\item improprie, che non sono in $L^2(\R)$ ma rimangono limitate per ogni $x\in\R$;
+	\item non accettabili, se divergono.
+\end{itemize}
+Nelle regioni classicamente accessibili, abbiamo $E-V(x)\ge 0$, dunque dalla \eqref{eq:schroedinger-coordinate} vediamo che la derivata seconda $\psi''$ della funzione d'onda è di segno opposto a	$\psi$: si ha dunque un fenomeno di oscillazione.
+Nella regione classicamente non accessibile, invece, $\psi''$ e $\psi$ hanno lo stesso segno.
+
+Prendiamo ora un potenziale tale che $\lim_{\abs{x}\to+\infty}V(x)=+\infty$, e prendiamo un punto $x_0$ di inversione tale che la regione per $x>x_0$ sia classicamente non accessibile e per $x<x_0$ (almeno in un intorno) sia classicamente accessibile.
+Distinguiamo due casi, se $E$ è maggiore o minore del minimo del potenziale.
+Nel primo caso, se la $\psi$ non è identicamente nulla per $x>x_0$, prendiamo un punto $x'$ per cui $\psi(x')\ne 0$.
+Possiamo assumere $\psi(x')>0$, perch\'e per la linearità dell'equazione \eqref{eq:schroedinger-coordinate} se $\phi$ è una soluzione lo è anche $k\phi$ per ogni $k\in\C$.
+In tale punto, dunque, abbiamo $\psi''(x')>0$, quindi la derivata prima $\psi'$ è crescente: ciò significa che $\psi\to+\infty$ per $x\to+\infty$, ma allora la soluzione non è accettabile.
+
+Se invece $E>V_\textup{min}$, supponiamo ancora che esista un punto $x'>x_0$ tale che $\psi(x')>0$ e $\psi'(x')>0$: risulta che $\psi$ diminuisce per valori crescenti di $x$ fino a incontrare lo zero (che è necessariamente del primo ordine in quanto $\psi''$ ha lo stesso segno di $\psi$, quindi è positiva).
+A quel punto, $\psi$ sarà negativa perciò anche $\psi''<0$ e la funzione decrescerà sempre di più, cioè $\psi\to-\infty$, e ancora non è accettabile.
+Variando con continuità $\psi'(x')$, possiamo ``regolarla'' in modo che $\psi$ tenda proprio a zero per $x\to+\infty$.
+Per valori di $x$ decrescenti, però, la derivata cresce fino a che $x$ incontra il punto di inversione, nel quale $\psi''$ cambia segno.
+Maggiore è l'energia $E$, maggiore è la quantità $E-V(x)$ di conseguenza la funzione si ``piega'' di più nella regione classicamente accessibile, dunque al crescere dell'energia le oscillazioni crescono e diventano più fitte.
+Proseguendo per $x$ sempre minore, si arriverà all'ultimo punto di inversione a sinistra, dopo il quale resta solo una regione classicamente non acessibile fino a $-\infty$: si ripete qui il ragionamento fatto finora, per cui non sempre la funzione tende a zero per $x\to-\infty$; come prima, se nella regione non classicamente accessibile la funzione ``tocca'' l'asse delle ascisse, cioè si annulla, allora sarà poi negativa e continuerà a decrescere fino a $-\infty$.
+D'altro canto, potrebbero esistere valori di $E$ per cui la funzione ``piega troppo'' e torna a crescere (mantenendo sempre una concavità dello stesso segno) divergendo a $+\infty$.
+Esistono dunque solo valori particolari di $E$ per i quali la funzione d'onda tende a zero all'infinito, per i quali dunque la soluzione è acettabile come funzione d'onda del sistema.
+
+Prendiamo dunque una soluzione $\psi_0$ accettabile, e confrontiamola con un'altra (che chiamiamo $\psi_1$) relativa ad un'energia maggiore: dato che le due devono essere ortogonali (sono autofunzioni di autovalori differenti), $\psi_1$ dovrà necessariamente avere almeno uno zero in più di $\psi_0$, affinch\'e il prodotto delle due sia un po' negativo e un po' positivo.
+In generale, se indichiamo con $\psi_n$ la funzione d'onda dell'$n$-esimo stato eccitato (da $n=1$, ordinati in base alla loro energia), allora $\psi_n$ ha $n-1$ nodi, e se $n_1<n_2$ allora tra due zeri di $\psi_{n_1}$ si trova uno zero di $\psi_{n_2}$.\footnote{Il numero di zeri, e la loro distribuzione nello spazio, di una soluzione di un'equazione differenziale del secondo ordine (come quella di Schr\"odinger) è il soggetto della teoria di Sturm-Liouville.}
+
+\subsection{Potenziale da interazione}
+Consideriamo una forma ``standard'' di potenziale dovuto ad un'interazione, tale che $\lim_{x\to-\infty}V(x)=+\infty$ e $\lim_{x\to+\infty}V(x)=0^-$ e sia limitato inferiormente, come in figura \ref{fig:esempio-potenziale-interazione}.
+\input{grafici/esempio-potenziale-interazione}
+\begin{itemize}
+	\item Se $V_\textup{min}\le E\le0$, si hanno due punti di inversione e la particella oscilla tra di essi; i valori di $E$ ammissibili saranno discreti, per quanto detto precedentemente.
+		Per $x\to+\infty$, il potenziale è trascurabile quindi la funzione d'onda si comporterà come un'onda piana, ossia la particella si potrà considerare libera, con un'energia negativa.
+		Possono dunque esistere delle autofunzioni, che caratterizzano degli stati legati: è interessante in particolare studiare la funzione nell'intorno del minimo del potenziale.
+	\item Se $E>0$, l'equazione di Schr\"odinger ammette soluzioni accettabili per ogni valore reale positivo di $E$, cioè l'hamiltoniano ha uno spettro continuo.
+		Come già in precedenza, se avessimo due soluzioni $\psi_1,\psi_2$ dell'equazione, allora giungiamo ancora a $\psi_1'\psi_2-\psi_1\psi_2'=k$ come prima e possiamo valutare il primo membro per $x\to-\infty$, in cui si deve annullare affinch\'e le soluzioni siano accettabili; di conseguenza troviamo ancora che esiste un'unica soluzione della \eqref{eq:schroedinger-coordinate} per ogni valore di $E$, ossia l'hamiltoniano non è degenere.
+\end{itemize}
+
+\subsection{Potenziale limitato}
+Consideriamo infine un potenziale che rimane limitato anche all'infinito: ammette un minimo, ma converge a due valori (non necessariamente uguali) $V_1$ e $V_2$ per $x$ che tende a $-\infty$ o $+\infty$, come nella figura \ref{fig:esempio-potenziale-limitato}
+\input{grafici/esempio-potenziale-limitato}
+Supponiamo per esempio che $V_1<V_2$: allora abbiamo quattro casi in base all'energia $E$ del sistema:
+\begin{itemize}
+	\item se $E\in(-\infty,V_\textup{min})$ non esistono soluzioni accettabili;
+	\item se $E\in[V_\textup{min},V_1)$ esistono degli stati legati e lo spettro dell'hamiltoniano è discreto;
+	\item se $E\in[V_1,V_2]$ si ha uno spettro continuo, ma l'hamiltoniano ancora non è degenere;
+	\item se $E\in(V_2,+\infty)$ lo spettro è continuo e la funzione d'onda è oscillante, dunque è accettabile ma non è un'autofunzione propria, inoltre l'hamiltoniano è degenere perch\'e non possiamo più calcolare il solito $\psi_1'\psi_2-\psi_1\psi_2'=k$ in un punto in cui siamo certi che le funzioni d'onda si annullino.
+\end{itemize}
+
 \section{Operatore di inversione spaziale}
 Introduciamo un importante operatore che ci servirà spesso negli esempi che incontreremo, l'operatore di \emph{inversione spaziale}, detto anche operatore di \emph{parità}.
 Chiamiamo $\op I$ l'operatore (in una dimensione) che, nella rappresentazione di Schr\"odinger della posizione, agisce sulla funzione d'onda $\psi(q)=\braket{q}{\psi}$ dello stato $\ket{\psi}$ come

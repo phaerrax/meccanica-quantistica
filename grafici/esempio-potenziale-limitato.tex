@@ -1,0 +1,24 @@
+\begin{figure}
+	\tikzsetnextfilename{esempio-potenziale-limitato}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+				standard,
+				xlabel=$x$, ylabel=$V(x)$,
+				xmin=-8, xmax=8,
+				ymin=-1, ymax=2,
+				xtick=\empty,
+				ytick={1},
+				yticklabels={$V_1$},
+				extra y ticks={2}, % la keyword extra permette di specificare uno stile differente per alcuni ticks
+				extra y tick labels={$V_2$},
+				extra y tick style={yticklabel style={anchor=west, xshift=1ex}}
+			]
+			\draw[thick] (axis cs:-8,1.9) to[out=350,in=180] (axis cs:-1,-1) to[out=0,in=190] (axis cs:8,0.9);
+			\draw[dashed] (axis cs:0,1) -- (axis cs:8,1);
+			\draw[dashed] (axis cs:-8,2) -- (axis cs:0,2);
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Esempio di un potenziale limitato.}
+	\label{fig:esempio-potenziale-limitato}
+\end{figure}

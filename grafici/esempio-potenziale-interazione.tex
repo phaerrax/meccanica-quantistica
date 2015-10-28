@@ -1,0 +1,17 @@
+\begin{figure}
+	\tikzsetnextfilename{esempio-potenziale-interazione}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+				standard,
+				xlabel=$x$, ylabel=$V(x)$,
+				xmin=0.8, xmax=2,
+				ymin=-2, ymax=4,
+				xtick=\empty, ytick=\empty
+			]
+			\addplot[thick,smooth,domain=0.8:2] function {2*((1/x)**12-2*(1/x)**6)}; % Potenziale di Lennard-Jones di altezza 2 e minimo in x=1
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Esempio di un potenziale dovuto a un'interazione tra due corpi.}
+	\label{fig:esempio-potenziale-interazione}
+\end{figure}
