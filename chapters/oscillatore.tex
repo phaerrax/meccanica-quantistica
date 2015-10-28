@@ -326,7 +326,7 @@ Dalla \eqref{eq:stato-coerente} otteniamo la relazione
 \end{equation}
 Il primo addendo è nullo per $\sqrt{n}$, quindi possiamo far iniziare la sommatoria da $n=1$: traslando poi gli indici con $m=n-1$ abbiamo
 \begin{equation}
-	\sum_{n=0}^{+\infty}a_n\sqrt{n}\ket{n}=\sum_{n=1}^{+\infty}a_n\sqrt{n}\ket{n}=\sum_{m=0}^{+\infty}a_{m+1}\sqrt{m+1}\ket{m}.
+	\sum_{n=0}^{+\infty}a_n\sqrt{n}\ket{n-1}=\sum_{n=1}^{+\infty}a_n\sqrt{n}\ket{n-1}=\sum_{m=0}^{+\infty}a_{m+1}\sqrt{m+1}\ket{m}.
 \end{equation}
 Allo stesso modo di prima sviluppiamo anche $\alpha\ket{\alpha}=\sum_{m=0}^{+\infty}\alpha a_m\ket{m}$ e uguagliando ogni addendo con il risultato precedente otteniamo\footnote{Un risultato uguale si ottiene moltiplicando la \eqref{eq:stato-coerente} a sinistra per $\bra{n}$, ottenendo $\bra{n}\op a\ket{\alpha}=\alpha\braket{n}{\alpha}$ e introducendo la risoluzione dell'identità $\sum_{m=0}^{+\infty}\ket{m}\bra{m}=1$, in pratica sviluppando nella base $\ket{m}$, come prima, dato che è un sistema ortonormale completo.}
 \begin{equation}
@@ -366,9 +366,9 @@ In un'ulteriore semplificazione, possiamo sostituire $\ket{n}$ con la \eqref{eq:
 Notiamo che lo stato fondamentale è anch'esso uno stato coerente, corrispondente ad $\alpha=0$.
 
 \section{Soluzioni dell'equazione di Schr\"odinger}
-In una dimensione, con un potenziale della forma $V(q)=q^2$, l'equazione di Schr\"odinger per la funzione d'onda $\psi$ nella base della posizione è
+In una dimensione, con un potenziale della forma $V(q)=\frac12m\omega^2q^2$, l'equazione di Schr\"odinger per la funzione d'onda $\psi$ nella base della posizione è
 \begin{equation}
-	\frac{\hbar^2}{2m}\psi''(q)+(E-q^2)\psi(q)=0.
+	\frac{\hbar^2}{2m}\psi''(q)+\bigg(E-\frac12m\omega q^2\bigg)\psi(q)=0.
 	\label{eq:schrodinger-oscillatore-1d}
 \end{equation}
 In questa forma però risulta difficile da risolvere, anche perch\'e non conosciamo il valore di $E$.
