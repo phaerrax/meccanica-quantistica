@@ -497,3 +497,57 @@ Definiamo dunque il \emph{coefficiente di trasmissione} $T$ come il rapporto tra
 \end{equation}
 e in questo caso ovviamente $T=\abs{A}^2$ e $R=\abs{C}^2$.
 Notiamo che vale, come in ottica, la relazione $T+R=1$.
+
+\section{Effetto tunnel}
+Applichiamo i risultati della sezione precedente ad un problema preciso, con un particella soggetta al potenziale $V(x)=V_0\chi_{[0,a]}(x)$, che forma una sorta di barriera.
+Se l'energia $E$ è maggiore dell'altezza della barriera, chiaramente la particella può superarla, ma questo può succedere anche se $E<V_0$, dando luogo a un effetto noto come \emph{effetto tunnel} quantistico.
+Troveremo una probabilità non nulla di misurare la particella anche per $x>a$.
+\input{grafici/tunneling}
+Posti $k\defeq\Big(\frac{2mE}{\hbar^2}\Big)^{1/2}$ e $\lambda\defeq\Big(\frac{2m(V_0-E)}{\hbar^2}\Big)^{1/2}$, l'equazione di Schr\"odinger ha come soluzione la funzione d'onda (negli autostati della posizione)
+\begin{equation}
+	\psi(x)=
+	\begin{cases}
+		e^{ikx}+Ae^{-ikx}				&x<0\\
+		Be^{\lambda x}+B'e^{-\lambda x}	&0\ge x\ge a\\
+		Ce^{ik(x-a)}					&x>a
+	\end{cases}
+	\label{eq:tunnel-wf}
+\end{equation}
+Notiamo che nell'espressione di $\psi$ per $x>a$ abbiamo scritto $e^{ik(x-a)}$ anzich\'e $e^{ikx}$: questo non modifica la soluzione, in quanto la modifica consiste soltanto nel moltpilicare $\psi$ per un fattore di fase $e^{-ika}$, per cui ciò che cambia è solo la costante $C$, che comunque è arbitraria.
+Imponendo la continuità della funzione e della sua derivata nei punti $x=0$ e $x=a$ abbiamo rispettivamente
+\begin{equation}
+	\begin{cases}
+		1+A=B+B'\\
+		ik(1-A)=\lambda(B-B')
+	\end{cases}
+	\qeq
+	\begin{cases}
+		Be^{\lambda a}+B'e^{-\lambda a}=C\\
+		\lambda(Be^{\lambda a}-B'e^{-\lambda a})=ikC
+	\end{cases}
+\end{equation}
+
+Troviamo dunque l'andamento dei coefficienti $\abs{A}^2$ e $\abs{C}^2$ in funzione del rapporto $E/V_0$.
+Scrivendo $e^x=\cosh x+\sinh x$, risulta
+\begin{equation}
+	\begin{gathered}
+		C=B\big[\cosh(\lambda a)+\sinh(\lambda a)\big]+B'\big[\cosh(\lambda a)-\sinh(\lambda a)\big]=(1+A)\cosh(\lambda a)+\frac{ik}{\hbar}(1-A)\sinh(\lambda a)\\
+		C=-\frac{i\lambda}{k}\bigg[\frac{ik(1-A)}{\lambda}\cosh(\lambda a)+(1+A)\sinh(\lambda a)\bigg]=(1-A)\cosh(\lambda a)-\frac{i\lambda}{k}(1+A)\sinh(\lambda a)
+	\end{gathered}
+\end{equation}
+e sottraendole abbiamo
+\begin{equation}
+	2A\cosh(\lambda a)+i\bigg(\frac{k}{\lambda}+\frac{\lambda}{k}\bigg)\sinh(\lambda a)-i\bigg(\frac{k}{\lambda}-\frac{\lambda}{k}\bigg)A\sinh(\lambda a)=0
+\end{equation}
+da cui i valori
+\begin{equation}
+	A=\frac{-i\Big(\frac{\lambda}{k}-\frac{k}{\lambda}\Big)\sinh(\lambda a)}{2\cosh(\lambda a)-i\Big(\frac{k}{\lambda}-\frac{\lambda}{k}\Big)\sinh(\lambda a)}
+	\hspace{1cm}
+	C=\frac{2}{2\cosh(\lambda a)-i\Big(\frac{k}{\lambda}-\frac{\lambda}{k}\Big)\sinh(\lambda a)}.
+\end{equation}
+Calcolando i moduli al quadrato, abbiamo i coefficienti di trasmissione e riflessione
+\begin{equation}
+	\abs{A}^2=\frac{V_0^2\sinh^2(\lambda a)}{4E(V_0-E)+V_0^2\sinh^2(\lambda a)}\qeq\abs{C}^2=\frac{4E(V_0-E)}{4E(V_0-E)+V_0^2\sinh^2(\lambda a)}.
+	\label{eq:coefficienti-trasmissione-riflessione-tunneling}
+\end{equation}
+

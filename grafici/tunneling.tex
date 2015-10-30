@@ -1,0 +1,23 @@
+\begin{figure}
+	\tikzsetnextfilename{tunneling}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+				standard,
+				width=.8\linewidth,
+				height=.4\linewidth,
+				xlabel=$x$, ylabel=$V(x)$,
+				xmin=-6, xmax=6,
+				ymin=-1, ymax=3,
+				xtick=\empty, ytick=\empty
+			]
+			\addplot[thick] coordinates {(-6,0) (0,0) (0,3) (2,3) (2,0) (6,0)};
+			\addplot[dashed,domain=-6:0] function {1.5};
+			\addplot[dashed,domain=0:2] function {1.5*exp(-x)};
+			\addplot[dashed,domain=2:6] function {1.5*exp(-2)};
+			\legend{$V(x)$,$\abs{\psi(x)}^2$}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Un sistema con potenziale $V=V_0\chi_{[0,a]}$: la particella incide nella ``barriera'' da destra come un'onda piana, essendo una particella libera. Anche con un'energia minore di $V_0$ può però penetrare la barriera, in cui la densità di probabilità decresce esponenzialmente con la profondità (è una regione classicamente non accessibile). La probabilità di trovare la particella oltre la barriera, seppur molto piccola, è comunque non nulla.}
+	\label{fig:tunneling}
+\end{figure}
