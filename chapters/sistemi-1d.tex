@@ -448,3 +448,52 @@ da cui, considerando $\psi$ normalizzata, e ricordando che $\psi_0=1$ (dai parag
 	\int_{-\infty}^{+\infty}\frac1{p^2+2mE}\,\dd p=\frac{\pi\hbar}{m\lambda}.
 \end{equation}
 
+\section{Coefficiente di trasmissione}
+Prendiamo un sistema con un potenziale monotono crescente da $-\infty$ in cui è nullo a $+\infty$ in cui assume un certo valore $V_0>0$, e immaginiamo un fascio di particelle incidente ``da sinistra'', ossia da $-\infty$; esse si propagano fino al \emph{gradino di potenziale}: classicamente, esse possono superarlo e proseguire a destra solo se la loro energia $E$ inizial è maggiore dell'altezza $V_0$, altrimenti tornano indietro.
+Nella meccanica quantistica, come ci si può ormai aspettare, anche con energie minori di $V_0$ la probabilità di trovare la particella oltre il gradino non sarà nulla: possiamo ricavare un coefficiente di trasmissione per quantificare questa probabilità.
+
+Un procedimento analogo si usa per modellizzare un urto tra particelle (o tra fasci di esse, se vogliamo trascurare il tempo): il potenziale è nullo sull'asse reale tranne che in una certa regione $S$ in cui non sappiamo il suo comportamento.
+Essendo $V(x)=0$ per $x\notin S$, in tale regione la particella sarà libera e la sua funzione d'onda sarà un'onda piana della forma
+\begin{equation}
+	\psi(x)=
+	\begin{cases}
+		A'e^{ikx}+Ae^{-ikx}	&x\to-\infty\\
+		Ce^{ikx}+C'e^{-ikx}	&x\to+\infty
+	\end{cases}
+\end{equation}
+e le due soluzioni sono indipendenti.
+Ora assegnamo alcune delle costanti: studiando in particolare un sistema composto da un fascio di particelle incidente da sinistra, avremo sicuramente $A'=1$, mentre poich\'e da destra non indice alcuna particella avremo analogamente $C'=0$.
+Con queste scelte la funzione d'onda può essere vista come la sovrapposizione di
+\begin{itemize}
+	\item un'onda incidente da sinistra $e^{ikx}$;
+	\item un'onda trasmessa $Ce^{ikx}$ oltre alla regione $S$, verso destra;
+	\item un'onda riflessa $A'e^{-ikx}$ dalla regione $S$ verso sinistra.
+\end{itemize}
+Essi soddisfano, come per delle reali onde incidenti su una superficie, l'equazione $\abs{A}^2+\abs{C}^2=1$.
+Calcoliamo infatti la densità di corrente di probabilità dei due termini: nella regione a sinistra di $S$ abbiamo
+\begin{gather*}
+	\psi^*(x)\drv{}{x}\psi(x)=ik(e^{ikx}-Ae^{-ikx})(e^{-ikx}+A^*e^{ikx})=ik(1-Ae^{-2ikx}+A^*e^{2ikx}-\abs{A}^2)\\
+	\psi(x)\drv{}{x}\psi^*(x)=-ik(e^{ikx}+Ae^{-ikx})(e^{-ikx}-A^*e^{ikx})=-ik(1+Ae^{-2ikx}-A^*e^{2ikx}-\abs{A}^2).
+\end{gather*}
+Nella regione a destra invece
+\begin{gather*}
+	\psi^*(x)\drv{}{x}\psi(x)=ikCe^{ikx}C^*e^{-ikx}=ik\abs{C}^2\\
+	\psi(x)\drv{}{x}\psi^*(x)=-ikCe^{ikx}C^*e^{-ikx}=-ik\abs{C}^2
+\end{gather*}
+di conseguenza nelle regioni a sinistra e a destra di $S$ si ha rispettivamente
+\begin{equation}
+	\begin{aligned}
+		J_-(x)&=-\frac{i\hbar}{2m}ik(1-Ae^{-2ikx}+A^*e^{2ikx}-\abs{A}^2+1+Ae^{-2ikx}-A^*e^{2ikx}-\abs{A}^2)=\frac{\hbar k}{m}(1-\abs{A}^2)\\
+		J_+(x)&=-\frac{i\hbar}{2m}(ik\abs{C}^2+ik\abs{C}^2)=\frac{\hbar k}{m}\abs{C}^2.
+	\end{aligned}
+\end{equation}
+Notiamo inoltre che in questo caso, poich\'e la funzione d'onda è una sovrapposizione di autostati dell'impulso, ossia lo stato $\ket{\psi}$ a cui è associata è della forma $\ket{\psi}=\ket{k}\braket{k}{\psi}+\ket{-k}\braket{-k}{\psi}$, la densità corrente di probabilità è la somma delle densità di ciascun autostato, ossia $J_-$ è la somma della densità di corrente dell'onda $e^{ikx}$ (che vale $\frac{\hbar k}{m}$) e di quella dell'onda $Ae^{-ikx}$ (che è $\frac{\hbar k}{m}\abs{A}^2$).
+
+Chiamiamo dunque $j_i$ la densità di corrente di probabilità dell'onda incidente, $j_r$ di quella riflessa e $j_t$ di quella trasmessa; con ciò troviamo $J_-=j_i+j_r$ e $J_+=j_t$.
+Definiamo dunque il \emph{coefficiente di trasmissione} $T$ come il rapporto tra la densità di corrente di probabilità trasmessa e incidente, e quello di \emph{riflessione} come il rapporto tra riflessa e incidente:
+\begin{equation}
+	T\defeq\frac{j_t}{j_i},\hspace{1cm} R\defeq\frac{j_r}{j_i}
+	\label{eq:coefficienti-trasmissione-riflessione}
+\end{equation}
+e in questo caso ovviamente $T=\abs{A}^2$ e $R=\abs{C}^2$.
+Notiamo che vale, come in ottica, la relazione $T+R=1$.
