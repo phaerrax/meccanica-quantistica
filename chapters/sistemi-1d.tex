@@ -88,6 +88,20 @@ Supponiamo per esempio che $V_1<V_2$: allora abbiamo quattro casi in base all'en
 	\item se $E\in(V_2,+\infty)$ lo spettro è continuo e la funzione d'onda è oscillante, dunque è accettabile ma non è un'autofunzione propria, inoltre l'hamiltoniano è degenere perch\'e non possiamo più calcolare il solito $\psi_1'\psi_2-\psi_1\psi_2'=k$ in un punto in cui siamo certi che le funzioni d'onda si annullino.
 \end{itemize}
 
+\subsection{Regolarità della funzione d'onda}
+Per concludere le nostre osservazioni sulle soluzioni dell'equazioni di Schr\"odinger, è fondamentale studiare la regolarità delle funzioni d'onda: spesso il potenziale è definito ``a pezzi'' o è discontinuo, e si avrà una funzione d'onda definita anch'essa in pezzi che devono essere opportunamente raccordati.
+Questo permette di stabilire il valore di alcune costanti arbitrarie.
+Oltre a trovarsi nello spazio $L^2(\R)$ o in analoghi multidimensionali, la funzione d'onda deve essere sempre limitata: non avrebbe senso fisico una densità di probabilità infinita in un punto.
+
+Solitamente l'equazione da risolvere è del tipo $\psi''(x)=\frac{2m}{\hbar^2}[V(x)-E]\psi(x)$: supponiamo di trovarci nel caso di un potenziale che varia bruscamente (non necessariamente con continuità) in un breve intervallo $[0,\epsilon]$, rimanendo però limitato.
+Integrando l'equazione in tale intervallo si ha
+\begin{equation}
+	\psi'(\epsilon)-\psi'(0)=\lim_{\epsilon\to 0}\int_0^\epsilon\frac{2m}{\hbar^2}[V(x)-E]\psi(x)\,\dd x.
+\end{equation}
+Se dunque $V$ è limitato in $[0,\epsilon]$, la funzione integrale (come funzione di $\epsilon$) è continua perciò il limite tende a zero, ossia $\lim_{\epsilon\to 0}\psi'(\epsilon)=\psi'(0)$: quindi la derivata della funzione d'onda è continua, e lo è di conseguenza anche la funzione d'onda stessa.\footnote{Un altro motivo per non poter accettare un'eventuale discontinuità della funzione d'onda è il seguente: se vedessimo una discontinuità finita, ossia un ``salto'', come il limite di un tratto di funzione sempre più ripido fino a diventare verticale, allora l'impulso del sistema, che è proporzionale alla derivata della funzione, risulterebbe infinito, cosa che non avrebbe senso.}
+Notare che il potenziale può anche non essere continuo: l'ipotesi fondamentale è che sia limitato.
+Queste conclusioni infatti non valgono nel caso di discontinuità infinite, come vedremo più avanti.
+
 \section{Operatore di inversione spaziale}
 Introduciamo un importante operatore che ci servirà spesso negli esempi che incontreremo, l'operatore di \emph{inversione spaziale}, detto anche operatore di \emph{parità}.
 Chiamiamo $\op I$ l'operatore (in una dimensione) che, nella rappresentazione di Schr\"odinger della posizione, agisce sulla funzione d'onda $\psi(q)=\braket{q}{\psi}$ dello stato $\ket{\psi}$ come
