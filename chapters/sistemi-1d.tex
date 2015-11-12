@@ -358,6 +358,45 @@ Innanzitutto nella figura \ref{fig:soluzione-grafica-buca-potenziale} vediamo su
 Inoltre, il coefficiente $k_2$ degli esponenziali tende a $+\infty$, dunque le ``code'' della funzione d'onda, che decadono esponenzialmente a 0, sono del tipo $e^{-k_2\abs{x}}$ cioè diventano sempre più ``basse'': allora $\psi=0$ per $x\notin(-a,a)$.
 In una buca di potenziale infinita perciò si ha una barriera impenetrabile di potenziale, cioè stavolta la particella è \emph{davvero} confinata nella regione $(-a,a)$.
 
+\paragraph{Particella in una scatola}
+Come digressione sulla buca di potenziale, consideriamo una ``particella in una scatola'', ossia un sistema fisico composto da una particella singola confinata in una regione di spazio rettangolare; possiamo vederlo alternativamente come una buca di potenziale di altezza infinita, nelle tre dimensioni spaziali.
+Il concetto fondamentale è che la particella ha una probabilità di essere trovata fuori dalla regione assegnata pari a zero.
+Nel suo moto all'interno, qualunque esso sia, essa esercita una certa forza sulle barriere: possiamo chiederci quanto vale la pressione che ne risulta.
+Detto $\tau$ il volume della scatola, se $E$ è l'energia del sistema la pressione è data da $P=-\drp{E}{\tau}$.
+Possiamo calcolarla con l'aiuto del seguente teorema.
+\begin{teorema} \label{t:dipendenza-hamiltoniano-parametro}
+	Se l'hamiltoniano dipende da un parametro $\lambda$, allora il valore di aspettazione di $\drp{}{\lambda}\op H(\lambda)$ calcolato in un autostato di $\op H$ con autovalore $E$ è
+	\begin{equation}
+		\bra{E}\drp{\op H}{\lambda}\ket{E}=\drp{E}{\lambda}=\drp{}{\lambda}\bra{E}\op H\ket{E}.
+	\end{equation}
+\end{teorema}
+\begin{proof}
+	Sappiamo che $(\op H-E)\ket{E}=0$, perciò derivando rispetto a $\lambda$ otteniamo
+	\begin{equation}
+		0=\drp{}{\lambda}\big[(\op H-E)\ket{E}\big]=\drp{}{\lambda}(\op H-E)\ket{E}-(\op H-E)\drp{}{\lambda}\ket{E}
+	\end{equation}
+	e applicando $\bra{E}$ troviamo
+	\begin{equation}
+		0=\bra{E}\drp{\op H}{\lambda}-\drp{E}{\lambda}\ket{E}+\bra{E}(\op H-E)\drp{}{\lambda}\ket{E}
+	\end{equation}
+	ma $\op H-E$ è hermitiano dunque $\bra{E}(\op H-E)=0$, e troviamo dunque
+	\begin{equation}
+		\bra{E}\drp{\op H}{\lambda}\ket{E}=\drp{E}{\lambda}\braket{E}{E}=\drp{E}{\lambda}.\qedhere
+	\end{equation}
+\end{proof}
+Tornando alla particella nella scatola, l'hamiltoniano del sistema si può scomporre nelle tre direzioni, in tre addendi $\op H_i$, che commutano, e si possono diagonalizzare contemporaneamente.
+Detti $a_1$, $a_2$ e $a_3$ le lunghezze dei tre lati della scatola si ha dunque
+\begin{equation}
+	E(a_1,a_2,a_3)=\frac{\pi^2\hbar^2}{2m}\sum_{i=1}^3\frac{n_i^2}{a_i^2}
+\end{equation}
+Dato che $\tau=a_1a_2a_3$, la pressione esercitata sulle pareti, con la formula data precedentemente, è dunque
+\begin{multline}
+	P=-\drp{E}{\tau}=-\sum_{i=1}^3\drp{E}{a_i}\drp{a_i}{\tau}=
+	\frac{\pi^2\hbar^2}{m}\sum_{i=1}^3\frac{n_i^2}{a_i^3}\bigg(\drp{\tau}{a_i}\bigg)^{-1}=\\=
+	\frac{\pi^2\hbar^2}{m}\bigg(\frac{n_1^2}{a_1^3a_2a_3}+\frac{n_2^2}{a_1a_2^3a_3}+\frac{n_3^2}{a_1a_2a_3^3}\bigg)=
+	\frac{\pi^2\hbar^2}{m}\frac{(n_1a_2a_3)^2+(n_2a_1a_3)^2+(n_3a_1a_2)^2}{\tau^3}.
+\end{multline}
+
 \section{Potenziale delta attrattivo}
 Dopo una buca di potenziale ``standard'', vediamone la versione infinitamente alta e stretta, modellizzata dall'equazione del potenziale
 \begin{equation}
