@@ -358,6 +358,28 @@ Innanzitutto nella figura \ref{fig:soluzione-grafica-buca-potenziale} vediamo su
 Inoltre, il coefficiente $k_2$ degli esponenziali tende a $+\infty$, dunque le ``code'' della funzione d'onda, che decadono esponenzialmente a 0, sono del tipo $e^{-k_2\abs{x}}$ cioè diventano sempre più ``basse'': allora $\psi=0$ per $x\notin(-a,a)$.
 In una buca di potenziale infinita perciò si ha una barriera impenetrabile di potenziale, cioè stavolta la particella è \emph{davvero} confinata nella regione $(-a,a)$.
 
+\paragraph{Buca di potenziale traslata}
+Affrontiamo ora un sistema analogo al precedente, ma non più centrato nell'origine, prendendo il potenziale
+\begin{equation}
+	V(x)=
+	\begin{cases}
+		0	&x\in[0,a]\\
+		V_0	&x\in(-\infty,0)\cup(a,+\infty)
+	\end{cases}
+	\label{eq:buca-potenziale-traslata}
+\end{equation}
+Questa volta non è pari, e $\op H$ non commuta con l'operatore di inversione spaziale.
+In ogni caso, per $E<V_0$ la soluzione è una funzione d'onda analoga al caso precedente, del tipo
+\begin{equation}
+	\psi(x)=A\cos(kx)+B\sin(kx),\qquad k\defeq\frac{\sqrt{2m(V_0-E)}}{\hbar}
+\end{equation}
+per $x\in(0,a)$.
+Nel limite $V_0\to+\infty$ abbiamo ancora $\psi=0$ nei punti di discontinuità del potenziale, quindi $\psi(0)=\psi(a)=0$: questo porta ad $A=0$ e $B\sin(ka)=0$, ossia $ka=n\pi$ con $n\in\N$.
+Elevando al quadrato quest'ultima relazione otteniamo gli autovalori di energia, ossia
+\begin{equation}
+	\frac{2mE}{\hbar^2}a^2=n^2\pi^2\qqq E=\frac{n^2\pi^2\hbar^2}{2ma^2}.
+\end{equation}
+
 \paragraph{Particella in una scatola}
 Come digressione sulla buca di potenziale, consideriamo una ``particella in una scatola'', ossia un sistema fisico composto da una particella singola confinata in una regione di spazio rettangolare; possiamo vederlo alternativamente come una buca di potenziale di altezza infinita, nelle tre dimensioni spaziali.
 Il concetto fondamentale è che la particella ha una probabilità di essere trovata fuori dalla regione assegnata pari a zero.
