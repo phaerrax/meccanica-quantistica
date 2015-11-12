@@ -510,6 +510,61 @@ e mantenendo solo i termini di ordine maggiore risulta
 per cui evidentemente $a=n$, perciò la soluzione è la funzione $\psi_n(y)=y^n\exp(-y^2/2)$.
 Potremmo ancora proseguire aggiungendo altri termini ``correttivi'', ma ci fermiamo qui.
 
+\section{Approssimazione classica}
+Vediamo ora in che modo possiamo riottenere la distribuzione di probabilità classica da quanto visto finora.
+In generale, data un'hamiltoniana (classica) $H=\frac1{2m}p^2+V(x)$, l'energia è conservata poich\'e non dipende esplicitamente dal tempo, perciò poniamo $H=E$.
+Fissiamo un punto $x'$: la densità di probabilità di misurare la posizione della particella in $x'$ è
+\begin{equation}
+	\rho(x')=\frac1{t_2-t_1}\int_{t_1}^{t_2}\delta\big(x(t)-x'\big)\,\dd t,
+\end{equation}
+da normalizzare in modo che
+\begin{equation}
+	\int_{-\infty}^{+\infty}\rho(x')\,\dd x'=\int_{-\infty}^{+\infty}\frac1{t_2-t_1}\int_{t_1}^{t_2}\delta\big(x(t)-x'\big)\,\dd t\,\dd x'=1.
+\end{equation}
+Possiamo inoltre scrivere $\dd t=\dd x/\abs{v(x)}$, e data la conservazione dell'energia ricaviamo la velocità in funzione della posizione come
+\begin{equation}
+	\abs{v(x)}=\sqrt{\frac2{m}[E-V(x)]},
+\end{equation}
+nelle regioni in cui $V(x)\le E$.
+Possiamo prendere $v(x)\ge 0$ se ci restringiamo a studiare solo un semiperiodo, quindi per $t_2-t_1=\frac{T}2$.
+\begin{equation}
+	\rho(x')=\frac1{t_2-t_1}\int_{x(t_1)}^{x(t_2)}\frac{\delta(x-x')}{\sqrt{\frac2{m}[E-V(x)]}}\Theta\big(E-V(x)\big)\,\dd x.
+\end{equation}
+Il termine $\Theta\big(E-V(x)\big)$, nullo per $E<V(x)$, assicura che la probabilità sia nulla nelle regioni di spazio in cui non si ha $V(x)\le E$.
+Risulta quindi
+\begin{equation}
+	\rho(x')=\frac2{T}\frac1{\sqrt{\frac2{m}[E-V(x')]}}=\frac2{T}\frac1{\abs{v(x')}}.
+\end{equation}
+Notiamo che è inversamente proporzionale alla velocità della particella: è come ci si aspetta, poich\'e più veloce è la particella più difficile è trovarla nel punto in cui passa.
+
+Nel caso dell'oscillatore armonico, dunque, abbiamo
+\begin{equation}
+	\rho(x')=\frac{\omega}{\pi}\frac1{\sqrt{\frac2{m}\big(E-\frac12m\omega^2x'^2\big)}}=\frac1{\pi}\sqrt{\frac{m\omega^2}{2E}}\frac1{\sqrt{1-\frac{m\omega^2x'^2}{2E}}}.
+	\label{eq:pdf-classica-oscillatore-armonico}
+\end{equation}
+Cambiando la variabile con $y=\big(\frac{m\omega^2}{2E}\big)^{\frac12}x'$ abbiamo poi
+\begin{equation}
+	\rho(x')\,\dd x'=\frac1{\pi}\frac1{\sqrt{1-y^2}}\,\dd y.
+\end{equation}
+Come già visto nel caso generale, la probabilità è minima in $y=0$, dove la velocità è massima.
+Per $E\to 0$, la funzione converge a $\delta(x')$, coerentemente con il fatto che la particella può essere trovata solamente nel punto $x'$.
+
+\paragraph{Quantizzazione nello spazio delle fasi}
+Nello spazio delle fasi, la traiettoria descritta dall'oscillatore armonico è un'ellisse, con equazione data dall'hamiltoniana, ossia
+\begin{equation}
+	\frac{p^2}{2mE}+\frac{x^2}{\frac{2E}{m\omega^2}}=1.
+\end{equation}
+Essa racchiude un'area pari a
+\begin{equation}
+	A=\pi \sqrt{2mE}\sqrt{\frac{2E}{m\omega^2}}=\frac{2\pi}{\omega}E
+\end{equation}
+e sostituendo $E$ con gli autovalori trovati di $\op H$ troviamo il curioso risultato
+\begin{equation}
+	A=\frac{2\pi}{\omega}\Big(n+\frac12\Big)\hbar\omega=\Big(n+\frac12\Big)\hbar
+\end{equation}
+che mostra come l'area (in generale, il volume) nello spazio delle fasi sia quantizzata.
+Questa fu una delle prima idee per spiegare i fenomeni quantistici, nota come \emph{quantizzazione di Bohr-Sommerfield}.
+
 \section{Oscillatore armonico multidimensionale}
 In più dimensioni, l'operatore hamiltoniano dell'oscillatore armonico è analogo alla versione unidimensionale, ma con gli operatori posizione e impulso vettoriali anzich\'e scalari, ossia
 \begin{equation}
