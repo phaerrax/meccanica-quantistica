@@ -94,11 +94,21 @@ perciò la funzione d'onda approssimata è
 	\label{eq:soluzione-WKB-ordine-1}
 \end{equation}
 intendendo anche qui che la soluzione generale è combinazione lineare delle due funzioni, per ciascun segno.
-
 È necessario infine discutere della validità di questa approssimazione: essa è valida se il termine in $\hbar$ è trascurabile, ossia se
 \begin{equation}
 	\hbar\abs{\drv{}{x}\frac1{p(x)}}\ll 1.
 	\label{eq:condizione-approssimazione-WKB}
+\end{equation}
+
+Rimane comunque da discutere come raccordare le soluzioni tra le due parti del punto di inversione: in un intorno di tale punto infatti la \eqref{eq:condizione-approssimazione-WKB} certamente non è valida.
+Se $x=a$ è un punto di inversione tale che la regione $x\le a$ è classicamente accessibile e $x>a$ non lo è, allora si può mostrare che la funzione d'onda nell'approssimazione semiclassica è
+\begin{equation}
+	\psi(x)=
+	\begin{dcases}
+		\frac{C}{2\sqrt{\abs{p(x)}}}\exp\bigg(-\frac1{\hbar}\int_a^xp(x')\,\dd x'\bigg)				&x>a\\
+		\frac{C}{\sqrt{\abs{p(x)}}}\cos\bigg(\frac1{\hbar}\int_a^xp(x')\,\dd x'+\frac{\pi}4\bigg)	&x\le a
+	\end{dcases}
+	\label{eq:wf-semiclassica}
 \end{equation}
 
 \section{Principi variazionali}
