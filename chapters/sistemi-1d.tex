@@ -162,10 +162,15 @@ Abbiamo dunque
 	\end{gathered}
 	\label{eq:commutatori-inversione-posizione-impulso}
 \end{equation}
+\paragraph{Parità del potenziale}
 È evidente che, oltre a $\op q^2$ (o $\op p^2$), l'operatore di inversione commuta anche con una qualsiasi funzione pari di $\op q$ (o di $\op p$).\footnote{Si intende ovviamente una funzione \emph{soltanto} di $\op q$ o soltanto di $\op p$, altrimenti il risultato in generale non è valido.}
-Un esempio di questo fatto lo troviamo nell'oscillatore armonico unidimensionale: il potenziale era pari, oltre che un multiplo di $\op q^2$, quindi l'operatore di inversione commuta con esso.
-Dato inoltre che l'intera hamiltoniana è una somma di un multiplo di $\op p^2$ e un multiplo di $\op q^2$, abbiamo addirittura $[\op H,\op I]=0$.
-Questo significa che esistono degli autostati simultanei di $\op H$ e di $\op I$: dato che l'hamiltoniano in questo caso non è degenere, ciascun autostato è direttamente anche un autostato dell'operatore di inversione, senza possibilità di avere delle combinazioni lineari.
+In questo caso, per hamiltoniani della forma $T(\op p)+V(\op q)$ dove $T$ e $V$ sono funzioni pari rispettivamente di $\op p$ e di $\op q$, si ha che $[\op H,\op I]=0$: se $\op H$ non è degenere, i due operatori hanno allora gli stessi autostati; dato inoltre che $\op I$ ha autovalori $\pm 1$ si ha che le autofunzioni di $\op H$ devono essere a parità definita (pari o dispari).
+In particolare, dato che lo stato fondamentale non ha zeri, dorvà per forza rientrare tra le funzioni pari.
+Analogamente, lo stato successivo (diciamo per $n=1$) ha un solo zero che è semplice, quindi l'autofunzione è dispari, e cos\`i via.
+Inoltre, le funzioni pari e dispari sono autofunzioni di $\op I$, che è hermitiano, corrispondenti ad autostati differenti; allora una funzione dispari e una pari sono ortogonali in $L^2(\R)$.
+
+Un esempio di questo fatto lo troviamo nell'oscillatore armonico unidimensionale: dato inoltre che l'hamiltoniano è somma di un multiplo di $\op p^2$ e un multiplo di $\op q^2$, abbiamo $[\op H,\op I]=0$.
+L'hamiltoniano inoltre non è degenere, perciò ciascun autostato è direttamente anche un autostato dell'operatore di inversione, senza possibilità di avere delle combinazioni lineari.
 Di conseguenza ogni autostato di $\op H$ ha una parità definita: dopotutto sappiamo che le autofunzioni sono le funzioni di Hermite, ed esse stesse hanno una parità definita, ossia $h_n(-x)=(-1)^nh_n(x)$; in altre parole, $\op I\ket{n}=(-1)^n\ket{n}$.
 
 \section{Particella libera}
