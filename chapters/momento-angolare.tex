@@ -1,0 +1,20 @@
+\chapter{Momento angolare}
+L'operatore associato al momento angolare è, come in meccanica classica, il generatore delle rotazioni, che soddisfa le relazioni di commutazione
+\begin{equation}
+	[\op L_i,\op L_j]=i\hbar\epsilon_{ijk}\op L_k.
+	\label{eq:commutazione-momento-angolare}
+\end{equation}
+A meno di fattori moltiplicativi, le costanti di struttura (la parte rilevante è il simbolo di Levi-Civita $\epsilon_{ijk}$) sono le stesse dell'algebra di Lie $\mathfrak{su}(2)$.
+Non a caso, $\mathfrak{su}(2)$ è isomorfa a $\mathfrak{so}(3)$ che è l'algebra del gruppo $SO(3)$ delle rotazioni tridimensionali; in altre parole $\mathfrak{su}(2)$ genera $SO(3)$, allo stesso modo in cui il momento angolare genera le rotazioni in $\R^3$, e ciò giustifica la \eqref{eq:commutazione-momento-angolare}.
+Una quantità che commuta con il momento angolare lungo una data direzione è dunque simmetrica per le rotazioni attorno a tale asse: gli scalari sono degli importanti esempi di queste quantità.
+D'ora in poi, elimineremo sistematicamente la costante $\hbar$ dalle equazioni (a meno di trovarci in casi ambigui che la richiedano esplicitamente), sottindendendo che il momento angolare è misurato \emph{in unità di $\hbar$}.
+In pratica, dividiamo la \eqref{eq:commutazione-momento-angolare} per $\hbar^2$ ottenendo la forma più semplice $[\op L_i,\op L_j]=i\epsilon_{ijk}\op L_k$.
+Insieme alle tre componenti cartesiane del momento angolare abbiamo anche il quadrato del suo modulo, ossia $\op L^2=\op L_i\op L_i$: essendo uno scalare, ci aspettiamo che sia invariante per rotazioni ossia che commuti con tutte le componenti del momento angolare.
+Una verifica diretta mostra infatti che, per $i=1,2,3$,
+\begin{equation}
+	[\op L^2,\op L_i]=[\op L_k\op L_k,\op L_i]=\op L_k[\op L_k,\op L_i]+[\op L_k,\op L_i]\op L_k=i\epsilon_{kil}(\op L_k\op L_l+\op L_l\op L_k)=i(\epsilon_{kil}+\epsilon_{lik})\op L_k\op L_l=0
+\end{equation}
+per l'antisimmetria di $\epsilon_{kil}$.
+In ogni caso le tre componenti $\op L_i$ non sono tra loro compatibili (dalla \eqref{eq:commutazione-momento-angolare}) a meno del caso banale in cui siano tutte nulle.
+Nella costruzione di un sistema completo di osservabili compatibili, è convenzione scegliere insieme a $\op L^2$ anche la componente $z$, ossia $\op L_3$, da diagonalizzare simultaneamente.
+
