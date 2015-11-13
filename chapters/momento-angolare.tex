@@ -18,3 +18,57 @@ per l'antisimmetria di $\epsilon_{kil}$.
 In ogni caso le tre componenti $\op L_i$ non sono tra loro compatibili (dalla \eqref{eq:commutazione-momento-angolare}) a meno del caso banale in cui siano tutte nulle.
 Nella costruzione di un sistema completo di osservabili compatibili, è convenzione scegliere insieme a $\op L^2$ anche la componente $z$, ossia $\op L_3$, da diagonalizzare simultaneamente.
 
+\section{Autovalori del momento angolare}
+Supponiamo di aver trovato un sistema completo di osservabili compatibili che contenga $\op L^2$ e $\op L^3$.
+Chiamiamo $m$ gli autovalori di $\op L_3$ e $\mu^2$ quelli di $\op L^2$, e trascurando lo altre osservabili del sistema indichiamo gli autostati simultanei con $\ket{m,\mu^2}$, che sono quindi tali per cui\footnote{Gli autovalori di $\op L^2$ sono evidentemente positivi, perciò li indichiamo direttamente con il quadrato $\mu^2$.}
+\begin{equation}
+	\op L^2\ket{m,\mu^2}=\mu^2\ket{m,\mu^2}\qeq\op L_3\ket{m,\mu^2}=m\ket{m,\mu^2}.
+\end{equation}
+Come già per l'oscillatore armonico, introduciamo gli operatori a scala $\op L_+\defeq\op L_1+i\op L_2$ e $\op L_-\defeq\op L_1-i\op L_2$.
+Dato che gli $\op L_i$ sono hermitiani (poich\'e rappresentano delle osservabili) si vede subito che $\adj{\op L_+}=\op L_-$.
+Essi sono in relazione con la componente scelta del momento angolare con i commutatori
+\begin{equation}
+	[\op L_3,\op L_+]=[\op L_3,\op L_1]+i[\op L_3,\op L_2]=i\op L_2-i^2\op L_1=\op L_+
+\end{equation}
+da cui
+\begin{equation}
+	[\op L_3,\op L_-]=[\op L_3,\adj{\op L_+}]=-\adj{[\op L_3,\op L_+]}=-\adj{\op L_+}=-\op L_-.
+\end{equation}
+Vediamo dunque come questi due operatori agiscono sugli autostati:
+\begin{multline}
+	\op L_3\op L_+\ket{m,\mu^2}=(\op L_3\op L_+ - \op L_+\op L_3 + \op L_+\op L_3)\ket{m,\mu^2}=[\op L_3,\op L_+]\ket{m,\mu^2}+\op L_+\op L_3\ket{m,\mu^2}=\\=
+	\op L_+\ket{m,\mu^2}+m\op L_+\ket{m,\mu^2}=(m+1)\op L_+\ket{m,\mu^2}
+\end{multline}
+e analogamente $\op L_3\op L_-\ket{m,\mu^2}=(m-1)\op L_-\ket{m,\mu^2}$.
+Gli operatori $\op L_+$ e $\op L_-$ dunque portano un autostato di $\op L_3$ in un altro autostato con autovalore, rispettivamente, aumentato o diminuito di 1.
+In altri termini, possiamo scriverlo come $\op L_+\ket{m,\mu^2}=\ket{m+1,\mu^2}$ e $\op L_-\ket{m,\mu^2}=\ket{m-1,\mu^2}$.
+
+Dobbiamo quindi chiederci se la sequenza $\{\dots,m-2,m-1,m,m+1,\dots\}$ sia limitata o meno.
+Dato che $\op L_3^2=\op L^2-\op L_1^2+\op L_2^2$, sicuramente per ciascuno stato il valore di aspettazione di $\op L_3^2$ deve essere minore di quello di $\op L^2$, dato che ovviamente $\op L_1^2+\op L_2^2$ è un operatore definito positivo.
+In particolare, dunque, risulta $m^2\le\mu^2$, ossia $\abs{m}\le\abs{\mu}$: gli autovalori sono allora necessariamente limitati; esiste un certo stato che chiamiamo $\ket{j_+,\mu^2}$ tale per cui $\op L_+\ket{j_+,\mu^2}=0$ e analogamente uno stato $\ket{j_-,\mu^2}$ per cui $\op L_-\ket{j_-,\mu^2}=0$, dove $j_+$ e $j_-$ sono il massimo e il minimo autovalore, rispettivamente, di $\op L_3$.
+Per questi due stati si ha comunque $\op L^2\ket{j_\pm,\mu^2}=\mu^2\ket{j_\pm,\mu^2}$.
+Calcolando la norma di $\op L_+\ket{j_+,\mu^2}$ troviamo
+\begin{equation}
+	\begin{split}
+		0&=\bra{j_+,\mu^2}\adj{\op L_+}\op L_+\ket{j_+,\mu^2}=\\
+		&=\bra{j_+,\mu^2}\op L_-\op L_+\ket{j_+,\mu^2}=\\
+		&=\bra{j_+,\mu^2}(\op L_1-i\op L_2)(\op L_1+i\op L_2)\ket{j_+,\mu^2}=\\
+		&=\bra{j_+,\mu^2}(\op L_1^2+\op L_2^2+i[\op L_1,\op L_2])\ket{j_+,\mu^2}=\\
+		&=\bra{j_+,\mu^2}(\op L^2-\op L_3^2-\op L_3])\ket{j_+,\mu^2}=\\
+		&=(\mu^2-j_+^2-j_+)\braket{j_+,\mu^2}{j_+,\mu^2}
+	\end{split}
+\end{equation}
+da cui otteniamo $\mu^2=j_+(j_++1)$.
+Dalla norma di $\op L_-\ket{j_-,\mu^2}$, anch'essa nulla, troviamo invece $\mu^2=j_-(j_--1)$.
+Assegnato un valore a $j_-$, uguagliando le due espressioni abbiamo $j_j(j_++1)=j_-(j_--1)$ da cui $j_+=-j_-$ oppure $j_+=j_--1$.
+La seconda delle due però non è accettabile dato che per costruzione $j_+\ge j_-$, perciò rimane $j_+=-j_-$.
+Chiamiamo questo valore semplicemente con $j$.
+Abbiamo quindi ottenuto lo spettro di $\op L_3$ che è l'insieme $\{-j,-j+1,\dots,j-1,j\}$, che ha $2j+1$ elementi.
+Questa cardinalità è chiaramente un numero intero, perciò $j$ deve essere a sua volta intero oppure semiintero (positivo o nullo).
+Una volta che $\op L_3$ assume uno di questi valori, poi, $\op L^2$ ha come autovalore $j(j+1)$: tale numero non è un quadrato perfetto, per il fatto che anche quando $j=m$ (il massimo autovalore di $\op L_3$) non si ha comunque $\mu^2=m^2$, perch\'e da questo seguirebbe che $\op L_1$ e $\op L_2$ avrebbero solo autovalori nulli, ossia il momento angolare lungo i due assi restanti sarebbe nullo; sappiamo che questo non è possibile, perch\'e non possiamo determinare con precisione assoluta contemporaneamente due componenti del momento angolare.
+L'unica eccezione a questo si ha nel caso banale in cui $j=0$, in cui $\op{\vec L}=0$.
+
+In questa rappresentazione del momento angolare, inoltre, $\op L^2$ è un multiplo dell'identità (detto anche \emph{operatore di Casimir}): è degenere dato che ad ogni suo autostato corrispondono $2j+1$ autostati linearmente indipendenti (di $\op L_3$), come si poteva anche capire dal teorema \ref{t:degenerazione} oppure dal lemma di Schur.
+La rappresentazione è inoltre determinata completamente determinata dal numero $j$.\footnote{Ogni rappresentazione del gruppo delle rotazioni è univocamente determinata da un numero intero o semiintero positivo o nullo. Tutte le rappresentazioni irriducibili si ottengono in questo modo, mentre quelle riducibili si ricavano come somma diretta o prodotto di queste.}
+Ad esempio la rappresentazione con $j=\frac12$ è data dalle matrici di Pauli: si ha infatti $\sigma_3=\frac12\begin{psmallmatrix}1&0\\0&-1\end{psmallmatrix}$ e $\frac14(\sigma_1^2+\sigma_2^2+\sigma_3^2)=\op L^2=\frac34=j(j+1)$.
+
