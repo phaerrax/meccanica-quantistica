@@ -72,3 +72,67 @@ In questa rappresentazione del momento angolare, inoltre, $\op L^2$ è un multip
 La rappresentazione è inoltre determinata completamente determinata dal numero $j$.\footnote{Ogni rappresentazione del gruppo delle rotazioni è univocamente determinata da un numero intero o semiintero positivo o nullo. Tutte le rappresentazioni irriducibili si ottengono in questo modo, mentre quelle riducibili si ricavano come somma diretta o prodotto di queste.}
 Ad esempio la rappresentazione con $j=\frac12$ è data dalle matrici di Pauli: si ha infatti $\sigma_3=\frac12\begin{psmallmatrix}1&0\\0&-1\end{psmallmatrix}$ e $\frac14(\sigma_1^2+\sigma_2^2+\sigma_3^2)=\op L^2=\frac34=j(j+1)$.
 
+\section{Momento angolare orbitale}
+Possiamo definire l'operatore del momento angolare \emph{orbitale} di una particella attorno all'origine, in coordinate cartesiane, utilizzando la definizione classica e sostituendo gli operatori corrispondenti: otteniamo
+\begin{equation}
+	\op L_k=\epsilon_{ijk}\op x_i\op p_j
+	\label{eq:momento-angolare-orbitale}
+\end{equation}
+in dimensione 3 (riprendiamo qui l'uso di $\hbar$ nelle equazioni).
+Si può eventualmente generalizzare a un numero differente di dimensioni seguendo le regole di commutazione dell'algebra $\mathfrak{so}(n)$.
+Nella rappresentazione di Schr\"odinger della posizione troviamo che $\op L_i$ è dato da
+\begin{equation}
+	L_i=\epsilon_{ijk}x_j\bigg(-i\hbar\drp{}{x_k}\bigg)=-i\hbar\epsilon_{ijk}x_j\drp{}{x_k}.
+\end{equation}
+Possiamo ottenere però una rappresentazione più vantaggiosa usando le coordinate polari, più adatte a descrivere ad esempio sistemi a simmetria centrale, cioè invarianti per rotazioni.
+Usando la terna di coordinate $(r,\phi,\theta)\in[0,+\infty)\times[0,2\pi]\times[0,\pi]$ troviamo che $\op L_3$ è rappresentato dall'operatore
+\begin{equation}
+	-i\hbar\drp{}{\phi}.
+\end{equation}
+La quantizzazione del momento angolare è dovuta, tra il resto, al fatto che la variabile angolare $\phi$ è in un intervallo limitato, dunque la parte in $\phi$ delle autofunzioni deve risultare periodica di $2\pi$, cos\`i come una funzione definita su un intervallo limitato si può analizzare in serie di Fourier, e ammette dei modi normali di oscillazione con un insieme discreto (numerabile) di frequenze.
+Le autofunzioni di questo operatore sono funzioni $f(r,\phi,\theta)$ tali che
+\begin{equation}
+	-i\hbar\drp{f}{\phi}(r,\phi,\theta)=m\hbar f(r,\phi,\theta)\qqq f(r,\phi,\theta)=g(r,\theta)e^{im\phi}.
+\end{equation}
+Imponendo la periodicità della funzione in $\phi$ otteniamo che deve soddisfare
+\begin{equation}
+	g(r,\theta)e^{im(\phi+2\pi)}=g(r,\theta)e^{im\phi}e^{2im\pi}=g(r,\theta)e^{im\phi}
+\end{equation}
+da cui ricaviamo che $m$ deve essere intero.
+
+Rimane da rappresentare anche $\op L^2$: dall'identità, valida in una generica dimensione $d$,
+\begin{equation}
+	\op{\vec L}^2=\op{\vec x}^2\op{\vec p}^2-(\scalar{\op{\vec x}}{\op{\vec p}})^2+i\hbar(d-2)\scalar{\op{\vec x}}{\op{\vec p}}
+	\label{eq:relazione-L2-x-p}
+\end{equation}
+possiamo anche ottenere una comoda rappresentazione di $\op{\vec p}^2$ in coordinate polari: è sufficiente moltiplicare a sinistra per l'operatore $\op{\vec x}^{-2}$ (l'inverso del quadrato della norma).
+In pratica, la norma al quadrato dell'operatore di posizione corrisponde al quadrato della distanza dall'origine, cioè $r^2$, che sarà l'autovalore di questo operatore in una rappresentazione in cui è diagonale.
+
+Un'operatore hamiltoniano della forma $\frac1{2m}\op{\vec p}^2+V(\norm{\op{\vec x}}^2)$ è invariante per rotazioni e commuta dunque con $\op{\vec L}^2$ e $\op L_3$.
+In generale sarà un operatore degenere: possiamo etichettare gli autostati con tre numeri $E,l,m$ tali che, oltre all'equazione di Schr\"odinger, abbiamo
+\begin{equation}
+	L^2\psi_{E,l,m}(\vec x)=l(l+1)\hbar^2\psi_{E,l,m}(\vec x)\qeq L_3\psi_{E,l,m}(\vec x)=m\hbar\psi_{E,l,m}(\vec x).
+\end{equation}
+Vediamo dunque come rappresentare opportunamente $\op{\vec p}^2$ in $L^2(\R^3)$ con l'identità \eqref{eq:relazione-L2-x-p}: nella rappresentazione delle coordinate $\op{\vec x}^2$ è diagonale si traduce nella moltiplicazione per $r^2$ (analogamente per $\op{\vec x}^{-2}$), mentre
+\begin{equation}
+	\scalar{\op{\vec x}}{\op{\vec p}}=-i\hbar x_i\drp{}{x_i}=-i\hbar r\frac{x_i}{r}\drp{}{x_i}=r\drp{r}{x_i}\drp{}{x_i}=r\drp{}{r}.
+\end{equation}
+Analogamente alla coppia di coordinate cartesiane, possiamo definire un operatore $\op r\defeq\sqrt{\op x^2+\op y^2+\op z^2}$ (in senso generalizzato: abbiamo gli stessi problemi di $x$ e $p$), che risulta autoaggiunto, e un momento coniugato $\op p_r\defeq-i\hbar\drp{}{r}$.
+Quest'ultimo però non è autoaggiunto: se per verificarlo nel casi dei $\op p_i$ cartesiani era sufficiente integrare per parti dato che i termini al contorno (per $\abs{x}\to+\infty$) erano nulli, in questo caso il contorno del dominio di $r$ è $0$ e $+\infty$, e non c'è alcun motivo di supporre che le funzioni d'onda siano nulle nell'origine; oltretutto, la misura in coordinate polari non è il semplice prodotto dei $\dd x_i$ ma contiene altri fattori.
+Con queste definizioni abbiamo dunque
+\begin{equation}
+	(\scalar{\op{\vec x}}{\op{\vec p}})^2=-\hbar^2r\drp{}{r}r\drp{}{r}=-\hbar^2\bigg(r\drp{}{r}+r^2\ddrp{}{r}\bigg)=\op r^2\op p_r^2-i\hbar \op r\op p_r
+\end{equation}
+e il quadrato dell'impulso si scrive finalmente come
+\begin{equation}
+	\op{\vec p}^2=-\hbar^2\ddrp{}{r}-\hbar^2(d-1)\frac1{r}\drp{}{r}+\frac{L^2}{r^2}=
+	-\hbar^2\bigg[\ddrp{}{r}+(d-1)\frac1{r}\drp{}{r}\bigg]+\frac{L^2}{r^2}=
+	-\hbar^2\lap
+\end{equation}
+dato che
+\begin{equation}
+	\lap=\ddrp{}{r}+(d-1)\frac1{r}\drp{}{r}-\frac{L^2}{\hbar^2r^2}=
+	\frac1{r^{d-1}}\drp{}{r}r^{d-1}\drp{}{r}-\frac{L^2}{\hbar^2r^2}
+\end{equation}
+è l'operatore laplaciano, nella nostra rappresentazione in coordinate sferiche in dimensione $d$.
+
