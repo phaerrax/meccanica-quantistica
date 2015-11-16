@@ -192,3 +192,80 @@ Inoltre dalla \eqref{eq:laplace-parte-radiale}, dopo aver semplificato la funzio
 perciò la funzione che dà gli autovalori di $L^2$ in dimensione $d$ è $g(l)=l(d+l-2)$.
 In particolare, per $d=2$ troviamo $g(l)=l^2$, e infatti il generatore di $L^2$ è unico in $\R^2$ (c'è solo una componente del momento angolare), e tale operatore ha come autovalori $\pm l$, a cui corrispondono le autofunzioni $c_0r^le^{-il\phi}$ e $c_lr^le^{il\phi}$ trovate in precedenza.
 
+\paragraph{Equazione di Laplace in $\R^3$}
+Per risolvere l'equazione $\lap u(x,y,z)=0$ effettuiamo la stessa sostituzione nel caso bidimensionale sulle coordinate $x,y$ lasciando invariata la terza.
+Un polinomio omogeneo di grado $l$ nelle variabili $\eta,\eta^*,z$ è della forma
+\begin{equation}
+	u_l(\eta,\eta^*,z)=\sum_{p,q=0}^lc_{p,q}\eta^p(\eta^*)^qz^{l-p-q}
+\end{equation}
+mentre l'operatore laplaciano si estende facilmente dal caso precedente come $\lap=4\frac{\partial}{\partial\eta\partial\eta^*}+\frac{\partial^2}{\partial z^2}$: il polinomio $u_l$ è soluzione dell'equazione di Laplace, dunque, se
+\begin{equation}
+	\begin{split}
+		0&=\sum_{p,q=0}^l4c_{p,q}\frac{\partial^2}{\partial\eta\partial\eta^*}\eta^p(\eta^*)^qz^{l-p-q}+\sum_{p,q=0}^lc_{p,q}\ddrp{}{z}\eta^p(\eta^*)^qz^{l-p-q}=\\
+		&=\sum_{p,q=0}^l4c_{p,q}pq\eta^{p-1}(\eta^*)^{q-1}z^{l-p-q}+\sum_{p,q=0}^lc_{p,q}(l-p-q)(l-p-q-1)\eta^p(\eta^*)^qz^{l-p-q-2}
+	\end{split}
+\end{equation}
+e riscalando gli indici della prima somma risulta
+\begin{equation}
+	\sum_{p,q=-1}^{l-1}4c_{p+1,q+1}(p+1)(q+1)\eta^{p}(\eta^*)^{q}z^{l-p-q-2}=-\sum_{p,q=0}^lc_{p,q}(l-p-q)(l-p-q-1)\eta^p(\eta^*)^qz^{l-p-q-2}
+\end{equation}
+da cui otteniamo l'equazione di riccorrenza
+\begin{equation}
+	c_{p+1,q+1}=-\frac{(l-p-q)(l-p-q-2)}{4(p+1)(q+1)}c_{p,q}.
+	\label{eq:ricorrenza-coefficienti-equazione-laplace}
+\end{equation}
+Possiamo disporre i coefficienti $c_{p,q}$ su un piano, in cui risulteranno limitati dagli assi $p=0$, $q=0$ e dalla retta $p+q=l$.
+Prendendo uno dei punti nel grafico, il termine successivo nella ricorrenza si ottiene aumentando di 1 entrambi gli indici, muovendosi dunque in diagonale nel grafico fino a raggiungere il bordo.
+I coefficienti sui due assi possono essere di conseguenza assunti come condizioni iniziali per le soluzioni: tutti gli altri si ottengono da questi e dalla \eqref{eq:ricorrenza-coefficienti-equazione-laplace}.
+Queste condizioni iniziali sono in tutti $2l+1$, che è quindi il numero di soluzioni indipendenti dell'equazione di Laplace.
+Indichiamo dunque con i due numeri $l$ e $m$, dove $m$ assume uno di questi $2l+1$ valori, le varie soluzioni indipendenti dell'equazione differenziale, che saranno quindi della forma $r^lY_{l,m}(\phi,\theta)$.
+
+\paragraph{Armoniche sferiche}
+Le funzioni $Y_{l,m}$ sono dette \emph{armoniche sferiche}.
+Indichiamo con $Y_{l,m}$ la soluzione che ha come condizione iniziale $c_{m,0}$ e con $Y_{l,-m}$ la soluzione con condizione iniziale $c_{0,m}$.
+La funzione $Y_{0,0}$ è costante, e corrisponde alla rappresentazione del gruppo delle rotazioni di peso $l=0$.
+Affinch\'e le armoniche sferiche siano normalizzate, devono essere integrate sull'angolo solido di $4\pi$, perciò ad esempio $Y_{0,0}=\frac1{\sqrt{4\pi}}$.
+Guardiamo invece le armoniche sferiche con $l=1$ abbiamo
+\begin{equation}
+	\begin{aligned}
+		rY_{1,-1}=r\sin\theta e^{-i\phi}=x-iy\\
+		rY_{1,0}=r\cos\theta=z\\
+		rY_{1,1}=r\sin\theta e^{-i\phi}=x+iy
+	\end{aligned}
+	\label{eq:armoniche-sferiche-1}
+\end{equation}
+che sono combinazioni lineari (complesse) delle tre componenti del vettore posizione: queste tre funzioni si trasformano dunque come vettori sotto l'effetto di una rotazione.
+Prendiamo ora l'armonica $Y_{l,l}$: troviamo che $r^lY_{l,l}=\eta^l=(x+iy)^l=r^l\sin^l\theta e^{il\phi}$ che è dunque anche autofunzione di $L_3$.
+Analogamente, lo è anche $r^lY_{l,-l}=(\eta^*)^l=r^l\sin^l\theta e^{-il\phi}$.
+In generale, risulta
+\begin{equation}
+	r^lY_{l,m}(\phi,\theta)=\sum_kc_{m+k,k}\eta^{m+k}(\eta^*)^kz^{l-m-2k}=r^l\sum_kc_{m+k,k}\sin^{m+2k}\theta\cos^{l-m-2k}\theta e^{im\phi}
+\end{equation}
+e si nota subito che è un'autofunzione di $L_3$ con autovalore $m$.
+Se poi $m$ è pari il termine $\sin\theta$ è elevato ad una potenza pari, dunque si ha una funzione di $\sin^2\theta=1-\cos^2\theta$: la funzione $r^lY_{l,m}(\phi,\theta)$, nella variabile $\theta$, è allora un polinomio in $\cos\theta$.
+Una volta normalizzato, risulta
+\begin{equation}
+	Y_{l,m}(\phi,\theta)=\sqrt{\frac{2l+1}{4\pi}\frac{(l-\abs{m})!}{(l+\abs{m})!}}e^{im\phi}P_l^{\abs{m}}(\cos\theta)
+	\label{eq:armoniche-sferiche-funzioni-associate-legendre}
+\end{equation}
+indicando con $P_l^{\abs{m}}$ è la \emph{funzione associata di Legendre} (per $m$ pari), definita come
+\begin{equation}
+	P_l^k(x)=(-1)^k(1-x^2)^{\frac{k}2}\frac{\dd^k}{\dd x^k}P_l(x)
+	\label{eq:funzione-associata-legendre}
+\end{equation}
+dove $P_l(x)$ è il \emph{polinomio di Legendre} di grado $l$: si vede che $P_l^k$ è un polinomio solo se $k$ è pari, altrimenti compaiono delle radici nella sua espressione.
+I polinomi di Legendre formano un insieme ortogonale nel dominio $[-1,1]$: risulta
+\begin{equation}
+	\begin{gathered}
+		\int_{-1}^1P_l(x)P_k(x)\,\dd x=\frac{2}{2l+1}\delta_{lk}\\
+		\int_{-1}^1\frac1{1-x^2}P_l^m(x)P_l^n(x)\,\dd x=
+		\begin{cases}
+			0						&m\ne n\\
+			\frac{(l+m)!}{m(l-m)!}	&m=n\ne 0\\
+			+\infty					&m=n=0
+		\end{cases}\\
+		\int_{-1}^1P_l^m(x)P_k^n(x)\,\dd x=\frac{2(l+m)!}{(2l+1)(l-m)!}\delta_{lk}.
+	\end{gathered}
+	\label{eq:ortogonalita-legendre}
+\end{equation}
+
