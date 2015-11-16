@@ -112,6 +112,7 @@ Un'operatore hamiltoniano della forma $\frac1{2m}\op{\vec p}^2+V(\norm{\op{\vec 
 In generale sarà un operatore degenere: possiamo etichettare gli autostati con tre numeri $E,l,m$ tali che, oltre all'equazione di Schr\"odinger, abbiamo
 \begin{equation}
 	L^2\psi_{E,l,m}(\vec x)=l(l+1)\hbar^2\psi_{E,l,m}(\vec x)\qeq L_3\psi_{E,l,m}(\vec x)=m\hbar\psi_{E,l,m}(\vec x).
+	\label{eq:autofunzioni-momento-angolare}
 \end{equation}
 Vediamo dunque come rappresentare opportunamente $\op{\vec p}^2$ in $L^2(\R^3)$ con l'identità \eqref{eq:relazione-L2-x-p}: nella rappresentazione delle coordinate $\op{\vec x}^2$ è diagonale si traduce nella moltiplicazione per $r^2$ (analogamente per $\op{\vec x}^{-2}$), mentre
 \begin{equation}
@@ -133,6 +134,21 @@ dato che
 \begin{equation}
 	\lap=\ddrp{}{r}+(d-1)\frac1{r}\drp{}{r}-\frac{L^2}{\hbar^2r^2}=
 	\frac1{r^{d-1}}\drp{}{r}r^{d-1}\drp{}{r}-\frac{L^2}{\hbar^2r^2}
+	\label{eq:laplaciano-momento-angolare}
 \end{equation}
 è l'operatore laplaciano, nella nostra rappresentazione in coordinate sferiche in dimensione $d$.
 
+Notiamo che nelle equazioni agli autovalori \eqref{eq:autofunzioni-momento-angolare} per le funzioni $\psi_{E,l,m}$ non sono coinvolti il potenziale e l'energia del sistema, ma solo i numeri $l$ e $m$.
+Per cercare le autofunzioni scegliamo innanzitutto un potenziale nullo, ottenendo l'equazione $-\hbar^2\lap\psi=2mE\psi$.
+Ponendo $k^2\defeq\frac{2mE}{\hbar^2}$ possiamo semplificarla nella forma $\lap\psi=-k^2\psi$.
+Effettuiamo dunque una separazione delle variabili fattorizzando la funzione d'onda come $R(r)Y(\phi,\theta)$: nella prima delle \eqref{eq:autofunzioni-momento-angolare} troviamo cos\`i $L^2R(r)Y(\phi,\theta)=\hbar^2l(l+1)R(r)Y(\phi,\theta)$ in cui semplifichiamo $R(r)$ trovando
+\begin{equation}
+	L^2Y(\phi,\theta)=\hbar^2l(l+1)Y(\phi,\theta)
+\end{equation}
+e con un ragionamento analogo, detto $g(l)$ l'autovalore di $L^2$ in dimensione generica $d$, l'equazione $\lap\psi=-k^2\psi$ si riscrive con la \eqref{eq:laplaciano-momento-angolare} come
+\begin{equation}
+	Y(\phi,\theta)\bigg[\frac1{r^{d-1}}\drp{}{r}r^{d-1}\drp{}{r}+\frac{g(l)}{r^2}\bigg]R(r)=-k^2R(r)Y(\phi,\theta)
+\end{equation}
+e possiamo semplificare il fattore $Y(\phi,\theta)$ dai due membri.
+Ora possiamo porre anche $E=0$, ottenendo per la funzione d'onda l'equazione di Laplace $\lap\psi=0$: essa è tale che se $\psi(\vec x)$ è soluzione, lo è anche $\psi(\lambda\vec x)$ per ogni $\lambda\in\R$, ossia le soluzioni sono funzioni omogenee.
+Cercheremo le soluzioni a questa equazione, quindi, nell'insieme dei polinomi omogenei.
