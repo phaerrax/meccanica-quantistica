@@ -148,7 +148,47 @@ Effettuiamo dunque una separazione delle variabili fattorizzando la funzione d'o
 e con un ragionamento analogo, detto $g(l)$ l'autovalore di $L^2$ in dimensione generica $d$, l'equazione $\lap\psi=-k^2\psi$ si riscrive con la \eqref{eq:laplaciano-momento-angolare} come
 \begin{equation}
 	Y(\phi,\theta)\bigg[\frac1{r^{d-1}}\drp{}{r}r^{d-1}\drp{}{r}+\frac{g(l)}{r^2}\bigg]R(r)=-k^2R(r)Y(\phi,\theta)
+	\label{eq:laplace-parte-radiale}
 \end{equation}
 e possiamo semplificare il fattore $Y(\phi,\theta)$ dai due membri.
 Ora possiamo porre anche $E=0$, ottenendo per la funzione d'onda l'equazione di Laplace $\lap\psi=0$: essa è tale che se $\psi(\vec x)$ è soluzione, lo è anche $\psi(\lambda\vec x)$ per ogni $\lambda\in\R$, ossia le soluzioni sono funzioni omogenee.
 Cercheremo le soluzioni a questa equazione, quindi, nell'insieme dei polinomi omogenei.
+
+\paragraph{Equazione di Laplace in $\R^2$}
+Data l'equazione $\lap u(x,y)=0$, sfruttiamo l'isomorfismo tra $\R^2$ e $\C$ per semplificare le operazioni, con il cambio di coordinate
+\begin{equation}
+	x=\frac{\eta+\eta^*}2\qeq y=\frac{\eta-\eta^*}{2i}
+\end{equation}
+ossia ponendo $\eta\defeq x+iy$.
+L'operatore laplaciano si riscrive come
+\begin{equation}
+	\ddrp{}{x}+\ddrp{}{y}=4\frac{\partial^2}{\partial\eta\partial\eta^*}
+\end{equation}
+per cui l'equazione di Laplace diventa $\frac{\partial^2}{\partial\eta\partial\eta^*}u(\eta,\eta^*)=0$.
+Se ora $u$ è una funzione olomorfa, non dipende da $\eta^*$ quindi è evidentemente soluzione dell'equazione; analogamente se è antiolomorfa, ossia non dipende da $\eta$.
+L'equazione $\lap u=0$ è inoltre invariante per trasformazioni conformi, ossia mappe $\C\to\C$ olomorfe.
+In ogni caso, prendiamo un generico polinomio in $\eta$ e $\eta^*$ omogeneo di grado $l$
+\begin{equation}
+	u_l(\eta,\eta^*)=\sum_{p=0}^lc_p\eta^p(\eta^*)^{l-p}:
+\end{equation}
+affinch\'e sia soluzione dell'equazione di Laplace deve risultare
+\begin{equation}
+	0=\frac{\partial^2}{\partial\eta\partial\eta^*}\sum_{p=0}^lc_p\eta^p(\eta^*)^{p-l}=\sum_{p=0}^lc_p(l-p)p\eta^{p-1}(\eta^*)^{l-p-1}
+\end{equation}
+ossia $p(l-p)c_p=0$ per ogni $p=0,\dots,l$, a meno che $p=l$ o $l=0$.
+Allora rimane soltanto $u(\eta,\eta^*)=c_0(\eta^*)^l+c_l\eta^l$, e tornando alle variabili reali abbiamo dunque
+\begin{equation}
+	\begin{gathered}
+		c_0(\eta^*)^l=c_0(x-iy)^l=c_0r^l(\cos\phi-i\sin\phi)^l=c_0r^le^{-il\phi},\\
+		c_l\eta^l=c_l(x+iy)^l=c_lr^l(\cos\phi+i\sin\phi)^l=c_lr^le^{il\phi}.
+	\end{gathered}
+\end{equation}
+
+Tornando al problema generale, in una dimensione generica, alla luce di questi risultati è sensato carcare delle soluzioni, in coordinate polari, $u(r,\phi_1,\dots,\phi_{n-1})$ che siano fattorizzate come $r^lY(\phi_1,\dots,\phi_{n-1})$.
+Inoltre dalla \eqref{eq:laplace-parte-radiale}, dopo aver semplificato la funzione $Y$, abbiamo
+\begin{equation}
+	0=-\frac1{r^{d-1}}\drp{}{r}r^{d-1}\drp{}{r}r^l=-l\frac1{r^{d-1}}\drp{}{r}r^{d-1+l-1}=-l(d+l-2)\frac1{r^{d-1}}r^{d-l-2}=-l(d+l-2)r^{l-2}
+\end{equation}
+perciò la funzione che dà gli autovalori di $L^2$ in dimensione $d$ è $g(l)=l(d+l-2)$.
+In particolare, per $d=2$ troviamo $g(l)=l^2$, e infatti il generatore di $L^2$ è unico in $\R^2$ (c'è solo una componente del momento angolare), e tale operatore ha come autovalori $\pm l$, a cui corrispondono le autofunzioni $c_0r^le^{-il\phi}$ e $c_lr^le^{il\phi}$ trovate in precedenza.
+
