@@ -1,0 +1,83 @@
+\chapter{L'atomo di idrogeno}
+In questo capitolo affrontiamo finalmente uno dei problemi ``classici'' completamente risolubili della meccanica quantistica, lo studio dello spettro dell'atomo di idrogeno.
+Cominciamo dal problema base del problema a due corpi.
+
+\section{Il problema a due corpi}
+Affrontiamo per ora il problema nella visione della meccanica classica.
+Prendiamo un sistema composto da due corpi, a cui assegnamo le coordinate canoniche $(\vec x_1,\vec p_1)$ e $(\vec x_2,\vec p_2)$, legati da un potenziale di interazione $V(\norm{\vec x_1-\vec x_2})$.
+Il sistema è descritto dalla funzione hamiltoniana
+\begin{equation}
+	\mathcal H=\frac{\vec p_1^2}{2m_1}+\frac{\vec p_2^2}{2m_2}+V(\norm{\vec x_1-\vec x_2})
+	\label{eq:hamiltoniana-due-corpi}
+\end{equation}
+ma è più conveniente passare con una trasformazione canonica al sistema del centro di massa, studiando cos\`i il moto del centro di massa e della distanza tra i due corpi
+\begin{equation}
+	\vec X\defeq\frac{m_1\vec x_1+m_2\vec x_2}{m_1+m_2}\qeq\vec x\defeq\vec x_1-\vec x_2.
+	\label{eq:coordinate-moto-relativo}
+\end{equation}
+Gli impulsi coniugati risultano essere
+\begin{equation}
+	\vec P=\vec p_1+\vec p_2\qeq\vec p=\frac{m_2\vec p_1-m_1\vec p_2}{m_1+m_2}
+	\label{eq:impulsi-moto-relativo}
+\end{equation}
+per cui introducendo la massa totale $M\defeq m_1+m_2$ e la massa ridotta $\mu\defeq\frac{m_1m_2}{m_1+m_2}$ abbiamo l'hamiltoniana
+\begin{equation}
+	\mathcal H=\frac{\vec P^2}{2M}+\frac{\vec p^2}{2\mu}+V(\norm{\vec x})
+	\label{eq:hamiltoniana-moto-relativo}
+\end{equation}
+evidentemente scomponibile come somma di due hamiltoniane distinte, una per il centro di massa (nelle coordinate $\vec X,\vec P$) e una del moto relativo dei due corpi (nelle coordinate $\vec x,\vec p$), che commutano.
+La prima delle due tra l'altro è l'hamiltoniana di una particella libera: essendo $\vec X$ ciclica l'impulso totale $\vec P$ si conserva.
+Possiamo dunque studiare il problema separatamente, e d'ora in poi ci interessiamo soltanto al moto relativo.
+Per quanto riguarda la massa ridotta, se uno dei due corpi ha massa molto minore possiamo trascurare quest'ultima: è il caso (che studieremo) del sistema protone-elettrone, in cui $m_e\ll m_p$, e potremo approssimare $\mu\approx m_p$.
+Inoltre il potenziale $V(\norm{\vec x})$ è centrale, quindi il momento angolare si conserva e $\{H,\vec L\}=0$: possiamo quindi decomporre il termine $\vec p^2$ come $\vec p^2=p_r^2+\frac{L^2}{r^2}$ ottenendo l'hamiltoniana
+\begin{equation}
+	\mathcal H=\frac{p_r^2}{2\mu}+\frac{L^2}{2\mu r^2}+V(r)
+	\label{eq:hamiltoniana-radiale}
+\end{equation}
+in cui entrambe le variabili angolari sono cicliche.
+Possiamo ulteriormente semplificare la funzione accorpando il termine $\frac{L^2}{2\mu r^2}$, che dipende solo dalla posizione, nel potenziale, formando cos\`i il \emph{potenziale efficace} $V_\textup{eff}(r)$.
+Ci siamo ridotti quindi a un problema unidimensionale nella variabile $r$, con l'unico accorgimento che essa non varia in $\R$ ma in $[0,+\infty)$.
+
+Applicando quando ricavato al caso quantistico, in dimensione $d=3$ l'operatore $\op{\vec p}^2$ è scritto in rappresentazione di Schr\"odinger delle coordinate, secondo la \eqref{eq:laplaciano-momento-angolare}, come
+\begin{equation}
+	-\hbar^2\frac1{r^2}\drp{}{r}r^2\drp{}{r}=-\frac{\hbar^2}{r^2}\bigg(2r\drp{}{r}+r^2\ddrp{}{r}\bigg)=-\hbar^2\bigg(\frac2{r}\drp{}{r}+\ddrp{}{r}\bigg).
+\end{equation}
+Con l'uguaglianza $p_r^2=\frac1{r}p_r^2r$ possiamo infine riscrivere l'equazione di Schr\"odinger in questa rappresentazione come
+\begin{equation}
+	-\frac{\hbar^2}{2\mu}\frac1{r}\ddrp{}{r}\big(r\psi(r,\phi,\theta)\big)+\frac{\hbar^2l(l+1)}{r^2}\psi(r,\phi,\theta)=E\psi(r,\phi,\theta).
+	\label{eq:schrodinger-moto-relativo}
+\end{equation}
+La ciclicità delle variabili angolari ci permette di fattorizzare la funzione d'onda in una parte radiale $R(r)$ e una angolare $Y(\phi,\theta)$.
+Sappiamo dal capitolo precedente che la parte radiale $R$ soddisfa un'equazione dipendente dall'energia $E$ del sistema e dal numero quantico $l$ associato all'autovalore di $\op L^2$, mentre la parte angolare $Y$ soddisfa due equazioni dipendenti dall'autovalore $m$ di $\op L_3$ e da $l$.
+Identifichiamo dunque le soluzioni accettabili della \eqref{eq:schrodinger-moto-relativo} con questi tre numeri, scrivendo
+\begin{equation}
+	\psi(r,\phi,\theta)=\psi_{E,l,m}(r,\phi,\theta)=R_{E,l}(r)Y_{l,m}(\phi,\theta).
+	\label{eq:fattorizzazione-wf-radiale-angolare}
+\end{equation}
+Nell'equazione \eqref{eq:schrodinger-moto-relativo} possiamo quindi semplificare il fattore $Y_{l,m}$ ottenendo un'equazione solo per $R$.
+Notiamo inoltre che la derivata seconda in $r$ agisce non su $R(r)$ soltanto, ma su $rR(r)$: moltiplicando i due membri a sinistra per $r$ (che commuta con i restanti termini) abbiamo dunque un'equazione differenziale per $rR(r)$, ossia
+\begin{equation}
+	-\frac{\hbar^2}{2\mu}\ddrp{}{r}\big(rR(r))+\frac{\hbar^2l(l+1)}{r^2}rR(r)=ErR(r).
+\end{equation}
+Appare naturale a questo punto definire $u(r)\defeq rR(r)$, ottenendo l'equazione
+\begin{equation}
+	-\frac{\hbar^2}{2\mu}u''(r)+V_\textup{eff}(r,l)u(r)=Eu(r),\hspace{1cm}\text{con }V_\textup{eff}(r,l)=\frac{\hbar^2l(l+1)}{r^2}+V(r).
+\end{equation}
+Questa definizione non semplifica solo l'equazione di Schr\"odinger, ma anche la condizione di normalizzazione: supponendo di aver normalizzato la parte angolare con
+\begin{equation}
+	\int_0^{2\pi}\int_0^\pi\abs{Y_{l,m}(\phi,\theta)}^2\sin\theta\,\dd\phi\,\dd\theta=1,
+	\label{eq:normalizzazione-parte-angolare}
+\end{equation}
+la normalizzazione per la funzione d'onda diventa in questo modo
+\begin{multline}
+	1=\int_{\R^3}\abs{\psi(\vec x)}^2\,\dd^3x=\int_0^{+\infty}\int_0^{2\pi}\int_0^\pi\abs{R_{E,l}(r)Y_{l,m}(\phi,\theta)}^2r^2\sin\theta\,\dd\phi\,\dd\theta\,\dd r=\\
+	=\int_0^{+\infty}r^2\abs{R_{E,l}(r)}^2\,\dd r=\int_0^{+\infty}\abs{u_{E,l}(r)}^2\,\dd r
+	\label{eq:normalizzazione-parte-radiale}
+\end{multline}
+che tanto somiglia al caso unidimensionale.
+Non c'è alcuna ragione per cui $R$ debba essere nulla per $r=0$, ma perlomeno deve essere continua e limitata quindi necessariamente si deve avere
+\begin{equation}
+	0=\lim_{r\to 0^+}rR(r)=\lim_{r\to 0^+}u(r)
+\end{equation}
+che è un'utile condizione al contorno per la funzione $u$.
+
