@@ -102,3 +102,90 @@ e il corrispondente operatore si scrive, nella rappresentazione di Schr\"odinger
 Abbiamo già visto che possiamo approssimare la massa ridotta con la massa del protone, o in generale della carica puntiforme al centro dell'orbita, per cui d'ora in poi scriveremo $m$ al posto di $\mu$ intendendo questa approssimazione.
 Vale quanto detto nella sezione precedente per la fattorizzazione della funzione d'onda, l'equazione di Schr\"odinger per $u(r)=rR(r)$ e le condizioni di normalizzazione.
 
+Il potenziale efficace, dato dall'equazione \eqref{eq:schrodinger-moto-relativo-potenziale-efficace}, tende a zero per $r\to+\infty$, a $+\infty$ per $r\to 0^+$ e ammette un minimo assoluto negativo.
+Se dunque $E<0$ l'hamiltoniano ammetterà uno spettro discreto, e si trovano degli stati legati; se invece $E>0$ avrà uno spettro continuo, ma non degenere, con stati non legati.
+Esaminiamo il comportamento asintotico delle soluzioni: per $r\to+\infty$ il potenziale diventa trascurabile rispetto a qualunque valore di $E$ che non sia zero, perciò approssimiamo l'equazione di Schr\"odinger come
+\begin{equation}
+	u''(r)=\frac{2m\abs{E}}{\hbar^2}u(r)=\beta^2u(r)
+	\label{eq:schroedinger-idrogeno-approx-inf}
+\end{equation}
+in cui $\beta\defeq\frac{\sqrt{2m\abs{E}}}{\hbar}$.
+La soluzione generale dell'equazione è $u(r)=c_1e^{-\beta r}+c_2e^{\beta r}$ in cui chiaramente dobbiamo porre $c_2=0$.
+Per $r\to 0^+$, invece, sono i termini $E+\frac{Ze^2}{r}$ ad essere trascurabili rispetto al termine proporzionale a $1/r^2$, quindi approssimiamo l'equazione come
+\begin{equation}
+	-\frac{\hbar^2}{2m}u''(r)+\frac{\hbar^2l(l+1)}{2mr^2}u(r)=0\qqq u''(r)-\frac{l(l+1)}{r^2}u(r)=0.
+	\label{eq:schroedinger-idrogeno-approx-0}
+\end{equation}
+Ipotizziamo in questo caso che $u(r)\sim r^s$: otteniamo $u''(r)=s(s-1)r^{s-2}$ da cui l'equazione
+\begin{equation}
+	s(s-1)r^{s-2}-\frac{l(l+1)}{r^2}r^s=0\qqq s(s-1)=l(l+1)
+\end{equation}
+da cui $s=-l$ oppure $s=l+1$.
+Escludendo $s=-l$ poich\'e deve risultare $u(0)=0$ (e $l$ non è negativo), otteniamo che asintoticamente per $r\to 0^+$ si ha $u(r)\sim r^{l+1}$, ossia $R(r)\sim r^l$: la probabilità di misurare la posizione (della particella in orbita) vicino al nucleo è tanto più piccola maggiore è il momento angolare orbitale del sistema.
+
+Sapendo che la funzione $u(r)$ decade all'infinito come $e^{-\beta r}$, proviamo a risolvere l'equazione di Schr\"odinger con una funzione $u(r)=f(r)e^{-\beta r}$.
+Troviamo, poich\'e $E=-\beta^2\frac{\hbar^2}{2m}$,
+\begin{equation}
+	\begin{gathered}
+		-\frac{\hbar^2}{2m}\big[f''(r)-2\beta f'(r)+\beta^2 f(r)\big]e^{-\beta r}+\frac{\hbar^2l(l+1)}{2mr^2}f(r)e^{-\beta r}-\frac{Ze^2}{r}f(r)e^{-\beta r}+\beta^2\frac{\hbar^2}{2m}f(r)e^{-\beta r}=0\\
+		-\frac{\hbar^2}{2m}\big[f''(r)-2\beta f'(r)\big]+\bigg[\frac{\hbar^2l(l+1)}{2mr^2}-\frac{Ze^2}{r}\bigg]f(r)=0\\
+		f''(r)-2\beta f'(r)-\frac{l(l+1)}{r^2}f(r)+\frac{2mZe^2}{\hbar^2r}f(r)=0.
+	\end{gathered}
+\end{equation}
+Sviluppiamo ora $f$ in serie di potenze di $r$: tenendo conto che per $r\to 0^+$ si ha $u(r)\sim r^{l+1}$, scriviamo $f(r)=r^{l+1}\sum_{k=0}^{+\infty}a_kr^k$, supponendo di conseguenza anche che $a_0\ne 0$ (possiamo fissare $a_0=1$).
+Inserendo lo sviluppo nell'equazione trovata otteniamo
+\begin{equation}
+	\begin{gathered}
+		\sum_{k=0}^{+\infty}a_k\bigg[(k+l+1)(k+l)r^{k+l-1}-2\beta(k+l+1)r^{k+l}-l(l+1)r^{k+l-1}+\frac{2mZe^2}{\hbar^2}r^{k+l}\bigg]=0\\
+		\sum_{k=0}^{+\infty}a_k\big[(k+l+1)(k+l)-l(l+1)\big]r^{k+l-1}+\sum_{k=0}^{+\infty}a_k\bigg[\frac{2mZe^2}{\hbar^2}-2\beta(k+l+1)\bigg]r^{k+l}=0
+	\end{gathered}
+\end{equation}
+e traslando gli indici della prima somma ($k\mapsto k+1$) troviamo
+\begin{equation}
+	\sum_{k=0}^{+\infty}\bigg\{a_{k+1}\big[(k+l+2)(k+l+1)-l(l+1)\big]-a_k\bigg[2\beta(k+l+1)-\frac{2mZe^2}{\hbar^2}\bigg]\bigg\}r^{k+l}=0
+\end{equation}
+da cui la relazione di ricorrenza
+\begin{equation}
+	a_{k+1}=\frac{2\beta(k+l+1)-\frac{2mZe^2}{\hbar^2}}{(k+l+2)(k+l+1)-l(l+1)}a_k,\hspace{1cm}\text{con }a_0=1.
+\end{equation}
+Per grandi valori di $k$ possiamo approssimarla con
+\begin{equation}
+	a_{k+1}\sim\frac{2\beta(k+l+1)}{(k+l+2)(k+l+1)}a_k\sim\frac{2\beta}{k}a_k
+\end{equation}
+e iterando fino a $k=0$ (ossia sostituendo $a_k$ per ricorrenza con $\frac{2\beta}{k-1}a_{k-1}$ e cos\`i via) otteniamo
+\begin{equation}
+	a_k\sim\frac{(2\beta)^k}{k!}
+\end{equation}
+La serie di potenze che ne risulta per $f(r)$ converge, però il limite è $e^{2\beta r}$ da cui segue $u(r)\sim e^{\beta r}$ per $r\to+\infty$, un risultato chiaramente non accettabile.
+Deve esistere quindi un certo indice $\bar{k}\in\N$ tale per cui $a_{\bar{k}}=0$, da cui $a_k=0$ $\forall k\ge\bar{k}$ in modo da troncare la serie.
+Con questa ipotesi la $f(r)$ è dunque un polinomio di grado $\bar{k}+l-1$, inoltre risulta
+\begin{equation}
+	\beta(\bar{k}+l+1)=\frac{mZe^2}{\hbar^2}\qqq\frac{\sqrt{2m\abs{E}}}{\hbar}(\bar{k}+l+1)=\frac{mZe^2}{\hbar^2}
+\end{equation}
+e definendo $n\defeq\bar{k}+l+1$ abbiamo
+\begin{equation}
+	\sqrt{2m\abs{E}}=\frac{mZe^2}{n\hbar}\qqq E=-\frac{Z^2me^4}{2n^2\hbar^2}
+\end{equation}
+che mostra la quantizzazione dei livelli energetici degli stati legati (ricordando che in questo caso $E<0$).
+Notiamo che i livelli non sono equidistanti, ma la separazione diminuisce più $E$ si avvicina a zero.
+Il numero $n$ è chiamato \emph{numero quantico principale} e con esso (al posto di $E$) etichettiamo le funzioni d'onda, che scriveremo come $\psi_{n,l,m}$ con $n\in\N$, $l\in\N_0$ e $m\in[-l,l]\subset\Z$.
+Notiamo inoltre che la grandezza $\frac{\hbar^2}{me^2}$ ha le dimensioni di una lunghezza: non a caso è detta \emph{raggio di Bohr} (indicato con $r_B$).
+Con esso scriviamo la funzione d'onda dello stato $\ket{n,l,m}$
+\begin{equation}
+	\psi_{n,l,m}(r,\phi,\theta)=e^{-Zr/nr_B}r^lY_{l,m}(\phi,\theta)\sum_{j=0}^{\bar{k}}a_jr^j.
+	\label{eq:wf-idrogeno}
+\end{equation}
+Vediamo quindi, dal fattore $\exp\big(\frac{Z}{n}\frac{r}{r_B}\big)$, che all'aumentare di $Z$ la funzione d'onda è ``più grande'' vicino al nucleo, mentre per $n$ grande tende ad ``allontanarsi''.
+
+Lo stato fondamentale $\ket{1,0,0}$ (se $n=1$ allora $\bar{k}=l=0$, non potendo essere negativi) è caratterizzato dalla funzione d'onda $\psi_{1,0,0}(r,\phi,\theta)=e^{Zr/r_B}$: il raggio di Bohr fornisce una ``scala'' per le dimensioni del sistema.
+Per $n=2$ abbiamo $\bar{k}+l=1$, da cui le possibili opzioni $l=0,\bar{k}=1$ oppure $l=1,\bar{k}=0$.
+Lo stato con $l=0$ ha necessariamente anche $m=0$, dunque corrisponde a $\ket{2,0,0}$.
+Se invece $l=1$, possiamo avere $m=\pm 1$: in totale per $l=1$ troviamo dunque tre stati indipendenti, caratterizzati dalle tre armoniche sferiche $Y_{1,-1}$, $Y_{1,0}$ e $Y_{1,1}$.
+Per $n=3$ troviamo nove stati, e cos\`i via: ad ogni livello energetico corrispondono più stati indipendenti, con momento angolare differente.
+Il livello $n$-esimo è quindi degenere, e ammette in totale
+\begin{equation}
+	\sum_{l=0}^{n-1}(2l+1)=2\sum_{l=0}^{n-1}l+\sum_{l=0}^{n-1}1=2\frac{n(n-1)}2+n=n^2
+\end{equation}
+stati.
+Essendo il sistema a simmetria centrale, in effetti, tutte le componenti del momento angolare commutano con l'hamiltoniano, ma non tra di loro; questo, per il teorema \ref{t:degenerazione}, è indice della degenerazione dell'hamiltoniano.
+
