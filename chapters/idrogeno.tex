@@ -62,6 +62,7 @@ Notiamo inoltre che la derivata seconda in $r$ agisce non su $R(r)$ soltanto, ma
 Appare naturale a questo punto definire $u(r)\defeq rR(r)$, ottenendo l'equazione
 \begin{equation}
 	-\frac{\hbar^2}{2\mu}u''(r)+V_\textup{eff}(r,l)u(r)=Eu(r),\hspace{1cm}\text{con }V_\textup{eff}(r,l)=\frac{\hbar^2l(l+1)}{r^2}+V(r).
+	\label{eq:schrodinger-moto-relativo-potenziale-efficace}
 \end{equation}
 Questa definizione non semplifica solo l'equazione di Schr\"odinger, ma anche la condizione di normalizzazione: supponendo di aver normalizzato la parte angolare con
 \begin{equation}
@@ -80,4 +81,24 @@ Non c'è alcuna ragione per cui $R$ debba essere nulla per $r=0$, ma perlomeno d
 	0=\lim_{r\to 0^+}rR(r)=\lim_{r\to 0^+}u(r)
 \end{equation}
 che è un'utile condizione al contorno per la funzione $u$.
+
+\section{L'atomo di idrogeno}
+Per l'atomo di idrogeno abbiamo l'energia potenziale elettrostatica $V(r)=-\frac{e^2}{r}$, posseduta da un elettrone in orbita attorno ad un protone.
+Più in generale, possiamo considerare il moto dell'elettrone in un campo elettrostatico centrale, generato da una carica puntiforme $Ze$ nell'origine, ossia con il potenziale
+\begin{equation}
+	V(r)=-\frac{Ze^2}{r}.
+	\label{eq:potenziale-elettrostatico}
+\end{equation}
+Il sistema è dunque caratterizzato (classicamente) dalla funzione hamiltoniana
+\begin{equation}
+	\mathcal H=\frac{\vec p^2}{2\mu}-\frac{Ze^2}{r}
+	\label{eq:hamiltoniana-idrogeno}
+\end{equation}
+e il corrispondente operatore si scrive, nella rappresentazione di Schr\"odinger della posizione (in coordinate sferiche), diagonalizzando contemporaneamente $\op L^2$ e $\op L_3$ come
+\begin{equation}
+	-\frac{\hbar^2}{2\mu}\frac1{r}\ddrp{}{r}r+\frac{\hbar^2l(l+1)}{2\mu r^2}-\frac{Ze^2}{r}.
+	\label{eq:hamiltoniano-idrogeno-schroedinger}
+\end{equation}
+Abbiamo già visto che possiamo approssimare la massa ridotta con la massa del protone, o in generale della carica puntiforme al centro dell'orbita, per cui d'ora in poi scriveremo $m$ al posto di $\mu$ intendendo questa approssimazione.
+Vale quanto detto nella sezione precedente per la fattorizzazione della funzione d'onda, l'equazione di Schr\"odinger per $u(r)=rR(r)$ e le condizioni di normalizzazione.
 
