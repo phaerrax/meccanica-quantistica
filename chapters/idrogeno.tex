@@ -189,3 +189,44 @@ Il livello $n$-esimo è quindi degenere, e ammette in totale
 stati.
 Essendo il sistema a simmetria centrale, in effetti, tutte le componenti del momento angolare commutano con l'hamiltoniano, ma non tra di loro; questo, per il teorema \ref{t:degenerazione}, è indice della degenerazione dell'hamiltoniano.
 
+\section{Una simmetria nascosta}
+Per quanto visto finora, la simmetria sferica del potenziale del problema a due corpi fa s\`i che il momento angolare orbitale $\vec L$ sia una costante del moto, portando alla degenerazione dei livelli di energia, fissati i numeri quantici $n$ e $l$, in $2l+1$ stati.
+Per l'atomo di idrogeno abbiamo visto però un'ulteriore degenerazione: all'$n$-esimo livello di energia esistono $n^2$ differenzi stati, al variare di $l$ tra $0$ e $n-1$, in quella che è chiamata \emph{degenerazione accidentale}.
+Come vedremo in questa sezione, essa è collegata ad un'altra simmetria del sistema.
+
+\paragraph{Il problema di Keplero}
+Ciò che caratterizza l'atomo di idrogeno è il potenziale $-\alpha/r$, del più generale problema di Keplero: vediamone le caratteristiche principali.
+Sappiamo che si conservano l'energia $E$ e il momento angolare orbitale $\vec L$, dunque
+\begin{equation}
+	E=H=\frac1{2m}p_r^2+\frac{L^2}{2mr^2}-\frac{\alpha}{r}=\frac{m}{2}\dot{r}^2+\frac{L^2}{2mr^2}-\frac{\alpha}{r}\defeq\frac{m}{2}\dot{r}^2+V_\textup{eff}(r)
+	\label{eq:energia-keplero}
+\end{equation}
+da cui otteniamo
+\begin{equation}
+	\dot{r}=\sqrt{\frac2{m}\big[E-V_\textup{eff}(r)\big]}
+	\label{eq:velocita-radiale-keplero}
+\end{equation}
+e da $L=mr^2\dot{\phi}$ otteniamo un'equazione differenziale per $\phi$ in funzione di $r$,
+\begin{equation}
+	\drv{\phi}{r}=\drv{\phi}{t}\drv{t}{r}=\frac{\dot{\phi}}{\dot{r}}.
+\end{equation}
+Integrando in $r$, dopo un'inversione si ottiene l'equazione dell'orbita
+\begin{equation}
+	\frac{L^2}{m\alpha^2}\frac1{r}=1+\sqrt{1+\frac{2EL^2}{m\alpha^2}}\cos\phi
+	\label{eq:orbita-keplero}
+\end{equation}
+che è l'equazione di una conica
+\begin{equation}
+	r=\frac{P}{1+\epsilon\cos\phi}
+	\label{eq:conica-parametrica}
+\end{equation}
+di parametro $P=L^2/m\alpha^2$ ed eccentricità $\epsilon=\sqrt{1+\frac{2EL^2}{m\alpha^2}}$.
+Notiamo che si ha un ellisse se l'eccentricità è minore di $1$, che accade per $E<0$ in cui abbiamo degli stati legati.
+In questa situazione, dalla \eqref{eq:conica-parametrica} vediamo inoltre che il raggio minimo (ossia la distanza minima dal fuoco da cui è misurato) è $r_\textup{min}=\frac{P}{1+\epsilon}$ mentre il raggio massimo è $r_\textup{max}=\frac{P}{1-\epsilon}$.
+Indicando con $a$ il semiasse maggiore e con $c$ la semidistanza focale, dalla relazione $\epsilon=c/a$ che definisce l'eccentricità abbiamo anche $r_\textup{min}=a-c=a(1-\epsilon)$ e $r_\textup{max}=a+c=a(1+\epsilon)$, da cui
+\begin{equation}
+	a=\frac{P}{1-\epsilon^2}=\frac{\alpha}{2\abs{E}}\hspace{1cm}\text{e}\hspace{1cm}b=a\sqrt{1-\epsilon^2}=\frac{P}{\sqrt{1-\epsilon^2}}=\frac{L}{\sqrt{2m\abs{E}}}
+	\label{eq:semiassi-keplero}
+\end{equation}
+dove $b$ è il semiasse maggiore, tale che $a^2=b^2+c^2$.
+
