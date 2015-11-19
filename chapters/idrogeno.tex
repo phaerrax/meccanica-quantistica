@@ -262,3 +262,74 @@ che è proprio l'eccentricità dell'orbita.
 La conservazione di questo vettore non corrisponde, come per il momento angolare, a una caratteristica geometrica del sistema: non c'è nell'hamiltoniana una coordinata ciclica di cui esso è il momento coniugato, e la sua conservazione deve essere calcolata esplicitamente con le parentesi di Poisson.
 D'altro canto, a questa conservazione corrisponde una simmetria del sistema maggiore a quella data dal gruppo $SO(3)$ delle rotazioni generate da $\vec L$.
 Questo fatto è stato sfruttato da Wolfgang Pauli per calcolare lo spettro dell'atomo di idrogeno senza usare l'equazione di Schr\"odinger, come abbiamo fatto in precedenza.
+
+Associamo quindi a questo vettore l'operatore $\op{\vec A}$ definito da
+\begin{equation}
+	\op{\vec A}\defeq\frac{\alpha\op{\vec x}}{\op r}-\frac1{2m}(\op{\vec L}\times\op{\vec p}-\op{\vec p}\times\op{\vec L})
+	\hspace{.5cm}\text{cioè}\hspace{.5cm}
+	\op A_i\defeq \frac{\alpha \op x_i}{\op r}+\frac1{2m}\epsilon_{ijk}(L_jp_k+p_kL_j).
+	\label{eq:operatore-vettore-lenz}
+\end{equation}
+con $\op r=\sqrt{\op x_k\op x_k}$.
+È necessario ``simmetrizzare'' la definizione \eqref{eq:vettore-runge-lenz}, poich\'e $\op{\vec L}$ e $\op{\vec p}$ non sono compatibili (in generale), e si avrebbe un'ambiguità su come ordinare i due fattori.
+In pratica dunque sostituiamo $\epsilon_{ijk}L_jp_k$ con $\frac12\epsilon_{ijk}(L_jp_k+p_kL_j)$ o equivalentemente, senza riferirsi alle coordinate, $\op{\vec L}\times\op{\vec p}$ con $\frac12(\op{\vec L}\times\op{\vec p}-\op{\vec p}\times\op{\vec L})$.
+
+Essendo $\frac{\op{\vec x}}{\op r}$, $\vec{\op L}$ e $\op{\vec p}$ degli operatori vettoriali, lo sono anche $\op{\vec L}\times\op{\vec p}$ e $\op{\vec p}\times\op{\vec L}$, di conseguenza anche $\op{\vec A}$ lo è, essendo combinazione lineare di tali operatori.
+Ciò significa che, sotto ad una rotazione, esso si trasforma secondo l'equazione
+\begin{equation}
+	[\op L_i,\op A_j]=i\hbar\epsilon_{ijk}A_k.
+	\label{eq:commutazione-A-L}
+\end{equation}
+Completiamo il quadro delle costanti del moto con i commutatori di $\op{\vec A}$ con s\'e stesso e con l'hamiltoniano: risultano
+\begin{equation}
+	[\op H,\op A_i]=0\hspace{1cm}\text{e}\hspace{1cm}[\op A_i,\op A_j]=-i\hbar\epsilon_{ijk}\op L_k\frac2{m}\op H
+\end{equation}
+la prima coerentemente con il fatto che il vettore di Lenz è una costante del moto.
+Anticipiamo inoltre il risultato $\scalar{\op{\vec A}}{\op{\vec L}}=\scalar{\op{\vec L}}{\op{\vec A}}=0$: si può vedere facilmente dal fatto che il vettore del momento angolare, per definizione, è ortogonale a $\vec x$, e analogamente $\vec L\times\vec p$ e $\vec p\times\vec L$ sono ortogonali a $\vec L$.
+Riassumendo, abbiamo le relazioni di commutazione
+\begin{equation}
+	\begin{aligned}
+		[\op H,\op L_i]&=0\\
+		[\op H,\op A_i]&=0\\
+		[\op L_i,\op L_j]&=i\hbar\epsilon_{ijk}\op L_k\\
+		[\op L_i,\op A_j]&=i\hbar\epsilon_{ijk}\op A_k\\
+		[\op A_i,\op A_j]&=-i\hbar\epsilon_{ijk}\op L_k\frac2{m}\op H.
+	\end{aligned}
+	\label{eq:commutazione-hamiltoniano-momento-angolare-lenz}
+\end{equation}
+
+Siamo interessati, a questo punto, a ``normalizzare'' il vettore di Lenz in modo da semplificare l'ultima di queste relazioni.
+Chiaramente dividerlo per la radice quadrata dell'hamiltoniano è un processo difficile da definire, quindi semplifichiamo il problema restringendoci in un autospazio $\hilbert_E$ di $\op H$, corrispondente all'autovalore $E$.
+In esso, applicare $\op H$ corrisponde semplicemente a moltiplicare per $E$, e cos\`i risolviamo la questione della radice quadrata.
+In virtù delle prime due relazioni nella \eqref{eq:commutazione-hamiltoniano-momento-angolare-lenz}, se $\ket{\psi}$ è in tale autostato allora vi appartengono anche $\op A_i\ket{\psi}$ e $\op L_i\ket{\psi}$ per $i=1,2,3$, per il lemma \ref{l:autostati-compatibili}.
+È lecito dunque restringere i tre operatori in questo autospazio.
+Definiamo dunque l'operatore, in $\hilbert_E$,
+\begin{equation}
+	\op{\vec U}=\sqrt{-\frac{m}{2E}}\op{\vec A}
+\end{equation}
+e i sei operatori
+\begin{equation}
+	\op{\vec J}_1\defeq\frac{\op{\vec L}+\op{\vec U}}2\hspace{1cm}\text{e}\hspace{1cm}\op{\vec J}_2\defeq\frac{\op{\vec L}-\op{\vec U}}2.
+	\label{eq:momento-angolare-SO4}
+\end{equation}
+Con essi abbiamo, al posto delle \eqref{eq:commutazione-hamiltoniano-momento-angolare-lenz}, le relazioni
+\begin{equation}
+	\begin{aligned}
+		[\op J_{1i},\op J_{1j}]&=
+			\frac{i\hbar}4\big([\op L_i,\op L_j]+[\op U_i,\op L_j]+[\op L_i,\op U_j]+[\op U_i,\op U_j]\big)=
+			\frac{i\hbar}4\epsilon_{ijk}(\op L_k+\op U_k+\op U_k+\op L_k)=
+			i\hbar\epsilon_{ijk}\op J_{1k}\\
+		[\op J_{2i},\op J_{2j}]&=
+			i\hbar\epsilon_{ijk}\op J_{2k}\\
+		[\op J_{1i},\op J_{2j}]&=
+			\frac{i\hbar}4\big([\op L_i,\op L_j]-[\op L_i,\op U_j]+[\op U_i,\op L_j]-[\op U_i,\op U_j]\big)=
+			\frac{i\hbar}4\epsilon_{ijk}(\op L_k-\op U_k+\op U_k-\op L_k)=
+			0.
+	\end{aligned}
+\end{equation}
+Questo mostra che i tre $\op J_{1i}$ sono la base di un'algebra di Lie $\mathscr L_1$ isomorfa a $\mathfrak{su}(2)$ (si hanno le stesse costanti di struttura a meno di costanti moltiplicative), e lo stesso vale per i tre $\op J_{2i}$ che sono la base di $\mathscr L_2\cong\mathfrak{su}(2)$.
+Poich\'e per ogni $X\in\mathscr L_1$ e $Y\in\mathscr L_2$ vale $[X,Y]=0$, le due algebre sono in somma diretta, perciò i sei operatori $\op{\vec J}_1$ e $\op{\vec J}_2$ sono la base di un'algebra isomorfa a $\mathfrak{su}(2)\oplus\mathfrak{su}(2)$.
+A sua volta $\mathfrak{su}(2)\oplus\mathfrak{su}(2)$ è isomorfa a $\mathfrak{so}(4)$ che è l'algebra di Lie del gruppo $SO(4)$, che quindi il gruppo di simmetria dell'atomo di idrogeno.
+Abbiamo quindi trovato che $\op J_{1i}$ e $\op J_{2i}$ per $i=1,2,3$ sono sei costanti del moto che generano il gruppo delle rotazioni in quattro dimensioni.
+
+
