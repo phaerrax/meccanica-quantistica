@@ -230,3 +230,35 @@ Indicando con $a$ il semiasse maggiore e con $c$ la semidistanza focale, dalla r
 \end{equation}
 dove $b$ è il semiasse maggiore, tale che $a^2=b^2+c^2$.
 
+\paragraph{Il vettore di Lenz}
+Una caratteristica unica del problema di Keplero è che il vettore
+\begin{equation}
+	\vec A=\alpha\frac{\vec x}{r}+\frac1{m}\vec L\times\vec p,
+	\label{eq:vettore-runge-lenz}
+\end{equation}
+con $r=\norm{\vec x}$, detto \emph{vettore di Lenz}, è una costante del moto.\footnote{Noto anche come vettore di Runge-Lenz, vettore di Laplace-Runge-Lenz o solo vettore di Laplace.}\footnote{Questa definizione è una delle tante possibili. Una formulazione equivalente si ha se $\vec A$ è moltiplicato per $m$ (che è un'altra costante del moto, quindi non cambia i risultati se non per un fattore moltiplicativo) o se ne si cambia il segno.}
+È un vettore che, dal centro di massa del sistema (il fuoco in cui è misurato l'angolo), punta verso il periapside.
+Nel caso l'orbita sia circolare non esiste un periapside in quanto tutti i punti sono equidistanti dal centro, e in tal caso $\vec A$ è nullo.
+Questo vettore ha delle proprietà interessanti: per prima cosa abbiamo
+\begin{equation}
+	\scalar{\vec x}{\vec A}=\alpha r+\frac1{m}\scalar{\vec x}{(\vec L\times\vec p)}=\alpha r+\frac1{m}\scalar{\vec L}{(\vec p\times\vec x)}=\alpha r-\frac{L^2}{m}.
+\end{equation}
+Posto $\scalar{\vec x}{\vec A}=Ar\cos\phi$, si ottiene proprio l'equazione dell'orbita \eqref{eq:conica-parametrica} nella forma
+\begin{equation}
+	\frac{L^2}{\alpha m}\frac1{r}=1-\frac{A}{\alpha}\cos\phi
+	\label{eq:orbita-keplero-vettore-lenz}
+\end{equation}
+che mostra anche come l'eccentricità dell'orbita sia data da $A/\alpha$.
+Infatti risulta
+\begin{multline}
+	A^2=\alpha^2+\frac1{m^2}\scalar{(\vec L\times\vec p)}{(\vec L\times\vec p)}+2\frac{\alpha}{rm}\scalar{\vec x}{(\vec L\times\vec p)}=\\
+	=\alpha^2+\frac{L^2p^2}{m^2}-\frac{2\alpha L^2}{rm}=\alpha^2+\frac{2L^2}{m}\bigg(\frac{p^2}{2m}-\frac{\alpha}{r}\bigg)=\alpha^2+\frac{2EL^2}{m}
+\end{multline}
+da cui
+\begin{equation}
+	\frac{A}{\alpha}=\sqrt{1+\frac{2EL^2}{m\alpha^2}}
+\end{equation}
+che è proprio l'eccentricità dell'orbita.
+La conservazione di questo vettore non corrisponde, come per il momento angolare, a una caratteristica geometrica del sistema: non c'è nell'hamiltoniana una coordinata ciclica di cui esso è il momento coniugato, e la sua conservazione deve essere calcolata esplicitamente con le parentesi di Poisson.
+D'altro canto, a questa conservazione corrisponde una simmetria del sistema maggiore a quella data dal gruppo $SO(3)$ delle rotazioni generate da $\vec L$.
+Questo fatto è stato sfruttato da Wolfgang Pauli per calcolare lo spettro dell'atomo di idrogeno senza usare l'equazione di Schr\"odinger, come abbiamo fatto in precedenza.
