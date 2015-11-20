@@ -1,0 +1,63 @@
+\chapter{Teoria delle perturbazioni}
+Nel capitolo precedente abbiamo calcolato i livelli energetici dell'atomo di idrogeno.
+Per quanto sia di grande importanza ``accademica'', però, sperimentalmente ha un interesse relativamente basso: per misurare queste energie, e in generale le proprietà del sistema, dobbiamo infatti farlo interagire con un agente esterno, tipicamente un campo elettromagnetico.
+In generale lo studio dell'interazione tra materia e radiazione è molto importante, ma in questa trattazione troviamo molti problemi, come:
+\begin{itemize}
+	\item a rigore, tutto il sistema andrebbe quantizzato, ma il campo elettromagnetico ha un numero infinito di gradi di libertà;
+	\item il campo elettromagnetico è invariante sotto ad un diverso gruppo di trasformazioni (quelle di Lorentz), che non abbiamo introdotto;
+	\item anche introducendo le teorie relativistiche, dovremmo porre sullo stesso piano le quattro coordinate spaziotemporali, mentre finora il tempo è sempre stato un parametro e la posizione un operatore.
+\end{itemize}
+Dobbiamo quindi trovare un approccio più semplificato.
+Se trattiamo il campo elettromagnetico in modo ``classico'', ad esempio, ci basterà aggiungere dei termini all'hamiltoniano.
+Più in generale possiamo vedere quest'ultimo come composto da un termine $\op H_0$ che corrisponde al sistema isolato più un termine $\op H'$ che caratterizza la sua interazione con il campo,
+\begin{equation}
+	H=H_0+H'
+	\label{eq:perturbazione}
+\end{equation}
+dove in generale $\op H'$ può anche dipendere esplicitamente dal tempo.
+In quest'ottica possiamo vedere $\op H'$ come una \emph{perturbazione} del sistema isolato descritto da $\op H_0$.
+Nel caso in cui $\op H'$ sia poi ``piccolo'' rispetto a $\op H_0$ possiamo poi analizzare il problema come si analizzerebbe un problema classico nell'ambito delle piccole oscillazioni.
+
+Rimane però da capire cosa si intende con ``piccolo'': $\op H'$ è un operatore, non un numero, che in tutta generalità può anche essere illimitato.
+Solitamente $\op H'$ e $\op H_0$ non sono compatibili, per cui non possiamo diagonalizzarli simultaneamente e confrontare gli autovalori.
+Prendiamo una base $\{\ket{n}\}_{n\in\N}$ in cui $\op H_0$ è diagonale, e in questa base scriviamo la \eqref{eq:perturbazione} come
+\begin{equation}
+	\bra{n}\op H\ket{m}=H_{nm}=E_n\delta_{nm}+H'_{nm},
+	\label{eq:perturbazione-base}
+\end{equation}
+dove $E_i$ sono gli autovalori di $\op H_0$.
+Supponiamo ora che lo spazio degli stati sia bidimensionale, cos\`i da scrivere $\op H$ in forma matriciale:
+\begin{equation}
+	H=
+	\begin{pmatrix}
+		E_1+H'_{11}	&H'_{12}\\
+		H'_{21}		&E_2+H'_{22}
+	\end{pmatrix}.
+\end{equation}
+Dato che deve essere hermitiano, si ha $H'_{21}={H'_{12}}^*$ e $E_i+H'_{ii}\in\R$.
+Il polinomio caratteristico è
+\begin{multline}
+	\chi_H(\lambda)=(E_1+H_{11}'-\lambda)(E_2+H'_{22}-\lambda)-\abs{H'_{12}}^2=\\
+	=\lambda^2-(E_1+E_2+H'_{11}+H'_{22})\lambda+(E_1+H'_{11})(E_2+H'_{22})-\abs{H'_{12}}^2
+	\label{eq:polinomio-caratteristico-H-perturbato-2d}
+\end{multline}
+da cui troviamo i due autovalori
+\begin{equation}
+	\begin{split}
+		\lambda
+		&=\frac12\bigg[E_1+E_2+H'_{11}+H'_{22}\pm\sqrt{(E_1+E_2+H'_{11}+H'_{22})^2-4(E_1+H'_{11})(E_2+H'_{22})+4\abs{H'_{12}}^2}\bigg]=\\
+		&=\frac12\bigg[E_1+E_2+H'_{11}+H'_{22}\pm(E_1+H'_{11}-E_2-H'_{22})\sqrt{1+\frac{4\abs{H'_{12}}^2}{(E_1+H'_{11}-E_2-H'_{22})^2}}\bigg].
+	\end{split}
+	\label{eq:autovalori-H-perturbato-2d}
+\end{equation}
+Se $\abs{H'_{12}}^2\ll\abs{E_1+H'_{11}-E_2-H'_{22}}$ possiamo allora approssimare al primo ordine gli autovalori, in pratica trascurando la radice.
+in tal caso, essi sono $E'_1\defeq E_1+H'_{11}$ e $E'_2\defeq E_2+H'_{22}$.
+La condizione affinch\'e $\op H'$ sia piccolo può dunque essere formulata richedendo che gli elementi, in modulo, fuori dalla diagonale di esso siano molto minori della differenza $\abs{E'_1-E'_2}$.
+Se inoltre $\abs{H'_{ii}}\ll\abs{E_i}$, allora $E'_i\approx E_i$, dunque la condizione può essere semplificata affermando che deve risultare
+\begin{equation}
+	\abs{H'_{ij}}\ll\abs{E_i-E_j},
+	\label{eq:condizione-approssimazione-perturbazione-2d}
+\end{equation}
+potendo cos\`i usare i livelli energetici direttamente di $\op H_0$ anzich\'e di $\op H$ (i primi li conosciamo, se il sistema dato da $\op H_0$ è già noto, a differenza dei secondi).
+Allora il valore di aspettazione di $\op H'$, calcolato sull'autostato imperturbato $\ket{E_i}$ di $\op H_0$, è proprio il termine da aggiungere al livello energetico corrispondente di $\op H_0$, che è l'autovalore in tale autostato.
+
