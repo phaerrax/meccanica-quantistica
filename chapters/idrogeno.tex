@@ -165,6 +165,7 @@ Con questa ipotesi la $f(r)$ è dunque un polinomio di grado $\bar{k}+l-1$, inol
 e definendo $n\defeq\bar{k}+l+1$ abbiamo
 \begin{equation}
 	\sqrt{2m\abs{E}}=\frac{mZe^2}{n\hbar}\qqq E=-\frac{Z^2me^4}{2n^2\hbar^2}
+	\label{eq:energia-idrogeno}
 \end{equation}
 che mostra la quantizzazione dei livelli energetici degli stati legati (ricordando che in questo caso $E<0$).
 Notiamo che i livelli non sono equidistanti, ma la separazione diminuisce più $E$ si avvicina a zero.
@@ -329,7 +330,37 @@ Con essi abbiamo, al posto delle \eqref{eq:commutazione-hamiltoniano-momento-ang
 \end{equation}
 Questo mostra che i tre $\op J_{1i}$ sono la base di un'algebra di Lie $\mathscr L_1$ isomorfa a $\mathfrak{su}(2)$ (si hanno le stesse costanti di struttura a meno di costanti moltiplicative), e lo stesso vale per i tre $\op J_{2i}$ che sono la base di $\mathscr L_2\cong\mathfrak{su}(2)$.
 Poich\'e per ogni $X\in\mathscr L_1$ e $Y\in\mathscr L_2$ vale $[X,Y]=0$, le due algebre sono in somma diretta, perciò i sei operatori $\op{\vec J}_1$ e $\op{\vec J}_2$ sono la base di un'algebra isomorfa a $\mathfrak{su}(2)\oplus\mathfrak{su}(2)$.
-A sua volta $\mathfrak{su}(2)\oplus\mathfrak{su}(2)$ è isomorfa a $\mathfrak{so}(4)$ che è l'algebra di Lie del gruppo $SO(4)$, che quindi il gruppo di simmetria dell'atomo di idrogeno.
+A sua volta $\mathfrak{su}(2)\oplus\mathfrak{su}(2)$ è isomorfa a $\mathfrak{so}(4)$, l'algebra di Lie associata al gruppo $SO(4)$, che è quindi il gruppo di simmetria del sistema.
 Abbiamo quindi trovato che $\op J_{1i}$ e $\op J_{2i}$ per $i=1,2,3$ sono sei costanti del moto che generano il gruppo delle rotazioni in quattro dimensioni.
 
+Concludiamo dunque questa parte ricavando da questi operatori lo spettro dell'atomo.
+Sfruttando le regole di commutazione, possiamo costruire anche qui degli operatori a scala che ``alzano e abbassano'' gli autovalori dei loro autostati.
+Diamo qui solamente i risultati, omettendo la dimostrazione che è analoga a quella già svolta per il momento angolare nella sezione \ref{sec:autovalori-momento-angolare}.
+Se ci troviamo in un autostato $\ket{\lambda,m_1,m_2}$ simultaneo per $\op{\vec J}_1^2$, $\op J_{13}$ e $\op J_{23}$, con
+\begin{equation}
+	\begin{aligned}
+		\op{\vec J}_1^2\ket{\lambda,m_1,m_2}&=\lambda\hbar^2\ket{\lambda,m_1,m_2},\\
+		\op J_{13}\ket{\lambda,m_1,m_2}		&=m_1\hbar\ket{\lambda,m_1,m_2},\\
+		\op J_{23}\ket{\lambda,m_1,m_2}		&=m_2\hbar\ket{\lambda,m_1,m_2}
+	\end{aligned}
+\end{equation}
+allora esiste un numero $j\in\big\{0,\frac12,1,\frac32,\dots\big\}$ tale che $m_1,m_2\in\{-j,-j+1,\dots,j\}$ e $\lambda=j(j+1)$.
+Possiamo anche indicare questo autostato direttamente con $\ket{j,m_1,m_2}$.
+La scelta di $j$ determina un insieme di $2j+1$ autostati linearmente indipendenti tutti con autovalore $j(j+1)\hbar^2$ per $\op{\vec J}_1^2$ (che è degenere).
+Dato che $\scalar{\op{\vec L}}{\op{\vec U}}=\scalar{\op{\vec U}}{\op {\vec L}}=0$ (poich\'e $\op{\vec U}$ è proporzionale ad $\op{\vec A}$) si ha inoltre
+\begin{multline}
+	\op{\vec J}_1^2=\op{\vec J}_2^2=
+	\frac14(\op{\vec L}^2+\op{\vec U}^2)=
+	\frac14\bigg(\op{\vec L}^2-\frac{m}{2E}\op{\vec A}^2\bigg)=
+	\frac14\bigg[\op{\vec L}^2-\frac{m}{2E}\bigg(\frac2{m}E(\op{\vec L}^2+\hbar^2)+\alpha^2\bigg)\bigg]=\\=
+	-\frac14\bigg(\hbar^2+\frac{m\alpha^2}{2E}\bigg)=
+	-\frac{\hbar^2}4\bigg(1+\frac{m\alpha^2}{2\hbar^2E}\bigg).
+\end{multline}
+L'energia dello stato $\ket{j,m_1,m_2}$ è dunque
+\begin{equation}
+	E=-\frac{m\alpha^2}{2\hbar^2(2j+1)^2}=-\frac{m\alpha^2}{2\hbar^2n^2}
+\end{equation}
+dove abbiamo posto $n\defeq 2j+1$.
+Notiamo che per l'atomo di idrogeno abbiamo $\alpha=e^2$ (oppure $Ze^2$ nella sua generalizzazione con una qualsiasi carica puntiforme al centro) per cui abbiamo ritrovato esattamente la \eqref{eq:energia-idrogeno}.
+Ricalcando i calcoli già fatti per il momento angolare, vediamo anche qui che per ogni $j$ si hanno proprio $(2j+1)^2=n^2$ autostati indipendenti con la stessa energia.
 
