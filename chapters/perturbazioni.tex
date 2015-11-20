@@ -61,3 +61,71 @@ Se inoltre $\abs{H'_{ii}}\ll\abs{E_i}$, allora $E'_i\approx E_i$, dunque la cond
 potendo cos\`i usare i livelli energetici direttamente di $\op H_0$ anzich\'e di $\op H$ (i primi li conosciamo, se il sistema dato da $\op H_0$ è già noto, a differenza dei secondi).
 Allora il valore di aspettazione di $\op H'$, calcolato sull'autostato imperturbato $\ket{E_i}$ di $\op H_0$, è proprio il termine da aggiungere al livello energetico corrispondente di $\op H_0$, che è l'autovalore in tale autostato.
 
+\section{L'effetto Stark nell'atomo di idrogeno}
+Consideriamo un sistema con un atomo di idrogeno posto in un campo elettrico costante nella direzione $z$ ($\vec E=\mathcal E\vec e_3$).
+L'hamiltoniano del sistema è
+\begin{equation}
+	\op H=\op H_0+e\mathcal E\op x_3
+	\label{eq:hamiltoniano-stark-idrogeno}
+\end{equation}
+dove $\op H_0$ è l'hamiltoniano, già visto, dell'atomo di idrogeno.
+Nel sistema dell'atomo idrogeno isolato conosciamo le simmetrie, che portano alle degenerazioni con $n^2$ stati all'$n$-esimo livello di energia e $2l+1$ stati con momento angolare $l(l+1)\hbar^2$.
+La perturbazione indotta da $\op H'$ potrebbe rimuovere alcune di queste degenerazioni, rompendo delle simmetrie.
+Abbiamo infatti $[\op{\vec L},\op H_0]=0$, ma $[\op{\vec L},\op H']$ non è nullo: potremmo pensare inizialmente che, dato che $\op H'$ comprende il prodotto scalare $\scalar{\vec E}{\vec x}=\mathcal Ex_3$, esso commuti con $\op{\vec L}$, dato che i prodotti scalari sono invarianti per rotazioni dello spazio.
+Ma tale momento angolare non è quello del sistema complessivo (formato dall'atomo e dal campo) ma solo dell'atomo, quindi esso genera solamente le rotazioni di quest'ultimo; poich\'e il campo ovviamente non ruota insieme all'atomo ma rimane fisso, non è invariante per questa rotazione, quindi $[\op{\vec L},\op H']\ne 0$.
+
+L'elemento di matrice del termine $\op H'=e\mathcal E\op x_3$ è determinato da $\bra{n',l',m'}\op x_3\ket{n,l,m}$, dove $n,l,m$ sono i numeri quantici associati agli autovalori (per l'atomo di idrogeno imperturbato) rispettivamente di $\op H_0$, $\op{\vec L}^2$ e $\op L_3$.
+Innanzitutto, ovviamente, risulta $\bra{n',l',m}\op x_3\ket{n,l,m}\leq\bra{n',l',m'}\op r\ket{n,l,m}$; trascurando per un attimo i numeri $l$ e $m$, dato che gli stati $\ket{n'}$ formano un insieme completo si ha
+\begin{equation}
+	\abs{\bra{n'}\op r\ket{n}}^2=\bra{n}\op r\ket{n'}\bra{n'}\op r\ket{n}\leq\sum_n\bra{n}\op r\ket{n'}\bra{n'}\op r\ket{n}=\bra{n}\op r^2\ket{n}
+\end{equation}
+ma allora
+\begin{equation}
+	\abs{\bra{n'}\op r\ket{n}}\leq\sqrt{\bra{n}\op r^2\ket{n}}=\sqrt{\frac12n^2[5n^2-3l(l+1)]}.
+\end{equation}
+Per grandi valori di $n$ dunque questo valore è asintotico a $n^2$, mentre se prendiamo stati con $n$ basso l'elemento di perturbazione sarà piccolo rispetto agli autovalori, e varrà la condizione \eqref{eq:condizione-approssimazione-perturbazione-2d}.\footnote{Ovviamente dovremo scegliere, nell'applicare la teoria, due livelli energetici differenti, altrimenti nella \eqref{eq:condizione-approssimazione-perturbazione-2d} troveremmo $\abs{E_n-E_n}=0$.}
+Calcoliamo dunque gli elementi di matrice per i primi valori di $n$.
+
+Per $n=1$ abbiamo lo stato fondamentale, che è simmetrico radialmente: allora, poich\'e non esistono direzioni ``privilegiate'', vediamo subito che $\bra{1,0,0}\op x_3\ket{1,0,0}=0$.
+Al primo ordine, dunque, la perturbazione non influenza il sistema
+
+Per $n=2$ abbiamo quattro stati, cioè l'insieme $\{\ket{2,0,0},\ket{2,1,0},\ket{2,1,-1},\ket{2,1,1}\}$ che prendiamo come base per calcolare i sedici elementi di matrice di $\op H'$.
+Possiamo ridurre subito il numero di calcoli da fare notando che $\op H'$ è reale e hermitiano, perciò simmetrico.
+Sempre per il discorso per cui non esistono direzioni privilegiate in stati a simmetria radiale, vale anche $\bra{2,0,0}\op x_3\ket{2,0,0}$.
+Questo chiaramente vale per ogni componente di $\op{\vec x}$ in qualsiasi stato con $l=0$.
+Detto $\ket{\psi}$ un tale stato, sarà combinazione lineare di stati del tipo $\ket{n,0,0}$, perch\'e se $l=0$ allora necessariamente $m=0$; quindi $\ket{\psi}=\sum_{n\in\N}a_n\ket{n,0,0}$.
+Chiaramente vale $\op{\vec L}^2\ket{\psi}=0$: allora $\op x_i\ket{\psi}$ è ancora un suo autostato?
+Poich\'e, come già visto, $\bra{\psi}\op x_i\ket{\psi}=0$, si ha che $\op x_i\ket{\psi}$ si trova in un sottospazio ortogonale a $\ket{\psi}$, in cui quindi $l\ne 0$.
+Dopotutto, sappiamo che le tre armoniche sferiche con $l=1$ sono combinazioni lineari (linearmente indipendenti) di $x_1,x_2,x_3$ quindi possiamo, al contrario, scrivere $\op{\vec x}$ come combinazione lineare delle tre funzioni $Y_{1,0}$, $Y_{1,-1}$ e $Y_{1,1}$.
+Allora $\op x_i\ket{n,0,0}$ è autostato di $\op{\vec L}^2$ con $l=1$.
+
+Sappiamo inoltre che $\op H_0$ è invariante per parità, ossia $[\op H_0,\op I]=0$: allora i due operatori avranno autostati simultanei.
+Infatti la parte radiale è simmetrica, e $\op I$ agisce soltanto sul fattore angolare della funzione d'onda come $\op IY_{l,m}=(-1)^lY_{l,m}$.
+Di conseguenza abbiamo, dato che gli operatori $\op x_i$ sono dispari ossia $\adj{\op I}\op x_i\op I=-\op x_i$, che
+\begin{equation}
+	\bra{2,0,0}\op x_i\ket{2,0,0}=
+	\bra{2,0,0}\op I^2\op x_i\op I^2\ket{2,0,0}=
+	(-1)^{2l}\bra{2,0,0}\op I\op x_i\op I\ket{2,0,0}=
+	-\bra{2,0,0}\op x_i\ket{2,0,0}
+\end{equation}
+da cui $\bra{2,0,0}\op x_i\ket{2,0,0}$, come ulteriore riprova.
+Con lo stesso ragionamento troviamo che tra stati con uguale $l$ il valor medio di $\op x_i$ è nullo.
+
+Ora, gli stati $\ket{2,0,0}$ e $\ket{2,1,0}$ hanno valori di $l$ differenti, e in particolare il secondo contiene nella funzione d'onda il termine $e^{i\phi}$, che integrato in $\phi$ dà zero.
+Più in generale, per $n,l$ qualsiasi, $\op x_3\ket{m}$ è ancora autostato di $\op L_3$ (ma non necessariamente uguale, ma con lo stesso autovalore), poich\'e $[\op L_3,\op x_3]=0$.
+Se $m_1\ne m_2$ allora si ha necessariamente che $\bra{2,1,m_1}\op x_3\ket{2,1,m_2}=0$ e in modo simile per gli altri stati.
+
+Riassumendo, abbiamo trovato che alcune transizioni tra autostati sono proibite: abbiamo delle \emph{regole di selezione} con gli operatori $\op{\vec L}^2$, $\op L_3$ e $\op I$ che ci permettono di semplificare in modo veloce gli elementi di matrice di $\op H'$.
+Rimane, infine, soltanto l'elemento $\bra{2,0,0}\op x_3\ket{2,1,0}$, che (insieme al suo simmetrico) è l'unico non nullo e vale $3r_B$.
+Di conseguenza, la matrice che rappresenta l'hamiltoniano perturbato dal campo elettrico in questo sottospazio con $n=2$ è
+\begin{equation}
+	\begin{pmatrix}
+		E_2				&3r_B\mathcal E	&0		&0	\\
+		3r_B\mathcal E	&E_2			&0		&0	\\
+		0				&0				&E_2	&0	\\
+		0				&0				&0		&E_2\\
+	\end{pmatrix}
+\end{equation}
+che ha come autovalori $E_2$, doppio (evidentemente per gli stati $\ket{2,1,1}$ e $\ket{2,1,-1}$), e $E_2\pm 3r_B\mathcal E$ per gli stati $\frac{\ket{2,0,0}\pm\ket{2,1,0}}{\sqrt{2}}$.
+Quelli che prima erano quattro stati nello stesso livello (degenere) di energia per effetto della perturbazione ora formano tre livelli distinti.
+La perturbazione, quindi, al primo ordine causa la rottura della degenerazione del livello di energia, per momenti angolari differenti con $m=0$.
