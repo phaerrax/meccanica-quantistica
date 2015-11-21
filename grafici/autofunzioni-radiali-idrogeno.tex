@@ -1,0 +1,25 @@
+\begin{figure}
+	\tikzsetnextfilename{autofunzioni-radiali-idrogeno}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+				standard,
+				height=.5\linewidth, width=.8\linewidth,
+				enlargelimits,
+				xlabel=$r$,
+				xmin=0, xmax=8,
+				ymin=-0.1, ymax=0.6,
+				xtick={0,1,2,3,4,5,6,7,8},
+				ytick={0.2,0.4,0.6}
+			]
+			\addplot[thick, samples=1000, domain=0:8] function {(x*2*exp(-x))**2}; %1,0
+			\addplot[thick, samples=1000, dashed, domain=0:8] function {(x*1/(2*sqrt(2))*(2-x)*exp(-x/2))**2}; %2,0
+			\addplot[thick, samples=1000, densely dotted, domain=0:8] function {(x*1/(2*sqrt(6))*x*exp(-x/2))**2}; %2,1
+			%\addplot[thick, samples=1000, dotted, domain=0:5] function {2/(81*sqrt(3))*(27-18*x+2*x**2)*exp(-x/3)}; %3,0
+			%\addplot[thick, samples=1000, densely dotted, domain=0:5] function {4/(81*sqrt(6))*(6-x)**x*exp(-x/3)}; %3,1
+			\legend{$n=1$, $l=0$\\$n=2$, $l=0$\\$n=2$, $l=1$\\}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Alcune delle prime funzioni di densità di probabilità radiali $r^2\abs{R_{n,l}(r)}^2$ delle funzioni d'onda dell'atomo di idrogeno, con $r$ in unità di $r_B$.}
+	\label{fig:autofunzioni-radiali-idrogeno}
+\end{figure}
