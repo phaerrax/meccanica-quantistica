@@ -129,3 +129,54 @@ Di conseguenza, la matrice che rappresenta l'hamiltoniano perturbato dal campo e
 che ha come autovalori $E_2$, doppio (evidentemente per gli stati $\ket{2,1,1}$ e $\ket{2,1,-1}$), e $E_2\pm 3r_B\mathcal E$ per gli stati $\frac{\ket{2,0,0}\pm\ket{2,1,0}}{\sqrt{2}}$.
 Quelli che prima erano quattro stati nello stesso livello (degenere) di energia per effetto della perturbazione ora formano tre livelli distinti.
 La perturbazione, quindi, al primo ordine causa la rottura della degenerazione del livello di energia, per momenti angolari differenti con $m=0$.
+
+\section{Perturbazioni indipendenti dal tempo}
+\subsection{Caso non degenere}
+Passiamo ora ad un approccio più generale, con un sistema descritto da un'hamiltoniano $\op H^{(0)}$ non degenere, di cui conosciamo lo spettro $\{E^{(0)}_n\}$, a cui è aggiunta una perturbazione $\op V$, nessuno dei due dipendente esplicitamente dal tempo.
+Preso l'insieme (che è completo) degli autostati $\ket{\psi_n}$ di $\op H^{(0)}$, possiamo esprimere uno stato perturbato $\ket{\tilde{\psi}_n}$ qualsiasi in tale base come
+\begin{equation}
+	\ket{\tilde{\psi}_n}=\sum_mc_{nm}\ket{\psi_m}
+\end{equation}
+per cui l'equazione di Schr\"odinger (con l'hamiltoniano perturbato) $\op H\ket{\tilde{\psi}_n}=E_n\ket{\tilde{\psi}_n}$ si scrive come
+\begin{equation}
+	\sum_mc_{nm}(\op H^{(0)}+\op V)\ket{\psi_m}=\sum_mc_{nm}E_n\ket{\psi_m}
+\end{equation}
+e poich\'e $\op H^{(0)}\ket{\psi_m}=E^{(0)}_m\ket{\psi_m}$, moltiplicando a sinistra per $\bra{\psi_k}$ otteniamo
+\begin{equation}
+	\begin{aligned}
+		\sum_mc_{nm}(E^{(0)}_m\braket{\psi_k}{\psi_m}+\bra{\psi_k}\op V\ket{\psi_m})&=\sum_mc_{nm}E_n\braket{\psi_k}{\psi_m}\\
+		\sum_mc_{nm}(E^{(0)}_m\delta_{km}+V_{km})&=\sum_mc_{nm}E_n\delta_{km}\\
+		c_{nk}E^{(0)}_k+\sum_mc_{nm}V_{km}&=c_{nk}E_n\\
+		c_{nk}(E_n-E^{(0)}_k)&=\sum_mc_{nm}V_{km}
+	\end{aligned}
+	\label{eq:perturbazione-non-degenere}
+\end{equation}
+definendo $V_{km}\defeq\bra{\psi_k}\op V\ket{\psi_n}$.
+Immaginiamo ora di poter sviluppare i termini della perturbazione in serie come
+\begin{equation}
+	\begin{gathered}
+		c_{ij}=c^{(0)}_{ij}+c^{(1)}_{ij}+\cdots\\
+		E_{i}=E^{(0)}_i+E^{(1)}_i+\cdots
+	\end{gathered}
+\end{equation}
+dove $E^{(0)}_i$ sono proprio gli autovalori di $\op H^{(0)}$ (questo giustifica la notazione usata).
+Poich\'e, all'ordine zero, la perturbazione deve lasciare invariato il sistema, si deve avere $\sum_mc_{nm}\ket{\psi_m}=\ket{\psi_n}$ perciò
+\begin{equation}
+	c^{(0)}_{ij}=\delta_{ij}.
+	\label{eq:zero-ordine-perturbazione-non-degenere}
+\end{equation}
+Al primo ordine, invece, risulta dalla \eqref{eq:perturbazione-non-degenere} che
+\begin{equation}
+	(\delta_{nk}+c^{(1)}_{nk})(E^{(0)}_n-E^{(0)}_k+E^{(1)}_n)=V_{kn}\\
+\end{equation}
+e per $n=k$ si ha $E^{(1)}_n=V_{nn}$, mentre se $k\ne n$
+\begin{equation}
+	c^{(1)}_{nk}(E^{(0)}_n-E^{(0)}_k)=V_{kn}
+\end{equation}
+ossia, come avevamo già trovato all'inizio del capitolo nel caso bidimensionale,
+\begin{equation}
+	c^{(1)}_{nk}=\frac{V_{kn}}{E^{(0)}_k-E^{(0)}_n}.
+	\label{eq:primo-ordine-perturbazione-non-degenere}
+\end{equation}
+La non degenerazione di $\op H^{(0)}$ assicura che $E^{(0)}_k\ne E^{(0)}_n$ quando $k\ne n$.
+
