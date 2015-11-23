@@ -180,3 +180,56 @@ ossia, come avevamo già trovato all'inizio del capitolo nel caso bidimensionale
 \end{equation}
 La non degenerazione di $\op H^{(0)}$ assicura che $E^{(0)}_k\ne E^{(0)}_n$ quando $k\ne n$.
 
+\section{Perturbazioni dipendenti dal tempo}
+Considieriamo ora un hamiltoniano $\op H(t)=\op H^{(0)}+\op V(t)$, con $\op H^{(0)}$ indipendente (esplicitamente) dal tempo.
+Supponiamo di avere uno stato stazionario $\ket{E_i^{(0)}}$ presente da un tempo molto remoto (anche $t=-\infty$) e che la perturbazione $\op V(t)$ si «attivi» ad un certo istante $t_0$.
+Siamo interessati a calcolare la probabilità che il sistema si trovi in un autostato (fissato) $\ket{E_f^{(0)}}$ di $\op H^{(0)}$ per effetto della perturbazione: anche se due autostati di $\op H^{(0)}$ sono ortogonali, per cui si avrebbe una probabilità di transizione tra i due nulla, per effetto di $\op V(t)$ essi non sono più stazionari quindi anche le loro probabilità cambiano nel tempo, e non si possono più considerare a priori ortogonali.
+Dovremo quindi caratterizzare l'evoluzione temporale dello stato $\ket{E_i^{(0)}}$ per effetto di $\op H(t)$: chiamando lo stato progredito $\ket{E_i(t)}$, la probabilità di passare dallo stato iniziale a quello finale che abbiamo fissato è, istante per istante, data da $\abs{\braket{E_i(t)}{E_f}}^2$.
+All'hamiltoniano $\op H^{(0)}$, indipendente dal tempo, possiamo associare l'operatore di evoluzione temporale
+\begin{equation}
+	\op U_0(t,t_0)=\exp\bigg(-\frac{i}{\hbar}(t-t_0)\op H^{(0)}\bigg)
+\end{equation}
+Ci affidiamo dunque al postulato secondo il quale gli stati evolvono secondo l'equazione differenziale\footnote{Naturalmente anche $\op U_0(t,t_0)$ soddisfa quest'equazione, con $\op H^{(0)}$ al posto di $\op H(t)$, se poniamo la naturale condizione al contorno $U_0(t_0,t_0)=1$; per sistemi indipendenti dal tempo è equivalente assumere come postulato l'equazione differenziale o direttamente l'espressione dell'operatore.}
+\begin{equation}
+	i\hbar\drp{}{t}\ket{E_i(t)}=\op H(t)\ket{E_i(t)}.
+	\label{eq:evouzione-temporale-autostato-iniziale}
+\end{equation}
+Cerchiamo di trovare, stavolta con delle inevitabili approssimazioni, un operatore $\op U(t,t_0)$ che descriva l'evoluzione del sistema nel tempo, ossia in questo caso tale che $\op U(t,t_0)\ket{E_i(t_0)}=\ket{E_i(t)}$ (in cui $\ket{E_i(t_0)}$ è ancora lo stato iniziale, cioè è proprio $\ket{E_i^{(0)}}$).
+Per la \eqref{eq:evouzione-temporale-autostato-iniziale} tale operatore dovrà quindi soddisfare l'equazione
+\begin{equation}
+	i\hbar\drp{\op U(t,t_0)}{t}=\op H(t)\op U(t,t_0).
+\end{equation}
+La probabilità di transizione tra i due stati è dunque
+\begin{equation}
+	P_{fi}=\abs{\braket{E_f^{(0)}}{E_i(t)}}^2=\abs{\bra{E_f^{(0)}}\op U(t,t_0)\ket{E_i^{(0)}}}^2=\abs{\bra{E_f^{(0)}}\adj{\op U_0}(t,t_0)\op U(t,t_0)\ket{E_i^{(0)}}}^2
+\end{equation}
+poich\'e $\op U_0(t,t_0)\ket{E_f^{(0)}}=e^i\phi(t)\ket{E_f^{(0)}}$, essendo un autostato di $\op H^{(0)}$, e la fase non influisce sul modulo, quindi sulla probabilità di transizione.
+
+\paragraph{Rappresentazione di interazione}
+Definiamo a questo punto l'operatore
+\begin{equation}
+	\op{\mathbb U}(t,t_0)\defeq\adj{\op U_0}(t,t_0)\op U(t,t_0).
+\end{equation}
+Ora, per studiare l'evoluzione temporale degli stati o degli operatori, anzich\'e adottare lo schema di Heisenberg o di Schr\"odinger è conveniente usare la cosiddetta \emph{rappresentazione di interazione}, nella quale gli stati evolvono con l'operatore $\op{\mathbb U}$ mentre le osservabili con l'operatore $\op U_0$.
+Ad esempio, presa un'osservabile $\xi$, il suo valor medio nel tempo è
+\begin{equation}
+	\avg{\xi(t)}=
+	\bra{\psi(t)}\op\xi\ket{\psi(t)}=
+	\bra{\psi}\adj{\op U}(t)\op\xi\op U(t)\ket{\psi}=
+	\bra{\psi}\adj{\op{\mathbb U}}\adj{\op U_0}\op\xi\op U_0\op{\mathbb U}\ket{\psi}
+	\label{eq:esempio-rappresentazione-interazione}
+\end{equation}
+per cui è utile assumere $\ket{\psi(t)}=\op{\mathbb U}(t,t_0)\ket{\psi(t_0)}$ e $\op\xi(t)=\adj{\op U}(t,t_0)\op\xi(t_0)\op U(t,t_0)$.
+
+La derivata temporale dell'operatore $\op{\mathbb U}$ è inoltre
+\begin{multline}
+	\drp{}{t}\op{\mathbb U}=\drp{}{t}(\adj{\op U_0}\op U)=\drp{\adj{\op U_0}}{t}\op U+\adj{\op U_0}\drp{\op U}{t}=\frac{i}{\hbar}\adj{\op U_0}\op H^{(0)}\op U+\adj{\op U_0}\bigg(-\frac{i}{\hbar}\op H\op U\bigg)=\\=
+	-\frac{i}{\hbar}\adj{\op U_0}(-\op H^{(0)}+\op H)\op U=-\frac{i}{\hbar}\adj{\op U_0}\op V\op U=-\frac{i}{\hbar}\adj{\op U_0}\op V\op U_0\op U.
+\end{multline}
+Chiamando dunque $\op{\mathbb V}\defeq\adj{\op U_0}\op V\op U_0$ abbiamo dunque l'equazione
+\begin{equation}
+	i\hbar\drp{\op{\mathbb U}}{t}=\op{\mathbb V}\op{\mathbb U}.
+	\label{eq:evoluzione-temporale-perturbazione-dipendende-tempo}
+\end{equation}
+Notiamo che se $\op V=0$ ritroviamo correttamente che il sistema è stazionario.
+
