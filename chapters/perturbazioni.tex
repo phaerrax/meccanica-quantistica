@@ -232,4 +232,19 @@ Chiamando dunque $\op{\mathbb V}\defeq\adj{\op U_0}\op V\op U_0$ abbiamo dunque 
 	\label{eq:evoluzione-temporale-perturbazione-dipendende-tempo}
 \end{equation}
 Notiamo che se $\op V=0$ ritroviamo correttamente che il sistema è stazionario.
+Soffermiamoci un attimo su questa equazione.
+Possiamo anche in questo caso immaginarci uno sviluppo formale di $\op{\mathbb U}$ del tipo $\op{\mathbb U}^{(0)}+\op{\mathbb U}^{(1)}+\cdots$, come spesso abbiamo già fatto per altre grandezze.
+Poich\'e all'ordine zero si ha $\op{\mathbb U}^{(0)}=1$, dato che sia $\op U$ che $\op U_0$ si riducono all'identità, da questa equazione ritroviamo che all'ordine zero $\op{\mathbb V}=0$, come giustamente deve risultare.
+Al primo ordine, al primo membro troviamo $\drp{}{t}(\op{\mathbb U}^{(0)}+\op{\mathbb U}^{(1)})=\drp{}{t}(1+\op{\mathbb U}^{(1)})=\drp{}{t}\op{\mathbb U}^{(1)}$; al secondo membro, invece, abbiamo $\op{\mathbb V}(1+\op{\mathbb U}^{(1)})=\op{\mathbb V}+\op{\mathbb V}\op{\mathbb U}^{(1)}$ ma il termine $\op{\mathbb V}\op{\mathbb U}^{(1)}$ è già del secondo ordine, quindi è da trascurare.
+Approssimando al primo ordine la \eqref{eq:evoluzione-temporale-perturbazione-dipendende-tempo} si può ridurre dunque alla forma
+\begin{equation}
+	i\hbar\drp{}{t}\op{\mathbb U^{(1)}}=-\op{\mathbb V}.
+	\label{eq:evoluzione-temporale-perturbazione-dipendende-tempo-primo-ordine}
+\end{equation}
+Saremmo tentati a questo punto di assumere che anche $\op{\mathbb U}(t,t_0)$ si possa scrivere, alla luce di questi risultati, come l'esponenziale
+\begin{equation}
+	\exp\bigg(\!\!-\frac{i}{\hbar}\int_{t_0}^t\op{\mathbb V(t')}\,\dd t'\bigg),
+\end{equation}
+assimilando dunque anche il caso dipendente dal tempo a quello indipendente con $\op U_0$, con $\op{\mathbb V}$ al posto dell'hamiltoniano $\op H^{(0)}$: se infatti $\op{\mathbb V}$ fosse indipendente dal tempo tale integrale sarebbe proprio $(t-t_0)\op{\mathbb V}$.
+Un'analisi più approfondita, considerando anche i termini di ordine successivo, mostra invece che non è questo il caso.
 
