@@ -132,53 +132,65 @@ La perturbazione, quindi, al primo ordine causa la rottura della degenerazione d
 
 \section{Perturbazioni indipendenti dal tempo}
 \subsection{Caso non degenere}
-Passiamo ora ad un approccio più generale, con un sistema descritto da un'hamiltoniano $\op H^{(0)}$ non degenere, di cui conosciamo lo spettro $\{E^{(0)}_n\}$, a cui è aggiunta una perturbazione $\op V$, nessuno dei due dipendente esplicitamente dal tempo.
-Preso l'insieme (che è completo) degli autostati $\ket{\psi_n}$ di $\op H^{(0)}$, possiamo esprimere uno stato perturbato $\ket{\tilde{\psi}_n}$ qualsiasi in tale base come
+Passiamo ora ad un approccio più generale, con un sistema descritto da un'hamiltoniano $\op H^{(0)}$ non degenere, di cui conosciamo lo spettro $\{E^{(0)}_n\}$, a cui è aggiunta una perturbazione $\epsilon\op V$, nessuno dei due dipendente esplicitamente dal tempo.
+Preso l'insieme (che è completo) degli autostati $\ket{n^{(0)}}$ di $\op H^{(0)}$, possiamo esprimere uno stato perturbato $\ket{n}$ qualsiasi in tale base come
 \begin{equation}
-	\ket{\tilde{\psi}_n}=\sum_mc_{nm}\ket{\psi_m}
+	\ket{n}=\sum_mc_{nm}\ket{m^{(0)}}
+	\label{eq:perturbazione-autostati-non-degeneri}
 \end{equation}
-per cui l'equazione di Schr\"odinger (con l'hamiltoniano perturbato) $\op H\ket{\tilde{\psi}_n}=E_n\ket{\tilde{\psi}_n}$ si scrive come
+per cui l'equazione di Schr\"odinger (con l'hamiltoniano perturbato) $\op H\ket{n}=E_n\ket{n}$ si scrive come
 \begin{equation}
-	\sum_mc_{nm}(\op H^{(0)}+\op V)\ket{\psi_m}=\sum_mc_{nm}E_n\ket{\psi_m}
+	\sum_mc_{nm}(\op H^{(0)}+\epsilon\op V)\ket{m^{(0)}}=\sum_mc_{nm}E_n\ket{m^{(0)}}
 \end{equation}
-e poich\'e $\op H^{(0)}\ket{\psi_m}=E^{(0)}_m\ket{\psi_m}$, moltiplicando a sinistra per $\bra{\psi_k}$ otteniamo
+e poich\'e $\op H^{(0)}\ket{m^{(0)}}=E^{(0)}_m\ket{m^{(0)}}$, moltiplicando a sinistra per $\bra{k^{(0)}}$ otteniamo
 \begin{equation}
 	\begin{aligned}
-		\sum_mc_{nm}(E^{(0)}_m\braket{\psi_k}{\psi_m}+\bra{\psi_k}\op V\ket{\psi_m})&=\sum_mc_{nm}E_n\braket{\psi_k}{\psi_m}\\
-		\sum_mc_{nm}(E^{(0)}_m\delta_{km}+V_{km})&=\sum_mc_{nm}E_n\delta_{km}\\
-		c_{nk}E^{(0)}_k+\sum_mc_{nm}V_{km}&=c_{nk}E_n\\
-		c_{nk}(E_n-E^{(0)}_k)&=\sum_mc_{nm}V_{km}
+		\sum_mc_{nm}(E^{(0)}_m\braket{k^{(0)}}{m^{(0)}}+\epsilon\bra{k^{(0)}}\op V\ket{m^{(0)}})&=\sum_mc_{nm}E_n\braket{k^{(0)}}{m^{(0)}}\\
+		\sum_mc_{nm}(E^{(0)}_m\delta_{km}+\epsilon V_{km})&=\sum_mc_{nm}E_n\delta_{km}\\
+		c_{nk}E^{(0)}_k+\epsilon\sum_mc_{nm}V_{km}&=c_{nk}E_n\\
+		c_{nk}(E_n-E^{(0)}_k)&=\epsilon\sum_mc_{nm}V_{km}
 	\end{aligned}
 	\label{eq:perturbazione-non-degenere}
 \end{equation}
-definendo $V_{km}\defeq\bra{\psi_k}\op V\ket{\psi_n}$.
+definendo l'elemento di matrice $V_{km}\defeq\bra{\psi_k}\op V\ket{\psi_n}$.
 Immaginiamo ora di poter sviluppare i termini della perturbazione in serie come
+\footnote{
+	Avevamo scritto il termine di perturbazione come $\epsilon\op V$, in vista di questi sviluppi in serie, per indicare che --- essendo $\op V$ una piccola correzione di $\op H^{(0)}$ --- i termini $c^{(1)}$ ed $E^{(1)}$ sono dello stesso ordine di grandezza della perturbazione, e le quantità $c^{(2)}$ ed $E^{(2)}$ di un ordine maggiore, e cos\`i via.
+}
 \begin{equation}
 	\begin{gathered}
-		c_{ij}=c^{(0)}_{ij}+c^{(1)}_{ij}+\cdots\\
-		E_{i}=E^{(0)}_i+E^{(1)}_i+\cdots
+		c_{ij}=c^{(0)}_{ij}+\epsilon c^{(1)}_{ij}+\epsilon^2 c^{(2)}_{ij}+o(\epsilon^2)\\
+		E_{i}=E^{(0)}_i+\epsilon E^{(1)}_i+\epsilon^2 E^{(2)}_i+o(\epsilon^2)
 	\end{gathered}
 \end{equation}
-dove $E^{(0)}_i$ sono proprio gli autovalori di $\op H^{(0)}$ (questo giustifica la notazione usata).
-Poich\'e, all'ordine zero, la perturbazione deve lasciare invariato il sistema, si deve avere $\sum_mc_{nm}\ket{\psi_m}=\ket{\psi_n}$ perciò
+All'ordine zero abbiamo innanzitutto che gli $E^{(0)}_i$ sono proprio gli autovalori di $\op H^{(0)}$ (questo giustifica la notazione usata), poich\'e la perturbazione lascia, a quest'ordine, invariati i livelli energetici.
+Analogamente dalla \eqref{eq:perturbazione-non-degenere}, trascurando tutti i termini $o(1)$, risulta $c^{(0)}_{nk}(E^{(0)}_n-E^{(0)}_k)=0$ da cui $c^{(0)}_{nk}=\delta_{nk}$.
+Al primo ordine, invece, sostituendo gli sviluppi nella \eqref{eq:perturbazione-non-degenere} otteniamo
 \begin{equation}
-	c^{(0)}_{ij}=\delta_{ij}.
-	\label{eq:zero-ordine-perturbazione-non-degenere}
+	(\delta_{nk}+\epsilon c^{(1)}_{nk})(E^{(0)}_n+\epsilon E^{(1)}_n-E^{(0)}_k)=\epsilon\sum_m(\delta_{nm}+\epsilon c^{(1)}_{nm})V_{km}\\
 \end{equation}
-Al primo ordine, invece, risulta dalla \eqref{eq:perturbazione-non-degenere} che
+che trascurando tutti i termini $o(\epsilon)$ si riduce a
 \begin{equation}
-	(\delta_{nk}+c^{(1)}_{nk})(E^{(0)}_n-E^{(0)}_k+E^{(1)}_n)=V_{kn}\\
+	\delta_{nk}(E^{(0)}_n+\epsilon E^{(1)}_n-E^{(0)}_k)+\epsilon c^{(1)}_{nk}(E^{(0)}_n-E^{(0)}_k)=\epsilon\sum_m\delta_{nm}V_{km}
 \end{equation}
-e per $n=k$ si ha $E^{(1)}_n=V_{nn}$, mentre se $k\ne n$
+e il secondo membro è poi uguale a $\epsilon V_{kn}$.
+Distinguiamo ora i casi
+\begin{itemize}
+	\item $k=n$, per cui si ha $E^{(1)}_n=V_{nn}=\bra{n^{(0)}}\op V\ket{n^{(0)}}$
+	\item $k\ne n$, per cui risulta
+		\begin{equation}
+			\epsilon c^{(1)}_{nk}(E^{(0)}_n-E^{(0)}_k)=\epsilon V_{kn}\qqq c^{(1)}_{nk}=\frac{V_{kn}}{E^{(0)}_n-E^{(0)}_k}.
+			\label{eq:perturbazione-non-degenere-primo-ordine}
+		\end{equation}
+		La non degenerazione di $\op H^{(0)}$ assicura che $E^{(0)}_k\ne E^{(0)}_n$ quando $k\ne n$.
+		Notiamo come questa formula assomigli alla \eqref{eq:condizione-approssimazione-perturbazione-2d} trovata nel caso bidimensionale.
+\end{itemize}
+Al primo ordine, dunque, la correzione da apportare agli autovalori corrisponde al valore di aspettazione della perturbazione nell'autostato imperturbato corrispondente all'autovalore.
+Le correzioni agli autostati sono date invece dai coefficienti $c^{(1)}_{nm}$, che abbiamo trovato per $n\ne m$, mentre il coefficiente $c^{(1)}_{nn}$ è arbitrario e si calcola normalizzando lo stato (sempre a meno di termini $o(\epsilon)$): risulta quindi dalla \eqref{eq:perturbazione-autostati-non-degeneri}
 \begin{equation}
-	c^{(1)}_{nk}(E^{(0)}_n-E^{(0)}_k)=V_{kn}
+	\ket{n^{(1)}}=c^{(1)}_{nn}\ket{n^{(0)}}+\sum_{m\ne n}\frac{V_{kn}}{E^{(0)}_n-E^{(0)}_m}\ket{m^{(0)}}.
+	\label{eq:perturbazione-autostati-non-degeneri-primo-ordine}
 \end{equation}
-ossia, come avevamo già trovato all'inizio del capitolo nel caso bidimensionale,
-\begin{equation}
-	c^{(1)}_{nk}=\frac{V_{kn}}{E^{(0)}_k-E^{(0)}_n}.
-	\label{eq:primo-ordine-perturbazione-non-degenere}
-\end{equation}
-La non degenerazione di $\op H^{(0)}$ assicura che $E^{(0)}_k\ne E^{(0)}_n$ quando $k\ne n$.
 
 \section{Perturbazioni dipendenti dal tempo}
 Considieriamo ora un hamiltoniano $\op H(t)=\op H^{(0)}+\op V(t)$, con $\op H^{(0)}$ indipendente (esplicitamente) dal tempo.
