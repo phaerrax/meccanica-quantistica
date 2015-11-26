@@ -245,9 +245,9 @@ Chiamando dunque $\op{\mathbb V}\defeq\adj{\op U_0}\op V\op U_0$ abbiamo dunque 
 \end{equation}
 Notiamo che se $\op V=0$ ritroviamo correttamente che il sistema è stazionario.
 Soffermiamoci un attimo su questa equazione.
-Possiamo anche in questo caso immaginarci uno sviluppo formale di $\op{\mathbb U}$ del tipo $\op{\mathbb U}^{(0)}+\op{\mathbb U}^{(1)}+\cdots$, come spesso abbiamo già fatto per altre grandezze.
+Possiamo anche in questo caso immaginarci uno sviluppo formale di $\op{\mathbb U}$ del tipo $\op{\mathbb U}^{(0)}+\epsilon\op{\mathbb U}^{(1)}+\epsilon^2\op{\mathbb U}^{(2)}+o(\epsilon^2)$, come spesso abbiamo già fatto per altre grandezze.
 Poich\'e all'ordine zero si ha $\op{\mathbb U}^{(0)}=1$, dato che sia $\op U$ che $\op U_0$ si riducono all'identità, da questa equazione ritroviamo che all'ordine zero $\op{\mathbb V}=0$, come giustamente deve risultare.
-Al primo ordine, al primo membro troviamo $\drp{}{t}(\op{\mathbb U}^{(0)}+\op{\mathbb U}^{(1)})=\drp{}{t}(1+\op{\mathbb U}^{(1)})=\drp{}{t}\op{\mathbb U}^{(1)}$; al secondo membro, invece, abbiamo $\op{\mathbb V}(1+\op{\mathbb U}^{(1)})=\op{\mathbb V}+\op{\mathbb V}\op{\mathbb U}^{(1)}$ ma il termine $\op{\mathbb V}\op{\mathbb U}^{(1)}$ è già del secondo ordine, quindi è da trascurare.
+Al primo ordine, al primo membro troviamo $\drp{}{t}(\op{\mathbb U}^{(0)}+\epsilon\op{\mathbb U}^{(1)})=\drp{}{t}(1+\epsilon\op{\mathbb U}^{(1)})=\epsilon\drp{}{t}\op{\mathbb U}^{(1)}$; al secondo membro, invece, ricordando che $\op{\mathbb V}$ è già del primo ordine (scriviamo $\epsilon\op{\mathbb V}$ per tenerne conto) abbiamo $\epsilon\op{\mathbb V}(1+\epsilon\op{\mathbb U}^{(1)})=\epsilon\op{\mathbb V}+\epsilon^2\op{\mathbb V}\op{\mathbb U}^{(1)}$ ma il termine $\epsilon^2\op{\mathbb V}\op{\mathbb U}^{(1)}$ è già del secondo ordine ed è quindi da trascurare.
 Approssimando al primo ordine la \eqref{eq:evoluzione-temporale-perturbazione-dipendende-tempo} si può ridurre dunque alla forma
 \begin{equation}
 	i\hbar\drp{}{t}\op{\mathbb U^{(1)}}=-\op{\mathbb V}.
@@ -260,3 +260,107 @@ Saremmo tentati a questo punto di assumere che anche $\op{\mathbb U}(t,t_0)$ si 
 assimilando dunque anche il caso dipendente dal tempo a quello indipendente con $\op U_0$, con $\op{\mathbb V}$ al posto dell'hamiltoniano $\op H^{(0)}$: se infatti $\op{\mathbb V}$ fosse indipendente dal tempo tale integrale sarebbe proprio $(t-t_0)\op{\mathbb V}$.
 Un'analisi più approfondita, considerando anche i termini di ordine successivo, mostra invece che non è questo il caso.
 
+\paragraph{Serie di Dyson}
+Possiamo integrare la \eqref{eq:evoluzione-temporale-perturbazione-dipendende-tempo} ottenendo l'equazione, del tutto equivalente,
+\begin{equation}
+	\op{\mathbb U}(t,t_0)=1-\frac{i}{\hbar}\int_{t_0}^t\op{\mathbb V}(t',t_0)\op{\mathbb U}(t',t_0)\,\dd t'.
+	\label{eq:evoluzione-temporale-perturbazione-dipendente-tempo-integrata}
+\end{equation}
+Nell'integrale appare ancora $\op{\mathbb U}$, per cui dovremmo escogitare un modo per approssimare la funzione.
+Possiamo ricavare invece una soluzione formale nel modo seguente.
+Riprendiamo la \eqref{eq:evoluzione-temporale-perturbazione-dipendende-tempo} agli ordini successivi al primo: trascurando i termini $o(\epsilon^2)$ troviamo
+\begin{equation}
+	\drp{}{t}(1+\epsilon\op{\mathbb U}^{(1)}+\epsilon^2\op{\mathbb U}^{(2)})=-\frac{i}{\hbar}\epsilon\op{\mathbb V}(1+\epsilon\op{\mathbb U}^{(1)})
+\end{equation}
+ma per i risultati già ottenuti agli ordini di approssimazione precedenti questa si riduce a
+\begin{equation}
+	\drp{}{t}(\epsilon^2\op{\mathbb U}^{(2)})=-\frac{i}{\hbar}\epsilon^2\op{\mathbb V}\op{\mathbb U}^{(1)}
+	\qqq
+	\drp{}{t}\op{\mathbb U}^{(2)}=-\frac{i}{\hbar}\op{\mathbb V}\op{\mathbb U}^{(1)}.
+	\label{eq:evoluzione-temporale-perturbazione-dipendente-tempo-secondo-ordine}
+\end{equation}
+La formula ottenuta è della stessa forma della \eqref{eq:evoluzione-temporale-perturbazione-dipendende-tempo-primo-ordine}, con gli ordini opportunamente scalati.
+Mostriamo infatti per induzione che vale l'equazione
+\begin{equation}
+	\drp{}{t}\op{\mathbb U}^{(n)}=-\frac{i}{\hbar}\op{\mathbb V}\op{\mathbb U}^{(n-1)}.
+	\label{eq:evoluzione-temporale-perturbazione-dipendente-tempo-ordine-generico}
+\end{equation}
+Sicuramente vale per $n=0,1,2$ come già visto.
+Supponendo che sia vera per $n$, per $n+1$ risulta
+\begin{equation}
+	\drp{}{t}\sum_{k=0}^{n+1}\epsilon^k\op{\mathbb U}^{(k)}=-\frac{i}{\hbar}\epsilon\op{\mathbb V}\sum_{k=0}^{n+1}\epsilon^k\op{\mathbb U}^{(k)}
+\end{equation}
+ma ancora, sfruttando la \eqref{eq:evoluzione-temporale-perturbazione-dipendente-tempo-ordine-generico} per i termini da $k=0$ a $k=n$ e trascurando i termini $o(\epsilon^{n+1})$ si ottiene proprio (dividendo per $\epsilon^{n+1}$ i due membri)
+\begin{equation}
+	\drp{}{t}\op{\mathbb U}^{(n+1)}=-\frac{i}{\hbar}\op{\mathbb V}\op{\mathbb U}^{(n)}
+\end{equation}
+che prova l'ipotesi di induzione.
+
+Per ottenere tutti i termini dello sviluppo in serie di $\op{\mathbb U}(t,t_0)$ è sufficiente allora integrare la \eqref{eq:evoluzione-temporale-perturbazione-dipendente-tempo-ordine-generico} per ogni $n$.
+Nell'integrale dell'ordine $n$-esimo appare l'integranda $\op{\mathbb V}(t')\op{\mathbb U}^{(n-1)}(t',t_0)$, che possiamo riscrivere sostituendo a $\op{\mathbb U}^{(n-1)}$ il risultato ottenuto integrando la \eqref{eq:evoluzione-temporale-perturbazione-dipendente-tempo-ordine-generico} dal tempo $t_0$ a $t'$: in tale integrale si avrà dunque il fattore $\op{\mathbb V}(t'')\op{\mathbb U}^{(n-2)}(t'',t_0)$ (per $t_0<t''<t'$) in cui possiamo sostituire a $\op{\mathbb U}^{(n-2)}$ un altro integrale, in modo analogo, procedendo in questo modo (per ciascun termine dello sviluppo) fino ad arrivare all'ordine zero della serie.
+Troviamo cos\`i per $\op{\mathbb U}(t,t_0)$ l'espressione formale
+\begin{multline}
+	\op{\mathbb U}(t,t_0)=
+	1
+	-\frac{i}{\hbar}\int_{t_0}^t\op{\mathbb V}(t',t_0)\,\dd t'
+	+\bigg(\!\!-\frac{i}{\hbar}\bigg)^2\int_{t_0}^t\int_{t_0}^{t'}\op{\mathbb V}(t',t_0)\op{\mathbb V}(t'',t_0)\,\dd t''\,\dd t'+\\
+	+\bigg(\!\!-\frac{i}{\hbar}\bigg)^n\int_{t_0}^t\cdots\int_{t_0}^{t^{(n)}}\op{\mathbb V}(t',t_0)\cdots\op{\mathbb V}(t^{(n)},t_0)\,\dd t^{(n)}\cdots\dd t''\,\dd t'
+	\label{eq:serie-dyson}
+\end{multline}
+detta \emph{serie di Dyson}.
+È essenziale in quest'ultima equazione l'ordinamento temporale dei vari operatori, con $t>t'>\cdots>t^{(n)}>t_0$.
+
+Per semplificare questa espressione, introduciamo un operatore $\mathcal T$ che, applicato ad un prodotto di operatori, ne restituisce il prodotto ordinato nel tempo: ad esempio, con due operatori $\op A(t)$ e $\op B(t)$ si ha
+\begin{equation}
+	\mathcal T\big(\op A(t_1)\op B(t_2)\big)=
+	\begin{cases*}
+		\op A(t_1)\op B(t_2)	&se $t_1<t_2$\\
+		\op B(t_2)\op A(t_1)	&se $t_1>t_2$
+	\end{cases*}
+	\label{eq:operatore-prodotto-ordinato-tempo}
+\end{equation}
+Si generalizza facilmente al caso di un numero qualsiasi di operatori nel prodotto.
+\footnote{
+	Siccome questo operatore ``mette a posto'' da solo l'ordine della somma, possiamo considerare a tutti gli effetti come se gli operatori su cui è applicato commutassero.
+}
+Consideriamo ora i due integrali
+\begin{equation}
+	\begin{aligned}
+		I_n&=\int_{t_0}^t\int_{t_0}^t\cdots\int_{t_0}^t\mathcal T\big(\op{\mathbb V}(t')\op{\mathbb V}(t'')\cdots\op{\mathbb V}(t^{(n)})\big)\,\dd t^{(n)}\cdots\dd t''\,\dd t'\text{ e}\\
+		S_n&=\int_{t_0}^t\int_{t_0}^{t'}\cdots\int_{t_0}^{t^{(n)}}\mathcal T\big(\op{\mathbb V}(t')\op{\mathbb V}(t'')\cdots\op{\mathbb V}(t^{(n)})\big)\,\dd t^{(n)}\cdots\dd t''\,\dd t':
+	\end{aligned}
+\end{equation}
+possiamo suddividere l'insieme di integrazione, che è qui $[t_0,t]^n$, nei vari sottoinsiemi $t^{(1)}>t^{(2)}>\cdots>t^{(n)}$, $t^{(2)}>t^{(1)}>\cdots>t^{(n)}$ e cos\`i via, trovandoci con $n!$ di questi sottoinsiemi (ognuno con un diverso ordinamento dei $t^{(k)}$).
+\footnote{
+	Un esempio di tutto ciò appare indispensabile.
+	Prendiamo il secondo ``ordine'', cioè $I_2$, che è un integrale sul quadrato $[t_0,t]\times[t_0,t]$.
+	Possiamo suddividerlo nei due triangoli in cui, rispettivamente, $t^{(1)}>t^{(2)}$ e $t^{(1)}<t^{(2)}$.
+	I due integrali coincidono, perch\'e l'integranda (qui $\mathcal T$ applicato al prodotto dei $\op{\mathbb V}$, che sono tutti la stessa funzione) è simmetrica rispetto alle sue variabili, nel senso che le possiamo liberamente scambiare grazie all'operatore $\mathcal T$ di ordinamento, quindi abbiamo $I_2=2S_2$.
+	Analogamente, possiamo suddividere il cubo $[t_0,t]\times[t_0,t]\times[t_0,t]$ in sei tetraedri $\{t^{(1)}>t^{(2)}>t^{(3)}\}$, $\{t^{(1)}>t^{(3)}>t^{(2)}\}$, $\{t^{(2)}>t^{(1)}>t^{(3)}\}$, $\{t^{(2)}>t^{(3)}>t^{(1)}\}$, $\{t^{(3)}>t^{(1)}>t^{(2)}\}$ e $\{t^{(3)}>t^{(2)}>t^{(1)}\}$.
+	In ciascun sottointervallo si ottiene sempre $S_3$, per cui $I_3=6S_3=3!S_3$.
+	Generalizzando possiamo vedere che $I_n=n!S_n$: ogni insieme $[t_0,t]^n$ si suddivide in questo modo in un numero di sottoinsiemi pari al numero delle permutazioni possibili dei $\{t',t'',\dots,t^{(n)}\}$, ossia dei primi $n$ numeri naturali, che è $n!$.
+}
+In virtù della simmetria in tutte le variabili della funzione integranda $\mathcal T\big(\op{\mathbb V}(t')\cdots\op{\mathbb V}(t^{(n)})\big)$, data dall'operatore $\mathcal T$, in ciascuno di questi sottoinsiemi l'integrale è lo stesso e vale $S_n$, perciò otteniamo
+\begin{equation}
+	\begin{split}
+		\op{\mathbb U}(t,t_0)
+		&=\sum_{n=0}^{+\infty}\bigg[\frac1{n!}\bigg(\!\!-\frac{i}{\hbar}\bigg)^n\int_{t_0}^t\cdots\int_{t_0}^t\mathcal T\big(\op{\mathbb V}(t')\cdots\op{\mathbb V}(t^{(n)})\big)\,\dd t^{(n)}\cdots\dd t'\bigg]=\\
+		&=\sum_{n=0}^{+\infty}\bigg[\frac1{n!}\bigg(\!\!-\frac{i}{\hbar}\bigg)^n\mathcal T\int_{t_0}^t\op{\mathbb V}(t')\,\dd t'\cdots\int_{t_0}^t\op{\mathbb V}(t^{(n)})\,\dd t^{(n)}\bigg]=\\
+		&=\mathcal T\sum_{n=0}^{+\infty}\frac1{n!}\bigg(\!\!-\frac{i}{\hbar}\bigg)^n\bigg(\int_{t_0}^t\op{\mathbb V}(t')\,\dd t'\bigg)^n=\\
+		&=\mathcal T\exp\bigg(-\frac{i}{\hbar}\int_{t_0}^t\op{\mathbb V}(t')\,\dd t'\bigg)
+	\end{split}
+	\label{eq:serie-dyson-alt}
+\end{equation}
+come maniera più compatta per scrivere la serie di Dyson.
+
+Ora, ricordando che $\op{\mathbb V}(t)$ è stato definito come $\adj{\op U}_0(t,t_0)\op V(t)\op U_0(t,t_0)$, tornando alla probabilità di transizione abbiamo se $\ket{E_f^{(0)}}\ne\ket{E_i^{(0)}}$ che
+\begin{equation}
+	\begin{split}
+		P_{fi}&=\abs{\bra{E_f^{(0)}}1-\frac{i}{\hbar}\int_{t_0}^t\op{\mathbb V}(t')\,\dd t'\ket{E_i^{(0)}}}^2=\\
+		&=\frac1{\hbar^2}\abs{\bra{E_f^{(0)}}\int_{t_0}^t\op{\mathbb V}(t')\,\dd t'\ket{E_i^{(0)}}}^2=\\
+		&=\frac1{\hbar^2}\abs{\int_{t_0}^t\bra{E_f^{(0)}}\adj{\op U}_0(t',t_0)\op V(t')\op U_0(t',t_0)\ket{E_i^{(0)}}\,\dd t'}^2=\\
+		&=\frac1{\hbar^2}\abs{\int_{t_0}^te^{-\frac{i}{\hbar}(E_f^{(0)}-E_i^{(0)})(t'-t_0)}\bra{E_f^{(0)}}\op V(t')\ket{E_i^{(0)}}\,\dd t'}^2
+	\end{split}
+	\label{eq:probabilita-transizione-autostati-dipendente-tempo}
+\end{equation}
+poich\'e gli stati $\ket{E_i^{(0)}}$ e $\ket{E_f^{(0)}}$ sono stazionari.
