@@ -364,3 +364,91 @@ Ora, ricordando che $\op{\mathbb V}(t)$ è stato definito come $\adj{\op U}_0(t,
 	\label{eq:probabilita-transizione-autostati-dipendente-tempo}
 \end{equation}
 poich\'e gli stati $\ket{E_i^{(0)}}$ e $\ket{E_f^{(0)}}$ sono stazionari.
+
+\section{Perturbazioni periodiche nel tempo}
+Studiamo ora il sistema di un atomo su cui incide una radiazione elettromagnetica monocromatica.
+In meccanica classica la funzione hamiltoniana per una particella di carica $q$ soggetta ai potenziali $\Phi$ e $\vec A$ è
+\begin{equation}
+	\mathcal H=\frac1{2m}\bigg(\vec p-\frac{q}{c}\vec A\bigg)^2+q\Phi
+	\label{eq:hamiltoniana-potenziale-elettromagnetico}
+\end{equation}
+che trasportiamo in versione quantistica, come al solito, sostituendo opportunamente gli operatori alle varie osservabili.
+Nello sviluppare il quadrato, troviamo il prodotto scalare tra $\vec p$ e $\vec A$, i cui operatori non commutano: per risolvere il problema, notiamo che nella rappresentazione di Schr\"odinger
+\begin{equation}
+	[\op p_i,\op A_i]f=-i\hbar\bigg[\drp{}{x_i},A_i\bigg]f=\drp{}{x_i}(A_if)-A_i\drp{f}{x_i}=-i\hbar\drp{A_i}{x_i}f=-i\hbar f\div\vec A
+	\label{eq:commutatore-impulso-potenziale-vettore}
+\end{equation}
+dunque ci basta scegliere il gauge in cui $\div\vec A=0$ affinch\'e i due commutino.
+In questo caso l'hamiltoniano della particella nel campo elettromagnetico è
+\begin{equation}
+	\op H=\frac{\op{\vec p}^2}{2m}-\frac{q}{mc}\scalar{\op{\vec A}}{\op{\vec p}}+\frac{q^2}{2mc^2}\op{\vec A}^2-q\op{\Phi}
+	\label{eq:hamiltoniano-campo-elettromagnetico}
+\end{equation}
+e come ulteriore approssimazione, se già il campo elettromagnetico può essere considerato come perturbazione del sistema significa che $\scalar{\op{\vec A}}{\op{\vec p}}$ è piccolo, quindi a maggior ragione $\op{\vec A}^2$ sarà trascurabile, quindi possiamo ignorare (al primo ordine di approssimazione) quest'ultimo termine.
+Abbiamo dunque un hamiltoniano $\op H=\op H^{(0)}+\op V'(t)$ con
+\footnote{Il potenziale scalare $\Phi$ è già incorporato in $\op H^{(0)}$.}
+\begin{equation}
+	\op V(t')=\frac{q}{mc}\scalar{\op{\vec p}}{\op{\vec A}}(t).
+\end{equation}
+Con esso la probabilità di transizione tra due autostati $\ket{i^{(0)}}$ e $\ket{f^{(0)}}$ di $\op H^{(0)}$, con energia rispettivamente $E_i^{(0)}$ e $E_f^{(0)}$, è data da
+\begin{equation}
+	P_{fi}=\frac1{\hbar^2}\abs{\int_{t_0}^t\frac{q}{mc}\bra{f^{(0)}}\scalar{\op{\vec p}}{\op{\vec A}}(t')\ket{i^{(0)}}e^{\frac{i}{\hbar}(E_f^{(0)}-E_i^{(0)})(t'-t_0)}\,\dd t'}^2=\\
+\end{equation}
+e se il campo elettromagnetico è un'onda monocromatica di frequenza, detto $\vec u$ il vettore di polarizzazione, allora
+\begin{equation}
+	\vec A(t)=\frac{A}2\Big[\vec u e^{i(\scalar{\vec k}{\vec x}-\omega t)}-\vec u^*e^{-i(\scalar{\vec k}{\vec x}-\omega t)}\Big].
+	\label{eq:campo-elettromagnetico-monocromatico}
+\end{equation}
+Definiamo a questo punto
+\begin{equation}
+	\omega_{fi}\defeq\frac{E_f^{(0)}-E_i^{(0)}}{\hbar}
+	\label{eq:frequenza-transizione}
+\end{equation}
+ottenendo
+\begin{equation}
+	P_{fi}=\bigg(\frac{q}{mc\hbar}\bigg)^2\abs{\int_{t_0}^t
+		\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u}e^{i\scalar{\vec k}{\op{\vec x}}}\ket{i^{(0)}}e^{i(\omega_{fi}-\omega)(t'-t_0)}
+		\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u}e^{-i\scalar{\vec k}{\op{\vec x}}}\ket{i^{(0)}}e^{i(\omega_{fi}+\omega)(t'-t_0)}
+	\,\dd t'}^2
+\end{equation}
+e definendo le quantità
+\begin{equation}
+	F\defeq\frac{qA}{2mc\hbar}\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u}e^{i\scalar{\vec k}{\op{\vec x}}}\ket{i^{(0)}}
+	\qeq
+	G\defeq\frac{qA}{2mc\hbar}\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u^*}e^{-i\scalar{\vec k}{\op{\vec x}}}\ket{i^{(0)}}
+\end{equation}
+e integrando otteniamo l'espressione
+\begin{equation}
+	P_{fi}=\abs{F\frac{e^{i(\omega_{fi}-\omega)(t-t_0)}-1}{\omega_{fi}-\omega}+G\frac{e^{i(\omega_{fi}+\omega)(t-t_0)}-1}{\omega_{fi}+\omega}}^2.
+\end{equation}
+Ci aspettiamo che solo uno dei due termini contribuisca in gran parte al risultato, ossia solo il termine con $F$ o quello con $G$ siano ``grandi''.
+In tal modo possiamo trascurare l'altro e, con esso, i termini di interferenza tra i due.
+Se ad esempio $E_f^{(0)}>E_i^{(0)}$, vale a dire $\omega_{fi}>0$, può essere che $\omega_{fi}-\omega\approx 0$ per cui possiamo tenere in prima approssimazione solo il termine con $F$.
+L'interpretazione fisica è la seguente: se i fotoni che portano il campo $\vec A$ hanno esattamente l'energia che separa i due livelli energetici $E_i^{(0)}$ e $E_f^{(0)}$, allora si ha proprio $\omega=\omega_{fi}$: un fotone viene assorbito e l'elettrone effettua una transizione dallo stato $\ket{i^{(0)}}$ a $\ket{f^{(0)}}$.
+Al contrario, il caso in cui $\omega_{fi}=-\omega$ è quello in cui il fotone è emesso dall'atomo quando quest'ultimo perde energia, nel momento in cui un elettrone effettua una transizione da $\ket{i^{(0)}}$ a $\ket{f^{(0)}}$ questa volta con $E_f^{(0)}<E_i^{(0)}$, ossia in uno stato con energia minore.
+Si ha dunque un fenomeno di \emph{assorbimento indotto} o \emph{emissione indotta}, in quanto l'elettrone non cambia stato spontaneamente.
+
+Consideriamo dunque solo il primo termine, con $F$, in cui si ha
+\begin{equation}
+	\begin{split}
+		\abs{\frac{e^{i(\omega_{fi}-\omega)(t-t_0)}-1}{\omega_{fi}-\omega}}^2
+		&=\abs{e^{\frac{i}2(\omega_{fi}-\omega)(t-t_0)}}^2\abs{\frac{e^{\frac{i}2(\omega_{fi}-\omega)(t-t_0)}-e^{-\frac{i}2(\omega_{fi}-\omega)(t-t_0)}}{\omega_{fi}-\omega}}^2=\\
+		&=\bigg(\frac2{\omega_{fi}-\omega}\bigg)^2\sin^2\frac{(\omega_{fi}-\omega)(t-t_0)}2.
+	\end{split}
+\end{equation}
+Chiamiamo $\Omega\defeq\omega_{fi}-\omega$ e $T\defeq t-t_0$: se $T\gg\frac1{\Omega}$, o più formalmente per $T\to+\infty$, si ha
+\begin{equation}
+	\lim_{T\to+\infty}\frac1{T}\bigg(\frac{\sin\frac{\Omega T}2}{\frac{\Omega}2}\bigg)^2=2\pi T\delta(\Omega)
+\end{equation}
+che rappresenta la probabilità di transizioni per intervallo di tempo.
+Più in generale, per una perturbazione periodica della forma
+\begin{equation}
+	\op V'(t)=\op B e^{-i\omega t}+\op B^* e^{i\omega t}
+	\label{eq:perturbazione-periodica-generica}
+\end{equation}
+si ottiene l'espressione nota come \emph{regola d'oro di Fermi}:
+\begin{equation}
+	\lim_{T\to+\infty}\frac{P_{fi}}{T}=\frac{2\pi}{\hbar}\abs{\bra{f^{(0)}}\op B\ket{i^{(0)}}}^2\delta(E_f^{(0)}-E_i^{(0)}-\hbar\omega)
+	\label{eq:regola-oro-fermi}
+\end{equation}
+che vale sia per il fenomeno di emissione che di assorbimento.
