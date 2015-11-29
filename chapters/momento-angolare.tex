@@ -7,46 +7,54 @@ L'operatore associato al momento angolare è, come in meccanica classica, il gen
 A meno di fattori moltiplicativi, le costanti di struttura (la parte rilevante è il simbolo di Levi-Civita $\epsilon_{ijk}$) sono le stesse dell'algebra di Lie $\mathfrak{su}(2)$.
 Non a caso, $\mathfrak{su}(2)$ è isomorfa a $\mathfrak{so}(3)$ che è l'algebra del gruppo $SO(3)$ delle rotazioni tridimensionali; in altre parole $\mathfrak{su}(2)$ genera $SO(3)$, allo stesso modo in cui il momento angolare genera le rotazioni in $\R^3$, e ciò giustifica la \eqref{eq:commutazione-momento-angolare}.
 Una quantità che commuta con il momento angolare lungo una data direzione è dunque simmetrica per le rotazioni attorno a tale asse: gli scalari sono degli importanti esempi di queste quantità.
-D'ora in poi, elimineremo sistematicamente la costante $\hbar$ dalle equazioni (a meno di trovarci in casi ambigui che la richiedano esplicitamente), sottindendendo che il momento angolare è misurato \emph{in unità di $\hbar$}.
-In pratica, dividiamo la \eqref{eq:commutazione-momento-angolare} per $\hbar^2$ ottenendo la forma più semplice $[\op L_i,\op L_j]=i\epsilon_{ijk}\op L_k$.
-Insieme alle tre componenti cartesiane del momento angolare abbiamo anche il quadrato del suo modulo, ossia $\op L^2=\op L_i\op L_i$: essendo uno scalare, ci aspettiamo che sia invariante per rotazioni ossia che commuti con tutte le componenti del momento angolare.
+\footnote{
+	Spesso si usa, per alleggerire la notazione, porre $\hbar=1$ per eliminarlo sistematicamente dalle equazioni.
+	In tal caso si suppone di misurare il momento angolare (e le osservabili che ne derivano) in unità di $\hbar$.
+	In pratica, il punto di partenza è dividere la \eqref{eq:commutazione-momento-angolare} per $\hbar^2$ ottenendo la forma più semplice $[\op L_i,\op L_j]=i\epsilon_{ijk}\op L_k$.
+}
+Insieme alle tre componenti cartesiane del momento angolare abbiamo anche il quadrato del suo modulo, ossia $\op{\vec L}^2=\op L_i\op L_i$: essendo uno scalare, ci aspettiamo che sia invariante per rotazioni ossia che commuti con tutte le componenti del momento angolare.
 Una verifica diretta mostra infatti che, per $i=1,2,3$,
 \begin{equation}
-	[\op L^2,\op L_i]=[\op L_k\op L_k,\op L_i]=\op L_k[\op L_k,\op L_i]+[\op L_k,\op L_i]\op L_k=i\epsilon_{kil}(\op L_k\op L_l+\op L_l\op L_k)=i(\epsilon_{kil}+\epsilon_{lik})\op L_k\op L_l=0
+	[\op{\vec L}^2,\op L_i]=[\op L_k\op L_k,\op L_i]=\op L_k[\op L_k,\op L_i]+[\op L_k,\op L_i]\op L_k=i\hbar\epsilon_{kil}(\op L_k\op L_l+\op L_l\op L_k)=i\hbar(\epsilon_{kil}+\epsilon_{lik})\op L_k\op L_l=0
 \end{equation}
 per l'antisimmetria di $\epsilon_{kil}$.
 In ogni caso le tre componenti $\op L_i$ non sono tra loro compatibili (dalla \eqref{eq:commutazione-momento-angolare}) a meno del caso banale in cui siano tutte nulle.
-Nella costruzione di un sistema completo di osservabili compatibili, è convenzione scegliere insieme a $\op L^2$ anche la componente $z$, ossia $\op L_3$, da diagonalizzare simultaneamente.
+Nella costruzione di un sistema completo di osservabili compatibili, è convenzione scegliere insieme a $\op{\vec L}^2$ anche la componente $z$, ossia $\op L_3$, da diagonalizzare simultaneamente.
 
 \section{Autovalori del momento angolare} \label{sec:autovalori-momento-angolare}
-Supponiamo di aver trovato un sistema completo di osservabili compatibili che contenga $\op L^2$ e $\op L^3$.
-Chiamiamo $m$ gli autovalori di $\op L_3$ e $\mu^2$ quelli di $\op L^2$, e trascurando lo altre osservabili del sistema indichiamo gli autostati simultanei con $\ket{m,\mu^2}$, che sono quindi tali per cui\footnote{Gli autovalori di $\op L^2$ sono evidentemente positivi, perciò li indichiamo direttamente con il quadrato $\mu^2$.}
+Supponiamo di aver trovato un sistema completo di osservabili compatibili che contenga $\op{\vec L}^2$ e $\op L^3$.
+Chiamiamo $m\hbar$ gli autovalori di $\op L_3$ e $\mu^2\hbar^2$ quelli di $\op{\vec L}^2$, e trascurando lo altre osservabili del sistema indichiamo gli autostati simultanei con $\ket{m,\mu^2}$, che sono quindi tali per cui\footnote{Gli autovalori di $\op{\vec L}^2$ sono evidentemente positivi, perciò li indichiamo direttamente con il quadrato $\mu^2$.}
 \begin{equation}
-	\op L^2\ket{m,\mu^2}=\mu^2\ket{m,\mu^2}\qeq\op L_3\ket{m,\mu^2}=m\ket{m,\mu^2}.
+	\op{\vec L}^2\ket{m,\mu^2}=\mu^2\hbar^2\ket{m,\mu^2}
+	\hspace{1cm}\text{e}\hspace{1cm}
+	\op L_3\ket{m,\mu^2}=m\hbar\ket{m,\mu^2}.
 \end{equation}
 Come già per l'oscillatore armonico, introduciamo gli operatori a scala $\op L_+\defeq\op L_1+i\op L_2$ e $\op L_-\defeq\op L_1-i\op L_2$.
 Dato che gli $\op L_i$ sono hermitiani (poich\'e rappresentano delle osservabili) si vede subito che $\adj{\op L_+}=\op L_-$.
 Essi sono in relazione con la componente scelta del momento angolare con i commutatori
 \begin{equation}
-	[\op L_3,\op L_+]=[\op L_3,\op L_1]+i[\op L_3,\op L_2]=i\op L_2-i^2\op L_1=\op L_+
+	[\op L_3,\op L_+]=[\op L_3,\op L_1]+i[\op L_3,\op L_2]=\hbar(i\op L_2-i^2\op L_1)=\hbar\op L_+
 \end{equation}
 da cui
 \begin{equation}
-	[\op L_3,\op L_-]=[\op L_3,\adj{\op L_+}]=-\adj{[\op L_3,\op L_+]}=-\adj{\op L_+}=-\op L_-.
+	[\op L_3,\op L_-]=[\op L_3,\adj{\op L_+}]=-\adj{[\op L_3,\op L_+]}=-\hbar\adj{\op L_+}=-\hbar\op L_-.
 \end{equation}
 Vediamo dunque come questi due operatori agiscono sugli autostati:
 \begin{multline}
-	\op L_3\op L_+\ket{m,\mu^2}=(\op L_3\op L_+ - \op L_+\op L_3 + \op L_+\op L_3)\ket{m,\mu^2}=[\op L_3,\op L_+]\ket{m,\mu^2}+\op L_+\op L_3\ket{m,\mu^2}=\\=
-	\op L_+\ket{m,\mu^2}+m\op L_+\ket{m,\mu^2}=(m+1)\op L_+\ket{m,\mu^2}
+	\op L_3\op L_+\ket{m,\mu^2}=
+	(\op L_3\op L_+ - \op L_+\op L_3 + \op L_+\op L_3)\ket{m,\mu^2}=
+	[\op L_3,\op L_+]\ket{m,\mu^2}+\op L_+\op L_3\ket{m,\mu^2}=\\=
+	\hbar\op L_+\ket{m,\mu^2}+m\hbar\op L_+\ket{m,\mu^2}=
+	(m+1)\hbar\op L_+\ket{m,\mu^2}
 \end{multline}
-e analogamente $\op L_3\op L_-\ket{m,\mu^2}=(m-1)\op L_-\ket{m,\mu^2}$.
-Gli operatori $\op L_+$ e $\op L_-$ dunque portano un autostato di $\op L_3$ in un altro autostato con autovalore, rispettivamente, aumentato o diminuito di 1.
-In altri termini, possiamo scriverlo come $\op L_+\ket{m,\mu^2}=\ket{m+1,\mu^2}$ e $\op L_-\ket{m,\mu^2}=\ket{m-1,\mu^2}$.
+e analogamente $\op L_3\op L_-\ket{m,\mu^2}=(m-1)\hbar\op L_-\ket{m,\mu^2}$.
+Gli operatori $\op L_+$ e $\op L_-$ dunque portano un autostato di $\op L_3$ in un altro autostato con autovalore, rispettivamente, aumentato o diminuito di $\hbar$.
+Più brevemente scriviamo che $\op L_+\ket{m,\mu^2}=\ket{m+1,\mu^2}$ e $\op L_-\ket{m,\mu^2}=\ket{m-1,\mu^2}$.
 
 Dobbiamo quindi chiederci se la sequenza $\{\dots,m-2,m-1,m,m+1,\dots\}$ sia limitata o meno.
-Dato che $\op L_3^2=\op L^2-\op L_1^2+\op L_2^2$, sicuramente per ciascuno stato il valore di aspettazione di $\op L_3^2$ deve essere minore di quello di $\op L^2$, dato che ovviamente $\op L_1^2+\op L_2^2$ è un operatore definito positivo.
+Dato che $\op L_3^2=\op{\vec L}^2-\op L_1^2+\op L_2^2$, sicuramente per ciascuno stato il valore di aspettazione di $\op L_3^2$ deve essere minore di quello di $\op{\vec L}^2$, dato che ovviamente $\op L_1^2+\op L_2^2$ è un operatore definito positivo.
 In particolare, dunque, risulta $m^2\le\mu^2$, ossia $\abs{m}\le\abs{\mu}$: gli autovalori sono allora necessariamente limitati; esiste un certo stato che chiamiamo $\ket{j_+,\mu^2}$ tale per cui $\op L_+\ket{j_+,\mu^2}=0$ e analogamente uno stato $\ket{j_-,\mu^2}$ per cui $\op L_-\ket{j_-,\mu^2}=0$, dove $j_+$ e $j_-$ sono il massimo e il minimo autovalore, rispettivamente, di $\op L_3$.
-Per questi due stati si ha comunque $\op L^2\ket{j_\pm,\mu^2}=\mu^2\ket{j_\pm,\mu^2}$.
+Per questi due stati si ha comunque $\op{\vec L}^2\ket{j_\pm,\mu^2}=\mu^2\hbar^2\ket{j_\pm,\mu^2}$.
 Calcolando la norma di $\op L_+\ket{j_+,\mu^2}$ troviamo
 \begin{equation}
 	\begin{split}
@@ -54,23 +62,23 @@ Calcolando la norma di $\op L_+\ket{j_+,\mu^2}$ troviamo
 		&=\bra{j_+,\mu^2}\op L_-\op L_+\ket{j_+,\mu^2}=\\
 		&=\bra{j_+,\mu^2}(\op L_1-i\op L_2)(\op L_1+i\op L_2)\ket{j_+,\mu^2}=\\
 		&=\bra{j_+,\mu^2}(\op L_1^2+\op L_2^2+i[\op L_1,\op L_2])\ket{j_+,\mu^2}=\\
-		&=\bra{j_+,\mu^2}(\op L^2-\op L_3^2-\op L_3])\ket{j_+,\mu^2}=\\
-		&=(\mu^2-j_+^2-j_+)\braket{j_+,\mu^2}{j_+,\mu^2}
+		&=\bra{j_+,\mu^2}(\op{\vec L}^2-\op L_3^2-\hbar\op L_3)\ket{j_+,\mu^2}=\\
+		&=(\mu^2-j_+^2-j_+)\hbar^2\braket{j_+,\mu^2}{j_+,\mu^2}
 	\end{split}
 \end{equation}
 da cui otteniamo $\mu^2=j_+(j_++1)$.
 Dalla norma di $\op L_-\ket{j_-,\mu^2}$, anch'essa nulla, troviamo invece $\mu^2=j_-(j_--1)$.
-Assegnato un valore a $j_-$, uguagliando le due espressioni abbiamo $j_j(j_++1)=j_-(j_--1)$ da cui $j_+=-j_-$ oppure $j_+=j_--1$.
+Assegnato un valore a $j_-$, uguagliando le due espressioni abbiamo $j_+(j_++1)=j_-(j_--1)$ da cui $j_+=-j_-$ oppure $j_+=j_--1$.
 La seconda delle due però non è accettabile dato che per costruzione $j_+\ge j_-$, perciò rimane $j_+=-j_-$.
 Chiamiamo questo valore semplicemente con $j$.
-Abbiamo quindi ottenuto lo spettro di $\op L_3$ che è l'insieme $\{-j,-j+1,\dots,j-1,j\}$, che ha $2j+1$ elementi.
+Abbiamo quindi ottenuto lo spettro di $\op L_3$ che è l'insieme $\{-j\hbar,(-j+1)\hbar,\dots,(j-1)\hbar,j\hbar\}$, che ha $2j+1$ elementi.
 Questa cardinalità è chiaramente un numero intero, perciò $j$ deve essere a sua volta intero oppure semiintero (positivo o nullo).
-Una volta che $\op L_3$ assume uno di questi valori, poi, $\op L^2$ ha come autovalore $j(j+1)$: tale numero non è un quadrato perfetto, per il fatto che anche quando $j=m$ (il massimo autovalore di $\op L_3$) non si ha comunque $\mu^2=m^2$, perch\'e da questo seguirebbe che $\op L_1$ e $\op L_2$ avrebbero solo autovalori nulli, ossia il momento angolare lungo i due assi restanti sarebbe nullo; sappiamo che questo non è possibile, perch\'e non possiamo determinare con precisione assoluta contemporaneamente due componenti del momento angolare.
+Una volta che $\op L_3$ assume uno di questi valori, poi, $\op{\vec L}^2$ ha come autovalore $j(j+1)\hbar^2$: tale numero non è un quadrato perfetto, per il fatto che anche quando $j=m$ (per il massimo autovalore di $\op L_3$) non si ha comunque $\mu^2=m^2$, perch\'e da questo seguirebbe che $\op L_1$ e $\op L_2$ avrebbero solo autovalori nulli, ossia il momento angolare lungo i due assi restanti sarebbe nullo; sappiamo che questo non è possibile, perch\'e non possiamo determinare con precisione assoluta contemporaneamente due componenti del momento angolare.
 L'unica eccezione a questo si ha nel caso banale in cui $j=0$, in cui $\op{\vec L}=0$.
 
-In questa rappresentazione del momento angolare, inoltre, $\op L^2$ è un multiplo dell'identità (detto anche \emph{operatore di Casimir}): è degenere dato che ad ogni suo autostato corrispondono $2j+1$ autostati linearmente indipendenti (di $\op L_3$), come si poteva anche capire dal teorema \ref{t:degenerazione} oppure dal lemma di Schur.
+In questa rappresentazione del momento angolare, inoltre, $\op{\vec L}^2$ è un multiplo dell'identità (detto anche \emph{operatore di Casimir}): è degenere dato che ad ogni suo autostato corrispondono $2j+1$ autostati linearmente indipendenti (di $\op L_3$), come si poteva anche capire dal teorema \ref{t:degenerazione} oppure dal lemma di Schur.
 La rappresentazione è inoltre determinata completamente determinata dal numero $j$.\footnote{Ogni rappresentazione del gruppo delle rotazioni è univocamente determinata da un numero intero o semiintero positivo o nullo. Tutte le rappresentazioni irriducibili si ottengono in questo modo, mentre quelle riducibili si ricavano come somma diretta o prodotto di queste.}
-Ad esempio la rappresentazione con $j=\frac12$ è data dalle matrici di Pauli: si ha infatti $\sigma_3=\frac12\begin{psmallmatrix}1&0\\0&-1\end{psmallmatrix}$ e $\frac14(\sigma_1^2+\sigma_2^2+\sigma_3^2)=\op L^2=\frac34=j(j+1)$.
+Ad esempio la rappresentazione con $j=\frac12$ è data dalle matrici di Pauli: si ha infatti $\sigma_3=\frac12\begin{psmallmatrix}1&0\\0&-1\end{psmallmatrix}$ e $\frac14(\sigma_1^2+\sigma_2^2+\sigma_3^2)=\frac34=j(j+1)$ che corrisponde a $\op{\vec L}^2$.
 
 \section{Momento angolare orbitale}
 Possiamo definire l'operatore del momento angolare \emph{orbitale} di una particella attorno all'origine, in coordinate cartesiane, utilizzando la definizione classica e sostituendo gli operatori corrispondenti: otteniamo
@@ -78,7 +86,7 @@ Possiamo definire l'operatore del momento angolare \emph{orbitale} di una partic
 	\op L_k=\epsilon_{ijk}\op x_i\op p_j
 	\label{eq:momento-angolare-orbitale}
 \end{equation}
-in dimensione 3 (riprendiamo qui l'uso di $\hbar$ nelle equazioni).
+in dimensione 3.
 Si può eventualmente generalizzare a un numero differente di dimensioni seguendo le regole di commutazione dell'algebra $\mathfrak{so}(n)$.
 Nella rappresentazione di Schr\"odinger della posizione troviamo che $\op L_i$ è dato da
 \begin{equation}
@@ -100,7 +108,7 @@ Imponendo la periodicità della funzione in $\phi$ otteniamo che deve soddisfare
 \end{equation}
 da cui ricaviamo che $m$ deve essere intero.
 
-Rimane da rappresentare anche $\op L^2$: dall'identità, valida in una generica dimensione $d$,
+Rimane da rappresentare anche $\op{\vec L}^2$: dall'identità, valida in una generica dimensione $d$,
 \begin{equation}
 	\op{\vec L}^2=\op{\vec x}^2\op{\vec p}^2-(\scalar{\op{\vec x}}{\op{\vec p}})^2+i\hbar(d-2)\scalar{\op{\vec x}}{\op{\vec p}}
 	\label{eq:relazione-L2-x-p}
@@ -116,7 +124,7 @@ In generale sarà un operatore degenere: possiamo etichettare gli autostati con 
 \end{equation}
 Vediamo dunque come rappresentare opportunamente $\op{\vec p}^2$ in $L^2(\R^3)$ con l'identità \eqref{eq:relazione-L2-x-p}: nella rappresentazione delle coordinate $\op{\vec x}^2$ è diagonale si traduce nella moltiplicazione per $r^2$ (analogamente per $\op{\vec x}^{-2}$), mentre
 \begin{equation}
-	\scalar{\op{\vec x}}{\op{\vec p}}=-i\hbar x_i\drp{}{x_i}=-i\hbar r\frac{x_i}{r}\drp{}{x_i}=r\drp{r}{x_i}\drp{}{x_i}=r\drp{}{r}.
+	\scalar{\op{\vec x}}{\op{\vec p}}=-i\hbar x_i\drp{}{x_i}=-i\hbar r\frac{x_i}{r}\drp{}{x_i}=-i\hbar r\drp{r}{x_i}\drp{}{x_i}=-i\hbar r\drp{}{r}.
 \end{equation}
 Analogamente alla coppia di coordinate cartesiane, possiamo definire un operatore $\op r\defeq\sqrt{\op x^2+\op y^2+\op z^2}$ (in senso generalizzato: abbiamo gli stessi problemi di $x$ e $p$), che risulta autoaggiunto, e un momento coniugato $\op p_r\defeq-i\hbar\drp{}{r}$.
 Quest'ultimo però non è autoaggiunto: se per verificarlo nel casi dei $\op p_i$ cartesiani era sufficiente integrare per parti dato che i termini al contorno (per $\abs{x}\to+\infty$) erano nulli, in questo caso il contorno del dominio di $r$ è $0$ e $+\infty$, e non c'è alcun motivo di supporre che le funzioni d'onda siano nulle nell'origine; oltretutto, la misura in coordinate polari non è il semplice prodotto dei $\dd x_i$ ma contiene altri fattori.
