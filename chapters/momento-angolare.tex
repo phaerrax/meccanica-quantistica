@@ -93,20 +93,94 @@ Nella rappresentazione di Schr\"odinger della posizione troviamo che $\op L_i$ �
 	L_i=\epsilon_{ijk}x_j\bigg(-i\hbar\drp{}{x_k}\bigg)=-i\hbar\epsilon_{ijk}x_j\drp{}{x_k}.
 \end{equation}
 Possiamo ottenere però una rappresentazione più vantaggiosa usando le coordinate polari, più adatte a descrivere ad esempio sistemi a simmetria centrale, cioè invarianti per rotazioni.
-Usando la terna di coordinate $(r,\phi,\theta)\in[0,+\infty)\times[0,2\pi]\times[0,\pi]$ troviamo che $\op L_3$ è rappresentato dall'operatore
+Usiamo la trasformazione
 \begin{equation}
-	-i\hbar\drp{}{\phi}.
+	\begin{pmatrix}
+		x_1\\
+		x_2\\
+		x_3
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		r\sin\theta\cos\phi\\
+		r\sin\theta\sin\phi\\
+		r\cos\theta
+	\end{pmatrix}:
 \end{equation}
-La quantizzazione del momento angolare è dovuta, tra il resto, al fatto che la variabile angolare $\phi$ è in un intervallo limitato, dunque la parte in $\phi$ delle autofunzioni deve risultare periodica di $2\pi$, cos\`i come una funzione definita su un intervallo limitato si può analizzare in serie di Fourier, e ammette dei modi normali di oscillazione con un insieme discreto (numerabile) di frequenze.
-Le autofunzioni di questo operatore sono funzioni $f(r,\phi,\theta)$ tali che
+le tre componenti del momento angolare orbitale, in rappresentazione di Schr\"odinger negli autostati della posizione, sono
+\begin{equation}
+	\begin{split}
+		L_1=&-i\hbar\bigg(x_2\drp{}{x_3}-x_3\drp{}{x_2}\bigg)=\\
+		=&-i\hbar\bigg[x_2\bigg(\drp{r}{x_3}\drp{}{r}+\drp{\theta}{x_3}\drp{}{\theta}+\drp{\phi}{x_3}\drp{}{\phi}\bigg)
+			-x_3\bigg(\drp{r}{x_2}\drp{}{r}+\drp{\theta}{x_2}\drp{}{\theta}+\drp{\phi}{x_2}\drp{}{\phi}\bigg)\bigg]=\\
+		=&-i\hbar\bigg[r\sin\theta\sin\phi\bigg(\!\!\cos\theta\drp{}{r}-\frac{\sin\theta}{r}\drp{}{\theta}\bigg)
+			-r\cos\theta\bigg(\!\!\sin\theta\sin\phi\drp{}{r}+\frac{\cos\theta\sin\phi}{r}\drp{}{\theta}+\frac{\cos\phi}{r\sin\theta}\drp{}{\phi}\bigg)\bigg]=\\
+		=&-i\hbar\bigg(r\cos\theta\sin\theta\sin\phi\drp{}{r}-\sin^2\theta\sin\phi\drp{}{\theta}-r\cos\theta\sin\theta\sin\phi\drp{}{r}+\\
+			&+\cos^2\theta\sin\phi\drp{}{\theta}-\cot\theta\cos\phi\drp{}{\phi}\bigg)=\\
+		=&\,i\hbar\bigg(\!\sin\phi\drp{}{\theta}+\cot\theta\cos\phi\drp{}{\phi}\bigg);
+	\end{split}
+	\label{eq:L_1-schroedinger}
+\end{equation}
+\begin{equation}
+	\begin{split}
+		L_2=&-i\hbar\bigg(x_3\drp{}{x_1}-x_1\drp{}{x_3}\bigg)=\\
+		=&-i\hbar\bigg(r\cos\theta\sin\theta\cos\phi\drp{}{r}-\cot\theta\sin\phi\drp{}{\phi}+\cos^2\theta\cos\phi\drp{}{\theta}-r\cos\theta\sin\theta\cos\phi\drp{}{r}+\\
+			&+\sin^2\theta\cos\phi\drp{}{\theta}\bigg)=\\
+		=&-i\hbar\bigg(\!\cos\phi\drp{}{\theta}-\cot\theta\sin\phi\drp{}{\phi}\bigg);
+	\end{split}
+	\label{eq:L_2-schroedinger}
+\end{equation}
+\begin{equation}
+	\begin{split}
+		L_3=&-i\hbar\bigg(x_1\drp{}{x_2}-x_2\drp{}{x_1}\bigg)=\\
+		=&-i\hbar\bigg[r\cos\phi\sin\phi\sin^2\theta\drp{}{r}+\cos\theta\sin\theta\cos\phi\sin\phi\drp{}{\theta}+\cos^2\phi\drp{}{\phi}-r\cos\phi\sin\phi\sin^2\theta\drp{}{r}-\\
+			&-\cos\theta\sin\theta\cos\phi\sin\phi\drp{}{\theta}+\sin^2\theta\drp{}{\phi}\bigg]=\\
+		=&-i\hbar\drp{}{\phi}.
+	\end{split}
+	\label{eq:L_3-schroedinger}
+\end{equation}
+Da questi otteniamo gli operatori a scala
+\begin{equation}
+	\begin{split}
+		L_+&=L_1+iL_2=i\hbar\bigg(\!\sin\phi\drp{}{\theta}+\cot\theta\cos\phi\drp{}{\phi}\bigg)+\hbar\bigg(\!\cos\phi\drp{}{\theta}-\cot\theta\sin\phi\drp{}{\phi}\bigg)=\\
+		&=\hbar\bigg[(i\sin\phi+\cos\phi)\drp{}{\theta}+(i\cos\phi-\sin\phi)\cot\theta\drp{}{\phi}\bigg]=\\
+		&=\hbar e^{i\phi}\bigg(\drp{}{\theta}+i\cot\theta\drp{}{\phi}\bigg)
+	\end{split}
+	\label{eq:L_+-schroedinger}
+\end{equation}
+e in modo analogo
+\begin{equation}
+	L_-=L_1-iL_2=\hbar e^{-i\phi}\bigg(\!-\drp{}{\theta}+i\cot\theta\drp{}{\phi}\bigg).
+	\label{eq:L_--schroedinger}
+\end{equation}
+Con queste espressioni possiamo infine rappresentare anche $\op{\vec L}^2$, ricordando che è uguale a $\op L_+\op L_-+\op L_3^2-\hbar\op L_3$: siccome
+\begin{equation}
+	L_+L_-=-\hbar^2\bigg(\ddrp{}{\theta}+\cot\theta\drp{}{\theta}+\cot^2\theta\ddrp{}{\phi}+i\drp{}{\phi}\bigg)
+\end{equation}
+troviamo che
+\begin{equation}
+	\begin{split}
+		\vec L^2&=-\hbar^2\bigg(\ddrp{}{\theta}+\cot\theta\drp{}{\theta}+\cot^2\theta\ddrp{}{\phi}+i\drp{}{\phi}+\ddrp{}{\phi}-i\drp{}{\phi}\bigg)=\\
+		&=-\hbar^2\bigg(\ddrp{}{\theta}+\cot\theta\drp{}{\theta}+\frac1{\sin^2\theta}\ddrp{}{\phi}\bigg)=\\
+		&=-\hbar^2\bigg[\frac1{\sin\theta}\bigg(\!\sin\theta\ddrp{}{\theta}+\cos\theta\drp{}{\theta}\bigg)+\frac1{\sin^2\theta}\ddrp{}{\phi}\bigg]=\\
+		&=-\hbar^2\bigg[\frac1{\sin\theta}\drp{}{\theta}\bigg(\!\sin\drp{}{\theta}\bigg)+\frac1{\sin^2\theta}\ddrp{}{\phi}\bigg]
+	\end{split}
+	\label{eq:L^2-schroedinger}
+\end{equation}
+e il termine tra le parentesi quadre, a meno del fattore $1/r^2$, è la parte angolare del laplaciano in coordinate sferiche.
+
+Affinch\'e la funzione d'onda sia continua, deve risultare periodica di $2\pi$ nella variabile $\phi$.
+Cos\`i come una funzione definita su un intervallo limitato si può analizzare in serie di Fourier e ammette dei modi normali di oscillazione con un insieme discreto (numerabile) di frequenze, anche la parte in $\phi$ delle autofunzioni di $\op L_3$ avrà questa caratteristica: questo porta, tra le altre cose, alla quantizzazione del momento angolare.
+Le autofunzioni di questo operatore sono infatti funzioni $f(r,\phi,\theta)$ tali che
 \begin{equation}
 	-i\hbar\drp{f}{\phi}(r,\phi,\theta)=m\hbar f(r,\phi,\theta)\qqq f(r,\phi,\theta)=g(r,\theta)e^{im\phi}.
 \end{equation}
-Imponendo la periodicità della funzione in $\phi$ otteniamo che deve soddisfare
+Imponendo la periodicità della funzione otteniamo che deve soddisfare
 \begin{equation}
-	g(r,\theta)e^{im(\phi+2\pi)}=g(r,\theta)e^{im\phi}e^{2im\pi}=g(r,\theta)e^{im\phi}
+	g(r,\theta)e^{im\phi}=f(r,\theta,\phi+2\pi)=g(r,\theta)e^{im(\phi+2\pi)}=g(r,\theta)e^{im\phi}e^{2im\pi}
 \end{equation}
-da cui ricaviamo che $m$ deve essere intero.
+da cui ricaviamo che $m$ deve essere intero in modo che $e^{2im\pi}=1$.
+
 
 Rimane da rappresentare anche $\op{\vec L}^2$: dall'identità, valida in una generica dimensione $d$,
 \begin{equation}
