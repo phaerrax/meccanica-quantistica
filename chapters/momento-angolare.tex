@@ -1,4 +1,76 @@
 \chapter{Momento angolare}
+\section{Rotazioni}
+Le rotazioni tridimensionali sono trasformazioni lineari di $\R^3$ che preservano la lunghezza dei vettori e l'orientazione.
+Esse formano un gruppo, poich\'e la composizione di due rotazioni è associativa e dà ancora una rotazione, esiste l'elemento neutro (che è l'identità di $\R^3$) e ogni rotazione ha un'unica inversa.
+Esso ha inoltre una struttura di varietà differenziabile, per cui le operazioni di gruppo sono $\cont{\infty}$, e ciò lo rende un gruppo di Lie.
+In una base ortonormale di $\R^3$ queste rotazioni sono associate a matrici reali $3\times 3$ ortogonali con determinante 1: il gruppo delle rotazioni si identifica dunque con il gruppo $SO(3)$, dotato dell'operazione di moltiplicazione tra matrici.
+
+\paragraph{Parametrizzazione asse-angolo}
+Ogni rotazione non banale ammette sempre un autospazio di dimensione 1, che corrisponde all'asse di rotazione; essa agisce come una rotazione bidimensionale nel piano ortogonale a tale asse.
+Siccome ogni rotazione di $\R^2$ è univocamente determinata dall'angolo, una rotazione di $\R^3$ è univocamente determinata dall'asse di rotazione (a cui è associato un versore $\axis$) e dall'angolo: questo fornisce tre gradi di libertà alle rotazioni.
+Indichiamo dunque una rotazione con $\Rot(\axis,\theta)$, oppure più brevemente con $\Rot(\vtheta)$ definendo il vettore $\vtheta\defeq\theta\axis$.\footnote{Il verso di $\axis$ determina anche il verso della rotazione: convenzionalmente una rotazione di un angolo positivo è antioraria attorno all'asse specificato.}
+Abbiamo le seguenti tre proprietà, che si possono visualizzare facilmente:
+\begin{itemize}
+	\item $\Rot(-\axis,-\theta)=\Rot(\axis,\theta)$, per cui possiamo considerare solo rotazioni con $\theta>0$;
+	\item $\Rot(\axis,\pi+\theta)=\Rot(-\axis,\pi-\theta)$, per cui possiamo ulteriormente restringere $\theta$ all'intervallo tra $0$ e $\pi$, inclusi;
+	\item $\Rot(\axis,0)$, qualsiasi sia l'asse, non compie una rotazione ed è quindi l'identità.
+\end{itemize}
+Con queste si dimostra che ciascuna rotazione è caratterizzata in modo univoco da un angolo $\theta\in[0,\pi]$ e un versore $\axis$
+\begin{itemize}
+	\item arbitrario se $\theta=0$;
+	\item unico se $0<\theta<\pi$;
+	\item unico a meno del segno se $\theta=\pi$.
+\end{itemize}
+
+\paragraph{Generatori del gruppo}
+Fissato l'asse di rotazione $\axis$, la mappa $t\mapsto\Rot(\axis,t)$, per $t\in\R$, è un sottogruppo (abeliano) a un parametro di $SO(3)$.
+Indicando con il punto la derivata rispetto all'argomento, da ciascun sottogruppo possiamo ricavare un (unico) elemento dello spazio tangente all'identità $\Id$ del gruppo, come di seguito.
+Sfruttando la composizione di rotazioni, all'interno del sottogruppo, data da $\Rot(\axis,t_1)\Rot(\axis,t_2)=\Rot(\axis,t_1+t_2)$, risulta infatti
+\begin{equation}
+	\dot{\Rot}(\axis,t)=\lim_{h\to 0}\frac{\Rot(\axis,t+h)-\Rot(\axis,t)}{h}=\Rot(\axis,t)\lim_{h\to 0}\frac{\Rot(\axis,h)-\Id}{h}=\Rot(\axis,t)\dot{\Rot}(\axis,0)
+	\label{eq:derivata-rotazione}
+\end{equation}
+che con l'ovvia condizione al contorno $\Rot(\axis,0)=\Id$ è un'equazione differenziale per $\Rot(\axis,t)$ che ha come soluzione
+\begin{equation}
+	\Rot(\axis,t)=\exp\Big(t\dot{\Rot}(\axis,0)\Big).
+	\label{eq:rotazione-esponenziale}
+\end{equation}
+L'elemento $\dot{\Rot}(\axis,0)$, che indicheremo d'ora in poi con $\Ang(\axis)$, è detto \emph{generatore} del sottogruppo, e rappresenta il vettore tangente in $\Id$ alla curva descritta sul gruppo dalla mappa $t\mapsto\Rot(\axis,t)$.
+Analizziamo quindi lo spazio tangente all'identità: esso è uno spazio vettoriale (reale) di dimensione 3, che è la dimensione di $SO(3)$.\footnote{La dimensione del gruppo è intesa come dimensione di una varietà differenziabile: $SO(3)$ \emph{non} è uno spazio vettoriale.}
+Possiamo individuare allora una sua base di tre elementi: se come assi di rotazione prendiamo i tre assi cartesiani (con i versori $\axis=\vec e_i$), troviamo tre sottogruppi a un parametro che hanno come generatori tre elementi $\Ang_i\defeq\Ang(\vec e_i)=\dot{\Rot}(\vec e_i,0)$.
+Calcoliamo il primo elemento: partendo dalla matrice di rotazione attorno all'asse individuato da $\vec e_1$ abbiamo\footnote{
+	C'è da fare attenzione a distinguere tra rotazioni passive o attive, poich\'e la forma della matrice è diversa.
+	In questo caso, la matrice ruota la base canonica di $\R^3$ (lasciando fisso $\vec e_1$), e di conseguenza i vettori delle coordinate si trasformano con la trasposta della matrice.}
+\begin{equation}
+	\Rot(\vec e_1,t)=
+	\begin{bmatrix}
+		1	&0		&0		\\
+		0	&\cos t	&-\sin t\\
+		0	&\sin t	&\cos t
+	\end{bmatrix}
+	\qqq
+	\Ang_1=\dot{\Rot}(\vec e_1,0)=
+	\begin{bmatrix}
+		0	&0	&0	\\
+		0	&0	&-1	\\
+		0	&1	&0
+	\end{bmatrix}.
+\end{equation}
+Una volta ricavati anche $\Ang_2$ e $\Ang_3$ è immediato vedere che sono tre elementi linearmente indipendenti, perciò $\{\Ang_1,\Ang_2,\Ang_3\}$ è una base dello spazio tangente a $\Id$.
+Presa una rotazione infinitesima, ossia nell'intorno di $\Id$, possiamo approssimarla linearmente come
+\begin{equation}
+	\Rot(\vtheta)=\Id+\sum_{i=1}^3\theta_i\Ang_i
+	\label{eq:rotazione-infinitesima}
+\end{equation}
+trascurando cioè i termini di ordine superiore al primo.
+Essi soddisfano inoltre le relazioni, per $i,j,k\in\{1,2,3\}$,
+\begin{equation}
+	[\Ang_i,\Ang_j]=\epsilon_{ijk}\Ang_k
+	\label{eq:parentesi-lie-so3}
+\end{equation}
+che completano la descrizione dell'algebra di Lie del gruppo delle rotazioni, indicata con $\mathfrak{so}(3)$: essa è in pratica lo spazio vettoriale delle matrici $3\times 3$ reali antisimmetriche.
+
+\section{Momento angolare}
 L'operatore associato al momento angolare è, come in meccanica classica, il generatore delle rotazioni, che soddisfa le relazioni di commutazione
 \begin{equation}
 	[\op L_i,\op L_j]=i\hbar\epsilon_{ijk}\op L_k.
