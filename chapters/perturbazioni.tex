@@ -452,3 +452,75 @@ si ottiene l'espressione nota come \emph{regola d'oro di Fermi}:
 	\label{eq:regola-oro-fermi}
 \end{equation}
 che vale sia per il fenomeno di emissione che di assorbimento.
+
+\section{Approssimazione di dipolo elettrico}
+Continuiamo lo studio dell'atomo colpito da un'onda elettromagnetica monocromatica nel caso in cui la sua lunghezza d'onda sia comparabile con le dimensioni atomiche, come il raggio di Bohr.
+In questo senso possiamo assumere che il vettore d'onda $\vec k$ non vari apprezzabilmente all'interno del sistema fisico considerato, per cui possiamo usare l'approssimazione
+\begin{equation}
+	e^{\pm i\scalar{\vec k}{\vec x}}\approx 1
+\end{equation}
+trascurando cos\`i la dipendenza spaziale dell'onda incidente.
+Questa approssimazione è detta \emph{di dipolo elettrico}, per ragioni che vedremo in seguito.
+Nel gauge scelto, il campo elettrico portato dall'onda è dato da
+\begin{equation}
+	\vec E(\vec x,t)=-\frac1{c}\drp{\vec A}{t}(\vec x,t)=-\frac1{c}\drp{}{t}\bigg[\frac{A}2\big(\vec ue^{-i\omega t}+\vec u^*e^{i\omega t}\big)\bigg]=
+	\frac{iA\omega}{2c}\big(\vec ue^{-i\omega t}-\vec u^*e^{i\omega t}\big).
+	\label{eq:campo-elettrico-approssimazione-dipolo}
+\end{equation}
+Prendiamo ora il caso di un elettrone in un atomo, con $q=e$: il termine $F$ definito precedentemente diventa, con questa approssimazione,
+\begin{equation}
+	F=-\frac{eA}{2mc\hbar}\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u}\ket{i^{(0)}}
+\end{equation}
+Dall'equazione per l'evoluzione temporale della posizione $\drp{}{t}\op{\vec x}=\frac{i}{\hbar}[\op H_0,\op{\vec x}]=\frac1{m}\op{\vec p}$ abbiamo inoltre
+\begin{multline}
+	F=-\frac{eA}{2\hbar c}\bra{f^{(0)}}\frac{i}{\hbar}[\op H_0,\vec x]\ket{i^{(0)}}=
+	-\frac{ieA}{2\hbar^2c}\bra{f^{(0)}}\op H_0\scalar{\op{\vec x}}{\vec u}-\scalar{\op{\vec x}}{\vec u}\op H_0\ket{i^{(0)}}=\\=
+	-\frac{ieA}{2\hbar^2c}(E_f^{(0)}-E_i^{(0)})\bra{f^{(0)}}\scalar{\op{\vec x}}{\vec u}\ket{i^{(0)}}
+\end{multline}
+dato che i due stati sono autostati di $\op H_0$.
+Il vettore $-e\vec x$ è il vettore di dipolo elettrico, che qui ritroviamo come operatore e indichiamo più brevemente con $\op{\vec d}$, per cui
+\begin{equation}
+	F=\frac{iA\omega_{fi}}{2m\hbar}\bra{f^{(0)}}\scalar{\op{\vec d}}{\vec u}\ket{i^{(0)}}.
+\end{equation}
+
+Cos\`i come per l'effetto Stark, anche la perturbazione data da $\bra{f^{(0)}}\scalar{\op{\vec d}}{\vec u}\ket{i^{(0)}}$ ha importanti conseguenze dalle regole di selezione, perch\'e come vedremo alcune transizioni tra stati, al livello dell'approssimazione di dipolo, sono proibite a causa di certe simmetrie.
+Innanzitutto $\op{\vec d}$ è un operatore dispari, poich\'e lo è $\op{\vec x}$, di conseguenza (come già visto nell'effetto Stark) siccome gli stati $\ket{f^{(0)}}$ e $\ket{i^{(0)}}$ hanno una parità definita nell'atomo di idrogeno, le transizioni tra stati della medesima parità sono proibite in quanto
+\begin{equation}
+	\bra{f^{(0)}}\scalar{\op{\vec d}}{\vec u}\ket{i^{(0)}}=
+	\bra{f^{(0)}}\op I^2\scalar{\op{\vec d}}{\vec u}\op I^2\ket{i^{(0)}}=
+	\bra{f^{(0)}}\op I\scalar{\op{\vec d}}{\vec u}\op I\ket{i^{(0)}}=
+	-\bra{f^{(0)}}\scalar{\op{\vec d}}{\vec u}\ket{i^{(0)}}.
+\end{equation}
+Il termine successivo nell'approssimazione (il termine di \emph{quadrupolo elettrico}) è invece pari, perciò in tal caso sono proibite le transizioni tra stati di parità opposta: la transizione di dipolo e quella di quadrupolo sono quindi esclusive.
+Troviamo anche delle regole di selezione con il momento angolare: poich\'e è un vettore, $\op{\vec d}$ ruota con la solita equazione $[\op L_i,\op d_j]=i\hbar\epsilon_{ijk}\op d_k$.
+In particolare, risultano
+\begin{equation}
+	\begin{aligned}
+		[\op L_3,\op d_1+i\op d_2]&=i\hbar(\op d_2-i\op d_i)=\hbar(\op d_1+i\op d_2)\\
+		[\op L_3,\op d_1-i\op d_2]&=i\hbar(\op d_2+i\op d_1)=-\hbar(\op d_1-i\op d_2)\\
+		[\op L_3,\op d_3]&=0
+	\end{aligned}
+	\label{eq:operatore-dipolo-scala-momento-angolare}
+\end{equation}
+quindi $\op d_+\defeq \op d_1+i\op d_2$ e $\op d_-\defeq\op d_1-i\op d_2$ si comportano proprio come gli operatori a scala della terza componente momento angolare.
+Indicando gli stati con il loro numero quantico magnetico $m$, dalla terza di queste tre equazioni risulta
+\begin{equation}
+	0=\bra{m'}[\op L_3,\op d_3]\ket{m}=\bra{m'}\op L_3\op d_3-\op d_3\op L_3\ket{m}=\hbar(m'-m)\bra{m'}\op d_3\ket{m}
+\end{equation}
+perciò deve essere $\bra{m'}\op d_3\ket{m}=0$ se $m\ne m'$: ciò indica che se l'onda è polarizzata linearmente lungo l'asse di $\op L_3$ (l'asse $z$) allora sono proibite transizioni tra stati con diverso $m$.
+Se l'onda è invece polarizzata circolarmente il vettore $\vec u$ di polarizzazione ha la forma $\vec u_\pm=\vec u_1\pm i\vec u_2$, perciò $\scalar{\op{\vec d}}{\vec u_\pm}=\op d_\pm$:
+\begin{equation}
+	\begin{aligned}
+		\bra{m'}\op d_+\ket{m}&=\frac1{\hbar}\bra{m'}[\op L_3,\op d_+]\ket{m}=(m'-m-1)\bra{m'}\op d_+\ket{m}\\
+		\bra{m'}\op d_-\ket{m}&=-\frac1{\hbar}\bra{m'}[\op L_3,\op d_-]\ket{m}=-(m'-m+1)\bra{m'}\op d_-\ket{m}
+	\end{aligned}
+\end{equation}
+quindi la polarizzazione circolare proibisce transizioni tra stati con $m'\ne m\pm 1$.
+Il quadrato del momento angolare fornisce ulteriori regole di selezione: sappiamo che $\op{\vec d}$, essendo proporzionale a $\op{\vec x}$, è a sua volta una combinazione lineare delle tre armoniche sferiche con $l=1$ (come abbiamo già visto studiando l'effetto Stark), perciò $\op{\vec d}\ket{n,l,m}$ è uno stato al cui numero $l$ è aggiunto 1.
+Dalla regola di composizione dei momenti angolari segue quindi che il numero quantico $l$ del nuovo stato assume valori tra $\abs{l-1},l$ e $l+1$, perciò sono ammesse solo le transizioni tra stati con $\Delta l=0,\pm1$.
+In particolare la transizione da $l=0$ a $l'=0$ è sempre proibita, dato che $\op d\ket{n,0,m}$ ha $l=1$; questa regola di selezione vale in realtà non solo nell'approssimazione di dipolo, ma più in generale.
+Scegliendo infatti l'asse $\vec e_3$ come direzione di propagazione, ossia $\vec k=k\vec e_3$, il vettore $\vec u$ di polarizzazione è nel piano a esso ortogonale quindi $\scalar{\vec p}{\vec u}=p_1u_1+p_2u_2$.
+Se ora $l=l'=0$ risulta anche qui che $\bra{n',0,0}(\op p_1u1+\op p_2u_2)e^{ik\op x_3}\ket{n,0,0}=0$ dato che, come già visto, $\op x_3$ porta $\ket{n,0,0}$ in uno stato con $l>0$ che è cos\'i ortogonale a $\ket{n',0,0}$.
+Nel caso specifico dell'atomo di idrogeno, la parità di uno stato è data dal momento angolare, ed è $(-1)^l$, perciò le transizioni con $\Delta l=0$ risultano proibita in quanto tra stati con la stessa parità.
+A causa della degenerazione dei livelli energetici, però, queste regole di selezione rimangono nascoste; diventano evidenti se invece all'atomo è applicato un campo elettrico esterno, in modo da rimuovere tali degenerazioni.
+
