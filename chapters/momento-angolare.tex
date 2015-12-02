@@ -70,6 +70,29 @@ Essi soddisfano inoltre le relazioni, per $i,j,k\in\{1,2,3\}$,
 \end{equation}
 che completano la descrizione dell'algebra di Lie del gruppo delle rotazioni, indicata con $\mathfrak{so}(3)$: essa è in pratica lo spazio vettoriale delle matrici $3\times 3$ reali antisimmetriche.
 
+\subsection{Rotazione di stati e operatori}
+Vediamo dunque come applicare la teoria delle rotazioni che stiamo studiando allo spazio di Hilbert degli stati.
+Cosa vuol dire «ruotare uno stato»?
+Certamente non significa ruotare il vettore dello spazio di Hilbert, e nemmeno ad esempio la sua funzione d'onda nello spazio; la rotazione agisce sullo spazio tridimensionale, e sono gli elementi di questo spazio ad essere ruotati.
+Dobbiamo quindi studiare le rappresentazioni del gruppo: in questo modo associamo ad ogni rotazione $\Rot$ un operatore $\op U(\Rot)$ che agisce sugli stati ruotandoli: se $\ket{\Rot\psi}$ indica lo stato $\ket{\psi}$ ruotato, allora $\ket{\Rot\psi}=\op U(\Rot)\ket{\psi}$.
+Questa rappresentazione dovrà essere unitaria, in modo che la rotazione conservi le probabilità, dunque richiediamo che $\adj{\op U(\Rot)}=\op U(\Rot)^{-1}$.
+Come già visto nell'evoluzione temporale, possiamo ``trasferire'' la rotazione degli stati agli operatori, descrivendo una rotazione anche di questi.
+Definiamo cos\`i la rotazione di un operatore ponendo che il valore di aspettazione dell'operatore iniziale rispetto allo stato iniziale sia uguale al valore di aspettazione dell'operatore ruotato rispetto allo stato ruotato; in altre parole, detto $\op a$ l'operatore e $\op a'$ quello ruotato, richiediamo che
+\begin{equation}
+	\bra{\psi}\op a\ket{\psi}=\bra{\Rot\psi}\op a'\ket{\Rot\psi}=\bra{\psi}\op U(\Rot)^{-1}\op a'\op U(\Rot)\ket{\psi}
+\end{equation}
+ossia, per l'arbitriaretà di $\ket{\psi}$,
+\begin{equation}
+	\op U(\Rot)^{-1}\op a'\op U(\Rot)=\op a.
+	\label{eq:rotazione-operatore}
+\end{equation}
+Possiamo dunque classificare gli operatori come
+\begin{itemize}
+	\item \emph{scalari}, se sono invarianti per rotazioni, ossia $\op U(\Rot)^{-1}\op s\op U(\Rot)=\op s$;
+	\item \emph{vettoriali}, se ruotano come un vettore di $\R^3$ sotto l'azione della matrice $\Rot_{ij}\in SO(3)$, vale a dire $\op U(\Rot)^{-1}\op v_i\op U(\Rot)=\Rot_{ij}\op v_j$ dove i $\op v_k$ sono le tre componenti dell'operatore $\op{\vec v}=(\op v_1,\op v_2,\op v_3)$.
+\end{itemize}
+Gli operatori di posizione e impulso, ad esempio, sono entrambi vettoriali.
+
 \section{Momento angolare}
 L'operatore associato al momento angolare è, come in meccanica classica, il generatore delle rotazioni, che soddisfa le relazioni di commutazione
 \begin{equation}
