@@ -93,6 +93,53 @@ Possiamo dunque classificare gli operatori come
 \end{itemize}
 Gli operatori di posizione e impulso, ad esempio, sono entrambi vettoriali.
 
+Come per le rotazioni di $SO(3)$, anche per le rappresentazioni possiamo trovare una terna di generatori $\op J_1,\op J_2,\op J_3$ con simili proprietà: questo equivale a trovare una rappresentazione dell'algebra $\mathfrak{so}(3)$.
+Cos\`i come possiamo passare da un elemento dell'algebra al gruppo tramite l'esponenziale, una transizione analoga si ha per le relative rappresentazioni, ma il discorso è più delicato: non è vero in generale che ogni rappresentazione dell'algebra, composta con l'esponenziale, dà una rappresentazione del gruppo.
+Questo lo vedremo esplicitamente più avanti proprio con le rotazioni.
+
+La prima rappresentazione che possiamo trovare di $\mathfrak{so}(3)$ è ovviamente quella che abbiamo visto finora, che è la rappresentazione \emph{fondamentale}: ha dimensione 3 e si hanno le matrici $\Ang_i$ già viste.
+In questo particolare caso, è vero che esponenziando un elemento dell'algebra si ottiene un elemento di $SO(3)$: dato un versore $(n_1,n_2,n_3)$ l'elemento $\mathsf N=n_1\Ang_1+n_2\Ang_2+n_3\Ang_3$ genera il sottogruppo a un parametro delle rotazioni attorno all'asse individuato da $\axis$, e con $\exp(t\mathsf N)$ per $t\in\R$ si hanno tutte le rotazioni di tale sottogruppo.
+
+\paragraph{Le matrici di Pauli}
+Un'altra rappresentazione cruciale di $\mathfrak{so}(3)$ si ottiene con le matrici di Pauli
+\begin{equation}
+	\sigma_1=
+	\begin{bmatrix}
+		0&1\\1&0
+	\end{bmatrix},
+	\hspace{1cm}
+	\sigma_2=
+	\begin{bmatrix}
+		0&-i\\i&0
+	\end{bmatrix},
+	\hspace{1cm}
+	\sigma_3=
+	\begin{bmatrix}
+		1&0\\0&-1
+	\end{bmatrix}.
+	\label{eq:matrici-pauli}
+\end{equation}
+Esse soddisfano la relazione, per $j,k,l\in\{1,2,3\}$,
+\begin{equation}
+	\sigma_j\sigma_k=\delta_{jk}+i\epsilon_{jkl}\sigma_l
+	\label{eq:prodotto-matrici-pauli}
+\end{equation}
+da cui $\sigma_1^2=\sigma_2^2=\sigma_3^2=1$, $\sigma_1\sigma_2\sigma_3=i$ e
+\begin{equation}
+	[\sigma_j,\sigma_k]=2i\epsilon_{jkl}\sigma_l.
+	\label{eq:commutatore-matrici-pauli}
+\end{equation}
+Queste tre matrici generano lo spazio vettoriale (reale) delle matrici $2\times 2$ complesse hermitiane con traccia nulla, che indichiamo con $H_0$, che con la parentesi di Lie data dalla \eqref{eq:commutatore-matrici-pauli} è anche un'algebra di Lie.
+La mappa $\Gamma\colon\mathfrak{so}(3)\to H_0$ data da\footnote{
+	Trattandosi di una mappa tra spazi vettoriali, è sufficiente definirla sulla base dello spazio di partenza.
+}
+\begin{equation}
+	\Gamma(\Ang_k)=\sigma_k
+	\label{eq:rappresentazione-so3-matrici-pauli}
+\end{equation}
+per $k=1,2,3$ è dunque una rappresentazione dell'algebra che stiamo studiando.
+Notiamo inoltre che le matrici $-\frac{i}2\sigma_k$ sono una base per l'algebra $\mathfrak{su}(2)$, associata al gruppo di Lie $SU(2)$ delle matrici unitarie con determinante 1: la mappa $\phi\colon H_0\to SU(2)$ data da $\phi(a)=\exp(-ia/2)$ ci permette dunque di associare una matrice di $SU(2)$ a una combinazione lineare reale delle matrici di Pauli.
+
 \section{Momento angolare}
 L'operatore associato al momento angolare è, come in meccanica classica, il generatore delle rotazioni, che soddisfa le relazioni di commutazione
 \begin{equation}
