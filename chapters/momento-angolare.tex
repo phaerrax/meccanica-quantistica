@@ -298,6 +298,46 @@ Questi tre operatori generano allora le rotazioni nel senso che, indicando $\op{
 	\op U(\axis,\theta)=\exp\bigg(\!-\frac{i}{\hbar}\theta\scalar{\axis}{\op{\vec J}}\bigg).
 \end{equation}
 
+\paragraph{Rotazione di operatori}
+Ora che è definito il momento angolare, vale la pena ritornare sulla rotazione degli operatori vista nell'equazione \eqref{eq:rotazione-operatore}.
+Per una trasformazione vicina all'identità, ossia una rotazione di un angolo $\theta$ infinitesimo (attorno a un generico asse dato da $\axis$), possiamo approssimare
+\begin{equation}
+	\op U(\axis,\theta)\approx 1-\frac{i}{\hbar}\theta n_k\op J_k
+	\qeq
+	\Rot(\axis,\theta)_{ij}\approx(1+\theta n_k\Ang_k)_{ij}=\delta_{ij}+\theta n_k(\Ang_k)_{ij}=\delta_{ij}+\theta n_k\epsilon_{ijk}.
+\end{equation}
+Per un operatore vettoriale $\op{\vec a}=(\op a_1,\op a_2,\op a_3)$ la \eqref{eq:rotazione-operatore} si scrive dunque come
+\begin{equation}
+	\begin{aligned}
+		\bigg(1-\frac{i}{\hbar}\theta n_k\op J_k\bigg)\op a_i\bigg(1+\frac{i}{\hbar}\theta n_k\op J_k\bigg)&=(1+\theta n_k\Ang_k)_{ij}\op a_j\\
+		\op a_i-\frac{i}{\hbar}\theta n_k\op J_k\op a_i+\frac{i}{\hbar}\theta n_k\op a_i\op J_k+\frac1{\hbar^2}\theta^2n_k\op J_k\op a_in_k\op J_k&=(\delta_{ij}+\theta n_k\epsilon_{ijk})\op a_j\\
+		\op a_i-\frac{i}{\hbar}\theta n_k\op J_k\op a_i+\frac{i}{\hbar}\theta n_k\op a_i\op J_k&=\op a_i+\theta\epsilon_{ijk}n_k\op a_j\\
+		-\frac{i}{\hbar}\theta[n_k\op J_k,\op a_i]&=\theta\epsilon_{ijk}n_k\op a_j\\
+		[n_k\op J_k,\op a_i]&=i\hbar\epsilon_{ijk}n_k\op a_j
+	\end{aligned}
+\end{equation}
+in cui abbiamo trascurato il termine con $\theta^2$ in quanto $o(\theta)$, dato che stiamo approssimando al primo ordine.
+Scegliendo ora per $\axis$ i tre assi cartesiani, con $(\vec e_l)_k=\delta_{lk}$, si ha allora
+\begin{equation}
+	[\delta_{lk}\op J_k,\op a_i]=i\hbar\epsilon_{ijk}\delta_{lk}\op a_j
+	\qqq
+	[\op J_l,\op a_i]=i\hbar\epsilon_{ijl}\op a_j
+\end{equation}
+la quale, rinominando gli indici, assume la forma più familiare
+\begin{equation}
+	[\op J_i,\op a_j]=i\hbar\epsilon_{ijk}\op a_k
+	\label{eq:rotazione-operatori-vettoriali-commutatore}
+\end{equation}
+che dunque caratterizza la rotazione degli operatori vettoriali.
+In particolare, lo stesso momento angolare soddisfa questa relazione, poich\'e segue le stesse regole di commutazione dell'algebra $\mathfrak{so}(3)$, vale a dire\footnote{
+	Più precisamente, i commutatori delle componenti del momento angolare contengono il termine $i\hbar\epsilon_{ijk}$, che differisce dalle costanti di struttura $\epsilon_{ijk}$ che definiscono l'algebra $\mathfrak{so}(3)$ per la costante $i\hbar$.
+	Ricordiamo però che questa costante è proprio quella per cui abbiamo moltiplicato i generatori delle rotazioni in modo che ``apparissero'' hermitiani e con le dimensioni fisiche adatte, quindi questa differenza è ben giustificata.
+}
+\begin{equation}
+	[\op J_i,\op J_j]=i\hbar\epsilon_{ijk}\op J_k.
+	\label{eq:commutazione-momento-angolare}
+\end{equation}
+
 Insieme alle tre componenti cartesiane del momento angolare abbiamo anche il quadrato del suo modulo, ossia $\op{\vec J}^2=\op J_i\op J_i$: essendo uno scalare, ci aspettiamo che sia invariante per rotazioni ossia che commuti con tutte le componenti del momento angolare.
 Una verifica diretta mostra infatti che, per $i=1,2,3$,
 \begin{equation}
