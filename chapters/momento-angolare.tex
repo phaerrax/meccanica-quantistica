@@ -100,7 +100,7 @@ Questo lo vedremo esplicitamente più avanti proprio con le rotazioni.
 La prima rappresentazione che possiamo trovare di $\mathfrak{so}(3)$ è ovviamente quella che abbiamo visto finora, che è la rappresentazione \emph{fondamentale}: ha dimensione 3 e si hanno le matrici $\Ang_i$ già viste.
 In questo particolare caso, è vero che esponenziando un elemento dell'algebra si ottiene un elemento di $SO(3)$: dato un versore $(n_1,n_2,n_3)$ l'elemento $\mathsf N=n_1\Ang_1+n_2\Ang_2+n_3\Ang_3$ genera il sottogruppo a un parametro delle rotazioni attorno all'asse individuato da $\axis$, e con $\exp(t\mathsf N)$ per $t\in\R$ si hanno tutte le rotazioni di tale sottogruppo.
 
-\paragraph{Le matrici di Pauli}
+\subsection{Le matrici di Pauli}
 Un'altra rappresentazione cruciale di $\mathfrak{so}(3)$ si ottiene con le matrici di Pauli
 \begin{equation}
 	\sigma_1=
@@ -139,6 +139,140 @@ La mappa $\Gamma\colon\mathfrak{so}(3)\to H_0$ data da\footnote{
 \end{equation}
 per $k=1,2,3$ è dunque una rappresentazione dell'algebra che stiamo studiando.
 Notiamo inoltre che le matrici $-\frac{i}2\sigma_k$ sono una base per l'algebra $\mathfrak{su}(2)$, associata al gruppo di Lie $SU(2)$ delle matrici unitarie con determinante 1: la mappa $\phi\colon H_0\to SU(2)$ data da $\phi(a)=\exp(-ia/2)$ ci permette dunque di associare una matrice di $SU(2)$ a una combinazione lineare reale delle matrici di Pauli.
+
+In particolare vediamo come, dato un versore $\axis$ e un angolo $\theta$, si può associare ad ogni rotazione $\Rot(\axis,\theta)$ una matrice
+\begin{equation}
+	\cos\frac{\theta}2-i\scalar{\vsigma}{\axis}\sin\frac{\theta}2
+\end{equation}
+dove $\scalar{\vsigma}{\axis}$ è un'abbreviazione per $n_1\sigma_1+n_2\sigma_2+n_3\sigma_3$.
+Prendiamo la combinazione lineare $-\frac{it}2\scalar{\vsigma}{\axis}$: essa è una matrice di $\mathfrak{su}(3)$, perciò il suo esponenziale appartiene a $SU(2)$.
+Con lo sviluppo in serie di Taylor troviamo e separando la somma delle potenze pari da quelle dispari troviamo
+\begin{equation}
+	\begin{split}
+		\exp\big(-\frac{i}2\scalar{\vsigma}{\axis}t\big)&=\sum_{k=0}^{+\infty}\frac{(-i\scalar{\vsigma}{\axis}t/2)^k}{k!}=\\
+		&=\sum_{j=0}^{+\infty}\frac{(-i\scalar{\vsigma}{\axis}t/2)^{2j}}{(2j)!}+\sum_{j=0}^{+\infty}\frac{(-i\scalar{\vsigma}{\axis}t/2)^{2j+1}}{(2j+1)!}=\\
+		&=\sum_{j=0}^{+\infty}\frac{(-it/2)^{2j}}{(2j)!}+\scalar{\vsigma}{\axis}\sum_{j=0}^{+\infty}\frac{(-it/2)^{2j+1}}{(2j+1)!}=\\
+		&=\sum_{j=0}^{+\infty}\frac{(-1)^j(t/2)^{2j}}{(2j)!}-i\scalar{\vsigma}{\axis}\sum_{j=0}^{+\infty}\frac{(-1)^j(t/2)^{2j+1}}{(2j+1)!}=\\
+		&=\cos\frac{t}2-i\scalar{\vsigma}{\axis}\sin\frac{t}2.
+	\end{split}
+	\label{eq:formula-eulero-SU2}
+\end{equation}
+Abbiamo sfruttato in questo calcolo il fatto che, per ogni $n\in\N_0$, $(\scalar{\vsigma}{\axis})^{2n}=\norm{\axis}^{2n}=1$: questo si vede facilmente perch\'e sviluppando il quadrato di $n_1\sigma_1+n_2\sigma_2+n_3\sigma_3$ si hanno i termini quadratici $n_k^2\sigma_k^2=n_k^2$ mentre i prodotti misti $n_jn_k(\sigma_j\sigma_k+\sigma_k\sigma_j)$ sono nulli, come si deduce dalla \eqref{eq:prodotto-matrici-pauli}.
+
+Notiamo poi che la forma bilineare $g\colon H_0\times H_0\to\C$ data da
+\begin{equation}
+	g(a,b)=\frac12\tr(ab)
+	\label{eq:prodotto-interno-matrici-pauli}
+\end{equation}
+definisce un prodotto interno in $H_0$, rispetto al quale le tre matrici di Pauli sono ortonormali: con la \eqref{eq:prodotto-matrici-pauli} si ha
+\begin{equation}
+	\frac12\tr(\sigma_j\sigma_k)=\frac12\tr(\delta_{jk}+i\epsilon_{jkl}\sigma_l)=\frac12\tr\delta_{jk}+\frac12\epsilon_{jkl}\tr(i\sigma_l)=\frac12\tr\delta_{jk}=\delta_{jk}.
+\end{equation}
+Questo risultato è utile per ``estrarre'' i coefficienti di una combinazione lineare delle tre matrici: se $a\in H_0$ si scrive come $\mu_1\sigma_1+\mu_2\sigma_2+\mu_3\sigma_3$, allora $\mu_k=g(a,\sigma_k)=\frac12\tr(a\sigma_k)$.
+
+Ora, presa una matrice $U\in SU(2)$, definiamo la mappa
+\begin{equation}
+	\rho_U\colon x\mapsto Ux\adj{U},
+\end{equation}
+evidentemente lineare, per $x\in H_0$.
+Poich\'e $\adj{(Ux\adj{U})}=\adj{(\adj U)}\adj{x}\adj{U}=Ux\adj{U}$ e $\tr(Ux\adj{U})=\tr(\adj{U}Ux)=\tr x=0$, il risultato è ancora un elemento di $H_0$, perciò $\rho_U$ è un endomorfismo di $H_0$.
+Se definiamo una mappa $\rho_V\colon x\mapsto Vx\adj{V}$  per un'altra $V\in SU(2)$ in modo analogo, componendo le due risulta
+\begin{equation}
+	\rho_V\circ\rho_U(x)=V\rho_U(x)\adj{V}=VUx\adj{U}\adj{V}=VUx\adj{(VU)}=\rho_{VU}(x)
+\end{equation}
+che fornisce una legge di composizione di questa ``famiglia'' di mappe.
+D'altra parte, abbiamo visto che $H_0\cong\R^3$, quindi il vettore $(x_1,x_2,x_3)$ delle coordinate di $x$ rispetto alle tre $\sigma_k$ è un vettore di $\R^3$, e risulta inoltre che
+\begin{equation}
+	\det(x_k\sigma_k)=-x_3^2-(x_1-ix_2)(x_1+ix_2)=-x_3^2-x_1^2-x_2^2=-\norm{x}^2.
+\end{equation}
+Applicando $\rho_U$ alla matrice $x_k\sigma_k$ risulta anche, per l'unitarietà di $U$,
+\begin{equation}
+	\det\rho_U(x)=\det(Ux\adj{U})=\det x
+\end{equation}
+quindi, vista come mappa lineare $\R^3\to\R^3$, $\rho_U$ è un'isometria, vale a dire $\rho_U\in O(3)$.
+L'analogia tra $\rho_U$ e una rotazione è sempre più evidente.
+Calcoliamo infine la matrice $P$ associata a $\rho_U$, tale che $x_k'=P_{kj}x_j$, dove $x'$ è il vettore delle coordinate di $\rho_U(x)$: siccome
+\begin{equation}
+	\rho_U(x)=Ux\adj{U}=x_iU\sigma_i\adj{U}=x_i(P^T)_{ij}\sigma_j=x_iP_{ji}\sigma_i
+\end{equation}
+abbiamo che
+\begin{equation}
+	P_{ji}=(P^T)_{ij}=\frac12\tr(\sigma_jU\sigma_i\adj{U}).
+\end{equation}
+Parametrizzando $U$ con la formula \eqref{eq:formula-eulero-SU2}: esistono un versore $\axis$ e un $\theta\in\R$ tali che
+\begin{equation}
+	\begin{split}
+		U\sigma_i\adj{U}&=\bigg(\!\cos\frac{\theta}2-i\scalar{\vsigma}{\axis}\sin\frac{\theta}2\bigg)\sigma_i\bigg(\!\cos\frac{\theta}2+i\scalar{\vsigma}{\axis}\sin\frac{\theta}2\bigg)=\\
+		&=\cos^2\frac{\theta}2\sigma_i+\sin^2\frac{\theta}2(\scalar{\vsigma}{\axis}\sigma_i\scalar{\vsigma}{\axis})-i\sin\frac{\theta}2\cos\frac{\theta}2\scalar{\vsigma}{\axis}\sigma_i+i\sin\frac{\theta}2\cos\frac{\theta}2\sigma_i\scalar{\vsigma}{\axis}=\\
+		&=\cos^2\frac{\theta}2\sigma_i+\sin^2\frac{\theta}2(\scalar{\vsigma}{\axis}\sigma_i\scalar{\vsigma}{\axis})+\frac{i}2\sin\theta[\sigma_i,\scalar{\vsigma}{\axis}].
+	\end{split}
+\end{equation}
+Analizziamo a parte i due fattori con le matrici di Pauli:
+\begin{equation}
+	[\sigma_i,\scalar{\vsigma}{\axis}]=[\sigma_i,\sigma_kn_k]=n_k[\sigma_i,\sigma_k]=2i\epsilon_{ikj}n_k\sigma_j
+\end{equation}
+mentre
+\begin{equation}
+	\begin{split}
+		\scalar{\vsigma}{\axis}\sigma_i\scalar{\vsigma}{\axis}&=[\scalar{\vsigma}{\axis},\sigma_i]\scalar{\vsigma}{\axis}+\sigma_i(\scalar{\vsigma}{\axis})^2=\\
+		&=-2i\epsilon_{ikj}n_k\sigma_jn_l\sigma_l+\sigma_i=\\
+		&=2i\epsilon_{ijk}n_kn_l(\delta_{jl}+i\epsilon_{jlp}\sigma_p)+\sigma_i=\\
+		&=2i\epsilon_{ijk}n_kn_l\delta_{jl}-2\epsilon_{jki}\epsilon_{jls}n_kn_l\sigma_s+\sigma_i=\\
+		&=2i\epsilon_{ijk}n_kn_j-2(\delta_{kl}\delta_{is}-\delta_{ks}\delta_{il})n_kn_l\sigma_s-\sigma_i=\\
+		&=2n_kn_i\sigma_k-2n_kn_k\sigma_i+\sigma_i=\\
+		&=2n_i\scalar{\vsigma}{\axis}-2\scalar{\axis}{\axis}\sigma_i+\sigma_i=\\
+		&=2n_i\scalar{\vsigma}{\axis}-\sigma_i.
+	\end{split}
+\end{equation}
+Con questi risulta allora
+\begin{equation}
+	\begin{split}
+		U\sigma_i\adj{U}&=\cos^2\frac{\theta}2\sigma_i+\sin^2\frac{\theta}2(2n_i\scalar{\vsigma}{\axis}-\sigma_i)+\frac{i}2\sin\theta(2i\epsilon_{ikj}\sigma_jn_k)=\\
+		&=\bigg(\!\cos^2\frac{\theta}2-\sin^2\frac{\theta}2\bigg)\sigma_i+2\sin^2\frac{\theta}2n_i\scalar{\vsigma}{\axis}-\sin\theta\epsilon_{ikj}n_k\sigma_j=\\
+		&=\cos\theta\sigma_i+(1-\cos\theta)n_in_j\sigma_j-\sin\theta\epsilon_{ikj}n_k\sigma_j=\\
+		&=\big[\cos\theta\delta_{ij}+(1-\cos\theta)n_in_j-\sin\theta\epsilon_{ikj}n_k\big]\sigma_j
+	\end{split}
+\end{equation}
+per cui $P_{ji}=\cos\theta\delta_{ij}+(1-\cos\theta)n_in_j-\sin\theta\epsilon_{ikj}n_k$; applicato al vettore $x$ delle coordinate, si ha
+\begin{equation}
+	P_{ji}x_i=\cos\theta x_j-\sin\theta(x\times\axis)_j+(1-\cos\theta)(\scalar{x}{\axis})n_j
+\end{equation}
+Possiamo d'altronde scomporre $x$ in una parte parallela a $\axis$ e una ortogonale, scrivendo $x=x_\parallel+x_\perp$, dove $x_\parallel\defeq(\scalar{x}{\axis})\axis$ e $x_\perp\defeq x-(\scalar{x}{\axis})\axis$, e con questo si ha
+\begin{equation}
+	P_{ji}x_i=\cos\theta(x_\perp)_j+(x_\parallel)_j-\sin\theta(x_\perp\times\axis)_j,
+\end{equation}
+che mostra come la parte parallela rimane invariata, mentre la parte ortogonale è ruotata di $\theta$ nel piano ortogonale a $\axis$.
+Scegliamo quindi, per esempio, $\axis=\vec e_3$: allora $n_jn_i=\delta_{ji}\delta_{i3}$, perch\'e vale 1 solo se $i=j=3$, e con questo
+\begin{equation}
+	P_{ji}=\cos\theta\delta_{ij}+\sin\theta\epsilon_{ji3}n_3+(1-\cos\theta)\delta_{ij}\delta_{j3}
+\end{equation}
+vale a dire
+\begin{equation}
+	P=
+	\begin{pmatrix}
+		\cos\theta	&-\sin\theta	&0\\
+		\sin\theta	&\cos\theta		&0\\
+		0			&0				&1
+	\end{pmatrix}
+\end{equation}
+che è una matrice di $SO(3)$ per una rotazione attorno all'asse $\vec e_3$.
+Allo stesso tempo, però, risulta
+\begin{equation}
+	U=\cos\frac{\theta}2-i\sigma_3\sin\frac{\theta}2=
+	\begin{bmatrix}
+		\cos\frac{\theta}2-i\sin\frac{\theta}2&0\\
+		0&\cos\frac{\theta}2-i\sin\frac{\theta}2
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		e^{i\theta/2}&0\\
+		0&e^{i\theta/2}
+	\end{bmatrix}.
+\end{equation}
+La differenza tra le due rappresentazioni è evidente, in quanto $P$ è periodica in $\theta$ di $2\pi$, mentre $U$ lo è di $4\pi$.
+Questo mostra esplicitamente come, sebbene $\mathfrak{so}(3)\cong\mathfrak{su}(2)$, lo stesso non si può dire dei corrispondenti gruppi di Lie.
+I gruppi $SO(3)$ e $SU(2)$ non possono cos\`i essere isomorfi, perch\'e non c'è una corrispondenza biunivoca tra i loro elementi: è sufficiente vedere che le due rotazioni di $2\pi$ e $4\pi$, che in $SU(2)$ sono differenti, in $SO(3)$ corrispondono allo stesso elemento, l'identità.
+Più in generale, con la mappa $\rho$ che abbiamo costruito si nota che $U$ e $-U$ danno luogo alla medesima $\rho$.
 
 \section{Momento angolare}
 L'operatore associato al momento angolare è, come in meccanica classica, il generatore delle rotazioni, che soddisfa le relazioni di commutazione
