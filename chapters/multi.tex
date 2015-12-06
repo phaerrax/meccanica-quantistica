@@ -1,0 +1,46 @@
+\chapter{Sistemi con più gradi di libertà}
+Salvo brevi eccezioni, finora abbiamo trattato solamente dei sistemi ad un grado di libertà, tipicamente una particella in moto lungo una retta.
+Passiamo ora a studiare sistemi con più gradi di libertà, che possono corrispondere ad un maggior numero di particelle, all'aggiunta di altre dimensioni spaziali, o entrambe.
+In questo capitolo ci occuperemo di introdurre lo schema matematico in cui inquadrare questi problemi, in via generale, per poterlo poi applicare a problemi più complessi di quelli già visti, come le rotazioni e gli atomi.
+
+\section{Prodotto diretto di spazi vettoriali}
+Il problema principale è capire come costruire lo spazio degli stati di tali sistemi.
+Sappiamo che con un grado di libertà possiamo associare ad ogni stato un raggio in uno spazio di Hilbert complesso, separabile e infinito dimensionale.
+Quando il sistema possiede più di una dimensione spaziale, tali dimensioni sono indipendenti e apportano ciascuna un grado di libertà; per ciascuna di esse abbiamo, ad esempio, un operatore della posizione e uno dell'impulso, e sappiamo già dai commutatori fondamentali che posizione e impulso di coordinate differenti commutano.
+Analogamente, componendo più particelle in un sistema ciascuna di esse ha associata la coppia di operatori posizione e impulso (ad esempio) e tutti quelli che ne derivano.
+/bin/bash: :wq: command not found
+\begin{equation}
+	\hilbert=\hilbert_1\otimes\hilbert_2\otimes\cdots\otimes\hilbert_d.
+\end{equation}
+
+Per studiare la definizione e le proprietà di base ci restringiamo ora al prodotto di due spazi $\hilbert_1$ e $\hilbert_2$.
+Dati gli stati (qualsiasi) $\ket{A}\in\hilbert_1$ e $\ket{B}\in\hilbert_2$, possiamo costruire il loro prodotto diretto $\ket{A}\otimes\ket{B}$ che rappresenta lo stato del sistema combinato $\hilbert=\hilbert_1\otimes\hilbert_2$ in cui il sottosistema $\hilbert_1$ è nello stato $\ket{A}$ e il sottosistema $\hilbert_2$ è nello stato $\ket{B}$.
+Chiaramente il prodotto non è commutativo, perch\'e in generale non è detto nemmeno che esista uno stato $\ket{A}$ in $\hilbert_2$ in modo da poter scrivere $\ket{B}\otimes\ket{A}$.
+Lo spazio vettoriale $\hilbert_1\otimes\hilbert_2$ è dotato in modo naturale delle operazioni di somma e di moltiplicazione per scalare (un numero complesso) esattamente come gli spazi di partenza: esso contiene le coppie $\ket{A}\otimes\ket{B}$ per \emph{ogni} stato $\ket{A}\in\hilbert_1$ e ogni stato $\ket{B}\in\hilbert_2$, e tutte le possibili combinazioni lineari di essi.
+Il \textit{bra} associato al \textit{ket} $\ket{A}\otimes\ket{B}$ è semplicemente $\bra{A}\otimes\bra{B}$; con questo, il prodotto interno nello spazio prodotto è definito come
+\begin{equation}
+	(\bra{A}\otimes\bra{B})(\ket{C}\otimes\ket{D})=\braket{A}{C}\braket{B}{D}
+\end{equation}
+che, in termini di probabilità, mostra come gli ``eventi'' nei due sistemi siano indipendenti, poich\'e la probabilità dell'evento composto risulta essere il prodotto delle singole probabilità.
+Spesso lo stato composto si scrive omettendo il simbolo $\otimes$, o anche in un unico \textit{ket}, come
+\begin{equation}
+	\ket{A}\otimes\ket{B}\hspace{2cm}\ket{A}\ket{B}\hspace{2cm}\ket{A,B}.
+\end{equation}
+Utilizzeremo per un po' la prima e la terza notazione insieme.
+
+Anche se possiamo costruire uno stato composto dal prodotto di due stati, non è vero che ogni stato del sistema composto si possa scrivere in tale modo: in generale, uno stato $\ket{\psi}\in\hilbert=\hilbert_1\otimes\hilbert_2$ è una combinazione lineare di stati composti.
+Date due basi di autostati (eventualmente anche continui) $\ket{i}$ e $\ket{j}$ per gli spazi, una base dello spazio prodotto è l'insieme $\{\ket{i}\otimes\ket{j}=\ket{i,j}\}$, quindi in generale
+\begin{equation}
+	\hilbert\ni\ket{\psi}=\sum_{i,j}c_{ij}\ket{i,j}=\sum_{i,j}c_{ij}\ket{i}\otimes\ket{j}
+\end{equation}
+dove come al solito $c_{ij}=\braket{i,j}{\psi}=(\bra{i}\otimes\bra{j})\ket{\psi}$.
+Solo nel caso in cui $c_{ij}$ si può scrivere nella forma $a_ib_j$ allora si ha
+\begin{equation}
+	\ket{\psi}=\sum_{i,j}a_ib_j\ket{i,j}=\sum_{i,j}a_i\ket{i}\otimes b_j\ket{j}=\bigg(\sum_ia_i\ket{i}\bigg)\otimes\bigg(\sum_jb_j\ket{j}\bigg)
+\end{equation}
+cioè $\ket{\psi}$ si può scrivere come prodotto di due stati semplici, e si dice talvolta \emph{separabile}.
+Quando non esiste una tale fattorizzazione, lo stato è detto \emph{entangled}.\footnote{
+	Letteralmente \textit{ingrovigliato}, \textit{intrecciato}.
+	Il termine inglese è di uso comune, e raramente si trova tradotto in italiano.
+}
+
