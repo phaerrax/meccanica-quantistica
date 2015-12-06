@@ -44,3 +44,39 @@ Quando non esiste una tale fattorizzazione, lo stato è detto \emph{entangled}.\
 	Il termine inglese è di uso comune, e raramente si trova tradotto in italiano.
 }
 
+Gli operatori nello spazio composto in generale sono, anche qui, combinazioni lineari di prodotti diretti di operatori di ciascuno spazio: dati due operatori $\op\xi^{(1)}$ e $\op\eta^{(2)}$ rispettivamente su $\hilbert_1$ e su $\hilbert_2$, possiamo associare ad essi l'operatore $\op\xi^{(1)}\otimes\op\eta^{(2)}$ sullo spazio composto tale che
+\begin{equation}
+	(\op\xi^{(1)}\otimes\op\eta^{(2)})(\ket{A}\otimes\ket{B})=(\op\xi^{(1)}\ket{A})\otimes(\op\eta^{(2)}\ket{B}).
+\end{equation}
+Notare come ogni operatore agisce soltanto sullo stato del ``proprio'' spazio, indipendentemente dal resto.
+Ogni operatore di ciascuno spazio, d'altronde, si estende ad un operatore sullo spazio composto in modo naturale: l'operatore $\op\xi^{(1)}$ può essere esteso all'operatore
+\begin{equation}
+	\op\xi^{(1\otimes 2)}=\op\xi^{(1)}\otimes 1^{(2)}
+\end{equation}
+dove $1^{(2)}$ è l'identità dello spazio $\hilbert_2$.
+Analogamente gli operatori di $\hilbert_2$ si estendono ad operatori del tipo $1^{(1)}\otimes\op\eta^{(2)}$.
+Spesso ometteremo gli indici nei pedici, dato che nella maggior parte dei casi $\op\xi^{(1)}$ e $\op\xi^{(1)}\otimes 1^{(2)}$ rappresentano la stessa osservabile, solo definita in spazi diversi.\footnote{
+	In generale però l'osservabile $\op\xi$ potrebbe non essere definita nell'altro spazio.
+}
+L'identità dello spazio composto è ovviamente $1^{(1)}\otimes 1^{(2)}$.
+Come già anticipato, le osservabili $\op\xi$ e $\op\eta$ in questo caso fanno riferimento a sistemi differenti, dunque sono \emph{sempre compatibili}.
+Una semplice conseguenza di questo fatto è che se $\op\xi\ket{\xi}=\xi\ket{\xi}$ e $\op\eta\ket{\eta}=\eta\ket{\eta}$, dove $\ket{\xi}\in\hilbert_1$ e $\ket{\eta}\in\hilbert_2$, allora
+\begin{equation}
+	\op\xi\op\eta\ket{\xi,\eta}=(\op\xi\otimes 1)(1\otimes\op\eta)(\ket{\xi}\otimes\ket{\eta})=\xi\eta\ket{\xi,\eta}
+\end{equation}
+cioè l'autovalore dello stato composto è il prodotto degli autovalori.
+Un altro esempio è
+\begin{equation}
+	(\op\xi+\op\eta)\ket{\xi,\eta}=(\op\xi\otimes 1+1\otimes\op\eta)(\ket{\xi}\otimes\ket{\eta})=(\xi+\eta)\ket{\xi,\eta}
+\end{equation}
+Cos\`i come per gli stati, in generale un operatore non è il prodotto diretto di due operatori, e $\op\xi+\op\eta$ ne è un esempio.
+Gli elementi di matrice di un operatore $\op\xi$ sullo spazio composto, data una base $\ket{i,j}$, si definiscono nel modo solito come $\xi_{iji'j'}\defeq\bra{i,j}\op\xi\ket{i',j'}$ in modo che
+\begin{equation}
+	\op\xi=\sum_{i,j,i',j'}\xi_{iji'j'}\ket{i,j}\bra{i',j'}
+\end{equation}
+e se $\op\xi$ si fattorizza nel prodotto $\op\eta\op\zeta=(\op\eta\otimes 1)(1\otimes\op\zeta)$ allora
+\begin{equation}
+	\bra{i,j}\op\xi\ket{i',j'}=\bra{i,j}\op\eta\op\zeta\ket{i',j'}=\bra{i}\op\eta\ket{i'}\bra{j}\op\zeta\ket{j'}
+\end{equation}
+cioè l'elemento di matrice dell'operatore prodotto non è altro che il prodotto degli elementi di matrice dei due fattori, nelle basi di ciascun singolo spazio.
+
