@@ -631,3 +631,91 @@ Calcolando i moduli al quadrato, abbiamo i coefficienti di trasmissione e rifles
 	\label{eq:coefficienti-trasmissione-riflessione-tunneling}
 \end{equation}
 
+\section{Momenti della distribuzione di probabilità}
+Abbiamo visto come la funzione $\abs{\psi(x)}^2$ sia la densità di probabilità di misurare la posizione $x$ della particella, e che tale funzione può essere usata anche per calcolare i valori medi delle osservabili dipendenti solo dall'operatore di posizione.
+Può essere utile quindi disporre di un metodo per calcolare il generico momento della distribuzione data da $\abs{\psi}^2$.
+Supponiamo che la funzione d'onda sia reale, in modo che $\abs{\psi}^2=\psi^2$, e chiamiamo $\rho\defeq\psi^2$ intendendo d'ora in poi che sia normalizzata, ossia
+\begin{equation}
+	\int_{-\infty}^{+\infty}\rho(x)\,\dd x=1.
+\end{equation}
+A partire dall'equazione di Schr\"odinger, nel caso in cui $\op H=\frac1{2m}\op p^2+V(\op x)$, possiamo ricavare un'equazione differenziale anche per $\rho$.
+Innanzitutto abbiamo le due derivate\footnote{
+	Da qui in avanti sottintenderemo spesso la dipendenza da $x$ delle funzioni, a parte dove ce n'è esplicitamente bisogno come negli integrali.
+}
+\begin{equation}
+	\rho'=2\psi\psi',
+	\hspace{1cm}
+	\rho''=2(\psi')^2+2\psi\psi'',
+	\hspace{1cm}
+\end{equation}
+mentre dall'equazione di Schr\"odinger abbiamo $\psi''=\frac{2m}{\hbar^2}(V-E)\psi$, perciò
+\begin{equation}
+	\rho''=2(\psi')^2+\frac{4m}{\hbar^2}(V-E)\psi^2.
+\end{equation}
+Ancora non possiamo riportare l'equazione in termini solo di $\rho$, a causa del $2(\psi')^2$.
+Continuiamo quindi con la derivata terza, ottenendo
+\begin{equation}
+	\rho'''=4\psi'\psi''+\frac{4m}{\hbar^2}V'\rho+\frac{4m}{\hbar^2}(V-E)\rho'=\frac{8m}{\hbar^2}(V-E)\rho'+\frac{4m}{\hbar^2}V'\rho,
+\end{equation}
+da cui, riordinando i termini, otteniamo l'equazione differenziale per la funzione di densità di probabilità $\rho$ per le funzioni dipendenti dalla posizione, per un autostato dell'hamiltoniano in un sistema unidimensionale
+\begin{equation}
+	\frac{\hbar^2}{8m}\rho'''=(V-E)\rho'+\frac12V'\rho.
+	\label{eq:eq-differenziale-pdf-posizione-unidimensionale}
+\end{equation}
+Moltiplichiamo dunque per $x^k$ ($k\ge 0$) e integriamo su tutto l'asse reale: il primo membro, integrando per parti e sfruttando il fatto che per $\abs{x}\to+\infty$ $\rho,\rho'$ e $\rho''$ tendono a zero si ha
+\begin{multline}
+	\int_{-\infty}^{+\infty}x^k\rho'''(x)\,\dd x=
+	(-k)\int_{-\infty}^{+\infty}x^{k-1}\rho''(x)\,\dd x=
+	k(k-1)\int_{-\infty}^{+\infty}x^{k-2}\rho'(x)\,\dd x=\\=
+	-k(k-1)(k-2)\int_{-\infty}^{+\infty}x^{k-3}\rho(x)\,\dd x=
+	-k(k-1)(k-2)\avg{x^{k-3}}.
+\end{multline}
+Gli altri termini dell'equazione, analogamente, risultano
+\begin{equation}
+	\int_{-\infty}^{+\infty}x^kV(x)\rho'(x)\,\dd x=
+	-k\int_{-\infty}^{+\infty}x^{k-1}V(x)\rho(x)\,\dd x-\int_{-\infty}^{+\infty}x^kV'(x)\rho(x)\,\dd x=
+	-k\avg{x^{k-1}V}-\avg{x^{k}V'}
+\end{equation}
+e banalmente
+\begin{equation}
+	\begin{gathered}
+		-\int_{-\infty}^{+\infty}x^kE\rho'(x)\,\dd x=
+			kE\int_{-\infty}^{+\infty}x^{k-1}\rho(x)\,\dd x=
+			kE\avg{x^{k-1}},\\
+		\frac12\int_{-\infty}^{+\infty}x^kV'(x)\rho(x)\,\dd x=
+			\frac12\avg{x^kV'}.
+	\end{gathered}
+\end{equation}
+Da questi risultati otteniamo allora
+\begin{equation}
+	\frac{\hbar^2}{8m}k(k-1)(k-2)\avg{x^{k-3}}=\frac12\avg{x^kV'}+k\avg{x^{k-1}(V-E)}
+	\label{eq:ricorsione-momenti-pdf-posizione-unidimensionale}
+\end{equation}
+che è un'equazione di ricorsione da cui possiamo ottenere in modo diretto alcuni valori medi della posizione o del potenziale.
+\begin{itemize}
+	\item Per $k=0$ troviamo $\frac12\avg{V'}=0$, ossia $\avg{V'}=0$: d'altronde $V'(x)$ rappresenta la forza, descritta dal potenziale, che agisce sul sistema nel punto $x$, e giustamente un autostato dell'hamiltoniano è in equilibrio, cioè risente di una forza complessivamente nulla.
+		Avevamo già visto questo risultato dimostrando che in un autostato $\ket{E}$ dell'hamiltoniano $\op H$ per qualsiasi operatore $\op\xi$ si ha $\bra{E}[\op H,\op\xi]\ket{E}=0$, e poich\'e la forza è $\drv{}{t}\op p=[\op p,\op H]$ (dall'equazione di Heisenberg) si ha questo risultato.
+	\item Per $k=1$ si ha $\frac12\avg{xV'}+\avg{E-V}$ ossia $\avg{xV'}=2\avg{E-V}$.
+		Ma $E-V$ è l'energia cinetica, che indichiamo con $T$, e se $V$ è omogenea di grado $l$ allora $\avg{xV'}=l\avg{V}$, per cui in tal caso $l\avg{V}=2\avg{T}$: questo non è altro che il teorema del viriale.
+\end{itemize}
+
+Possiamo adattare i calcoli effettuati al caso in cui il sistema sia ancora unidimensionale ma ammetta soltanto posizioni su un semiasse.
+Come vedremo più avanti, sarà il caso di un sistema espresso in coordinate sferiche: talvolta si può ridurre la descrizione matematica ad un sistema unidimensionale nella variabile radiale (la distanza $r$ dall'origine), ma la variabile $r$ assume solo valori tra $0$ e $+\infty$.
+Le condizioni al contorno in questo caso non sono più cos\'i semplici.
+Possiamo sempre assumere che $\psi(0)=0$, da cui $\rho(0)=0$: di conseguenza anche $\rho'(0)=2\psi(0)\psi'(0)=0$, qualsiasi sia il valore di $\psi'(0)$.
+Lo stesso non si può dire però di $\rho''=2(\psi')^2$, dato che il termine $(\psi')^2$ non è necessariamente nullo per $r=0$.
+Integrando la \eqref{eq:eq-differenziale-pdf-posizione-unidimensionale} tra $0$ e $+\infty$ otteniamo comunque
+\begin{equation}
+	\frac{\hbar^2}{8m}\int_0^{+\infty}\rho'''(r)\,\dd r=\int_0^{+\infty}[V(r)-E]\rho'(r)\,\dd r+\frac12\int_0^{+\infty}V'(r)\rho(r)\,\dd r
+\end{equation}
+e integrando per parti, poich\'e $\rho,\rho',\rho''\to 0$ per $r\to+\infty$, si ha
+\begin{equation}
+	\begin{aligned}
+		\frac{\hbar^2}{8m}\int_0^{+\infty}\rho'''(r)\,\dd r&=\int_0^{+\infty}V(r)\rho'(r)\,\dd r-E\int_0^{+\infty}\rho'(r)\,\dd r+\frac12\int_0^{+\infty}V'(r)\rho(r)\,\dd r\\
+		\frac{\hbar^2}{8m}\rho''(r)\bigg|_0^{+\infty}&=V(r)\rho(r)\bigg|_0^{+\infty}-\int_0^{+\infty}V'(r)\rho(r)\,\dd r-E\rho(r)\bigg|_0^{+\infty}+\frac12\int_0^{+\infty}V'(r)\rho(r)\,\dd r\\
+		\frac{\hbar^2}{4m}\big(\psi'(0)\big)^2&=-\avg{V'}
+	\end{aligned}
+\end{equation}
+ma come già visto precedentemente $\avg{V'}=0$ in un sistema in equilibrio, come è un autostato dell'hamiltoniano.
+Poich\'e allora vale anche $\rho''(0)=0$, possiamo riportare la \eqref{eq:ricorsione-momenti-pdf-posizione-unidimensionale} anche in questo caso.
+
