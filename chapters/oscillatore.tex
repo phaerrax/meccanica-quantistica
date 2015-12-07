@@ -368,7 +368,7 @@ Notiamo che lo stato fondamentale è anch'esso uno stato coerente, corrispondent
 \section{Soluzioni dell'equazione di Schr\"odinger}
 In una dimensione, con un potenziale della forma $V(q)=\frac12m\omega^2q^2$, l'equazione di Schr\"odinger per la funzione d'onda $\psi$ nella base della posizione è
 \begin{equation}
-	\frac{\hbar^2}{2m}\psi''(q)+\bigg(E-\frac12m\omega q^2\bigg)\psi(q)=0.
+	\frac{\hbar^2}{2m}\psi''(q)+\bigg(E-\frac12m\omega^2 q^2\bigg)\psi(q)=0.
 	\label{eq:schrodinger-oscillatore-1d}
 \end{equation}
 In questa forma però risulta difficile da risolvere, anche perch\'e non conosciamo il valore di $E$.
@@ -376,13 +376,13 @@ Per evitarla usiamo, come abbiamo già fatto per ricavare lo spettro dell'hamilt
 Nella base delle coordinate, abbiamo per uno stato $\ket{\psi}$ (con la funzione d'onda $\psi(q)=\braket{q}{\psi}$)
 \begin{multline}
 	\bra{q}\op a\ket{\psi}=\bra{q}\frac{\op p-im\omega\op q}{\sqrt{2m\hbar\omega}}\ket{\psi}=\frac1{\sqrt{2m\hbar\omega}}(\bra{q}\op p\ket{\psi}-im\omega\bra{q}\op q\ket{\psi})=\\
-	=\frac1{\sqrt{2m\hbar\omega}}\bigg[-ih\drv{\psi}{q}(q)-im\omega q\psi(q)\bigg]
+	=\frac1{\sqrt{2m\hbar\omega}}\bigg[-i\hbar\drv{\psi}{q}(q)-im\omega q\psi(q)\bigg]
 \end{multline}
 Possiamo dunque rappresentare $\op a$ come l'operatore in $L^2(\R)$
 \begin{equation}
 	f(q)\mapsto-\frac{i}{\sqrt{2}}\bigg[\sqrt{\frac{\hbar}{m\omega}}\drv{f}{q}(q)+\sqrt{\frac{m\omega}{\hbar}}qf(q)\bigg].
 \end{equation}
-Possiamo semplificare il tutto con un cambio di variabili: poniamo $y=\big(\frac{m\omega}{\hbar})^{-\frac12}q$, da cui $\drv{}{q}=\drv{y}{q}\drv{}{y}=\big(\frac{m\omega}{\hbar})^{-\frac12}\drv{}{q}$, ottenendo
+Possiamo semplificare il tutto con un cambio di variabili: poniamo $y=\big(\frac{m\omega}{\hbar})^{-\frac12}q$, da cui $\drv{}{q}=\drv{y}{q}\drv{}{y}=\big(\frac{m\omega}{\hbar})^{-\frac12}\drv{}{y}$, ottenendo
 \begin{equation}
 	\op a=-\frac{i}{\sqrt{2}}\bigg(\drv{}{y}+y\bigg)
 \end{equation}
