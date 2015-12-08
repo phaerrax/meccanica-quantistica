@@ -1,0 +1,15 @@
+\begin{figure}
+	\tikzsetnextfilename{autofunzione-oscillatore2d-isotropo}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+				xlabel=$x_1$,
+				ylabel=$x_2$,
+				view={-30}{50}
+			]
+			\addplot3[surf,domain=-3:3,domain y=-3:3,samples=50] function {(2*sqrt(pi))**(-1)*(2*x)**2*exp(-x**2)*(2**2*2!*sqrt(pi))**(-1)*(4*y**2-2)**2*exp(-y**2)}; % |1,2>
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Densità di probabilità $\abs{\psi(x_1,x_2)}^2$ dello stato $\ket{1}\otimes\ket{2}$ dell'oscillatore armonico isotropo in due dimensioni.}
+	\label{fig:autofunzione-oscillatore2d-isotropo}
+\end{figure}

@@ -80,3 +80,52 @@ e se $\op\xi$ si fattorizza nel prodotto $\op\eta\op\zeta=(\op\eta\otimes 1)(1\o
 \end{equation}
 cioè l'elemento di matrice dell'operatore prodotto non è altro che il prodotto degli elementi di matrice dei due fattori, nelle basi di ciascun singolo spazio.
 
+\section{Oscillatore armonico isotropo}
+Come primo facile esempio di sistema con più gradi di libertà riprendiamo l'oscillatore armonico in più dimensioni già visto a pagina \pageref{sec:oscillatore-armonico-multidimensionale}.
+Per semplicità consideriamo solo due gradi di libertà, dato che la generalizzazione ad un numero maggiore è molto semplice.
+Un oscillatore armonico è dato dal potenziale
+\begin{equation}
+	V(x_1,x_2)=\frac12m(\omega_1x_1^2+\omega_2x_2^2)
+\end{equation}
+ed è \emph{isotropo} se tutte le frequenze di oscillazione coincidono, in questo caso $\omega_1=\omega_2=\omega$.
+L'hamiltoniano del sistema è dunque
+\begin{equation}
+	\op H=\frac1{2m}(p_1^2+p_2^2)+\frac12m\omega^2(x_1^2+x_2^2).
+\end{equation}
+Indichiamo i due gradi di libertà con dei generici indici 1 e 2 in quanto non sono necessariamente la due coordinate cartesiane di una particella in un piano, ma possono avere altri significati: i risultati che troveremo si applicano, senza alcun cambiamento, anche ad un sistema di due particelle in moto unidimensionale.
+Con la notazione dei prodotti tensoriali che abbiamo introdotto, è chiaro che $\op x_1$ corrisponde all'operatore $\op x\otimes 1$ nello spazio composto, e analogamente $\op x_2=1\otimes\op x$, $\op p_1=\op p\otimes 1$ e $\op p_2=1\otimes\op p$.\footnote{
+	Nell'indicare gli operatori composti omettiamo l'indice che indica a quale spazio si riferiscono, dato che è la stessa osservabile in spazi diversi.
+	Lo spazio a cui fanno riferimento risulta comunque è ovvio in base alla posizione dell'operatore nel prodotto: $\op p\otimes 1$ è l'impulso del primo spazio, e cos\`i via.
+}
+Risulta inoltre che $(\op x\otimes 1)^2=\op x^2\otimes 1$ e analogamente per gli altri.
+Allora l'hamiltoniano si riscrive come
+\begin{equation}
+	\begin{split}
+		\op H&=\frac1{2m}(\op p^2\otimes 1+1\otimes\op p^2)+\frac12m\omega^2(\op x^2\otimes 1+1\otimes\op x^2)=\\
+		&=\frac1{2m}(\op p^2\otimes 1+m^2\omega^2\op x^2\otimes 1+1\otimes\op p^2+m^2\omega^2 1\otimes\op x^2)=\\
+		&=\frac1{2m}(\op p^2+m^2\omega^2\op x^2)\otimes 1+\frac1{2m}1\otimes(\op p^2+m^2\omega^2\op x^2)=\\
+		&=\op H^{(1)}\otimes 1+1\otimes\op H^{(2)}
+	\end{split}
+\end{equation}
+cioè l'hamiltoniano composto non è altro che la somma dei due hamiltoniani dei sottosistemi.
+Dato che i due sistemi sono indipendenti, non interagiscono, ed è lecito aspettarsi che i due hamiltoniani rimangano ``separati''.
+Se dunque $\ket{E_1}$ e $\ket{E_2}$ sono autostati, in ordine, dei due hamiltoniani con autovalori $E_1$ ed $E_2$, allora
+\begin{multline}
+	\op H(\ket{E_1}\otimes\ket{E_2})=
+	(\op H^{(1)}\otimes 1)(\ket{E_1}\otimes\ket{E_2})+(1\otimes\op H^{(2)})(\ket{E_1}\otimes\ket{E_2})=\\=
+	\op H^{(1)}\ket{E_1}\otimes\ket{E_2}+\ket{E_1}\otimes\op H^{(2)}\ket{E_2}=E_1\ket{E_1}\otimes\ket{E_2}+\ket{E_1}\otimes E_2\ket{E_2}=(E_1+E_2)\ket{E_1}\otimes\ket{E_2}
+\end{multline}
+cioè $\ket{E_1}\otimes\ket{E_2}$ è un autostato dell'hamiltoniano nel sistema composto.
+Conosciamo già gli autostati dei singoli sistemi, ossia gli stati $\ket{n}$ tali che $\op H\ket{n}=(n+\frac12)\hbar\omega\ket{n}$: allora prese le basi $\{\ket{n_1}\}_{n_1=0}^{+\infty}$ e $\{\ket{n_2}\}_{n_2=0}^{+\infty}$ possiamo costruire la base del sistema composto data dagli stati
+\begin{equation}
+	\ket{n_1}\otimes\ket{n_2}=\ket{n_1,n_2}
+\end{equation}
+che sono tutti autostati dell'hamiltoniano, con autovalore $(n_1+n_2+1)\hbar\omega$.
+
+La funzione d'onda, nelle variabili $x_1,x_2$ della posizione, dello stato composto è data da 
+\begin{equation}
+	\braket{x_1,x_2}{n_1,n_2}=(\bra{x_1}\otimes\bra{x_2})(\ket{n_1}\otimes\ket{n_2})=\braket{x_1}{n_1}\braket{x_2}{n_2}
+\end{equation}
+perciò la funzione d'onda dello stato composto è semplicemente il prodotto delle funzioni d'onda dei due sottosistemi: la notazione con il prodotto tensoriale rende subito evidente questo fatto.
+\input{grafici/autofunzione-oscillatore2d-isotropo}
+
