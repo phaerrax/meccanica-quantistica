@@ -495,6 +495,101 @@ troviamo che
 \end{equation}
 e il termine tra le parentesi quadre, a meno del fattore $1/r^2$, è la parte angolare del laplaciano in coordinate sferiche.
 
+\paragraph{Il momento angolare orbitale in dimensione generica}
+Possiamo sfruttare un approccio alternativo per ricavare la rappresentazione di Schr\"odinger di $\op{\vec L}^2$, senza passare per le coordinate sferiche e tutti i conti fatti precedentemente.
+Se in dimensione 3 il momento angolare orbitale si può definire tramite la \eqref{eq:momento-angolare-orbitale}, in una dimensione $d$ generica si può definire il tensore
+\begin{equation}
+	L_{ij}=x_ip_j-x_jp_i
+	\label{eq:tensore-momento-angolare}
+\end{equation}
+che è un tensore antisimmetrico di rango 2.
+Da esso possiamo risalire al classico vettore $\vec L$ contraendolo con la $\epsilon_{ijk}$: risulta infatti
+\begin{equation}
+	\epsilon_{ijk}L_{ij}=\epsilon_{ijk}(x_ip_j-x_jp_i)=\epsilon_{ijk}x_ip_j+\epsilon_{jik}x_jp_i=2L_k
+\end{equation}
+dunque $L_k=\frac12\epsilon_{ijk}L_{ij}$.
+Viceversa, si controlla facilmente che $\epsilon_{ijk}L_k=L_{ij}$.\footnote{
+	Queste relazioni hanno una valenza più generale, con il concetto di \emph{tensore duale}: un tensore antisimmetrico $A$ di rango $k$ può essere sempre mappato in un tensore sempre antisimmetrico di rango $k-d$ tramite il simbolo di Levi-Civita $d$-dimensionale, cioè
+	\begin{equation}
+		A_{i_1,\dots,i_k}\mapsto A^*_{i_{k+1},\dots,i_d}=\frac1{k!}\epsilon_{i_1,\dots,i_d}A_{i_1,\dots,i_k}
+		\label{eq:tensore-duale}
+	\end{equation}
+	e il tensore $A^*$ è detto \emph{duale} di $A$.
+	La definizione si inverte nel modo
+	\begin{equation}
+		A_{i_1,\dots,i_k}=\frac1{(d-k)!}\epsilon_{i_1,\dots,i_k,i_{k+1},\dots,i_d}A^*_{i_{k+1},\dots,i_d}.
+		\label{eq:tensore-duale-inversione}
+	\end{equation}
+	Con questa definizione ad ogni vettore $\vec v\in\R^3$, che è un tensore di rango 1, è possibile associare un tensore antisimmetrico di rango 2 dato da $v^*_{ij}=\epsilon_{ijk}v_k$.
+}
+Tutti questi risultati potranno essere presi in dimensione generica, dato che non è mai stata specificata in questi calcoli.
+Troviamo inoltre le relazioni
+\begin{equation}
+	\begin{split}
+		[L_i,L_j]&=\epsilon_{lmi}\epsilon_{ksj}[x_lp_m,x_kp_s]=\\
+		&=i\hbar\epsilon_{lmi}\epsilon_{ksj}(\delta_{ls}x_kp_m-\delta_{mk}x_lp_s)=\\
+		&=i\hbar(\epsilon_{lmi}\epsilon_{klj}x_kp_m-\epsilon_{lki}\epsilon_{ksj}x_lp_s)=\\
+		&=i\hbar\big[(\delta_{mj}\delta_{ik}-\delta_{mk}\delta_{ij})x_kp_m-(\delta_{is}\delta_{lj}-\delta_{ls}\delta_{ij})x_lp_s\big]=\\
+		&=i\hbar(x_ip_j-x_jp_i)=\\
+		&=i\hbar L_{ij};\\
+		[L_{ij},L_{mn}]&=[x_ip_j,x_mp_n]-[x_ip_j,x_np_m]-[x_jp_i,x_mp_n]+[x_jp_i,x_np_m]=\\
+		&=i\hbar(-\delta_{jm}x_ip_n+\delta_{in}x_mp_j+\delta_{jn}x_ip_m-\delta_{im}x_np_j+\delta_{im}x_jp_n-\delta_{jn}x_mp_i-\delta_{in}x_jp_m+\delta_{jm}x_np_i)=\\
+		&=i\hbar\big[\delta_{jm}(-x_ip_n+x_np_i)+\delta_{in}(x_mp_j-x_jp_m)+\delta_{jn}(x_ip_m-x_mp_i)+\delta_{im}(-x_np_j+x_jp_n)\big]=\\
+		&=i\hbar(\delta_{jm}L_{ni}+\delta_{jn}L_{im}+\delta_{im}L_{jn}+\delta_{in}L_{mj}).
+	\end{split}
+\end{equation}
+La norma al quadrato del momento angolare orbitale può essere quindi riscritta con il tensore $L_{ij}$ come
+\begin{multline}
+	\vec L^2=\delta_{ij}L_iL_j=\frac14\delta_{ij}\epsilon_{kli}L_{kl}\epsilon_{mnj}L_{mn}=\frac14\epsilon_{ikl}\epsilon_{imn}L_{kl}L_{mn}=\\
+	=\frac14(\delta_{km}\delta_{ln}-\delta_{lm}\delta_{kn})L_{kl}L_{mn}=\frac14(L_{kl}L_{kl}-L_{kl}L_{lk})=\frac12L_{kl}L_{kl}.
+\end{multline}
+Al tensore $L_{ij}$ esso possiamo associare come al solito l'operatore $\op L_{ij}$ sostituendo opportunamente gli operatori di posizione e impulso.
+Dall'ultima equazione otteniamo allora un'espressione per $\op{\vec L}^2$:
+\begin{equation}
+	\begin{split}
+		\op{\vec L}^2&=\frac12\op L_{ij}\op L_{ij}=\frac12(\op x_i\op p_j-\op x_j\op p_i)(\op x_i\op p_j-\op x_j\op p_i)=\\
+		&=\frac12(\op x_i\op p_j\op x_i\op p_j-\op x_i\op p_j\op x_j\op p_i-\op x_j\op p_i\op x_i\op p_j+\op x_j\op p_i\op x_j\op p_i)=\\
+		&=\frac12\big[\op x_i(\op x_i\op p_j-i\hbar\delta_{ij})\op p_j-\op x_i(\op x_j\op p_j-i\hbar\delta_{jj})\op p_i-\op x_j(\op x_i\op p_i-i\hbar\delta_{ii})\op p_j+\op x_j(\op x_j\op p_i-i\hbar\delta_{ij})\op p_i\big]=\\
+	&=\op{\vec x}^2\op{\vec p}^2+i\hbar(d-1)\scalar{\op{\vec x}}{\op{\vec p}}-\frac12\big[\op x_i(\scalar{\op{\vec x}}{\op{\vec p}})\op p_i+\op x_j(\scalar{\op{\vec x}}{\op{\vec p}})\op p_j\big]=\\
+	&=\op{\vec x}^2\op{\vec p}^2+i\hbar(d-1)\scalar{\op{\vec x}}{\op{\vec p}}-\frac12\big[\op x_i\op p_i(\scalar{\op{\vec x}}{\op{\vec p}})-i\hbar \op x_i\op p_i+\op x_j\op p_j(\scalar{\op{\vec x}}{\op{\vec p}})-i\hbar \op x_j\op p_j\big]=\\
+		&=\op{\vec x}^2\op{\vec p}^2+i\hbar(d-1)\scalar{\op{\vec x}}{\op{\vec p}}-(\scalar{\op{\vec x}}{\op{\vec p}})^2-i\hbar\scalar{\op{\vec x}}{\op{\vec p}}=\\
+		&=\op{\vec x}^2\op{\vec p}^2+i\hbar(d-2)\scalar{\op{\vec x}}{\op{\vec p}}-(\scalar{\op{\vec x}}{\op{\vec p}})^2.
+	\end{split}
+	\label{eq:L^2-dimensione-generica}
+\end{equation}
+In particolare in tre dimensioni abbiamo $\op{\vec L}^2=\op{\vec x}^2\op{\vec p}^2+i\hbar\scalar{\op{\vec x}}{\op{\vec p}}-(\scalar{\op{\vec x}}{\op{\vec p}})^2$.
+Passiamo ora alla rappresentazione di Schr\"odinger (per funzioni in $L^2(\R^d)$, essendo la dimensione generica) in coordinate polari.
+Dalla \eqref{eq:L^2-dimensione-generica} possiamo ricavare un'espressione per $\op{\vec p}^2$ in coordinate polari: è sufficiente moltiplicare a sinistra per l'operatore $\op{\vec x}^{-2}$ (l'inverso del quadrato della norma).
+Nella rappresentazione di Schr\"odinger delle coordinate, $\op{\vec x}$ è diagonale, e in coordinate sferiche possiamo definire l'operatore
+\begin{equation}
+	\op r\defeq\bigg(\sum_{i=1}^d\op x_i^2\bigg)^2
+	\label{eq:operatore-raggio}
+\end{equation}
+che fornisce la distanza dall'origine ed è evidentemente autoaggiunto.
+Dal termine
+\begin{equation}
+	\scalar{\op{\vec x}}{\op{\vec p}}=-i\hbar x_i\drp{}{x_i}=-i\hbar r\frac{x_i}{r}\drp{}{x_i}=-i\hbar r\drp{r}{x_i}\drp{}{x_i}=-i\hbar r\drp{}{r}
+\end{equation}
+siamo indotti a definire anche l'operatore coniugato a $\op r$, che è l'impulso radiale $\op p_r$ rappresentato in $L^2(\R^d)$ nelle coordinate sferiche da $-i\hbar\drp{}{r}$, in modo che $\scalar{\op{\vec x}}{\op{\vec p}}=\op r\op p_r$.
+Questo operatore però non è necessariamente autoaggiunto: se per verificarlo nel casi dei $\op p_i$ cartesiani era sufficiente integrare per parti, dato che i termini al contorno (per $\abs{x}\to+\infty$) erano nulli, in questo caso il bordo del dominio di $r$ è $0$ e $+\infty$, e non c'è alcun motivo di supporre che le funzioni d'onda siano nulle nell'origine; oltretutto, la misura in coordinate polari non è il semplice prodotto dei $\dd x_i$ ma contiene altri fattori.
+Con queste definizioni abbiamo dunque
+\begin{equation}
+	(\scalar{\op{\vec x}}{\op{\vec p}})^2=-\hbar^2r\drp{}{r}\bigg(r\drp{}{r}\bigg)=-\hbar^2\bigg(r\drp{}{r}+r^2\ddrp{}{r}\bigg)=\op r^2\op p_r^2-i\hbar \op r\op p_r
+\end{equation}
+e il quadrato dell'impulso si rappresenta allora come
+\begin{equation}
+	\op{\vec p}^2=-\hbar^2\ddrp{}{r}-\hbar^2(d-1)\frac1{r}\drp{}{r}+\frac{L^2}{r^2}=
+	-\hbar^2\bigg[\ddrp{}{r}+\frac{(d-1)}{r}\drp{}{r}\bigg]+\frac{L^2}{r^2}
+	\label{eq:rappresentazione-impulso-coordinate-sferiche}
+\end{equation}
+dove $L$ è un opportuno operatore di $L^2(\R^d)$ che rappresenta il momento angolare orbitale.
+Notiamo infine che il termine tra parentesi quadre è il termine radiale del laplaciano in dimensione $d$, che è
+\begin{equation}
+	\frac{d-1}{r}\drp{}{r}+\ddrp{}{r}=\frac1{r^{d-1}}\bigg[(d-1)r^{d-2}\drp{}{r}+r^{d-1}\ddrp{}{r}\bigg]=\frac1{r^{d-1}}\drp{}{r}\bigg(r^{d-1}\drp{}{r}\bigg).
+	\label{eq:laplaciano-dimensione-generica}
+\end{equation}
+
+Torniamo ora al problema degli autovalori.
 Affinch\'e la funzione d'onda sia continua, deve risultare periodica di $2\pi$ nella variabile $\phi$.
 Cos\`i come una funzione definita su un intervallo limitato si può analizzare in serie di Fourier e ammette dei modi normali di oscillazione con un insieme discreto (numerabile) di frequenze, anche la parte in $\phi$ delle autofunzioni di $\op L_3$ avrà questa caratteristica: questo porta, tra le altre cose, alla quantizzazione del momento angolare.
 Le autofunzioni di questo operatore sono infatti funzioni $f(r,\phi,\theta)$ tali che
@@ -507,53 +602,21 @@ Imponendo la periodicità della funzione otteniamo che deve soddisfare
 \end{equation}
 da cui ricaviamo che $m$ deve essere intero in modo che $e^{2im\pi}=1$.
 
-
-Rimane da rappresentare anche $\op{\vec L}^2$: dall'identità, valida in una generica dimensione $d$,
-\begin{equation}
-	\op{\vec L}^2=\op{\vec x}^2\op{\vec p}^2-(\scalar{\op{\vec x}}{\op{\vec p}})^2+i\hbar(d-2)\scalar{\op{\vec x}}{\op{\vec p}}
-	\label{eq:relazione-L2-x-p}
-\end{equation}
-possiamo anche ottenere una comoda rappresentazione di $\op{\vec p}^2$ in coordinate polari: è sufficiente moltiplicare a sinistra per l'operatore $\op{\vec x}^{-2}$ (l'inverso del quadrato della norma).
-In pratica, la norma al quadrato dell'operatore di posizione corrisponde al quadrato della distanza dall'origine, cioè $r^2$, che sarà l'autovalore di questo operatore in una rappresentazione in cui è diagonale.
-
 Un'operatore hamiltoniano della forma $\frac1{2m}\op{\vec p}^2+V(\norm{\op{\vec x}}^2)$ è invariante per rotazioni e commuta dunque con $\op{\vec L}^2$ e $\op L_3$.
 In generale sarà un operatore degenere: possiamo etichettare gli autostati con tre numeri $E,l,m$ tali che, oltre all'equazione di Schr\"odinger, abbiamo
 \begin{equation}
 	L^2\psi_{E,l,m}(\vec x)=l(l+1)\hbar^2\psi_{E,l,m}(\vec x)\qeq L_3\psi_{E,l,m}(\vec x)=m\hbar\psi_{E,l,m}(\vec x).
 	\label{eq:autofunzioni-momento-angolare}
 \end{equation}
-Vediamo dunque come rappresentare opportunamente $\op{\vec p}^2$ in $L^2(\R^3)$ con l'identità \eqref{eq:relazione-L2-x-p}: nella rappresentazione delle coordinate $\op{\vec x}^2$ è diagonale si traduce nella moltiplicazione per $r^2$ (analogamente per $\op{\vec x}^{-2}$), mentre
-\begin{equation}
-	\scalar{\op{\vec x}}{\op{\vec p}}=-i\hbar x_i\drp{}{x_i}=-i\hbar r\frac{x_i}{r}\drp{}{x_i}=-i\hbar r\drp{r}{x_i}\drp{}{x_i}=-i\hbar r\drp{}{r}.
-\end{equation}
-Analogamente alla coppia di coordinate cartesiane, possiamo definire un operatore $\op r\defeq\sqrt{\op x^2+\op y^2+\op z^2}$ (in senso generalizzato: abbiamo gli stessi problemi di $x$ e $p$), che risulta autoaggiunto, e un momento coniugato $\op p_r\defeq-i\hbar\drp{}{r}$.
-Quest'ultimo però non è autoaggiunto: se per verificarlo nel casi dei $\op p_i$ cartesiani era sufficiente integrare per parti dato che i termini al contorno (per $\abs{x}\to+\infty$) erano nulli, in questo caso il contorno del dominio di $r$ è $0$ e $+\infty$, e non c'è alcun motivo di supporre che le funzioni d'onda siano nulle nell'origine; oltretutto, la misura in coordinate polari non è il semplice prodotto dei $\dd x_i$ ma contiene altri fattori.
-Con queste definizioni abbiamo dunque
-\begin{equation}
-	(\scalar{\op{\vec x}}{\op{\vec p}})^2=-\hbar^2r\drp{}{r}r\drp{}{r}=-\hbar^2\bigg(r\drp{}{r}+r^2\ddrp{}{r}\bigg)=\op r^2\op p_r^2-i\hbar \op r\op p_r
-\end{equation}
-e il quadrato dell'impulso si scrive finalmente come
-\begin{equation}
-	\op{\vec p}^2=-\hbar^2\ddrp{}{r}-\hbar^2(d-1)\frac1{r}\drp{}{r}+\frac{L^2}{r^2}=
-	-\hbar^2\bigg[\ddrp{}{r}+(d-1)\frac1{r}\drp{}{r}\bigg]+\frac{L^2}{r^2}=
-	-\hbar^2\lap
-\end{equation}
-dato che
-\begin{equation}
-	\lap=\ddrp{}{r}+(d-1)\frac1{r}\drp{}{r}-\frac{L^2}{\hbar^2r^2}=
-	\frac1{r^{d-1}}\drp{}{r}r^{d-1}\drp{}{r}-\frac{L^2}{\hbar^2r^2}
-	\label{eq:laplaciano-momento-angolare}
-\end{equation}
-è l'operatore laplaciano, nella nostra rappresentazione in coordinate sferiche in dimensione $d$.
-
 Notiamo che nelle equazioni agli autovalori \eqref{eq:autofunzioni-momento-angolare} per le funzioni $\psi_{E,l,m}$ non sono coinvolti il potenziale e l'energia del sistema, ma solo i numeri $l$ e $m$.
+
 Per cercare le autofunzioni scegliamo innanzitutto un potenziale nullo, ottenendo l'equazione $-\hbar^2\lap\psi=2mE\psi$.
 Ponendo $k^2\defeq\frac{2mE}{\hbar^2}$ possiamo semplificarla nella forma $\lap\psi=-k^2\psi$.
 Effettuiamo dunque una separazione delle variabili fattorizzando la funzione d'onda come $R(r)Y(\phi,\theta)$: nella prima delle \eqref{eq:autofunzioni-momento-angolare} troviamo cos\`i $L^2R(r)Y(\phi,\theta)=\hbar^2l(l+1)R(r)Y(\phi,\theta)$ in cui semplifichiamo $R(r)$ trovando
 \begin{equation}
 	L^2Y(\phi,\theta)=\hbar^2l(l+1)Y(\phi,\theta)
 \end{equation}
-e con un ragionamento analogo, detto $g(l)$ l'autovalore di $L^2$ in dimensione generica $d$, l'equazione $\lap\psi=-k^2\psi$ si riscrive con la \eqref{eq:laplaciano-momento-angolare} come
+e con un ragionamento analogo, detto $g(l)$ l'autovalore di $L^2$ in dimensione generica $d$, l'equazione $\lap\psi=-k^2\psi$ si riscrive con la \eqref{eq:rappresentazione-impulso-coordinate-sferiche} come
 \begin{equation}
 	Y(\phi,\theta)\bigg[\frac1{r^{d-1}}\drp{}{r}r^{d-1}\drp{}{r}+\frac{g(l)}{r^2}\bigg]R(r)=-k^2R(r)Y(\phi,\theta)
 	\label{eq:laplace-parte-radiale}
