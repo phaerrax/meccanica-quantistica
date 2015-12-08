@@ -179,6 +179,78 @@ Con esso scriviamo la funzione d'onda dello stato $\ket{n,l,m}$
 \input{grafici/autofunzioni-radiali-idrogeno}
 Vediamo quindi, dal fattore $\exp\big(\frac{Z}{n}\frac{r}{r_B}\big)$, che all'aumentare di $Z$ la funzione d'onda è ``più grande'' vicino al nucleo, mentre per $n$ grande tende ad ``allontanarsi''.
 
+Con l'aiuto della \eqref{eq:ricorsione-momenti-pdf-posizione-unidimensionale} possiamo calcolare alcuni valori medi negli autostati $\ket{n,l,m}$, che ci torneranno anche utili più avanti.
+Per avere un hamiltoniano della forma $\frac1{2m}\op p_r^2+V(\op r)$ è necessario prendere come potenziale il potenziale efficace\footnote{
+	Trovandoci in un autostato dell'hamiltoniano, possiamo sostituire il quadrato del momento angolare orbitale $\op{\vec L}^2$ con il suo autovalore $l(l+1)\hbar^2$.
+}
+\begin{equation}
+	V_\textup{eff}(r)=\frac{l(l+1)\hbar^2}{2mr^2}-\frac{Ze^2}{r}
+\end{equation}
+per cui il secondo membro della \eqref{eq:ricorsione-momenti-pdf-posizione-unidimensionale} è
+\begin{equation}
+	\begin{split}
+		&\frac12\avg{r^kV'}+k\avg{r^{k-1}(V-E)}=\\
+		=&\frac12\bigg(-\frac{l(l+1)\hbar^2}{m}\avg{r^{k-3}}+Ze^2\avg{r^{k-2}}\bigg)+k\bigg(\frac{l(l+1)\hbar^2}{2m}\avg{r^{k-3}}-Ze^2\avg{r^{k-2}}-E\avg{r^{k-1}}\bigg)=\\
+		=&\frac{l(l+1)\hbar^2}{2m}(k-1)\avg{r^{k-3}}+Ze^2\bigg(\frac12-k\bigg)\avg{r^{k-2}}-kE\avg{r^{k-1}},
+	\end{split}
+\end{equation}
+per cui abbiamo l'equazione di ricorsione
+\begin{equation}
+	\frac{\hbar^2}{8m}\big[k(k-1)(k-2)-4l(l+1)(k-1)\big]\avg{r^{k-3}}+Ze^2\bigg(k-\frac12\bigg)\avg{r^{k-2}}+kE\avg{r^{k-1}}=0.
+	\label{eq:ricorsione-momenti-pdf-radiale-atomo-idrogeno}
+\end{equation}
+\begin{itemize}
+	\item Per $k=1$ troviamo $\frac{Ze^2}2\avg{r^{-1}}+E=0$, ossia $\avg{r^{-1}}=-2E/Ze^2$.\footnote{
+			È importante ricordare che $\avg{1/r}\ne1/\avg{r}$, dato che $1/r$ non è una funzione lineare in $r$.
+			Solitamente però sono dello stesso ordine di grandezza.
+		}
+		Sostituendo ad $E$ il valore ricavato nella \eqref{eq:energia-idrogeno} troviamo
+		\begin{equation}
+			\avg{r^{-1}}=-\frac2{Ze^2}\bigg(-\frac{mZ^2e^4}{2n^2\hbar^2}\bigg)=\frac{mZe^2}{n^2\hbar^2}=\frac1{n^2}\frac{Z}{r_B}.
+		\end{equation}
+		È interessante come questo risultato dipenda da solo uno dei tre numeri quantici introdotti.
+	\item Per $k=2$ si trova l'equazione
+		\begin{equation}
+			=-\frac{\hbar^2}{2m}l(l+1)\avg{r^{-1}}+\frac32Ze^2+2E\avg{r}=-\frac{l(l+1)Ze^2}{2n^2}+\frac32Z^2-\frac{mZ^2e^4}{n^2\hbar^2}\avg{r}
+		\end{equation}
+		da cui si ottiene il valor medio della distanza dell'elettrone dal centro
+		\begin{equation}
+			\avg{r}=\frac{n^2\hbar^2}{mZ^2e^4}\bigg[\frac32Ze^2-\frac{l(l+1)Ze^2}{2n^2}\bigg]=\frac{\hbar^2}{mZe^2}\bigg(\frac32n^2-\frac{l(l+1)}2\bigg)=\frac{r_B}{2Z}\big[3n^2-l(l+1)\big]
+		\end{equation}
+	\item Per $k=3$ infine abbiamo
+		\begin{equation}
+			\begin{split}
+				0&=\frac{\hbar^2}{8m}\big[6-8l(l+1)\big]+\frac52Ze^2\avg{r}+3E\avg{r^2}=\\
+				&=\frac{\hbar^2}{4m}\big[3-4l(l+1)\big]+\frac52Ze^2\frac{r_B}{2Z}\big[3n^2-l(l+1)\big]-\frac{3mZ^2e^4}{2n^2\hbar^2}\avg{r^2}=\\
+				&=\frac{\hbar^2}{4m}\big[3-4l(l+1)\big]+\frac{5\hbar^2}{4m}\big[3n^2-l(l+1)\big]-\frac{3mZ^2e^4}{2n^2\hbar^2}\avg{r^2}
+			\end{split}
+		\end{equation}
+		da cui otteniamo
+		\begin{equation}
+			\avg{r^2}=\frac{n^2\hbar^4}{6mZ^2e^4}\big[3-4l(l+1)+15n^2-5l(l+1)\big]=\frac{n^2r_B^2}{2Z^2}\big[5n^2-3l(l+1)+1\big].
+		\end{equation}
+\end{itemize}
+Per le potenze $r^k$ con $k$ negativo non possiamo usare questo metodo, ma possiamo affidarci al teorema \ref{t:dipendenza-hamiltoniano-parametro}: scegliamo come parametro il numero quantico $l$, ricordando che $n=\bar{k}+l+1$.
+Allora
+\begin{equation}
+	\drp{\op H}{l}=\frac{(2l+1)\hbar^2}{2mr^2},
+	\hspace{1cm}
+	\drp{E}{l}=-\frac{mZ^2e^4}{2\hbar^2}\drp{}{l}\frac1{(\bar{k}+l+1)^2}=\frac{mZ^2e^4}{(\bar{k}+l+1)^3\hbar^2}=\frac{mZ^2e^4}{n^3\hbar^2}
+\end{equation}
+e con il teorema sopracitato abbiamo l'equazione
+\begin{equation}
+	\frac{mZ^2e^4}{n^3\hbar^2}=\bra{n,l,m}\frac{(2l+1)\hbar^2}{2mr^2}\ket{n,l,m}=\frac{(2l+1)\hbar^2}{2m}\avg{r^{-2}}
+\end{equation}
+da cui
+\begin{equation}
+	\avg{r^{-2}}=\frac{2m^2Z^2e^4}{n^3(2l+1)\hbar^4}=\frac{2Z^2}{n^3(2l+1)r_B^2}.
+\end{equation}
+Per calcolare i valori medi di $r^k$ con $k<-2$ bisogna infine controllare, prima di tutto, la funzione d'onda nell'origine, ossia che l'integrale
+\begin{equation}
+	\int_0^{+\infty}r^{2l}\frac1{r^k}r^2\,\dd r
+\end{equation}
+converga: questo accade per $k<2l+3$.
+
 Lo stato fondamentale $\ket{1,0,0}$ (se $n=1$ allora $\bar{k}=l=0$, non potendo essere negativi) è caratterizzato dalla funzione d'onda $\psi_{1,0,0}(r,\phi,\theta)=e^{Zr/r_B}$: il raggio di Bohr fornisce una ``scala'' per le dimensioni del sistema.
 Per $n=2$ abbiamo $\bar{k}+l=1$, da cui le possibili opzioni $l=0,\bar{k}=1$ oppure $l=1,\bar{k}=0$.
 Lo stato con $l=0$ ha necessariamente anche $m=0$, dunque corrisponde a $\ket{2,0,0}$.
