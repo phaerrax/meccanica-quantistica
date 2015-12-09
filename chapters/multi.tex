@@ -129,3 +129,34 @@ La funzione d'onda, nelle variabili $x_1,x_2$ della posizione, dello stato compo
 perciò la funzione d'onda dello stato composto è semplicemente il prodotto delle funzioni d'onda dei due sottosistemi: la notazione con il prodotto tensoriale rende subito evidente questo fatto.
 \input{grafici/autofunzione-oscillatore2d-isotropo}
 
+\section{Buca di potenziale quadrata}
+Consideriamo il sistema composto da una buca di potenziale quadrata e infinita, di lato $a$: è descritta dal potenziale
+\begin{equation}
+	V(x_1,x_2)=
+	\begin{cases*}
+		0		&se $0<x<a,\ 0<y<a$\\
+		+\infty	&altrimenti
+	\end{cases*}
+\end{equation}
+Possiamo interpretarla equivalentemente come una particella racchiusa in una buca bidimensionale o due particelle identiche nella medesima buca unidimensionale.
+Sappiamo già che all'esterno della buca la funzione d'onda deve essere identicamente nulla, quindi consideriamo d'ora in poi solo l'interno.
+L'hamiltoniano del sistema è
+\begin{equation}
+	\op H=\frac1{2m}(\op p_1^2+\op p_2^2)=\frac1{2m}(\op p^2\otimes 1+1\otimes\op p^2)
+\end{equation}
+che si scompone in modo ovvio in due hamiltoniani, uno per ciascun grado di libertà.
+Gli autostati di $\op H$ del sistema composto saranno allora il prodotto tensoriale degli autostati dei singoli sistemi: poich\'e una buca di potenziale unidimensionale, con tale potenziale, ammette le autofunzioni
+\begin{equation}
+	\psi_n(x)=\sqrt{\frac2{a}}\sin\frac{n\pi x}{a}
+	\hspace{1cm}\text{con }
+	E_n=\frac{\hbar^2n^2\pi^2}{2ma^2}
+\end{equation}
+per l'autostato $\ket{n}$, il sistema composto ammetterà le autofunzioni
+\begin{equation}
+	\braket{x_1,x_2}{n_1,n_2}=\braket{x_1}{n_1}\braket{x_2}{n_2}=\frac2{a}\sin\frac{n_1\pi x_1}{a}\sin\frac{n_2\pi x_2}{a}
+\end{equation}
+con l'energia data dalla somma degli autovalori
+\begin{equation}
+	E=E_{n_1}+E_{n_2}=\frac{\hbar^2(n_1^2+n_2^2)\pi^2}{2ma^2}.
+\end{equation}
+
