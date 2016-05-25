@@ -1,12 +1,20 @@
-# Ignora i file generati nella compilazione con pdfLaTeX
-*.log
+# Ignora i file generati nella compilazione con pdfLaTeX e latexmk
 *.aux
-*.out
-*.toc
-*.md5
 *.auxlock
+*.bbl
+*.bcf
+*.blg
 *.dpth
+*.fdb_latexmk
+*.fls
+*.log
+*.md5
+*.out
+*.ptc
+*.run.xml
+*.toc
+tex/*
 # Ignora i file .pdf dei grafici e disegni creati con pgfplots...
 *.pdf
-# ...tranne l'output finale
-!meccanica-quantistica.pdf
+# ...tranne il logo della licenza!
+!by-sa-icon.pdf
