@@ -1,7 +1,18 @@
 \chapter{Evoluzione temporale}
 Poich\'e finora ci siamo interessati degli stati di equilibrio dei sistemi  e delle loro energie, ci è servito studiare soltanto una descrizione indipendente dal tempo.
 Per analizzare i fenomeni dinamici e variabili nel tempo, però, ci occorre capire come gli stati dei sistemi quantistici evolvono nel tempo: dato uno stato $\ket{\psi(0)}$ noto ad un certo istante iniziale di tempo, come determinare la sua evoluzione $\ket{\psi(t)}$ ad un generico istante?
-Nella meccanica classica questo fenomeno è descritto dall'evoluzione delle coordinate canoniche nello spazio delle fasi; in meccanica quantistica, esso è descritto da un opportuno \emph{operatore di evoluzione temporale}, sia esso $\op U(t,t_0)$, per il quale $\ket{\psi(t)}=\op U(t,t_0)\ket{\psi(0)}$.
+A questo risponde l'ultimo postulato della teoria quantistica che incontriamo.
+\begin{postulato}
+    L'evoluzione nel tempo di uno stato $\ket{\psi}$ è unitaria ed è dettata dall'equazione
+    \begin{equation}
+        i\hbar\drp{}{t}\ket{\psi}=\op H\ket{\psi}.
+        \label{eq:schroedinger-dipendente-dal-tempo}
+    \end{equation}
+\end{postulato}
+Questa equazione è nota come \emph{equazione di Schr\"odinger dipendente dal tempo}, e in effetti vedremo che per gli autostati dell'hamiltoniano si riduce all'equazione di Schr\"odinger già vista in precedenza (che è \emph{indipendente} dal tempo).
+
+Partiamo però da un caso più semplice, che è quello in cui l'operatore hamiltoniano non dipende esplicitamente dal tempo.
+Nella meccanica classica l'evoluzione temporale è descritta dall'evoluzione delle coordinate canoniche nello spazio delle fasi secondo le equazioni di Hamilton; in meccanica quantistica, essa è descritta da un opportuno \emph{operatore di evoluzione temporale}, che indicheremo con $\op U(t,t_0)$, per il quale $\ket{\psi(t)}=\op U(t,t_0)\ket{\psi(0)}$.
 L'operatore $\op U(t,t_0)$ deve rispettare tre principali proprietà:
 \begin{itemize}
 	\item deve essere unitario, in modo che si conservi la probabilità: se $\adj{\op U(t,t_0)}=U(t,t_0)^{-1}$ allora $\braket{\psi(t)}{\psi(t)}=\bra{\psi(0)}\adj{\op U(t,t_0)}\op U(t,t_0)\ket{\psi(0)}=\braket{\psi(0)}{\psi(0)}$;
@@ -33,7 +44,7 @@ Nel caso in cui anche l'hamiltoniano dipenda dal tempo, l'equazione si generaliz
 	i\hbar\drp{}{t}\op U(t)=\op H(t)\op U(t)
 	\label{eq:schrodinger-tempo}
 \end{equation}
-detta \emph{equazione di Schr\"odinger dipendente dal tempo}.
+che non è altro che la \eqref{eq:schroedinger-dipendente-dal-tempo} applicata all'operatore $U(t)$ anzich\'e allo stato.
 Nella rappresentazione delle coordinate troviamo l'equazione differenziale per la funzione d'onda, che è $\bra{q}i\hbar\drp{}{t}\ket{\psi(t)}=\bra{q}\op H(t)\ket{\psi(t)}$, da cui
 \begin{equation}
 	i\hbar\drp{}{t}\psi(q,t)=H\psi(q,t)

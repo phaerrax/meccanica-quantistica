@@ -16,6 +16,10 @@ Dobbiamo notare innanzitutto che la corrispondenza tra gli stati fisici e i vett
 Perciò tutte le informazioni che ricaveremo dal modello quantistico che costruiamo dovranno essere indipendenti da questa arbitrarietà.
 Se anzich\'e guardare ai vettori però guardiamo alla classe di vettori che sono tutti multipli (per uno scalare), cioè ai \emph{raggi} dello spazio, allora la corrispondenza diventa s\`i biunivoca.
 I ket, quindi, fanno parte di uno spazio vettoriale complesso, dunque ogni combinazione lineare $\alpha\ket{x}+\beta\ket{y}$ è ancora in $\hilbert$.
+Possiamo riassumere quanto visto finora nel primo postulato della teoria quantistica.
+\begin{postulato}
+    Gli stati di un sistema fisico sono descritti da vettori di uno spazio di Hilbert complesso separabile; in particolare, ogni stato è associato a uno e un solo raggio di tale spazio.
+\end{postulato}
 Il prodotto scalare tra due \emph{ket} è indicato come $\braket{x}{y}$: questa notazione affianca il ket, a destra, con l'elemento a sinistra detto \emph{bra}.
 La notazione differente dei due elementi suggerisce una qualche differenza, e in effetti i \emph{ket} e i bra, seppur molto simili, appartengono a due spazi diversi; il prodotto scalare tra due \emph{ket} diventa quindi l'operazione del \emph{bra} associato al primo \emph{ket} sul secondo.
 Se i \emph{ket} sono dei vettori di $\hilbert$, possiamo pensare ai \emph{bra} come agli elementi del duale, cioè a funzionali lineari sui ket.
@@ -62,9 +66,13 @@ Analogamente se sappiamo che il fotone è polarizzato ortogonalmente all'asse de
 Più in generale, esistono degli stati del sistema con questa caratteristica: chiamiamo \emph{autostato} un particolare stato del sistema in cui il risultato della misura è certo.
 Identificando lo stato con il corrispondente raggio in $\hilbert$, indicheremo con $\ket{\xi_i}$ tale raggio.
 Per la corrispondenza biunivoca tra i due elementi, però, spesso chiameremo (impropriamente) stati i raggi di $\hilbert$, per semplificare un poco la notazione.
-Dunque indicheremo con $\ket{\xi_i}$ l'autostato dell'osservabile $\xi$ relativo all'autovalore $\xi_i$.
+Indicheremo dunque con $\ket{\xi_i}$ l'autostato dell'osservabile $\xi$ relativo all'autovalore $\xi_i$.
+Si ha il seguente postulato.
+\begin{postulato}
+    Se si misura l'osservabile $\xi$ su un sistema e si ottiene la misura (ossia l'autovalore) $\xi_i$, allora subito dopo tale misura il sistema si troverà in un autostato di $\xi$ corrispondente all'autovalore $\xi_i$.
+\end{postulato}
 Misurando $\xi$ mentre il sistema è nello stato $\ket{\xi_i}$ siamo certi che otterremo l'autovalore $\xi_i$.
-Una volta compiuta la misura, inoltre, abbiamo rimosso ogni incertezza sullo stato attuale del sistema, perch\'e ora lo conosciamo, perciò continuando a misurare la medesima osservabile è chiaro che (almeno negli istanti successivi) otterremo sempre lo stesso risultato: possiamo affermare dunque che se effettuiamo la misura di $\xi$ sul sistema e otteniamo l'autovalore $\xi_i$, allora dopo la misura il sistema si troverà nello stato $\ket{\xi_i}$, che è l'autostato associato all'autovalore.
+Una volta compiuta la misura, inoltre, abbiamo rimosso ogni incertezza sullo stato attuale del sistema, perch\'e ora lo conosciamo, perciò continuando a misurare la medesima osservabile è chiaro che (almeno negli istanti successivi) otterremo sempre lo stesso risultato,
 In generale quindi non ci è dato sapere lo stato del sistema \emph{prima} della misura, ma sapremo in che stato si trova \emph{dopo} averla compiuta: questo è essenzialmente il motivo per cui, compiendo una misura, perturbiamo il sistema.
 
 Prendiamo stavolta due lastre polaroid, allineate lungo lo stesso asse di polarizzazione, e prendiamo gli autovalori 0 e 1 come prima.
@@ -84,22 +92,26 @@ Distinguiamo quindi due tipi di osservabili:
 \section{Probabilità di transizione tra gli stati}
 Sappiamo che non possiamo predire il risultato di una misura, a meno che il sistema non sia in un certo autostato: negli altri casi possiamo però sapere la probabilità che un certo risultato si presenti rispetto agli altri.
 Il risultato dipenderà quindi sia dallo stato iniziale che da quello di arrivo: cerchiamo ora un metodo per calcolare la probabilità di passare da uno stato $\ket{x}$ allo stato $\ket{y}$.
-Questo valore è detto \emph{probabilità di transizione} (dal primo stato all'altro) e lo indicheremo con $P(\ket{x}\to\ket{y})$.
-Per determinare questa probabilità usiamo il prodotto scalare: per cominciare, ci serve un numero reale, quindi prendiamo il prodotto scalare $\braket{x}{y}$ per il suo coniugato, ottenendo $P(\ket{x}\to\ket{y})=\abs{\braket{x}{y}}^2$.
-Questo però non basta, perch\'e potremmo ottenere un numero maggiore di uno, mentre la probabilità deve essere in $[0,1]$: dobbiamo allora normalizzarla, ottenendo
-\begin{equation}
-	P(\ket{x}\to\ket{y})=\frac{\abs{\braket{x}{y}}^2}{\braket{x}{x}\braket{y}{y}}.
-	\label{eq:probabilita-transizione}
-\end{equation}
-Possiamo trascurare la normalizzazione se assumiamo tutti gli stati normalizzati: questa assunzione è del tutto legittima, poich\'e sappiamo che se $\ket{x}$ rappresenta un certo stato fisico del sistema allora anche $\alpha\ket{x}$ lo rappresenta per qualsiasi $\alpha\in\C$.
-Allora possiamo gli stati $\ket{x}$ e $\frac1{\braket{x}{x}}\ket{x}$ sono equivalenti nella rappresentazione, e il secondo è normalizzato.
-Per il momento però consideriamo ancora dei vettori generici, non già normalizzati.
-La \eqref{eq:probabilita-transizione} è una buona definizione di probabilità: è certamente positiva, perch\'e $\braket{x}{x}$ e $\braket{y}{y}$ sono positivi (in quanto non sono lo zero di $\hilbert$ e il prodotto scalare non è degenere), e per la disuguaglianza di Schwarz $\abs{\braket{x}{y}}^2\leq\braket{x}{x}\braket{y}{y}$ quindi è anche minore o uguale di 1.
-Inoltre essa non dipende dal fattore scalare arbitrario nella corrispondenza tra stati fisici e vettori di $\hilbert$: se al posto di $\ket{x}$ e $\ket{y}$ prendiamo $a\ket{x}$ e $b\ket{y}$ per qualunque $a,b\in\C$, abbiamo
+Questo valore è detto \emph{probabilità di transizione} (dal primo stato all'altro) e lo indicheremo con $P(\ket{x}\to\ket{y})$: esso è dato dal seguente postulato.
+\begin{postulato}
+    La probabilità di transizione da uno stato $\ket{x}$ a uno stato $\ket{y}$ è data da
+    \begin{equation}
+        P(\ket{x}\to\ket{y})=\frac{\abs{\braket{x}{y}}^2}{\braket{x}{x}\braket{y}{y}}.
+        \label{eq:probabilita-transizione}
+    \end{equation}
+\end{postulato}
+Verifichiamo che è una buona definizione: per cominciare, ci serve un numero reale, quindi prendiamo il prodotto scalare $\braket{x}{y}$ per il suo coniugato, ottenendo $P(\ket{x}\to\ket{y})=\abs{\braket{x}{y}}^2$.
+Sicuramente è anche un numero positivo, poich\'e tutti i termini coinvolti nel prodotto lo sono.
+Questo però non basta, perch\'e potremmo ottenere un numero maggiore di uno, mentre la probabilità deve essere in $[0,1]$: il denominatore $\braket{x}{x}\braket{y}{y}$ serve dunque a normalizzarla, poich\'e con la disuguaglianza di Schwarz abbiamo $\abs{\braket{x}{y}}^2\leq\braket{x}{x}\braket{y}{y}$ quindi $P(\ket{x}\to\ket{y})\le 1$.
+Ciò è equivalente a considerare la probabilità di transizione tra gli stati normalizzati $\braket{x}{x}^{-\frac12}\ket{x}$ e $\braket{y}{y}^{-\frac12}\ket{y}$.\footnote{
+    Possiamo trascurare la normalizzazione se assumiamo tutti gli stati normalizzati: questa assunzione è del tutto legittima, poich\'e sappiamo che se $\ket{x}$ rappresenta un certo stato fisico del sistema allora anche $\alpha\ket{x}$ lo rappresenta per qualsiasi $\alpha\in\C$.
+}
+In particolare, la probabilità è 1 se e solo se il sistema si trova già nello stato ``bersaglio''.
+Essa non dipende dal fattore scalare arbitrario nella corrispondenza tra stati fisici e vettori di $\hilbert$: se al posto di $\ket{x}$ e $\ket{y}$ prendiamo $a\ket{x}$ e $b\ket{y}$ per qualunque $a,b\in\C$, abbiamo
 \begin{equation}
 	P(a\ket{x}\to b\ket{y})=\frac{\abs{a}^2\abs{b}^2\abs{\braket{x}{y}}^2}{\abs{a}^2\braket{x}{x}\abs{y}^2\braket{y}{y}}=\frac{\abs{\braket{x}{y}}^2}{\braket{x}{x}\braket{y}{y}}=P(\ket{x}\to\ket{y}).
 \end{equation}
-Infine, questa probabilità è commutativa, cioè $P(\ket{x}\to\ket{y})=P(\ket{y}\to\ket{x})$ come si verifica facilmente scambiando i due ket nella \eqref{eq:probabilita-transizione}.
+Infine, questa probabilità è simmetrica, cioè $P(\ket{x}\to\ket{y})=P(\ket{y}\to\ket{x})$ come si verifica facilmente scambiando i due ket nella \eqref{eq:probabilita-transizione}.
 
 Prendiamo dunque un'osservabile non degenere $\xi$, e un generico stato $\ket{x}$.
 Non sappiamo quale sarà il risultato, ma ogni possibile autovalore $\xi_i$ dell'osservabile avrà una certa probabilità $P_i$ di accadere.
@@ -168,11 +180,10 @@ Se abbiamo scelto una base ortonormale, avremo anche in questo caso partendo dal
 \end{equation}
 dunque per esclusione la probabilità di passare da $\ket{x}$ ad uno stato in $\hilbert_1$ è data da $P_1=1-\sum_{k>1}P_k=1-\sum_{k>1}\abs{c_k}^2=\abs{c_1'}^2+\abs{c_1''}^2$.
 Questo discorso è quindi riassunto nel \emph{postulato di Von Neumann}, che afferma
-\begin{quote}
+\begin{postulato}
 	Se una misura di $\xi$ nello stato $\ket{x}$ risulta nell'autovalore $\xi_i$, allora lo stato dopo al misura è dato dalla proiezione di $\ket{x}$ nell'autospazio di $\xi_i$.
-\end{quote}
+\end{postulato}
 Nel caso precedente tale proiezione è proprio $c_1'\ket{\xi_1'}+c_1''\ket{\xi_1''}$, quindi la probabilità di trovare lo stato nell'autospazio $\hilbert_1$ è $\abs{c_1'}^2+\abs{c_1''}^2$.
-Il postulato si può anche riformulare affermando che dopo la misura lo stato del sistema è una combinazione lineare degli autostati relativi all'autovalore trovato: la differenza tra i due enunciati è che nel secondo, per avere gli autostati, dobbiamo specificare una base.
 La probabilità di transizione, dunque, non dipende dalla base scelta per $\hilbert$ (come era lecito aspettarsi).
 
 \section{Osservabili e operatori}
@@ -462,9 +473,9 @@ Possiamo risolvere questa ambiguità ad esempio sostituendo $\vec q\vec p$ con l
 In generale, quindi, per completare il quadro delle osservabili ci occorre conoscere come ogni coppia di esse commuta, cioè il loro commutatore.
 Essendo tutte le osservabili funzioni di $\op q$ e $\op p$, si può vedere che è sufficiente conoscere i commutatori di questi due operatori: le regole di quantizzazione, note anche come \emph{relazioni canoniche di commutazione}, spiegano come questi si comportano.
 Dalle proprietà del commutatore, notiamo che tra esso e le parentesi di Poisson esiste una forte relazione algebrica: per questo motivo si postula che
-\begin{quote}
-	i commutatori degli operatori $\op q$ e $\op p$ sono proporzionali alle corrispondenti parentesi di Poisson classiche.
-\end{quote}
+\begin{postulato}
+	I commutatori degli operatori di posizione e impulso sono proporzionali alle corrispondenti parentesi di Poisson classiche.
+\end{postulato}
 Per come sono definiti, le parentesi di Poisson coinvolgono derivate e somme, e hanno come risultato una funzione, mentre il commutatore riguarda semplicemente il prodotto dei due operatori e come risultato dà un altro operatore, quindi non possiamo postulare che i risultati siano i medesimi, ma solo proporzionali: vediamo ora come.
 Innanzitutto, siccome $\pois{q_i}{q_j}=0$ e $\pois{p_i}{p_j}=0$, si avrà anche
 \begin{equation}
