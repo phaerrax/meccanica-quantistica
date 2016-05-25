@@ -2,7 +2,7 @@
 \section{Rotazioni}
 Le rotazioni tridimensionali sono trasformazioni lineari di $\R^3$ che preservano la lunghezza dei vettori e l'orientazione.
 Esse formano un gruppo, poich\'e la composizione di due rotazioni è associativa e dà ancora una rotazione, esiste l'elemento neutro (che è l'identità di $\R^3$) e ogni rotazione ha un'unica inversa.
-Esso ha inoltre una struttura di varietà differenziabile, per cui le operazioni di gruppo sono $\cont{\infty}$, e ciò lo rende un gruppo di Lie.
+Esso ha inoltre una struttura di varietà differenziabile, per cui le operazioni di gruppo sono $\cclass[\infty]$, e ciò lo rende un gruppo di Lie.
 In una base ortonormale di $\R^3$ queste rotazioni sono associate a matrici reali $3\times 3$ ortogonali con determinante 1: il gruppo delle rotazioni si identifica dunque con il gruppo $SO(3)$, dotato dell'operazione di moltiplicazione tra matrici.
 
 \paragraph{Parametrizzazione asse-angolo}
@@ -558,7 +558,7 @@ Dall'ultima equazione otteniamo allora un'espressione per $\op{\vec L}^2$:
 	\label{eq:L^2-dimensione-generica}
 \end{equation}
 In particolare in tre dimensioni abbiamo $\op{\vec L}^2=\op{\vec x}^2\op{\vec p}^2+i\hbar\scalar{\op{\vec x}}{\op{\vec p}}-(\scalar{\op{\vec x}}{\op{\vec p}})^2$.
-Passiamo ora alla rappresentazione di Schr\"odinger (per funzioni in $L^2(\R^d)$, essendo la dimensione generica) in coordinate polari.
+Passiamo ora alla rappresentazione di Schr\"odinger (per funzioni in $\leb[2]{\R^d}$, essendo la dimensione generica) in coordinate polari.
 Dalla \eqref{eq:L^2-dimensione-generica} possiamo ricavare un'espressione per $\op{\vec p}^2$ in coordinate polari: è sufficiente moltiplicare a sinistra per l'operatore $\op{\vec x}^{-2}$ (l'inverso del quadrato della norma).
 Nella rappresentazione di Schr\"odinger delle coordinate, $\op{\vec x}$ è diagonale, e in coordinate sferiche possiamo definire l'operatore
 \begin{equation}
@@ -570,7 +570,7 @@ Dal termine
 \begin{equation}
 	\scalar{\op{\vec x}}{\op{\vec p}}=-i\hbar x_i\drp{}{x_i}=-i\hbar r\frac{x_i}{r}\drp{}{x_i}=-i\hbar r\drp{r}{x_i}\drp{}{x_i}=-i\hbar r\drp{}{r}
 \end{equation}
-siamo indotti a definire anche l'operatore coniugato a $\op r$, che è l'impulso radiale $\op p_r$ rappresentato in $L^2(\R^d)$ nelle coordinate sferiche da $-i\hbar\drp{}{r}$, in modo che $\scalar{\op{\vec x}}{\op{\vec p}}=\op r\op p_r$.
+siamo indotti a definire anche l'operatore coniugato a $\op r$, che è l'impulso radiale $\op p_r$ rappresentato in $\leb[2]{\R^d}$ nelle coordinate sferiche da $-i\hbar\drp{}{r}$, in modo che $\scalar{\op{\vec x}}{\op{\vec p}}=\op r\op p_r$.
 Questo operatore però non è necessariamente autoaggiunto: se per verificarlo nel casi dei $\op p_i$ cartesiani era sufficiente integrare per parti, dato che i termini al contorno (per $\abs{x}\to+\infty$) erano nulli, in questo caso il bordo del dominio di $r$ è $0$ e $+\infty$, e non c'è alcun motivo di supporre che le funzioni d'onda siano nulle nell'origine; oltretutto, la misura in coordinate polari non è il semplice prodotto dei $\dd x_i$ ma contiene altri fattori.
 Con queste definizioni abbiamo dunque
 \begin{equation}
@@ -582,7 +582,7 @@ e il quadrato dell'impulso si rappresenta allora come
 	-\hbar^2\bigg[\ddrp{}{r}+\frac{(d-1)}{r}\drp{}{r}\bigg]+\frac{L^2}{r^2}
 	\label{eq:rappresentazione-impulso-coordinate-sferiche}
 \end{equation}
-dove $L$ è un opportuno operatore di $L^2(\R^d)$ che rappresenta il momento angolare orbitale.
+dove $L$ è un opportuno operatore di $\leb[2]{\R^d}$ che rappresenta il momento angolare orbitale.
 Notiamo infine che il termine tra parentesi quadre è il termine radiale del laplaciano in dimensione $d$, che è
 \begin{equation}
 	\frac{d-1}{r}\drp{}{r}+\ddrp{}{r}=\frac1{r^{d-1}}\bigg[(d-1)r^{d-2}\drp{}{r}+r^{d-1}\ddrp{}{r}\bigg]=\frac1{r^{d-1}}\drp{}{r}\bigg(r^{d-1}\drp{}{r}\bigg).

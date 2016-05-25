@@ -1,0 +1,239 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PER INCLUDERE QUESTE IMPOSTAZIONI  %
+% \usepackage{meccanica-quantistica} %
+% nel preambolo del documento        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{meccanica-quantistica}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pacchetti generici da caricare per i documenti
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{microtype}
+\usepackage{mathtools}
+\usepackage{amsfonts}                     % Per il font blackboard \mathbb
+\usepackage{a4wide}                       % (da sostituire)
+\usepackage{amsthm}                       % Per definire gli stili dei teoremi
+\usepackage{siunitx}                      % Per le unità di misura
+\usepackage{amssymb}                      % Alcuni simboli come \varnothing
+\usepackage{mathrsfs}                     % Per il font calligrafico \mathscr
+\usepackage{graphicx}                     % Per includere immagini (come il logo della licenza)
+\usepackage{eufrak}                       % Per il font fraktur \mathfrak
+\usepackage[usenames,dvipsnames]{xcolor}  % Per definire colori personalizzati
+\usepackage{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Impostazioni e caricamento di pgfplots
+\usepackage{pgfplots}
+	\pgfplotsset{compat=newest}
+	\tikzset{
+	small dot/.style={fill=black,circle,scale=0.3}
+	}
+	\pgfplotsset{
+		standard/.style={
+			axis lines=middle,
+			axis on top,
+			enlargelimits,
+			legend pos=outer north east,
+			every axis x label/.style={at={(current axis.right of origin)},anchor=west},
+			every axis y label/.style={at={(current axis.above origin)},anchor=south}
+		}
+	}
+\usepackage{tikz-3dplot}
+	\tdplotsetmaincoords{75}{60} % Angoli di orientazione degli assi in 3d
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formattazione del testo
+% Impostazione della grandezza del font nei vari ambienti
+\usepackage{sectsty}
+	\sectionfont{\large}
+	\subsectionfont{\normalsize}
+	\subsubsectionfont{\itshape}
+	\paragraphfont{\normalsize}
+
+% Stile del titolo dei capitoli
+\usepackage{titlesec}
+\titleformat{\chapter}[display]{\bfseries\Large}{Capitolo \thechapter}{12pt}{\bfseries\Huge}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comandi vari (spaziatura, font, lettere greche etc.)
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\newcommand{\qqq}{\quad\longrightarrow\quad} % Spazio lungo + --> + spazio lungo
+\newcommand{\qeq}{\quad\text{e}\quad}        % Spazio lungo + "e" + spazio lungo
+\newcommand{\qtext}[1]{\quad\text{#1}\quad}  % Testo in caratteri romani (i.e. dritti) con spazio attorno
+\renewcommand{\vec}[1]{\mathbf{#1}}          % Vettori in grassetto
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definizioni di nuovi colori
+\colorlet{darkblue}{blue!50!black}       % Da usare per link e citazioni
+\colorlet{darkgreen}{green!75!black}
+\colorlet{darkyellow}{yellow!75!orange}
+\colorlet{indigo}{blue!50!violet}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comandi matematici
+
+% Parentesi automatiche e simili
+\DeclarePairedDelimiter{\ket}{\lvert}{\rangle}                    
+\DeclarePairedDelimiter{\bra}{\langle}{\rvert}                    
+\DeclarePairedDelimiterX{\braket}[2]{\langle}{\rangle}{#1\delimsize{\vert}\mathopen{#2}}
+\DeclarePairedDelimiterX{\pois}[2]{\{}{\}}{{#1},{#2}}            % Parentesi di Poisson
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}                    % Valore assoluto, modulo
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}                   % Norma
+\DeclarePairedDelimiterX{\inner}[2]{\langle}{\rangle}{{#1},{#2}} % Prodotto interno generico
+\DeclarePairedDelimiterX{\hermit}[2]{(}{)}{{#1},{#2}}            % Prodotto hermitiano
+\DeclarePairedDelimiter{\parentheses}{(}{)}                      % Generiche parentesi tonde (servono per alcuni comandi più sotto)
+% Il comando \parentheses aggiunge un ulteriore argomento ai comandi sotto dove è usato, e.g. \cont[1][]{...} in realtà ha due argomenti, uno opzionale (definito nel comando \cont) e uno obbligatorio che viene da \parentheses.
+% Per tali comandi, l'opzione della dimensione va posta subito prima dell'argomento obbligatorio, e.g. \cont[2][\big]{A}.
+% Si noti infatti che tale scrittura è equivalente alla forma \mathscr{C}^{2}\parentheses[\big]{A}, quindi l'argomento
+% opzionale [\big] è dato a \parentheses, e non a \cont, com'è giusto.
+
+% Simboli
+\newcommand{\dd}{\textup{d}}                                   % Differenziale
+\newcommand{\avg}[1]{\overline{#1}}                            % Valore medio
+\renewcommand{\emptyset}{\varnothing}                          % insieme vuoto
+\newcommand{\then}{\Rightarrow}                                % Implicazione logica
+\renewcommand{\iff}{\Leftrightarrow}                           % "Se e solo se"
+\renewcommand{\Re}{\mathfrak{R}\parentheses}                   % Parte reale
+\renewcommand{\Im}{\mathfrak{I}\parentheses}                   % Parte immaginaria
+\newcommand{\conj}[1]{#1^*}                                    % Complesso coniugato
+\newcommand{\cont}[1][]{\mathscr{C}^{#1}\parentheses}          % Spazio delle funzioni continue: \cont[k]{A} indica una funz. di classe C^k nell'insieme A
+\newcommand{\cclass}[1][]{\mathscr{C}^{#1}}                    % Per indicare la "classe di continuità" senza specificare l'insieme
+\newcommand{\leb}[1][]{L^{#1}\parentheses}                     % Funzione sommabile: \leb{F} equivale a L(F)
+\newcommand{\hilbert}{\mathscr H}                              % Generico spazio di Hilbert
+\newcommand{\grad}{\nabla}                                     % Gradiente
+\renewcommand{\div}{\nabla\cdot}                               % Divergenza
+\newcommand{\rot}{\nabla\times}                                % Rotore
+\newcommand{\lap}{\nabla^2}                                    % Laplaciano
+\newcommand{\gen}[1]{\left\langle{#1}\right\rangle}            % Spazio generato (da cosa è generato, è definito nell'argomento del comando)
+\newcommand{\scalar}[2]{{#1}\cdot{#2}}                         % Prodotto scalare tra i due argomenti specificati (con il punto)
+\newcommand{\adj}[1]{#1^\dagger}                               % Coniugato trasposto (aka "aggiunto") di matrice/vettore/operatore
+\newcommand{\drv}[2]{\frac{\dd {#1}}{\dd {#2}}}                % Derivata prima
+\newcommand{\ddrv}[2]{\frac{\dd^2 {#1}}{\dd {#2}^2}}           % Derivata seconda
+\newcommand{\drp}[2]{\frac{\partial {#1}}{\partial {#2}}}      % Derivata parziale
+\newcommand{\ddrp}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}} % Derivata parziale seconda (non mista)
+\newcommand{\op}[1]{\hat{#1}}                                  % Per operatori sullo spazio degli stati
+\newcommand{\lag}{\mathcal L}                                  % Lagrangiana
+\newcommand{\ham}{\mathcal H}                                  % Hamiltoniana
+\newcommand{\axis}{\hat{\vec n}}                               % Generico versore
+\newcommand{\Rot}{\mathsf{R}}                                  % Generica rotazione
+\newcommand{\Id}{\mathsf{I}}                                   % Identità del gruppo delle rotazioni
+\newcommand{\Ang}{\mathsf{J}}                                  % Generatori delle rotazioni (momento angolare)
+
+% Simbolo di uguaglianza per definizione
+\newcommand*{\defeq}{
+	\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt \hbox{\scriptsize.} \hbox{\scriptsize.}}} =
+}
+
+% Operatori (come lim, sen, etc. che hanno dello spazio prima e dopo la parola stampata)
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\tr}{tr}               % Traccia
+\DeclareMathOperator{\id}{id}               % Operatore identità
+\DeclareMathOperator{\Ai}{Ai}               % Funzione di Airy del primo tipo
+\DeclareMathOperator{\Bi}{Bi}               % Funzione di Airy del secondo tipo
+\DeclareMathOperator{\fourier}{\mathscr{F}} % Trasformata di Fourier
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Vettori di lettere greche (per renderle in grassetto come le lettere latine)
+\usepackage{bm,upgreek}
+\newcommand{\valpha}{\bm{\upalpha}}
+\newcommand{\vbeta}{\bm{\upbeta}}
+\newcommand{\vgamma}{\bm{\upgamma}}
+\newcommand{\vdelta}{\bm{\updelta}}
+\newcommand{\vepsilon}{\bm{\upepsilon}}
+\newcommand{\vzeta}{\bm{\upzeta}}
+\newcommand{\veta}{\bm{\upeta}}
+\newcommand{\vtheta}{\bm{\uptheta}}
+\newcommand{\viota}{\bm{\upiota}}
+\newcommand{\vkappa}{\bm{\upkappa}}
+\newcommand{\vlambda}{\bm{\uplambda}}
+\newcommand{\vmu}{\bm{\upmu}}
+\newcommand{\vnu}{\bm{\upnu}}
+\newcommand{\vxi}{\bm{\upxi}}
+\newcommand{\vpi}{\bm{\uppi}}
+\newcommand{\vrho}{\bm{\uprho}}
+\newcommand{\vsigma}{\bm{\upsigma}}
+\newcommand{\vtau}{\bm{\uptau}}
+\newcommand{\vupsilon}{\bm{\upupsilon}}
+\newcommand{\vphi}{\bm{\upvarphi}}
+\newcommand{\vchi}{\bm{\upchi}}
+\newcommand{\vpsi}{\bm{\uppsi}}
+\newcommand{\vomega}{\bm{\upomega}}
+
+\newcommand{\vGamma}{\bm{\Upgamma}}
+\newcommand{\vDelta}{\bm{\Updelta}}
+\newcommand{\vTheta}{\bm{\Uptheta}}
+\newcommand{\vLambda}{\bm{\Uplambda}}
+\newcommand{\vXi}{\bm{\Upxi}}
+\newcommand{\vPi}{\bm{\Uppi}}
+\newcommand{\vSigma}{\bm{\Upsigma}}
+\newcommand{\vPhi}{\bm{\Upvarphi}}
+\newcommand{\vPsi}{\bm{\Uppsi}}
+\newcommand{\vOmega}{\bm{\Upomega}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Stili per i titoli dei teoremi, definizioni, etc.
+\theoremstyle{definition}
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{corollario}[teorema]{Corollario}
+\newtheorem{lemma}[teorema]{Lemma}
+\newtheorem{proprieta}[teorema]{Proprietà}
+
+\theoremstyle{plain}
+\newtheorem{definizione}[teorema]{Definizione}
+
+\theoremstyle{remark}
+\newtheorem{osservazione}[teorema]{Osservazione}
+
+%numerazione delle equazioni
+\numberwithin{equation}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Insiemi numerici e altri insiemi importanti
+\newcommand{\N}{\mathbb{N}}              % Naturali
+\newcommand{\Z}{\mathbb{Z}}              % Interi
+\newcommand{\Q}{\mathbb{Q}}              % Razionali
+\newcommand{\R}{\mathbb{R}}              % Reali
+\newcommand{\Rex}{\overline{\mathbb{R}}} % Reali estesi
+\newcommand{\C}{\mathbb{C}}              % Complessi
+\newcommand{\obs}{\mathcal A}            % Spazio delle osservabili
+\newcommand{\phase}{\Gamma}              % Spazio delle fasi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Versori
+% Potrebbero generare confusione con gli operatori, anch'essi con un ^ sopra,
+% quindi sarebbero da evitare se possibile. Ad esempio al posto di \ii, \jj e
+% \kk si possono usare i vettori e_1, e_2, e_3.
+\newcommand{\ii}{\boldsymbol{\hat{\textbf{\i}}}}
+\newcommand{\jj}{\boldsymbol{\hat{\textbf{\j}}}}
+\newcommand{\kk}{\vec{\hat{k}}}
+\newcommand{\rr}{\vec{\hat{r}}}
+\newcommand{\ttheta}{\vec{\hat{\uptheta}}}
+\newcommand{\rrho}{\vec{\hat{\uprho}}}
+\newcommand{\pphi}{\vec{\hat{\upphi}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Elenca nell'indice analitico i titoli di non oltre le sezioni
+% (cioè le sottosezioni sono nascoste)
+\setcounter{tocdepth}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Impostazioni di hyperref per collegamenti interni e proprietà
+% del documento PDF; deve essere caricato dopo titlesec per evitare
+% conflitti nei comandi (e.g. pdfbookmark non funziona)
+\usepackage{hyperxmp}
+\usepackage{hyperref}
+	\hypersetup{
+		bookmarksnumbered=true,
+		bookmarksopen=true,
+		bookmarksopenlevel=1,
+		colorlinks=true,
+		linkcolor=darkblue,
+		pdfstartview=Fit,
+		pdfpagemode=UseOutlines,
+        citecolor=darkblue
+	}
+

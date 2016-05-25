@@ -14,18 +14,18 @@ Tra le varie rappresentazioni, vedremo quella di Heisenberg e quella di Schr\"od
 Prendiamo un insieme completo ortonormale $\{\ket{i}\}_{i\in\N}$, che forma quindi una base per lo spazio degli stati: possiamo pensare a questa base come al sistema completo di autostati di un'osservabile non degenere.
 Abbiamo già visto che si può rappresentare uno stato qualsiasi $\ket{x}$ nei termini di questa base, tramite le proiezioni sui suoi elementi:
 \begin{equation}
-	\ket{x}=\ser{i}\ket{i}\braket{i}{x}=\ser{i}x_i\ket{i}.
+    \ket{x}=\sum_{i=1}^{+\infty}\ket{i}\braket{i}{x}=\sum_{i=1}^{+\infty}x_i\ket{i}.
 	\label{eq:rappresentazione-stato-heisenberg}
 \end{equation}
 Il braket $\braket{i}{x}$ fornisce quindi il coefficiente dell'$i$-esimo stato della base.
 Il prodotto scalare è dato come, sempre inserendo l'operatore identità,
 \begin{equation}
-	\braket{x}{y}=\bra{x}\Big(\ser{i}\ket{i}\bra{i}\Big)\ket{y}=\ser{i}\braket{x}{i}\braket{i}{y}=\ser{i}\braket{i}{x}^*\braket{i}{y}=\ser{i}x_i^*y_i
+	\braket{x}{y}=\bra{x}\Big(\sum_{i=1}^{+\infty}\ket{i}\bra{i}\Big)\ket{y}=\sum_{i=1}^{+\infty}\braket{x}{i}\braket{i}{y}=\sum_{i=1}^{+\infty}\braket{i}{x}^*\braket{i}{y}=\sum_{i=1}^{+\infty}x_i^*y_i
 	\label{eq:prodotto-scalare}
 \end{equation}
 e la norma di uno stato (al quadrato)
 \begin{equation}
-	\braket{x}{x}=\ser{i}x_i^*x_i=\ser{i}\abs{x_i}^2.
+	\braket{x}{x}=\sum_{i=1}^{+\infty}x_i^*x_i=\sum_{i=1}^{+\infty}\abs{x_i}^2.
 	\label{eq:norma-stato}
 \end{equation}
 Gli stati $\ket{x}$ e $\ket{y}$ chiaramente esistono e hanno un loro significato indipendentemente dalla base in cui li rappresentiamo.
@@ -33,7 +33,7 @@ Con queste associazioni, però, fissata una base possiamo identificare qualsiasi
 Abbiamo però un ulteriore vincolo, ossia la limitatezza della norma di uno stato: $\braket{x}{x}<+\infty$.
 Dunque avremo che
 \begin{equation}
-	\ser{i}\abs{x_i}^2<+\infty
+	\sum_{i=1}^{+\infty}\abs{x_i}^2<+\infty
 	\label{eq:successione-quadrato-sommabile}
 \end{equation}
 ossia la successione $\{x_i\}$ è a \emph{quadrato sommabile}.
@@ -49,14 +49,14 @@ Prendiamo la base $\{\ket{i}\}_{i\in\N}$: per trovare la $i$-esima componente, i
 \end{equation}
 Introducendo la risoluzione dell'identità tra $\op A$ e $\ket{x}$ troviamo dunque
 \begin{equation}
-	y_i=\bra{i}\op A\Big(\ser{j}\ket{j}\bra{j}\Big)\ket{x}=\ser{j}\bra{i}\op A\ket{j}\braket{j}{x}=\ser{j}\bra{i}\op A\ket{j}x_j.
+	y_i=\bra{i}\op A\Big(\sum_{j=1}^{+\infty}\ket{j}\bra{j}\Big)\ket{x}=\sum_{j=1}^{+\infty}\bra{i}\op A\ket{j}\braket{j}{x}=\sum_{j=1}^{+\infty}\bra{i}\op A\ket{j}x_j.
 	\label{eq:rappresentazione-operatore-matrice}
 \end{equation}
 Vediamo quindi che l'azione di $\op A$ sullo stato $\ket{x}$ si esprime tramite gli elementi $\bra{i}\op A\ket{j}\defeq A_{ij}$, che sono dei numeri complessi con un doppio indice: chiaramente questi indicano una matrice (di dimensioni infinite). 
 L'applicazione dell'operatore $\op A$ allo stato $\ket{x}$ si rappresenta dunque come il prodotto riga per colonna tra la matrice rappresentativa di $\op A$ e il vettore/successione rappresentativo di $\ket{x}$.
 Dato un altro operatore $\op B$, il prodotto $\op A\op B$ è rappresentato dalla matrice di componenti $(AB)_{ij}=\bra{i}\op A\op B\ket{j}$, e vediamo che
 \begin{equation}
-	(AB)_{ij}=\bra{i}\op A\op B\ket{j}=\bra{i}\op A\ser{k}\ket{k}\bra{k}\op B\ket{j}=\ser{k}\bra{i}\op A\ket{k}\bra{k}\op B\ket{j}=\ser{k}A_{ik}B_{kj}
+	(AB)_{ij}=\bra{i}\op A\op B\ket{j}=\bra{i}\op A\sum_{k=1}^{+\infty}\ket{k}\bra{k}\op B\ket{j}=\sum_{k=1}^{+\infty}\bra{i}\op A\ket{k}\bra{k}\op B\ket{j}=\sum_{k=1}^{+\infty}A_{ik}B_{kj}
 	\label{eq:prodotto-operatori-matrici}
 \end{equation}
 che è proprio il prodotto riga per colonna delle due matrici rappresentative.
@@ -89,17 +89,17 @@ Aggiungendo altre osservabili compatibili a $\xi$ fino a raggiungere un sistema 
 Questa rappresentazione di Heisenberg risulta forse familiare, perch\'e le successioni di $\ell^2(\C)$ possono sembrare una naturale estensione dei vettori di numeri complessi.
 In realtà l'uso è poco pratico, perch\'e individuare gli autovalori è generalmente difficile: l'equazione $\op H\ket{x}=E\ket{x}$ si rappresenta come
 \begin{equation}
-	\ser{m}H_{nm}x_m=Ex_n\quad\then\quad\ser{m}(H_{nm}-E\delta_{nm})x_m=0
+	\sum_{m=1}^{+\infty}H_{nm}x_m=Ex_n\quad\then\quad\sum_{m=1}^{+\infty}(H_{nm}-E\delta_{nm})x_m=0
 \end{equation}
 che è un sistema lineare.
 Il problema è che questo sistema ha un numero infinito di equazioni!
-Ulteriormente, gli autovalori $E$ si ricavano imponendo $\det(H-E\id)=0$, ma un determinante di dimensione infinita (e di conseguenza un polinomio di grado infinito) semplicemente non esiste: dobbiamo quindi ricercare un metodo più astratto di calcolarli.
+Ulteriormente, gli autovalori $E$ si ricavano imponendo $\det(H-E\op 1)=0$, ma un determinante di dimensione infinita (e di conseguenza un polinomio di grado infinito) semplicemente non esiste: dobbiamo quindi ricercare un metodo più astratto di calcolarli.
 Inoltre, posizione e impulso sono osservabili particolari: sappiamo che sono impossibili da determinare con infinita precisione, per il principio di Heisenberg; gli autovalori di $\op q$ o $\op p$ meritano quindi una discussione particolare, soprattutto perch\'e tutte le altre osservabili si possono costruire come funzioni di queste due.
 
 \section{Operatori di traslazione}
 Costruiamo dall'operatore di impulso $\op p$ l'operatore
 \begin{equation}
-	\op T(z)=\exp\Big(-\frac{i}{\hbar}\op p z\Big)=\serz{n}\frac1{n!}\Big(-\frac{i}{\hbar}\op p z\Big)^k
+	\op T(z)=\exp\Big(-\frac{i}{\hbar}\op p z\Big)=\sum_{n=0}^{+\infty}\frac1{n!}\Big(-\frac{i}{\hbar}\op p z\Big)^k
 	\label{eq:operatore-traslazione}
 \end{equation}
 in dipendenza dal parametro $z\in\R$.
@@ -116,12 +116,12 @@ Non conoscendo l'effetto di $\op T(z)$ su tale stato, scambiamo l'ordine degli o
 Il commutatore che abbiamo ricavato vale
 \begin{equation}
 	\begin{split}
-		[\op q,\op T(z)]&=\Big[\op q,\serz{n}\frac1{n!}\Big(-\frac{i}{\hbar}\op pz\Big)^n\Big]=\\
-		&=\serz{n}\frac1{n!}\Big[\op q,\Big(-\frac{i}{\hbar}\op pz\Big)^n\Big]=\\
-		&=\serz{n}\frac1{n!}\Big(-\frac{iz}{\hbar}\Big)^n[\op q,\op p^n]=\\
-		&=\serz{n}\frac1{n!}\Big(-\frac{iz}{\hbar}\Big)^ni\hbar n\op p^{n-1}=\\
-		&=z\ser{n}\frac1{(n-1)!}\Big(-\frac{iz}{\hbar}\Big)^{n-1}\hbar\op p^{n-1}=\\
-		&=z\serz{k}\frac1{k!}\Big(-\frac{iz}{\hbar}\Big)^ki\hbar \op p^k=\\
+		[\op q,\op T(z)]&=\Big[\op q,\sum_{n=0}^{+\infty}\frac1{n!}\Big(-\frac{i}{\hbar}\op pz\Big)^n\Big]=\\
+		&=\sum_{n=0}^{+\infty}\frac1{n!}\Big[\op q,\Big(-\frac{i}{\hbar}\op pz\Big)^n\Big]=\\
+		&=\sum_{n=0}^{+\infty}\frac1{n!}\Big(-\frac{iz}{\hbar}\Big)^n[\op q,\op p^n]=\\
+		&=\sum_{n=0}^{+\infty}\frac1{n!}\Big(-\frac{iz}{\hbar}\Big)^ni\hbar n\op p^{n-1}=\\
+		&=z\sum_{n=1}^{+\infty}\frac1{(n-1)!}\Big(-\frac{iz}{\hbar}\Big)^{n-1}\hbar\op p^{n-1}=\\
+		&=z\sum_{k=0}^{+\infty}\frac1{k!}\Big(-\frac{iz}{\hbar}\Big)^ki\hbar \op p^k=\\
 		&=z\op T(z).
 	\end{split}
 	\label{eq:commutatore-posizione-traslazione}
@@ -173,7 +173,7 @@ Accettiamo, dunque, \emph{con riserva} l'esistenza di questi operatori posizione
 \section{Rappresentazione di Schr\"odinger}
 Nel caso di uno spettro discreto possiamo \emph{contare} gli elementi della base di autostati, perch\'e è un insieme numerabile: pertanto preso uno stato $\ket{A}$ e una base $\{\ket{n}\}_{n\in\N}$ possiamo associare ad ogni numero naturale un numero complesso, che è il coefficiente dell'elemento $n$-esimo della base.
 Otteniamo, come già visto, una successione $\{a_n\}$ definita da $a_n=\braket{n}{A}$.
-La risoluzione dell'identità $\ser{n}\ket{n}\bra{n}=\op 1$ permette di ``ricostruire'' lo stato con l'operazione $\ket{A}=\ser{n}\ket{n}\braket{n}{A}=\ser{n}a_n\ket{n}$.
+La risoluzione dell'identità $\sum_{n=1}^{+\infty}\ket{n}\bra{n}=\op 1$ permette di ``ricostruire'' lo stato con l'operazione $\ket{A}=\sum_{n=1}^{+\infty}\ket{n}\braket{n}{A}=\sum_{n=1}^{+\infty}a_n\ket{n}$.
 Nel caso di uno spettro continuo, troviamo invece una base non numerabile di autostati, che possiamo perciò porre in corrispondenza (almeno nel caso unidimensionale) con un numero reale.
 Se $\{\ket{q}\colon q\in\R\}$ è la base di autostati della posizione, associamo dunque al prodotto scalare $\braket{q}{A}$ un numero dell'asse reale: stiamo definendo quindi una funzione
 \begin{equation}
@@ -202,8 +202,8 @@ La norma di uno stato è allora
 	\braket{A}{A}=\int_\R\braket{A}{q}\braket{q}{A}\dd q=\int_\R\psi_A^*(q)\psi_A(q)\,\dd q=\int_\R\abs{\psi_A(q)}^2\,\dd q.
 	\label{eq:norma-stato-continuo}
 \end{equation}
-La condizione che la norma sia limitata rimane anche in questo caso; con questo la funzione d'onda, sia della posizione che dell'impulso, è una funzione \emph{a quadrato sommabile}, cioè appartiene allo spazio $L^2(\R)$.
-Abbiamo individuato dunque un isomorfismo tra lo spazio degli stati e lo spazio di Hilbert $L^2(\R)$: esso è la \emph{rappresentazione di Schr\"odinger}.
+La condizione che la norma sia limitata rimane anche in questo caso; con questo la funzione d'onda, sia della posizione che dell'impulso, è una funzione \emph{a quadrato sommabile}, cioè appartiene allo spazio $\leb[2]{\R}$.
+Abbiamo individuato dunque un isomorfismo tra lo spazio degli stati e lo spazio di Hilbert $\leb[2]{\R}$: esso è la \emph{rappresentazione di Schr\"odinger}.
 
 Per quanto riguarda la normalizzazione degli \emph{autostati}, invece, dobbiamo adottare una convenzione più particolare.
 Se definissimo
@@ -276,7 +276,7 @@ Anch'esso è hermitiano: supponendo le funzioni d'onda $\braket{q}{A}$ e $\brake
 		&=-i\hbar\int_{-\infty}^{+\infty}\psi_A^*(q)\drv{\psi_B}{q}(q)\,\dd q=\bra{A}\op p\ket{B},
 	\end{split}
 \end{equation}
-dato che $\psi_A,\psi_B\to 0$ per $\abs{q}\to+\infty$, essendo continue e in $L^2(\R)$.
+dato che $\psi_A,\psi_B\to 0$ per $\abs{q}\to+\infty$, essendo continue e in $\leb[2]{\R}$.
 
 Infine, possiamo ritrovare le relazioni di commutazione anche in questa rappresentazione: scrivendo $[\op q,\op p]\ket{A}$ nella base della posizione, come operatori sulle funzioni d'onda, risulta
 \begin{multline}
@@ -285,7 +285,7 @@ Infine, possiamo ritrovare le relazioni di commutazione anche in questa rapprese
 \end{multline}
 come ci aspettavamo.
 Anche le relazioni $[q,q]=0$ e $[-i\hbar\drv{}{q},-i\hbar\drv{}{q}]=0$ valgono in modo ovvio.
-Nel caso di più gradi di libertà, gli operatori di moltiplicazione $q_i$ e di derivazione $\drp{}{q_j}$ commutano, dato che si riferiscono a variabili differenti, mentre se $i=j$ vale quanto detto prima; riassumendo, per gli operatori posizione e impulso in $L^2(\R)$ vale la relazione
+Nel caso di più gradi di libertà, gli operatori di moltiplicazione $q_i$ e di derivazione $\drp{}{q_j}$ commutano, dato che si riferiscono a variabili differenti, mentre se $i=j$ vale quanto detto prima; riassumendo, per gli operatori posizione e impulso in $\leb[2]{\R}$ vale la relazione
 \begin{equation}
 	\bigg[q_i,-i\hbar\drp{}{q_j}\bigg]=i\hbar\delta_{ij}.
 	\label{eq:commutatori-fondamentali-L2}
@@ -301,12 +301,12 @@ da cui ricaviamo l'equazione differenziale alle derivate parziali, del secondo o
 	\frac{\hbar^2}{2m}\lap\psi_E(\vec q)+\big[E-V(\vec q)\big]\psi_E(\vec q)=0
 	\label{eq:schroedinger}
 \end{equation}
-da risolvere per una soluzione $\psi_E\in L^2(\R^3)$.
+da risolvere per una soluzione $\psi_E\in\leb[2]{\R^3}$.
 Le soluzioni (indipendenti) sono solo due, per ogni valore di $E$, ma non tutte sono accettabili da un punto di vista fisico: in particolare deve essere $\abs{\psi_E(\vec q)}\to 0$ per $\norm{\vec q}\to+\infty$, inoltre solo per alcuni valori di $E$ si avrà che $\psi_E$ è a quadrato sommabile.
 
 \subsection{Rappresentazione nell'impulso}
 Analogamente alla precedente è naturale introdurre anche la rappresentazione di Schr\"odinger degli stati nella base di autostati dell'impulso.
-Poich\'e questi autostati formano una base di non numerabile, esattamente come quella della posizione, i fondamenti teorici sono esattamente gli stessi: i coefficienti $\braket{p}{A}$ di uno stato rispetto a questa base formeranno ancora una funzione dello spazio $L^2(\R)$ (o l'analogo in più dimensioni), anch'essa chiamata solitamente funzione d'onda.
+Poich\'e questi autostati formano una base di non numerabile, esattamente come quella della posizione, i fondamenti teorici sono esattamente gli stessi: i coefficienti $\braket{p}{A}$ di uno stato rispetto a questa base formeranno ancora una funzione dello spazio $\leb[2]{\R}$ (o l'analogo in più dimensioni), anch'essa chiamata solitamente funzione d'onda.
 Cambierà certamente la forma degli operatori su questo spazio, ed è quello di cui ci interessiamo ora.
 
 L'operatore dell'impulso è chiaramente diagonale in questa rappresentazione, dunque detta $\psi_A(p)\defeq\braket{p}{A}$ la funzione d'onda dello stato $\ket{A}$ abbiamo $\bra{p}\op p\ket{A}=p\braket{p}{A}=p\psi_A(p)$.
@@ -318,11 +318,11 @@ Si ottiene cos\`i
 \end{equation}
 Il modulo quadro $\abs{\psi(p)}^2$ rappresenta questa volta la funzione di densità di probabilità di osservabili che dipendono solamente dall'impulso, o da solo la densità di probabilità di misurare un impulso pari a $p$.
 
-Solitamente la rappresentazione nella posizione è la preferita: il problema principale che troveremo è infatti trovare le autofunzioni dell'operatore hamiltoniano in $L^2(\R)$, e solitamente questo operatore è della forma $\frac1{2m}\op p^2+V(\op q)$, in cui si ha il quadrato dell'impulso e un generico potenziale con $\op q$ come variabile.
-Nella rappresentazione delle coordinate, il potenziale come operatore in $L^2(\R)$ si scrive semplicemente ``sostituendo'' $\op q$ con la variabile della posizione, mentre si ottengono derivate seconde con l'impulso al quadrato.
+Solitamente la rappresentazione nella posizione è la preferita: il problema principale che troveremo è infatti trovare le autofunzioni dell'operatore hamiltoniano in $\leb[2]{\R}$, e solitamente questo operatore è della forma $\frac1{2m}\op p^2+V(\op q)$, in cui si ha il quadrato dell'impulso e un generico potenziale con $\op q$ come variabile.
+Nella rappresentazione delle coordinate, il potenziale come operatore in $\leb[2]{\R}$ si scrive semplicemente ``sostituendo'' $\op q$ con la variabile della posizione, mentre si ottengono derivate seconde con l'impulso al quadrato.
 Al contrario, nella rappresentazone nell'impulso, il termine $\frac1{2m}\op p^2$ è diagonale, ma troviamo invece una funzione $V\big(i\hbar\drv{}{p}\big)$ che può rivelarsi molto difficile da risolvere.
 
-Infine, è utile studiare come passare da una rappresentazione all'altra, ossia il cambio di base in $L^2(\R)$.
+Infine, è utile studiare come passare da una rappresentazione all'altra, ossia il cambio di base in $\leb[2]{\R}$.
 Ci aspettiamo che si svolga tramite un operatore unitario, dato che si troviamo in spazi di Hilbert.
 Prendiamo le funzioni d'onda $\psi_A(q)=\braket{q}{A}$ e $\tilde{\psi}_A(p)=\braket{p}{A}$ nelle due rappresentazioni: introducendo la risoluzione dell'identità troviamo
 \begin{equation}

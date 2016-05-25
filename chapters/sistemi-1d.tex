@@ -41,8 +41,8 @@ Non possiamo conoscere con precisione la velocità, se vogliamo mantenere le inf
 Studiamo il comportamento della funzione d'onda nei due tipi di regione.
 Tra i tipi di soluzioni, ossia di autofunzioni dell'hamiltoniano, distinguiamo quelle:
 \begin{itemize}
-	\item proprie, ossia in $L^2(\R)$;
-	\item improprie, che non sono in $L^2(\R)$ ma rimangono limitate per ogni $x\in\R$;
+	\item proprie, ossia in $\leb[2]{\R}$;
+	\item improprie, che non sono in $\leb[2]{\R}$ ma rimangono limitate per ogni $x\in\R$;
 	\item non accettabili, se divergono.
 \end{itemize}
 Nelle regioni classicamente accessibili, abbiamo $E-V(x)\ge 0$, dunque dalla \eqref{eq:schroedinger-coordinate} vediamo che la derivata seconda $\psi''$ della funzione d'onda è di segno opposto a	$\psi$: si ha dunque un fenomeno di oscillazione.
@@ -91,7 +91,7 @@ Supponiamo per esempio che $V_1<V_2$: allora abbiamo quattro casi in base all'en
 \subsection{Regolarità della funzione d'onda}
 Per concludere le nostre osservazioni sulle soluzioni dell'equazioni di Schr\"odinger, è fondamentale studiare la regolarità delle funzioni d'onda: spesso il potenziale è definito ``a pezzi'' o è discontinuo, e si avrà una funzione d'onda definita anch'essa in pezzi che devono essere opportunamente raccordati.
 Questo permette di stabilire il valore di alcune costanti arbitrarie.
-Oltre a trovarsi nello spazio $L^2(\R)$ o in analoghi multidimensionali, la funzione d'onda deve essere sempre limitata: non avrebbe senso fisico una densità di probabilità infinita in un punto.
+Oltre a trovarsi nello spazio $\leb[2]{\R}$ o in analoghi multidimensionali, la funzione d'onda deve essere sempre limitata: non avrebbe senso fisico una densità di probabilità infinita in un punto.
 
 Solitamente l'equazione da risolvere è del tipo $\psi''(x)=\frac{2m}{\hbar^2}[V(x)-E]\psi(x)$: supponiamo di trovarci nel caso di un potenziale che varia bruscamente (non necessariamente con continuità) in un breve intervallo $[0,\epsilon]$, rimanendo però limitato.
 Integrando l'equazione in tale intervallo si ha
@@ -112,7 +112,7 @@ Chiamiamo $\op I$ l'operatore (in una dimensione) che, nella rappresentazione di
 La sua rappresentazione nella base dell'impulso la otteniamo con il cambiamento di base usando la trasformata di Fourier: detta $\tilde{\psi}(p)=\braket{p}{\psi}$, risulta
 \begin{equation}
 	\begin{split}
-		\bra{p}\op I\ket{\psi}&=\four(\op I\psi)(p)=\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}pq}(\op I\psi)(q)\,\dd q=\\
+		\bra{p}\op I\ket{\psi}&=\fourier(\op I\psi)(p)=\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}pq}(\op I\psi)(q)\,\dd q=\\
 		&=\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}pq}\psi(-q)\,\dd q=\\
 		&=\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}(-p)(-q)}\psi(-q)\,\dd q=\\
 		&=\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}(-p)q'}\psi(q')\,\dd q'=\\
@@ -140,7 +140,7 @@ Ogni funzione $g$ dopotutto si può scrivere come
 \end{equation}
 e il primo addendo è pari mentre il secondo è dispari.
 
-Completiamo il quadro con le relazioni tra $\op I$ e gli operatori di posizione e impulso: anzich\'e calcolare i commutatori direttamente su una funzione di $L^2(\R)$, calcoliamo
+Completiamo il quadro con le relazioni tra $\op I$ e gli operatori di posizione e impulso: anzich\'e calcolare i commutatori direttamente su una funzione di $\leb[2]{\R}$, calcoliamo
 \begin{equation}
 	\bra{q}\op I\op q\op I\ket{\psi}=\bra{-q}\op q\op I\ket{\psi}=-q\bra{-q}\op I\ket{\psi}=-q\braket{q}{\psi}
 \end{equation}
@@ -167,7 +167,7 @@ Abbiamo dunque
 In questo caso, per hamiltoniani della forma $T(\op p)+V(\op q)$ dove $T$ e $V$ sono funzioni pari rispettivamente di $\op p$ e di $\op q$, si ha che $[\op H,\op I]=0$: se $\op H$ non è degenere, i due operatori hanno allora gli stessi autostati; dato inoltre che $\op I$ ha autovalori $\pm 1$ si ha che le autofunzioni di $\op H$ devono essere a parità definita (pari o dispari).
 In particolare, dato che lo stato fondamentale non ha zeri, dorvà per forza rientrare tra le funzioni pari.
 Analogamente, lo stato successivo (diciamo per $n=1$) ha un solo zero che è semplice, quindi l'autofunzione è dispari, e cos\`i via.
-Inoltre, le funzioni pari e dispari sono autofunzioni di $\op I$, che è hermitiano, corrispondenti ad autostati differenti; allora una funzione dispari e una pari sono ortogonali in $L^2(\R)$.
+Inoltre, le funzioni pari e dispari sono autofunzioni di $\op I$, che è hermitiano, corrispondenti ad autostati differenti; allora una funzione dispari e una pari sono ortogonali in $\leb[2]{\R}$.
 
 Un esempio di questo fatto lo troviamo nell'oscillatore armonico unidimensionale: dato inoltre che l'hamiltoniano è somma di un multiplo di $\op p^2$ e un multiplo di $\op q^2$, abbiamo $[\op H,\op I]=0$.
 L'hamiltoniano inoltre non è degenere, perciò ciascun autostato è direttamente anche un autostato dell'operatore di inversione, senza possibilità di avere delle combinazioni lineari.
@@ -199,7 +199,7 @@ da cui
 per qualche $A,B\in\C$.
 L'energia $E$ è necessariamente positiva in quanto, come visto prima, è uguale a $\frac{p^2}{2m}$.
 Alternativamente, se $E$ fosse negativa allora $\sqrt{E}$ avrebbe anche una parte immaginaria, che moltiplicata per $\pm i$ negli esponenti porterebbe a un'espressione della forma $e^{\pm\lambda x}$: in tal caso la funzione d'onda divergerebbe per $\abs{x}\to+\infty$ e non sarebbe accettabile (fisicamente) come soluzione.
-Oltre a questo, $E$ può assumere qualsiasi valore reale positivo; in ogni caso, per nessun valore risulta $\psi\in L^2(\R)$, dato che la soluzione è oscillante.
+Oltre a questo, $E$ può assumere qualsiasi valore reale positivo; in ogni caso, per nessun valore risulta $\psi\in \leb[2]{\R}$, dato che la soluzione è oscillante.
 Questo fatto non ci deve turbare, perch\'e sappiamo che l'impulso di uno stato non può essere conosciuto con assoluta precisione, mentre all'inizio del problema abbiamo preso proprio un autostato di $\op p$.
 Dopotutto, se il sistema fosse nell'autostato $\ket{\pm p}$, avrebbe un'indeterminazione \emph{nulla} sull'impulso e di conseguenza, per il principio di Heisenberg, l'indeterminazione sulla posizione dovrà essere \emph{infinita} (ed è questo il caso) affinch\'e il prodotto $\Delta q\Delta p$ possa essere finito.
 
@@ -285,7 +285,7 @@ che ha come soluzione la funzione d'onda
 Torniamo dunque allo spazio della posizione con la trasformata di Fourier:
 \begin{equation}
 	\begin{split}
-		\psi(x)&=(\four{\tilde{\psi}})(x)=\frac{A}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}px}\tilde{\psi}(p)\,\dd p=\\
+		\psi(x)&=(\fourier{\tilde{\psi}})(x)=\frac{A}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}px}\tilde{\psi}(p)\,\dd p=\\
 		&=\frac{A}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\exp\bigg[\frac{i}{\hbar}p\bigg(x+\frac{E}{a}\bigg)+\frac{ip^3}{6am\hbar}\bigg]\,\dd p=\\
 		&=\frac{A}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\exp\bigg[\frac{i}{\hbar}p\xi\bigg(\frac{2am}{\hbar^2}\bigg)^{-\frac13}+\frac{ip^3}{6am\hbar}\bigg]\,\dd p=\\ &=\tilde{A}\int_{-\infty}^{+\infty}\exp\bigg(ip'\xi+\frac{ip'^3}3\bigg)\,\dd p'
 	\end{split}
@@ -303,7 +303,7 @@ Studiamo un sistema composto da una particella in una buca di potenziale di alte
 	\end{cases}.
 	\label{eq:buca-potenziale-finita}
 \end{equation}
-La discontinuità di $V$ è finita, dunque le funzioni d'onda dovranno essere di classe $\cont{1}(\R)$.
+La discontinuità di $V$ è finita, dunque le funzioni d'onda dovranno essere di classe $\cont[1]{\R}$.
 Inoltre $V$ è pari dunque dovranno essere di parità definita (autostati dell'operatore di inversione spaziale).
 Supponiamo che l'energia $E$ del sistema sia minore di $V_0$, e risolviamo l'equazione di Schr\"odinger
 \begin{equation}
@@ -333,8 +333,8 @@ Possiamo riscrivere le soluzioni nei termini delle autofunzioni dell'operatore d
 	\label{eq:schrodinger-buca-potenziale-finita-autofunzioni-inversione}
 \end{equation}
 
-A questo punto dobbiamo raccordare le soluzioni in modo che $\psi\in\cont{1}(\R)$, e questo ci darà i valori ammessi di $E$.
-Innanzitutto dovrà essere $A_2=B_3=0$ affinch\'e $\psi\in L^2(\R)$.
+A questo punto dobbiamo raccordare le soluzioni in modo che $\psi\in\cont[1]{\R}$, e questo ci darà i valori ammessi di $E$.
+Innanzitutto dovrà essere $A_2=B_3=0$ affinch\'e $\psi\in \leb[2]{\R}$.
 La funzione d'onda dello stato fondamentale non ha nodi, perciò deve essere pari: nella regione $(-a,a)$ allora risulta $B=0$ da cui $\psi(x)=A\cos(k_1x)$, mentre all'esterno si ha $B_2=A_3$ sempre per la parità.
 Uguagliando le espressioni di $\psi$ in $x=-a$ ricaviamo $A\cos(k_1a)=B_2e^{k_2a}$; otteniamo il medesimo risultato in $x=a$ per la parità della funzione.
 Ripetiamo il procedimento per la derivata (che sarà dispari) ottenendo $-k_2B_2e^{-k_2a}=-k_1A\sin(k_1a)$.
@@ -353,7 +353,7 @@ Il numero di intersezioni dei due grafici, che dà il numero di soluzioni $(\gam
 Notiamo che, qualunque siano i valori di $V_0$ e $a$, il sistema ammette sempre una soluzione: è lo stato fondamentale.
 Inoltre, come accade spesso in meccanica quantistica, anche se il sistema parte con un'energia minore del livello del potenziale esiste comunque una probabilità non nulla di individuare la particella ``fuori dalla buca''.
 
-Guardiamo infine al caso di una buca di potenziale infinita: questa volta non è più garantita la continuità di $\psi'$, ma in ogni caso (affinch\'e sia ben definita la probabilità associata alla $\abs{\psi}^2$) dovrà essere $\psi\in\cont{}(\R)$.
+Guardiamo infine al caso di una buca di potenziale infinita: questa volta non è più garantita la continuità di $\psi'$, ma in ogni caso (affinch\'e sia ben definita la probabilità associata alla $\abs{\psi}^2$) dovrà essere $\psi\in\cont{\R}$.
 Innanzitutto nella figura \ref{fig:soluzione-grafica-buca-potenziale} vediamo subito che il numero di soluzioni diventa infinito.
 Inoltre, il coefficiente $k_2$ degli esponenziali tende a $+\infty$, dunque le ``code'' della funzione d'onda, che decadono esponenzialmente a 0, sono del tipo $e^{-k_2\abs{x}}$ cioè diventano sempre più ``basse'': allora $\psi=0$ per $x\notin(-a,a)$.
 In una buca di potenziale infinita perciò si ha una barriera impenetrabile di potenziale, cioè stavolta la particella è \emph{davvero} confinata nella regione $(-a,a)$.
@@ -448,7 +448,7 @@ Scegliamo arbitrariamente il suo valore nell'origine ponendo $\psi(0)=1$, e in m
 	\label{eq:soluzione-generale-delta-attrattivo}
 \end{equation}
 dove $k=\sqrt{\frac{2m(E+V_0)}{\hbar^2}}$ e $\alpha=\sqrt{\frac{-2mE}{\hbar^2}}$, con un'energia iniziale del sistema $-V_0<E<0$.
-Per come è scritta, la $\psi$ è già continua; imponendo anche $\psi\in\cont{1}(\R)$ otteniamo
+Per come è scritta, la $\psi$ è già continua; imponendo anche $\psi\in\cont[1]{\R}$ otteniamo
 \begin{equation}
 	k\sin\frac{ka}2=\alpha\cos\frac{ka}2\qqq k\tan\frac{ka}2=\alpha
 	\label{eq:condizione-C1-delta-attrattivo}

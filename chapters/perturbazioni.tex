@@ -356,10 +356,10 @@ come maniera più compatta per scrivere la serie di Dyson.
 Ora, ricordando che $\op{\mathbb V}(t)$ è stato definito come $\adj{\op U}_0(t,t_0)\op V(t)\op U_0(t,t_0)$, tornando alla probabilità di transizione abbiamo se $\ket{E_f^{(0)}}\ne\ket{E_i^{(0)}}$ che
 \begin{equation}
 	\begin{split}
-		P_{fi}&=\abs{\bra{E_f^{(0)}}1-\frac{i}{\hbar}\int_{t_0}^t\op{\mathbb V}(t')\,\dd t'\ket{E_i^{(0)}}}^2=\\
-		&=\frac1{\hbar^2}\abs{\bra{E_f^{(0)}}\int_{t_0}^t\op{\mathbb V}(t')\,\dd t'\ket{E_i^{(0)}}}^2=\\
-		&=\frac1{\hbar^2}\abs{\int_{t_0}^t\bra{E_f^{(0)}}\adj{\op U}_0(t',t_0)\op V(t')\op U_0(t',t_0)\ket{E_i^{(0)}}\,\dd t'}^2=\\
-		&=\frac1{\hbar^2}\abs{\int_{t_0}^te^{-\frac{i}{\hbar}(E_f^{(0)}-E_i^{(0)})(t'-t_0)}\bra{E_f^{(0)}}\op V(t')\ket{E_i^{(0)}}\,\dd t'}^2
+        P_{fi}&=\abs[\bigg]{\bra{E_f^{(0)}}1-\frac{i}{\hbar}\int_{t_0}^t\op{\mathbb V}(t')\,\dd t'\ket{E_i^{(0)}}}^2=\\
+        &=\frac1{\hbar^2}\abs[\bigg]{\bra{E_f^{(0)}}\int_{t_0}^t\op{\mathbb V}(t')\,\dd t'\ket{E_i^{(0)}}}^2=\\
+        &=\frac1{\hbar^2}\abs[\bigg]{\int_{t_0}^t\bra{E_f^{(0)}}\adj{\op U}_0(t',t_0)\op V(t')\op U_0(t',t_0)\ket{E_i^{(0)}}\,\dd t'}^2=\\
+        &=\frac1{\hbar^2}\abs[\bigg]{\int_{t_0}^te^{-\frac{i}{\hbar}(E_f^{(0)}-E_i^{(0)})(t'-t_0)}\bra{E_f^{(0)}}\op V(t')\ket{E_i^{(0)}}\,\dd t'}^2
 	\end{split}
 	\label{eq:probabilita-transizione-autostati-dipendente-tempo}
 \end{equation}
@@ -392,7 +392,7 @@ Abbiamo dunque un hamiltoniano $\op H=\op H^{(0)}+\op V'(t)$ con
 \end{equation}
 Con esso la probabilità di transizione tra due autostati $\ket{i^{(0)}}$ e $\ket{f^{(0)}}$ di $\op H^{(0)}$, con energia rispettivamente $E_i^{(0)}$ e $E_f^{(0)}$, è data da
 \begin{equation}
-	P_{fi}=\frac1{\hbar^2}\abs{\int_{t_0}^t\frac{q}{mc}\bra{f^{(0)}}\scalar{\op{\vec p}}{\op{\vec A}}(t')\ket{i^{(0)}}e^{\frac{i}{\hbar}(E_f^{(0)}-E_i^{(0)})(t'-t_0)}\,\dd t'}^2=\\
+    P_{fi}=\frac1{\hbar^2}\abs[\bigg]{\int_{t_0}^t\frac{q}{mc}\bra{f^{(0)}}\scalar{\op{\vec p}}{\op{\vec A}}(t')\ket{i^{(0)}}e^{\frac{i}{\hbar}(E_f^{(0)}-E_i^{(0)})(t'-t_0)}\,\dd t'}^2=\\
 \end{equation}
 e se il campo elettromagnetico è un'onda monocromatica di frequenza, detto $\vec u$ il vettore di polarizzazione, allora
 \begin{equation}
@@ -406,7 +406,7 @@ Definiamo a questo punto
 \end{equation}
 ottenendo
 \begin{equation}
-	P_{fi}=\bigg(\frac{q}{mc\hbar}\bigg)^2\abs{\int_{t_0}^t
+    P_{fi}=\bigg(\frac{q}{mc\hbar}\bigg)^2\abs[\bigg]{\int_{t_0}^t
 		\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u}e^{i\scalar{\vec k}{\op{\vec x}}}\ket{i^{(0)}}e^{i(\omega_{fi}-\omega)(t'-t_0)}
 		\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u}e^{-i\scalar{\vec k}{\op{\vec x}}}\ket{i^{(0)}}e^{i(\omega_{fi}+\omega)(t'-t_0)}
 	\,\dd t'}^2
@@ -419,7 +419,7 @@ e definendo le quantità
 \end{equation}
 e integrando otteniamo l'espressione
 \begin{equation}
-	P_{fi}=\abs{F\frac{e^{i(\omega_{fi}-\omega)(t-t_0)}-1}{\omega_{fi}-\omega}+G\frac{e^{i(\omega_{fi}+\omega)(t-t_0)}-1}{\omega_{fi}+\omega}}^2.
+    P_{fi}=\abs[\bigg]{F\frac{e^{i(\omega_{fi}-\omega)(t-t_0)}-1}{\omega_{fi}-\omega}+G\frac{e^{i(\omega_{fi}+\omega)(t-t_0)}-1}{\omega_{fi}+\omega}}^2.
 \end{equation}
 Ci aspettiamo che solo uno dei due termini contribuisca in gran parte al risultato, ossia solo il termine con $F$ o quello con $G$ siano ``grandi''.
 In tal modo possiamo trascurare l'altro e, con esso, i termini di interferenza tra i due.
@@ -431,8 +431,8 @@ Si ha dunque un fenomeno di \emph{assorbimento indotto} o \emph{emissione indott
 Consideriamo dunque solo il primo termine, con $F$, in cui si ha
 \begin{equation}
 	\begin{split}
-		\abs{\frac{e^{i(\omega_{fi}-\omega)(t-t_0)}-1}{\omega_{fi}-\omega}}^2
-		&=\abs{e^{\frac{i}2(\omega_{fi}-\omega)(t-t_0)}}^2\abs{\frac{e^{\frac{i}2(\omega_{fi}-\omega)(t-t_0)}-e^{-\frac{i}2(\omega_{fi}-\omega)(t-t_0)}}{\omega_{fi}-\omega}}^2=\\
+        \abs[\bigg]{\frac{e^{i(\omega_{fi}-\omega)(t-t_0)}-1}{\omega_{fi}-\omega}}^2
+        &=\abs[\big]{e^{\frac{i}2(\omega_{fi}-\omega)(t-t_0)}}^2\abs[\bigg]{\frac{e^{\frac{i}2(\omega_{fi}-\omega)(t-t_0)}-e^{-\frac{i}2(\omega_{fi}-\omega)(t-t_0)}}{\omega_{fi}-\omega}}^2=\\
 		&=\bigg(\frac2{\omega_{fi}-\omega}\bigg)^2\sin^2\frac{(\omega_{fi}-\omega)(t-t_0)}2.
 	\end{split}
 \end{equation}
