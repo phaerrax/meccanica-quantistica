@@ -185,19 +185,28 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Stili per i titoli dei teoremi, definizioni, etc.
-\theoremstyle{definition}
+% Tutti gli ambienti seguono la numerazione 'teorema', che è definita
+% (con l'opzione 'section') come capitolo.sezione.#, con # reimpostato
+% a zero all'inizio di ogni sezione. # è incrementato per ogni elemento,
+% indiscriminatamente dal tipo di ambiente.
+\theoremstyle{plain}
 \newtheorem{teorema}{Teorema}[section]
 \newtheorem{corollario}[teorema]{Corollario}
 \newtheorem{lemma}[teorema]{Lemma}
 \newtheorem{proprieta}[teorema]{Proprietà}
 
-\theoremstyle{plain}
+\theoremstyle{definition}
 \newtheorem{definizione}[teorema]{Definizione}
+\newtheorem{postulato}{Postulato}
+% I postulati da inserire sono pochi, solo quattro o cinque, quindi è meglio
+% che abbiano la loro propria numerazione, assoluta rispetto al documento.
 
 \theoremstyle{remark}
 \newtheorem{osservazione}[teorema]{Osservazione}
 
-%numerazione delle equazioni
+% Numerazione delle equazioni: con questo comando risultano
+% numerate come (capitolo.sezione.#), dove # riparte da 1
+% all'inizio di ogni sezione
 \numberwithin{equation}{section}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
