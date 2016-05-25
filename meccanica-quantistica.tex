@@ -29,9 +29,13 @@
 
 \pagestyle{headings}
 
+\addbibresource{meccanica-quantistica.bib}
+
 \begin{document}
+\frontmatter
 \maketitle
 
+% Colophon
 \null % Serve scrivere qualcosa prima di \vfill altrimenti non funziona
 \vfill % Riempie lo spazio verticale della pagina
 \hspace*{-1.5em}\includegraphics[scale=.7]{by-sa-icon.pdf}
@@ -40,6 +44,8 @@
 	2015, Davide Ferracin (\href{mailto:davide.ferracin@studenti.unimi.it}{\ttfamily davide.ferracin@studenti.unimi.it})\\[1cm]
 	Versione aggiornata al \today.
 \end{flushleft}
+
+\mainmatter
 
 \include{chapters/principi}
 \include{chapters/rappresentazioni}
@@ -52,6 +58,16 @@
 \include{chapters/perturbazioni}
 \include{chapters/spin}
 
+\backmatter
+
+% Bibliografia
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{part}{\bibname}
+\nocite{*}
+\printbibliography
+
+% Indice
 \cleardoublepage
 \pdfbookmark[-1]{Indice}{contents}
 \tableofcontents
