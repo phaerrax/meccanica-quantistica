@@ -14,7 +14,6 @@
 \usepackage{microtype}
 \usepackage{mathtools}
 \usepackage{amsfonts}                     % Per il font blackboard \mathbb
-\usepackage{a4wide}                       % (da sostituire)
 \usepackage{amsthm}                       % Per definire gli stili dei teoremi
 \usepackage{siunitx}                      % Per le unità di misura
 \usepackage{amssymb}                      % Alcuni simboli come \varnothing
@@ -23,6 +22,16 @@
 \usepackage{eufrak}                       % Per il font fraktur \mathfrak
 \usepackage[usenames,dvipsnames]{xcolor}  % Per definire colori personalizzati
 \usepackage{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Margini
+\usepackage[big]{layaureo}
+% Piccola correzione del margine superiore
+\newlength{\customTopMargin}
+\setlength{\customTopMargin}{\Gm@tmargin+\headsep}
+\newgeometry{top=\customTopMargin}
+% Definisce delle nuove impostazioni per geometry. Gli altri margini etc. sono già impostati
+% da layaureo e vanno bene cosi`. Serve solo reimpostare 'top' con il nuovo valore.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Impostazioni e caricamento di pgfplots
