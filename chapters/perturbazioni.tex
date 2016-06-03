@@ -108,7 +108,7 @@ Di conseguenza abbiamo, dato che gli operatori $\op x_i$ sono dispari ossia $\ad
 	(-1)^{2l}\bra{2,0,0}\op I\op x_i\op I\ket{2,0,0}=
 	-\bra{2,0,0}\op x_i\ket{2,0,0}
 \end{equation}
-da cui $\bra{2,0,0}\op x_i\ket{2,0,0}$, come ulteriore riprova.
+da cui $\bra{2,0,0}\op x_i\ket{2,0,0}=0$, come ulteriore riprova.
 Con lo stesso ragionamento troviamo che tra stati con uguale $l$ il valor medio di $\op x_i$ è nullo.
 
 Ora, gli stati $\ket{2,0,0}$ e $\ket{2,1,0}$ hanno valori di $l$ differenti, e in particolare il secondo contiene nella funzione d'onda il termine $e^{i\phi}$, che integrato in $\phi$ dà zero.
@@ -132,7 +132,7 @@ La perturbazione, quindi, al primo ordine causa la rottura della degenerazione d
 
 \section{Perturbazioni indipendenti dal tempo}
 \subsection{Caso non degenere}
-Passiamo ora ad un approccio più generale, con un sistema descritto da un'hamiltoniano $\op H^{(0)}$ non degenere, di cui conosciamo lo spettro $\{E^{(0)}_n\}$, a cui è aggiunta una perturbazione $\epsilon\op V$, nessuno dei due dipendente esplicitamente dal tempo.
+Passiamo ora ad un approccio più generale, con un sistema descritto da un hamiltoniano $\op H^{(0)}$ non degenere, di cui conosciamo lo spettro $\{E^{(0)}_n\}$, a cui è aggiunta una perturbazione $\epsilon\op V$, nessuno dei due dipendente esplicitamente dal tempo.
 Preso l'insieme (che è completo) degli autostati $\ket{n^{(0)}}$ di $\op H^{(0)}$, possiamo esprimere uno stato perturbato $\ket{n}$ qualsiasi in tale base come
 \begin{equation}
 	\ket{n}=\sum_mc_{nm}\ket{m^{(0)}}
@@ -236,7 +236,8 @@ per cui è utile assumere $\ket{\psi(t)}=\op{\mathbb U}(t,t_0)\ket{\psi(t_0)}$ e
 La derivata temporale dell'operatore $\op{\mathbb U}$ è inoltre
 \begin{multline}
 	\drp{}{t}\op{\mathbb U}=\drp{}{t}(\adj{\op U_0}\op U)=\drp{\adj{\op U_0}}{t}\op U+\adj{\op U_0}\drp{\op U}{t}=\frac{i}{\hbar}\adj{\op U_0}\op H^{(0)}\op U+\adj{\op U_0}\bigg(-\frac{i}{\hbar}\op H\op U\bigg)=\\=
-	-\frac{i}{\hbar}\adj{\op U_0}(-\op H^{(0)}+\op H)\op U=-\frac{i}{\hbar}\adj{\op U_0}\op V\op U=-\frac{i}{\hbar}\adj{\op U_0}\op V\op U_0\op U.
+	-\frac{i}{\hbar}\adj{\op U_0}(-\op H^{(0)}+\op H)\op U=-\frac{i}{\hbar}\adj{\op U_0}\op V\op U=-\frac{i}{\hbar}\adj{\op U_0}\op V\op U_0\adj{\op U_0} \op U =\\= 
+	-\frac{i}{\hbar}\adj{\op U_0}\op V\op U_0 \op{\mathbb U}.
 \end{multline}
 Chiamando dunque $\op{\mathbb V}\defeq\adj{\op U_0}\op V\op U_0$ abbiamo dunque l'equazione
 \begin{equation}
@@ -396,7 +397,7 @@ Con esso la probabilità di transizione tra due autostati $\ket{i^{(0)}}$ e $\ke
 \end{equation}
 e se il campo elettromagnetico è un'onda monocromatica di frequenza, detto $\vec u$ il vettore di polarizzazione, allora
 \begin{equation}
-	\vec A(t)=\frac{A}2\Big[\vec u e^{i(\scalar{\vec k}{\vec x}-\omega t)}-\vec u^*e^{-i(\scalar{\vec k}{\vec x}-\omega t)}\Big].
+	\vec A(t)=\frac{A}2\Big[\vec u e^{i(\scalar{\vec k}{\vec x}-\omega t)}+\vec u^*e^{-i(\scalar{\vec k}{\vec x}-\omega t)}\Big].
 	\label{eq:campo-elettromagnetico-monocromatico}
 \end{equation}
 Definiamo a questo punto
@@ -406,9 +407,9 @@ Definiamo a questo punto
 \end{equation}
 ottenendo
 \begin{equation}
-    P_{fi}=\bigg(\frac{q}{mc\hbar}\bigg)^2\abs[\bigg]{\int_{t_0}^t
-		\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u}e^{i\scalar{\vec k}{\op{\vec x}}}\ket{i^{(0)}}e^{i(\omega_{fi}-\omega)(t'-t_0)}
-		\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u}e^{-i\scalar{\vec k}{\op{\vec x}}}\ket{i^{(0)}}e^{i(\omega_{fi}+\omega)(t'-t_0)}
+    P_{fi}=\bigg(\frac{qA}{2mc\hbar}\bigg)^2\abs[\bigg]{\int_{t_0}^t
+		\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u}e^{i\scalar{\vec k}{\op{\vec x}}}\ket{i^{(0)}}e^{i(\omega_{fi}-\omega)(t'-t_0)}+
+		\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u^*}e^{-i\scalar{\vec k}{\op{\vec x}}}\ket{i^{(0)}}e^{i(\omega_{fi}+\omega)(t'-t_0)}
 	\,\dd t'}^2
 \end{equation}
 e definendo le quantità
@@ -473,14 +474,14 @@ Prendiamo ora il caso di un elettrone in un atomo, con $q=e$: il termine $F$ def
 \end{equation}
 Dall'equazione per l'evoluzione temporale della posizione $\drp{}{t}\op{\vec x}=\frac{i}{\hbar}[\op H_0,\op{\vec x}]=\frac1{m}\op{\vec p}$ abbiamo inoltre
 \begin{multline}
-	F=-\frac{eA}{2\hbar c}\bra{f^{(0)}}\frac{i}{\hbar}[\op H_0,\vec x]\ket{i^{(0)}}=
+	F=-\frac{eA}{2\hbar c}\bra{f^{(0)}}\frac{i}{\hbar}\scalar{[\op H_0,\vec x]} {\vec u}\ket{i^{(0)}}=
 	-\frac{ieA}{2\hbar^2c}\bra{f^{(0)}}\op H_0\scalar{\op{\vec x}}{\vec u}-\scalar{\op{\vec x}}{\vec u}\op H_0\ket{i^{(0)}}=\\=
 	-\frac{ieA}{2\hbar^2c}(E_f^{(0)}-E_i^{(0)})\bra{f^{(0)}}\scalar{\op{\vec x}}{\vec u}\ket{i^{(0)}}
 \end{multline}
 dato che i due stati sono autostati di $\op H_0$.
 Il vettore $-e\vec x$ è il vettore di dipolo elettrico, che qui ritroviamo come operatore e indichiamo più brevemente con $\op{\vec d}$, per cui
 \begin{equation}
-	F=\frac{iA\omega_{fi}}{2m\hbar}\bra{f^{(0)}}\scalar{\op{\vec d}}{\vec u}\ket{i^{(0)}}.
+	F=\frac{iA\omega_{fi}}{2c\hbar}\bra{f^{(0)}}\scalar{\op{\vec d}}{\vec u}\ket{i^{(0)}}.
 \end{equation}
 
 Cos\`i come per l'effetto Stark, anche la perturbazione data da $\bra{f^{(0)}}\scalar{\op{\vec d}}{\vec u}\ket{i^{(0)}}$ ha importanti conseguenze dalle regole di selezione, perch\'e come vedremo alcune transizioni tra stati, al livello dell'approssimazione di dipolo, sono proibite a causa di certe simmetrie.

@@ -44,7 +44,7 @@ Applicando quando ricavato al caso quantistico, in dimensione $d=3$ l'operatore 
 \end{equation}
 Con l'uguaglianza $p_r^2=\frac1{r}p_r^2r$ possiamo infine riscrivere l'equazione di Schr\"odinger in questa rappresentazione come
 \begin{equation}
-	-\frac{\hbar^2}{2\mu}\frac1{r}\ddrp{}{r}\big(r\psi(r,\phi,\theta)\big)+\frac{\hbar^2l(l+1)}{r^2}\psi(r,\phi,\theta)=E\psi(r,\phi,\theta).
+	-\frac{\hbar^2}{2\mu}\frac1{r}\ddrp{}{r}\big(r\psi(r,\phi,\theta)\big)+\frac{\hbar^2l(l+1)}{r^2}\psi(r,\phi,\theta)+V(r)\psi(r,\phi\theta)=E\psi(r,\phi,\theta).
 	\label{eq:schrodinger-moto-relativo}
 \end{equation}
 La ciclicità delle variabili angolari ci permette di fattorizzare la funzione d'onda in una parte radiale $R(r)$ e una angolare $Y(\phi,\theta)$.
@@ -57,7 +57,7 @@ Identifichiamo dunque le soluzioni accettabili della \eqref{eq:schrodinger-moto-
 Nell'equazione \eqref{eq:schrodinger-moto-relativo} possiamo quindi semplificare il fattore $Y_{l,m}$ ottenendo un'equazione solo per $R$.
 Notiamo inoltre che la derivata seconda in $r$ agisce non su $R(r)$ soltanto, ma su $rR(r)$: moltiplicando i due membri a sinistra per $r$ (che commuta con i restanti termini) abbiamo dunque un'equazione differenziale per $rR(r)$, ossia
 \begin{equation}
-	-\frac{\hbar^2}{2\mu}\ddrp{}{r}\big(rR(r))+\frac{\hbar^2l(l+1)}{r^2}rR(r)=ErR(r).
+	-\frac{\hbar^2}{2\mu}\ddrp{}{r}\big(rR(r))+\frac{\hbar^2l(l+1)}{r^2}rR(r)+V(r)rR(r)=ErR(r).
 \end{equation}
 Appare naturale a questo punto definire $u(r)\defeq rR(r)$, ottenendo l'equazione
 \begin{equation}
