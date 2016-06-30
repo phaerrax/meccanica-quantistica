@@ -352,3 +352,111 @@ L'energia dello stato fondamentale al primo ordine perturbativo è dunque
     \label{eq:energia-elio-perturbazione}
 \end{equation}
 Per l'elio, con $Z=2$, si ha $E_0^{(1)}=\SI{-75}{\electronvolt}$, mentre il valore sperimentale è \SI{-78.95}{\electronvolt}.
+
+Passiamo ora al metodo variazionale, che ci fornirà una stima per eccesso dell'energia di questo stato.
+Prendiamo uno stato $\ket{\psi_\beta}$ di prova con una funzione d'onda della forma $e^{-Z\beta(r_1+r_2)/r_B}$: normalizzandola otteniamo la funzione
+\begin{equation}
+    \psi_\beta(\vec x_1,\vec x_2)=\frac1{\pi}\biggl(\frac{Z\beta}{r_B}\biggr)^3e^{-Z\beta(r_1+r_2)/r_B}.
+    \label{eq:funzione-prova-stato-fondamentale-elio}
+\end{equation}
+Scriviamo
+\begin{equation}
+    T\defeq\frac1{2m}(\op{\vec p}_1^2+\op{\vec p}_2^2),\quad
+    V\defeq-Ze^2\biggl(\frac1{\op r_1}+\frac1{\op r_2}\biggr),
+\end{equation}
+cos\`i che $H=T+V+H'$.
+Abbiamo i valori di aspettazione
+\begin{equation}
+    \begin{split}
+        \avg{T}&=
+        \frac1{2m}\bra{\psi_\beta}\op{\vec p}_1^2+\op{\vec p}_2^2\ket{\psi_\beta}=
+        -\frac{\hbar^2}{2m}\int_{\R^3}\int_{\R^3}\psi_\beta(\vec x_1,\vec x_2)(\lap_1+\lap_2)\psi_\beta(\vec x_1,\vec x_2)\,\dd^3 x_1\,\dd^3 x_2=\\&=
+        \begin{multlined}[t]
+            -\frac{\hbar^2}{2m\pi^2}\biggl(\frac{Z\beta}{r_B}\biggr)^616\pi^2\int_0^{+\infty}\int_0^{+\infty}e^{-Z\beta(r_1+r_2)/r_B}\biggl(\frac1{r_1^2}\drp{}{r_1}r_1^2\drp{}{r_1}+\\
+            +\frac1{r_2^2}\drp{}{r_2}r_2^2\drp{}{r_2}\biggr)e^{-Z\beta(r_1+r_2)/r_B}r_1^2r_2^2\,\dd r_1\,\dd r_2=
+        \end{multlined}\\&=
+        \begin{multlined}[t]
+            -\frac{8\hbar^2}{m}\biggl(\frac{Z\beta}{r_B}\biggr)^6\biggl(-\frac{Z\beta}{r_B}\biggr)\int_0^{+\infty}\int_0^{+\infty}e^{-Z\beta(r_1+r_2)/r_B}\biggl[\frac1{r_1^2}\drp{}{r_1}\biggl(r_1^2e^{-Z\beta(r_1+r_2)/r_B}\biggr)+\\
+            +\frac1{r_2^2}\drp{}{r_2}r_2^2\biggl(r_2^2e^{-Z\beta(r_1+r_2)/r_B}\biggr)\biggr]r_1^2r_2^2\,\dd r_1\,\dd r_2=
+        \end{multlined}\\&=
+        \begin{multlined}[t]
+            \frac{8\hbar^2}{m}\biggl(\frac{Z\beta}{r_B}\biggr)^7\int_0^{+\infty}\int_0^{+\infty}e^{-Z\beta(r_1+r_2)/r_B}\biggl[\frac1{r_1^2}\Bigl(2r_1e^{-Z\beta(r_1+r_2)/r_B}-\frac{Z\beta}{r_B}r_1^2e^{-Z\beta(r_1+r_2)/r_B}\Bigr)+\\
+                +\frac1{r_2^2}\Bigl(2r_2e^{-Z\beta(r_1+r_2)/r_B}-\frac{Z\beta}{r_B}r_2^2e^{-Z\beta(r_1+r_2)/r_B}\Bigr)r_1^2r_2^2\,\dd r_1\,\dd r_2=
+        \end{multlined}\\&=
+        \frac{8\hbar^2}{m}\biggl(\frac{Z\beta}{r_B}\biggr)^7\int_0^{+\infty}\int_0^{+\infty}e^{-2Z\beta(r_1+r_2)/r_B}\biggl(2r_1r_2^2+2r_1^2r_2-\frac{2Z\beta}{r_B}r_1^2r_2^2\biggr)\,\dd r_1\,\dd r_2=\\&=
+        \frac{8\hbar^2}{m}\biggl(\frac{Z\beta}{r_B}\biggr)^7\biggl(\frac{r_B}{2Z\beta}\biggr)^5\int_0^{+\infty}\int_0^{+\infty}e^{-\xi_1-\xi_2}(2\xi_1\xi_2^2+2\xi_1^2\xi_2-\xi_1^2\xi_2^2)\,\dd\xi_1\,\dd\xi_2=\\&=
+        \frac{\hbar^2}{4m}\biggl(\frac{Z\beta}{r_B}\biggr)^2\int_0^{+\infty}\int_0^{+\infty}e^{-\xi_1-\xi_2}(2\xi_1\xi_2^2+2\xi_1^2\xi_2-\xi_1^2\xi_2^2)\,\dd\xi_1\,\dd\xi_2=
+        \frac{\hbar^2}{m}\biggl(\frac{Z\beta}{r_B}\biggr)^2,
+    \end{split}
+\end{equation}
+\begin{equation}
+    \begin{split}
+        \avg{V}&=
+        -Ze^2\bra{\psi_\beta}\frac1{\op r_1}+\frac1{\op r_2}\ket{\psi_\beta}=
+        -Ze^2\int_{\R^3}\int_{\R^3}\psi_\beta(\vec x_1,\vec x_2)^2\biggl(\frac1{r_1}+\frac1{r_2}\biggr)\,\dd^3 x_1\,\dd^3 x_2=\\&=
+        -Ze^2\frac1{\pi^2}\biggl(\frac{Z\beta}{r_B}\biggr)^6\int_0^{+\infty}\int_0^{+\infty}e^{-2Z\beta(r_1+r_2)/r_B}\biggl(\frac1{r_1}+\frac1{r_2}\biggr)4\pi r_1^2 4\pi r_2^2\,\dd r_1\,\dd r_2=\\&=
+        -16Ze^2\biggl(\frac{Z\beta}{r_B}\biggr)^6\int_0^{+\infty}\int_0^{+\infty}e^{-2Z\beta(r_1+r_2)/r_B}(r_1r_2^2+r_1^2r_2)\,\dd r_1\,\dd r_2=\\&=
+        -16Ze^2\biggl(\frac{Z\beta}{r_B}\biggr)^6\frac1{32}\biggl(\frac{r_B}{Z\beta}\biggr)^5\int_0^{+\infty}\int_0^{+\infty}e^{-\xi_1-\xi_2}(\xi_1\xi_2^2+\xi_1^2\xi_2)\,\dd \xi_1\,\dd \xi_2=-\frac{2Z^2e^2\beta}{r_B}.
+    \end{split}
+\end{equation}
+Per l'interazione elettrostatica, il procedimento è identico a quello già svolto per il termine perturbativo del paragrafo precedente:
+\begin{equation}
+    \begin{split}
+        \avg{H'}&=
+        e^2\bra{\psi_\beta}\frac1{\norm{\op{\vec x}_1-\op{\vec x}_2}}\ket{\psi_\beta}=
+        e^2\int_{\R^3}\int_{\R^3}\psi_\beta(\vec x_1,\vec x_2)^2\frac1{\norm{\vec x_1-\vec x_2}}\,\dd^3 x_1\,\dd^3 x_2=\\&=
+        \frac{e^2}{\pi^2}\biggl(\frac{Z\beta}{r_B}\biggr)^6\int_{\R^3}e^{-2Z\beta\norm{\vec x_1}/r_B}\int_{\R^3}\frac1{\norm{\vec x_1-\vec x_2}}e^{-2Z\beta\norm{\vec x_2}/r_B}\,\dd^3 x_2\,\dd^3 x_1.
+    \end{split}
+\end{equation}
+La ``distribuzione di carica'' $\rho(\vec x_2)=\exp\big(-\frac{2Z\beta}{r_B}\norm{\vec x_2}\big)$ è radiale dunque genera un ``campo elettrico'' a simmetria sferica, che vale, detto $g\defeq\frac{r_B}{2Z\beta}$,
+\begin{equation}
+    \begin{split}
+        \mathcal E(r)&=
+        \frac1{r^2}\int_0^r\rho(r')4\pi r'^2\,\dd r'=
+        \frac{4\pi}{r^2}\int_0^re^{r'/g}r'^2\,\dd r'=\\&=
+        \frac{4\pi g^3}{r^2}\int_0^{r/g}e^{-y}y^2\,\dd y=4\pi g\biggl[2\frac{g^2}{r^2}-e^{-r/g}\biggl(1+2\frac{g}{r}+2\frac{g^2}{r^2}\biggr)\biggr]
+    \end{split}
+\end{equation}
+a cui è associato il potenziale
+\begin{equation}
+    \begin{split}
+        \phi(r)&=
+        -\int_{\infty}^r\mathcal E(r')\,\dd r'=
+        -4\pi g\int_{+\infty}^r\biggl[2\frac{g^2}{r'^2}-e^{-r'/g}\biggl(2\frac{g^2}{r'^2}+2\frac{g}{r'}+1\biggr)\biggr]\,\dd r'=\\&=
+        -4\pi g^2\int_{+\infty}^{r/g}\biggl[\frac2{z^2}-e^{-z}\biggl(\frac2{z^2}+\frac2{z}+1\biggr)\biggr]\,\dd z=
+        8\pi g^3\biggl(\frac{1-e^{-r/g}}{r}-\frac1{2g}e^{-r/g}\biggr)
+    \end{split}
+\end{equation}
+da cui otteniamo
+\begin{equation}
+    \begin{split}
+        \avg{H'}&=
+        \frac{e^2}{\pi^2}\biggl(\frac{Z\beta}{r_B}\biggr)^6\int_0^{+\infty}\rho(r)\phi(r)4\pi r^2\,\dd r=\\&=
+        \frac{e^2}{\pi^2}\biggl(\frac{Z\beta}{r_B}\biggr)^6\int_0^{+\infty}e^{-r/g}8\pi g^3\biggr(\frac{1-e^{-r/g}}{r}-\frac1{2g}e^{-r/g}\biggr)4\pi r^2\,\dd r=\\&=
+        32e^2\biggl(\frac{Z\beta}{r_B}\biggr)^6g^5\int_0^{+\infty}e^{-\zeta}\biggl(\frac{1-e^{-\zeta}}{\zeta}-\frac12e^{-\zeta}\biggr)\zeta^2\,\dd\zeta=\\&=
+        \frac{5e^2}{16g}=
+        \frac{5Z\beta e^2}{8r_B}.
+    \end{split}
+\end{equation}
+Riassumendo i tre risultati abbiamo che
+\begin{equation}
+    f(\beta)\defeq
+    \bra{\psi_\beta}H\ket{\psi_\beta}=
+    \avg{T}+\avg{V}+\avg{H'}=
+    \frac{\hbar^2Z^2\beta^2}{mr_B^2}-\frac{2Z^2e^2\beta}{r_B}+\frac{5Ze^2\beta}{8r_B}=
+    \frac{me^4}{\hbar^2}\Bigl(Z^2\beta^2-2Z^2\beta+\frac58Z\beta\Bigr)
+\end{equation}
+Troviamo il minimo calcolandone la derivata,
+\begin{equation}
+    f'(\beta)=\frac{me^4}{\hbar^2}\Bigl(2Z^2\beta-2Z^2+\frac58Z\Bigr)
+\end{equation}
+che si annulla se $2Z^2\beta-2Z^2+\frac58Z=0$ ossia per $\beta=1-\frac5{16Z}$.
+Per questo valore si ha allora
+\begin{equation}
+    E_0\le
+    \bra{\psi_\beta}\op H\ket{\psi_\beta}=
+    \frac{me^4}{\hbar^2}\biggl[\bigg(Z-\frac5{16}\bigg)^2-2Z\biggl(Z-\frac5{16}\biggr)+\frac58\bigg(Z-\frac5{16}\biggr)\biggr]=
+    -\frac{me^4}{\hbar^2}\biggl(Z^2+\frac{25}{256}-\frac58Z\biggr).
+\end{equation}
+Per l'elio si ha il valore di \SI{-78}{\electronvolt}, che è un netto miglioramento rispetto al risultato ottenuto trattando l'interazione tra gli elettroni come perturbazione, in precedenza.
+Oltretutto, ora sappiamo che l'energia $E_0$ è necessariamente \emph{minore} della stima appena trovata, mentre prima con la correzione al primo ordine questo non era un fatto certo.
