@@ -266,3 +266,89 @@ nota come \emph{determinante di Slater}.
     Gli operatori che non corrispondono a delle misure possibili sul sistema, ossia quelli che si riferiscono a una particella specifica (o che dipendono da una certa ``numerazione'' delle particelle) restano comunque validi dal punto di vista matematico, cos\`i come le funzioni d'onda di singola particella: il principio da seguire è che \emph{questa numerazione non può avere alcuna conseguenza dal punto di vista fisico}.
     Questo si estende ovviamente anche ai sistemi di più di due particelle identiche.
 \end{osservazione}
+
+\section{L'atomo di elio}
+Nell'atomo di elio abbiamo un sistema di due elettroni che interagiscono con il nucleo di due protoni e due neutroni.
+Possiamo subito generalizzarlo, come per l'atomo di idrogeno, ad un sistema di due elettroni orbitanti un nucleo di carica arbitraria $Z$.
+Ci aspettiamo di applicare quanto visto per l'elettrone nell'atomo di idrogeno a questo caso, ma il problema non è esattamente risolubile, nemmeno con tutte le approssimazioni fatte per l'idrogeno.
+Anche considerando il nucleo come un punto materiale di massa infinita, e trascurando le svariate correzioni relativistiche come il momento degli elettroni e l'interazione dei loro spin con il campo del nucleo o tra loro stessi, rimane l'ostacolo dell'interazione elettrostatica tra le due particelle.
+Partiamo studiando questo problema avendo già svolto la trasformazione di coordinate nel moto relativo dei due elettroni rispetto al nucleo --- che consideriamo puntiforme e di massa infinita --- in cui l'hamiltoniano è
+\begin{equation}
+    \op H=\frac{\op{\vec p}_1^2}{2m}+\frac{\op{\vec p}_2^2}{2m}+\frac{Ze}{\op r_1}+\frac{Ze}{\op r_2}+\frac{e^2}{\norm{\op{\vec x}_1-\op{\vec x}_2}}
+    \label{eq:H-elio}
+\end{equation}
+con la solita notazione.
+Se il termine di interazione non fosse presente, l'hamiltoniano sarebbe la somma di due hamiltoniani di atomi idrogenoidi, e il sistema si potrebbe completamente separare; in tal caso avremmo risolto il problema: gli stati sarebbero il prodotto di due autostati dell'hamiltoniano dell'atomo di idrogeno e le energie si sommerebbero.
+Cominciamo proprio da questa approssimazione, nota come l'\emph{approssimazione a elettroni indipendenti}.
+
+\paragraph{Stima del livello fondamentale}
+Come detto finora, non possiamo conoscere esattamente i livelli energetici dell'atomo di elio, nemmeno per lo stato fondamentale.
+Per quest'ultimo, possiamo procedere cominciando dall'approssimazione a elettroni indipendenti e trattare l'interazione elettrostatica con un calcolo perturbativo, oppure dare una stima per eccesso dell'energia con il metodo variazionale.
+Cominciamo con il primo metodo: scriviamo
+\begin{equation}
+    \begin{gathered}
+        \op H^{(0)}\defeq\frac{\op{\vec p}_1^2}{2m}+\frac{\op{\vec p}_2^2}{2m}+\frac{Ze}{\op r_1}+\frac{Ze}{\op r_2}\\
+        \op H'\defeq\frac{e^2}{\norm{\op{\vec x}_1-\op{\vec x}_2}}
+    \end{gathered}
+    \label{eq:scomposizione-H-elio-perturbazione}
+\end{equation}
+in modo che $\op H=\op H^{(0)}+\op H'$.
+Gli autostati dell'hamiltoniano imperturbato li conosciamo già, e sono i prodotti di due autostati dell'hamiltoniano dell'atomo di idrogeno, per cui $\ket{E_0^{(0)}}=\ket{1,0,0}\otimes\ket{1,0,0}$, con funzione d'onda $\Psi(\vec x_1,\vec x_2)=\psi_{1,0,0}(\vec x_1)\psi_{1,0,0}(\vec x_2)$.
+I due stati ``di particella singola'' con $l^{(1)}=l^{(2)}=0$ si combinano a dare uno stato con $l=0$, la cui energia è il doppio di quella dello stato fondamentale dell'idrogeno.
+
+Il termine di correzione, al primo ordine, di questo autovalore è il valore medio della perturbazione $\op H'$ su questo stato, che risulta
+\begin{equation}
+    \begin{split}
+        \Delta E_0^{(1)}&=
+        \bra{E_0^{(0)}}\op H'\ket{E_0^{(0)}}=
+        \int_{\R^3}\int_{\R^3}\Psi(\vec x_1,\vec x_2)^*\frac{e^2}{\norm{\vec x_1-\vec x_2}}\Psi(\vec x_1,\vec x_2)\,\dd^3 x_2\,\dd^3 x_1=\\&=
+        \int_{\R^3}\abs{\psi_{1,0,0}(\vec x_1)}^2\int_{\R^3}\abs{\psi_{1,0,0}(\vec x_2)}^2\frac{e^2}{\norm{\vec x_1-\vec x_2}}\,\dd^3 x_2\,\dd^3 x_1=\\&=
+        \frac{e^2Z^6}{\pi^2 r_B^6}\int_{\R^3}e^{-2Zr_1/r_B}\int_{\R^3}\frac1{\norm{\vec x_1-\vec x_2}}e^{-2Zr_2/r_B}\,\dd^3 x_2\,\dd^3 x_1
+    \end{split}
+    \label{eq:perturbazione-stato-fondamentale-elio-1}
+\end{equation}
+dove $r_i=\norm{\vec x_i}$ e $r_B=\frac{\hbar^2}{me^2}$ è il raggio di Bohr.
+L'integrale interno, in $\vec x_2$, è formalmente identico al potenziale elettrostatico generato dalla distribuzione $e^{-2Zr_2/r_B}$ in $\vec x_1$, che possiamo dunque calcolare come segue: essa genera un campo elettrico $\mathcal E$ con simmetria sferica attorno all'origine, per cui possiamo calcolarlo con il teorema di Gauss ottenendo
+\begin{equation}
+    \begin{split}
+        \mathcal E(r)&=
+        \frac{4\pi}{r^2}\int_0^re^{-r_2/a}r_2^2\dd r_2=
+        \frac{4\pi a^3}{r^2}\int_0^{r/a}y^2e^{-y}\dd y=\\&=
+        \frac{4\pi a^3}{r^2}e^{-y}(-y^2-2y-2)\Bigr|_0^{r/a}=
+        \frac{8\pi a^3}{r^2}\biggl[1-e^{-r/a}\biggl(1+\frac{r}{a}+\frac{r^2}{2a^2}\biggr)\biggr]
+    \end{split}
+\end{equation}
+dove $a\defeq\frac{r_B}{2Z}$; esso ha dunque come potenziale
+\begin{equation}
+    \begin{split}
+        \phi(r)&=
+        -\int_{+\infty}^r\mathcal E(r')\,\dd r'=
+        -8\pi a^3\int_{+\infty}^r\frac1{r'^2}\biggl[1-e^{-r'/a}\biggl(1+\frac{r'}{a}+\frac{r'^2}{2a^2}\biggr)\biggr]\,\dd r'=\\&=
+        -8\pi a^2\int_{+\infty}^{r/a}\biggl[1-e^{-z}\biggl(1+z+\frac{z^2}2\biggr)\biggr]\frac1{z^2}\,\dd z=
+        -8\pi a^2\biggl[-\frac1{z}+\frac1{z}e^{-z}+\frac12e^{-z}\biggr]_{+\infty}^{r/a}=\\&=
+        8\pi a^3\biggl(\frac{1-e^{-r/a}}{r}-\frac1{2a}e^{-r/a}\biggr)
+    \end{split}
+\end{equation}
+e l'integrale \eqref{eq:perturbazione-stato-fondamentale-elio-1} risulta cos\`i
+\begin{equation}
+    \begin{split}
+        \Delta E_0^{(1)}
+        &=\frac{e^2Z^6}{\pi^2 r_B^6}\int_0^{+\infty}e^{-2Zr_1/r_B}\phi(r_1)4\pi r_1^2\,\dd r_1=\\
+        &=\frac{e^2}{2a^3}\int_0^{+\infty}\biggl[(1-e^{-r_1/a})r_1e^{-r_1/a}-\frac{r_1^2}{2a}e^{-2r_1/a}\biggr]\,\dd r_1=\\
+        &=\frac{e^2}{2a}\int_0^{+\infty}\biggl(\zeta e^{-\zeta}-\zeta e^{-2\zeta}-\frac12\zeta^2e^{-2\zeta}\biggr)\,\dd\zeta=\frac{5e^2}{16a}
+    \end{split}
+    \label{eq:perturbazione-stato-fondamentale-elio-2}
+\end{equation}
+L'energia dello stato fondamentale al primo ordine perturbativo è dunque
+\begin{equation}
+    \begin{split}
+        E_0^{(1)}&=
+        E_0^{(0)}+\Delta E_0^{(1)}=
+        -\frac{Z^2me^4}{\hbar^2}+\frac{5e^2}{16a}=
+        -\frac{Z^2me^4}{\hbar^2}+\frac{5Ze^2}{8r_B}=\\&=
+        -\frac{Z^2me^4}{\hbar^2}+\frac{5Zme^4}{8\hbar^2}=
+        -\frac{Z^2me^4}{\hbar^2}\bigg(1-\frac{5}{8Z}\bigg).
+    \end{split}
+    \label{eq:energia-elio-perturbazione}
+\end{equation}
+Per l'elio, con $Z=2$, si ha $E_0^{(1)}=\SI{-75}{\electronvolt}$, mentre il valore sperimentale è \SI{-78.95}{\electronvolt}.
