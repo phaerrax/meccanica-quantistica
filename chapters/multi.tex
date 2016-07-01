@@ -465,4 +465,101 @@ Rimane ora soltanto da prendere in considerazione lo spin: l'unico modo per cost
 Entrambi gli elettroni hanno spin $s_1=s_2=\frac12$, e componendoli si ottiene $s=1$ o $s=0$: la parte antisimmetrica è data da $s=0$, che contiene solamente lo stato $\frac1{\sqrt{2}}(\ket{+,-}-\ket{-,+})$, quindi i due elettroni hanno spin opposto.
 Lo stato fondamentale dell'elio, di conseguenza, non è degenere.
 
+\paragraph{Primi stati eccitati}
+Chiuso il discorso sullo stato fondamentale, passiamo a valutare --- questa volta in modo più qualitativo --- i primi stati eccitati dell'atomo di elio, sempre riprendendo le varie approssimazioni di cui abbiamo discusso prima.
+Promuoviamo uno dei due elettroni al primo stato (di singola particella) eccitato, con $n=2$: questo già ci porta a distinguere gli stati con $l=0$ e $l=1$.
+Questa volta abbiamo il prodotto di due diverse autofunzioni $\psi_{n,l,m}$, quindi dovremo prendere delle opportune combinazioni lineari per riflettere l'indistinguibilità dei due elettroni: scambiando le due particelle dobbiamo ottenere il medesimo stato (a meno di un fattore di fase, che in questo caso sappiamo essere $\pm 1$).
+Abbiamo dunque il fattore orbitale della funzione d'onda
+\begin{equation}
+    \frac1{\sqrt{2}}\bigl[\psi_{1,0,0}(\vec x_1)\psi_{2,l,m}(\vec x_2)\pm\psi_{2,l,m}(\vec x_1)\psi_{1,0,0}(\vec x_2)\bigr]:
+\end{equation}
+\begin{itemize}
+    \item se prendiamo la somma, tale fattore è simmetrico rispetto allo scambio delle due particelle, e come visto per lo stato fondamentale l'unico modo di comporre gli spin rispettando il principio di Pauli è formare lo stato con spin totale $s=0$, di singoletto;
+    \item se prendiamo la differenza, il fattore orbitale è invece antisimmetrico e affinch\'e l'intera funzione d'onda sia antisimmetrica rispetto allo scambio delle particelle dovremo prendere stati di spin totale $s=1$, di tripletto
+\end{itemize}
+Nel primo caso, dunque, troviamo uno stato con $s=0$, nel secondo ne troviamo tre con $s=1$, che sono
+\begin{equation}
+    \ket{1,1}=\ket{+,+},\quad
+    \ket{1,0}=\frac1{\sqrt{2}}(\ket{+,-}+\ket{-,+}),\quad
+    \ket{1,-1}=\ket{-,-}.
+\end{equation}
 
+Valutiamo l'energia di questi due stati come valore medio dell'hamiltoniano che comprende l'interazione elettrostatica:
+\begin{equation}
+    \begin{split}
+        \Delta E&=
+        \bra{\psi}\op H'\ket{\psi}=\\&=
+        \begin{multlined}[t]
+            \frac{e^2}2\int_{\R^3}\int_{\R^3}
+            \bigl[
+                \psi_{1,0,0}^*(\vec x_1)\psi_{2,l,m}^*(\vec x_2)\pm\psi_{2,l,m}^*(\vec x_1)\psi_{1,0,0}^*(\vec x_2)
+            \bigr]
+            \frac1{\norm{\vec x_1-\vec x_2}}
+            \bigl[
+                \psi_{1,0,0}(\vec x_1)\psi_{2,l,m}(\vec x_2)+\\\pm\psi_{2,l,m}(\vec x_1)\psi_{1,0,0}(\vec x_2)
+            \bigr]
+            \,\dd^3 x_1\,\dd^3 x_2=
+        \end{multlined}\\&=
+        \begin{multlined}[t]
+            \frac{e^2}2\int_{\R^3}\int_{\R^3}
+            \bigr[
+                \psi_{1,0,0}^*(\vec x_1)\psi_{2,l,m}^*(\vec x_2)\psi_{1,0,0}(\vec x_1)\psi_{2,l,m}(\vec x_2)+\\\pm
+                \psi_{1,0,0}^*(\vec x_1)\psi_{2,l,m}^*(\vec x_2)\psi_{1,0,0}(\vec x_2)\psi_{2,l,m}(\vec x_1)\pm
+                \psi_{1,0,0}^*(\vec x_2)\psi_{2,l,m}^*(\vec x_1)\psi_{1,0,0}(\vec x_1)\psi_{2,l,m}(\vec x_2)+\\+
+                \psi_{1,0,0}^*(\vec x_2)\psi_{2,l,m}^*(\vec x_1)\psi_{1,0,0}(\vec x_2)\psi_{2,l,m}(\vec x_1)
+            \bigr]
+            \frac1{\norm{\vec x_1-\vec x_2}}
+            \,\dd^3 x_1\,\dd^3 x_2.
+        \end{multlined}
+    \end{split}
+\end{equation}
+Possiamo suddividere l'integrale in quattro termini separati, e dato che il termine $H'$ di interazione è una funzione simmetrica rispetto allo scambio $\vec x_1\leftrightarrow\vec x_2$, risulta
+\begin{equation}
+    \begin{aligned}
+        &\int_{\R^3}\int_{\R^3}
+            \psi_{1,0,0}^*(\vec x_2)\psi_{2,l,m}^*(\vec x_1)\psi_{1,0,0}(\vec x_1)\psi_{2,l,m}(\vec x_2)
+            \frac1{\norm{\vec x_1-\vec x_2}}
+        \,\dd^3 x_1\,\dd^3 x_2=\\
+        =&\int_{\R^3}\int_{\R^3}
+            \psi_{1,0,0}^*(\vec x_1)\psi_{2,l,m}^*(\vec x_2)\psi_{1,0,0}(\vec x_2)\psi_{2,l,m}(\vec x_1)
+            \frac1{\norm{\vec x_1-\vec x_2}}
+        \,\dd^3 x_1\,\dd^3 x_2
+    \end{aligned}
+\end{equation}
+e analogamente
+\begin{equation}
+    \begin{aligned}
+        &\int_{\R^3}\int_{\R^3}
+            \psi_{1,0,0}^*(\vec x_2)\psi_{2,l,m}^*(\vec x_1)\psi_{1,0,0}(\vec x_2)\psi_{2,l,m}(\vec x_1)
+            \frac1{\norm{\vec x_1-\vec x_2}}
+        \,\dd^3 x_1\,\dd^3 x_2=\\
+        =&\int_{\R^3}\int_{\R^3}
+            \psi_{1,0,0}^*(\vec x_1)\psi_{2,l,m}^*(\vec x_2)\psi_{1,0,0}(\vec x_1)\psi_{2,l,m}(\vec x_2)
+            \frac1{\norm{\vec x_1-\vec x_2}}
+        \,\dd^3 x_1\,\dd^3 x_2
+    \end{aligned}
+\end{equation}
+perciò
+\begin{multline}
+    \Delta E=
+    \int_{\R^3}\int_{\R^3}
+        \abs{\psi_{1,0,0}(\vec x_1)\psi_{2,l,m}(\vec x_2)}^2
+        \frac{e^2}{\norm{\vec x_1-\vec x_2}}
+    \,\dd^3 x_1\,\dd^3 x_2
+    + \\ \pm
+    \int_{\R^3}\int_{\R^3}
+        \psi_{1,0,0}^*(\vec x_1)\psi_{2,l,m}^*(\vec x_2)
+        \frac{e^2}{\norm{\vec x_1-\vec x_2}}
+        \psi_{1,0,0}(\vec x_2)\psi_{2,l,m}(\vec x_1)
+    \,\dd^3 x_1\,\dd^3 x_2.
+\end{multline}
+Notiamo subito che questi integrali non dipendono da $m$, dato che gli esponenziali $e^{im\phi}$ nelle armoniche sferiche si semplificano tutti.
+Il primo integrale è solitamente detto \emph{coulombiano}, data la sua somiglianza con l'energia elettrostatica di una distribuzione di carica; il secondo è detto integrale \emph{di scambio}, ed è una conseguenza del principio di Pauli.
+Indicheremo il primo con $J_{2,l}$ e il secondo con $K_{2,l}$, come spesso si trova in letteratura.
+Non ci interessa a questo punto il loro risultato analitico, ma è evidente almeno che $J_{2,l}$ è sempre positivo; si può mostrare che anche $K_{2,l}$ lo è.
+Di conseguenza,
+\begin{equation}
+    \Delta E=J_{2,l}\pm K_{2,l}
+\end{equation}
+con il segno $+$ per gli stati di singoletto ($s=0$) e il segno $-$ per gli stati di tripletto ($s=1$): questi ultimi di conseguenza hanno un'energia minore, e il primo stato eccitato vede la sua degenerazione parzialmente rimossa (come già abbiamo notato, il $\Delta E$ non dipende comunque da $m$).
+Questo mostra come lo spin, pur non entrando nell'hamiltoniano del sistema, ha comunque un effetto --- tramite il principio di Pauli --- sui livelli energetici.
