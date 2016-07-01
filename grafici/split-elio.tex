@@ -1,0 +1,28 @@
+\begin{figure}
+	\tikzsetnextfilename{split-elio}
+	\centering
+	\begin{tikzpicture}
+		% Sinistra
+		\node (1) at (-1,0){};
+		\node (2) at (-1,1.5){};
+		% Destra
+		\node (1S0/1) at (1,.5){};
+		\node (3S1) at (1,2){};
+		\node (1S0/2) at (1,3){};
+		% Livelli energetici degeneri
+		\draw[black!50!white] (1.center) to +(-2,0) node[left]{$(1s)^2$};
+		\draw[black!50!white] (2.center) to +(-2,0) node[left]{$1s2s$};
+		% Livelli energetici con principio di Pauli
+        \draw[black!50!white] (1S0/1.center) to +(2,0) node[right]{$^1S_0$};
+        \draw[black!50!white] (1S0/2.center) to +(2,0) node[right]{$^1S_0$};
+        \draw[black!50!white] (3S1.center) to +(2,0) node[right]{$^3S_1$};
+        % Connessione tra i livelli energetici
+        \draw[black!50!white] (1.center) -- (1S0/1.center);
+        \draw[black!50!white] (2.center) -- (1S0/2.center);
+        \draw[black!50!white] (2.center) -- (3S1.center);
+        % Distanza tra i primi livelli eccitati di singoletto e tripletto
+        \draw[black,<->] (3S1.center)++(1,0) to node[right]{$2K_{2,0}$} ++(0,1);
+	\end{tikzpicture}
+    \caption{Suddivisione dei primi livelli eccitati $(1s)^2$ e $1s2s$ dell'atomo di elio a causa del principio di Pauli.}
+	\label{fig:split-elio}
+\end{figure}
