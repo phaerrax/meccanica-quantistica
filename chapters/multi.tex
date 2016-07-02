@@ -198,3 +198,59 @@ La statistica a cui obbediscono in realtà dipende soltanto dallo spin delle par
     Ciascuna particella elementare ha un proprio spin caratteristico: ad esempio elettroni, neutrini e in generale tutti i quark e i leptoni hanno spin semi-intero e sono dunque fermioni, mentre le particelle mediatrici delle forze come i fotoni hanno spin intero.
 }
 Per le particelle composte, la statistica è determinata da quella delle particelle che le compongono: se una particella è composta (oltre al resto) da $k$ fermioni, scambiare due tali particelle composte equivale a scambiare $k$ coppie di fermioni, e questo determina il segno dello stato finale; lo scambio dei bosoni non ha invece alcun effetto.
+
+Prendiamo ora un esempio più concreto, con un sistema di due particelle.
+Dato lo spazio di Hilbert $\hilbert$ della particella singola, con base $\{\ket{\alpha}\}_{\alpha\in I}$, lo stato delle due particelle è $\hilbert^2\defeq\hilbert\otimes\hilbert$ con base $\{\ket{\alpha}\otimes\ket{\beta}\}_{\alpha,\beta\in I}$, in breve $\ket{\alpha,\beta}$.
+Per due particelle il gruppo simmetrico $S_n$ è composto da solo due elementi, l'identità e lo scambio $1\leftrightarrow 2$ che indichiamo con $\Pi_{12}$.
+Indicando la rappresentazione di quest'ultimo con il medesimo simbolo, sulla base che abbiamo scritto esso agisce come
+\begin{equation}
+    \op\Pi_{12}\ket{\alpha,\beta}=\ket{\beta,\alpha}
+\end{equation}
+(ma il comportamento è chiaramente indipendente dalla base scelta) ed è tale che $\op\Pi_{12}^2=1$, da cui segue che $\adj{\op\Pi_{12}}=\op\Pi_{12}^{-1}=\op\Pi_{12}$ quindi è anche hermitiano, come potevamo aspettarci dato che i suoi autovalori sono $\pm 1$.
+In termini delle funzioni d'onda, abbiamo che se $\psi(\vec x_1,\vec x_2)=\braket{\vec x_1,\vec x_2}{\psi}$ allora, nella base degli autostati della posizione si ha $\op\Pi_{12}\ket{\vec x_1,\vec x_2}=\ket{\vec x_2,\vec x_1}$ quindi
+\begin{equation}
+    \Pi_{12} \colon \psi(\vec x_1,\vec x_2) \mapsto \bra{\vec x_1,\vec x_2}\op\Pi_{12}\ket{\psi}=\braket{\vec x_2,\vec x_1}{\psi}=\psi(\vec x_2,\vec x_1).
+    \label{eq:scambio-particelle-funzione-donda}
+\end{equation}
+Analogamente $\op\Pi_{12}$ scambia le altre grandezze associate alle due particelle, come lo spin.
+
+Ora, se disponiamo di $n$ stati $\ket{i}$ ($i=1,\ldots,n$) di singola particella, come costruire lo stato del sistema composto dalle $n$ particelle?
+Non è sufficiente prendere un prodotto, in un ordine qualsiasi, degli $n$ stati: la costruzione deve infatti riflettere l'indistinguibilità delle particelle.
+Se infatti ad esempio abbiamo due stati $\ket{1}$ e $\ket{2}$ differenti, non ha senso dire che <<la particella 1 si trova nello stato $\ket{1}$ e la particella 2 nello stato $\ket{2}$>> poich\'e non abbiamo alcun modo di dire quale particella è quale: dovremo quindi costruire uno stato tale che, scambiando due o più stati, si ottiene lo stesso stato a meno del segno.
+Per fare ciò dovremo prendere delle opportune combinazioni lineari degli stati di base: per i bosoni avremo uno stato \emph{completamente simmetrico}
+\begin{equation}
+    \ket{\Psi^{(S)}}=\sqrt{\frac{m_1!m_2!\cdots m_n!}{n!}}\sum_{\sigma\in S_n}\ket{\sigma(1)}\otimes\ket{\sigma(2)}\otimes\cdots\otimes\ket{\sigma(n)}
+    \label{eq:stato-completamente-simmetrico}
+\end{equation}
+dove la somma corre su tutte le possibili permutazioni degli $n$ stati e $m_k$ nel fattore di normalizzazione indica il numero di volte in cui lo stato $k$-esimo appare nella somma.
+Per i fermioni avremo invece lo stato \emph{completamente antisimmetrico}
+\begin{equation}
+    \ket{\Psi^{(A)}}=\frac1{\sqrt{n!}}\sum_{\sigma\in S_n}\sgn(\sigma)\ket{\sigma(1)}\otimes\ket{\sigma(2)}\otimes\cdots\otimes\ket{\sigma(n)}
+    \label{eq:stato-completamente-antisimmetrico}
+\end{equation}
+dove $\sgn(\sigma)$ è il segno della permutazione $\sigma$; notiamo l'assenza dei fattori $m_k!$ al numeratore dato che, per antisimmetria, lo stesso stato non può comparire più di una volta negli addendi, che altrimenti sarebbero nulli.
+Questo ha come conseguenza che in un insieme di fermioni identici, non è possibile che due o più di essi si trovino nel medesimo stato: questo è noto come \emph{principio di esclusione}, dovuto a Wolfgang Pauli.
+
+Per quanto riguarda le funzioni d'onda, abbiamo per i bosoni
+\begin{equation}
+    \Psi^{(S)}(\vec x_1,\ldots,\vec x_n)=\sqrt{\frac{m_1!m_2!\cdots m_n!}{n!}}\sum_{\sigma\in S_n}\psi_{\sigma(1)}(\vec x_1)\psi_{\sigma(2)}(\vec x_2)\cdots\psi_{\sigma(n)}(\vec x_n)
+    \label{eq:funzione-donda-completamente-simmetrica}
+\end{equation}
+mentre per i fermioni
+\begin{equation}
+    \Psi^{(A)}(\vec x_1,\ldots,\vec x_n)=\frac1{\sqrt{n!}}\sum_{\sigma\in S_n}\sgn(\sigma)\psi_{\sigma(1)}(\vec x_1)\psi_{\sigma(2)}(\vec x_2)\cdots\psi_{\sigma(n)}(\vec x_n).
+    \label{eq:funzione-donda-completamente-antisimmetrica}
+\end{equation}
+Si noti l'analogia con la formula del determinante: la funzione completamente antisimmetrica può essere infatti scritta anche nella forma
+\begin{equation}
+    \Psi^{(A)}(\vec x_1,\ldots,\vec x_n)=\frac1{\sqrt{n!}}
+    \begin{vmatrix}
+        \psi_1(\vec x_1) & \psi_1(\vec x_2) & \cdots & \psi_1(\vec x_n) \\
+        \psi_2(\vec x_1) & \psi_2(\vec x_2) & \cdots & \psi_2(\vec x_n) \\
+        \vdots           & \vdots           & \ddots & \vdots           \\
+        \psi_n(\vec x_1) & \psi_n(\vec x_2) & \cdots & \psi_n(\vec x_n)
+    \end{vmatrix}
+    \label{eq:determinante-slater}
+\end{equation}
+nota come \emph{determinante di Slater}.
+
