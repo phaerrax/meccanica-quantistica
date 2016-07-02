@@ -160,3 +160,41 @@ con l'energia data dalla somma degli autovalori
 	E=E_{n_1}+E_{n_2}=\frac{\hbar^2(n_1^2+n_2^2)\pi^2}{2ma^2}.
 \end{equation}
 
+\section{Particelle identiche}
+Nella meccanica classica il moto di una particella è dato in maniera deterministica: una volta specificati posizione e momento in un certo istante, le equazioni del moto forniscono una soluzione (la traiettoria della particella) ben definita, ad ogni istante.
+Quando abbiamo a che fare con sistemi di particelle identiche, quindi, possiamo immaginare di individuare in un istante di tempo ciascuna particella, e misurandone posizione e momento potremo seguirle per tutta la durata del moto, effettivamente distinguendole l'una dall'altra.
+In meccanica quantistica, a causa del principio di indeterminazione, ciò non è più possibile: nemmeno il concetto di traiettoria non è più definito, in quanto se misuriamo con assoluta precisione la posizione di una particella allora il suo momento avrà un'incertezza infinita, e non abbiamo alcun modo di determinare all'istante successivo dove si troverà.
+Non possiamo più quindi aggrapparci alle equazioni del moto per distinguere le particelle l'una dall'altra, e infatti se esse condividono lo stesso insieme di proprietà fisiche (spin, massa, etc.) esse diventano a tutti gli effetti \emph{indistinguibili}.
+Anche gli stati fisici nello spazio di Hilbert dovranno quindi riflettere questo fatto, ossia preso uno stato di un certo numero di particelle, se scambiamo tra loro alcune particelle lo stato non deve cambiare (a meno del solito fattore di fase).
+
+In termini più rigorosi, quando abbiamo un insieme di $n$ particelle e ne scambiamo alcune tra loro, effettuiamo una permutazione di $n$ elementi, che è un elemento del \emph{gruppo simmetrico} $S_n$.
+Come conseguenza, gli stati nello spazio di Hilbert si trasformeranno secondo una rappresentazione di tale gruppo.
+Quando le particelle sono indistinguibili (e lo supporremo sempre nel resto della sezione) l'hamiltoniano del sistema non può dipendere dalla ``numerazione delle particelle'', quindi sarà invariante rispetto a ciascuna permutazione $\Pi\in S_n$: in altre parole l'operatore $\op U(\Pi)$ che implementa la permutazione nello spazio di Hilbert commuta con l'hamiltoniano:
+\begin{equation}
+    [\op U(\Pi),\op H]=0.
+    \label{eq:commutatore-permutazione-hamiltoniano}
+\end{equation}
+Sappiamo inoltre che tale permutazione lascia lo stato fisico invariato a meno di un fattore di fase, perciò $\op U(\Pi)$ realizza una rappresentazione unidimensionale di $S_n$: per qualsiasi $n\ge 2$ è noto che le uniche rappresentazioni unidimensionali di $S_n$ sono quella banale e la rappresentazione ``segno'', che assegna a ciascuna permutazione --- appunto --- il suo segno (anche detto parità).
+Chiaramente la rappresentazione banale non è di alcun interesse, di conseguenza abbiamo
+\begin{equation}
+    \op U(\Pi)=\pm 1.
+\end{equation}
+La \eqref{eq:commutatore-permutazione-hamiltoniano} implica tra l'altro che $\op H$ e $\op U(\Pi)$ hanno una base di autostati in comune; preso uno di questi autostati, avremo
+\begin{equation}
+    \op U(\Pi)\ket{E}=\pm\ket{E}
+\end{equation}
+e per le equazioni del moto di Heisenberg tale autovalore $\pm 1$ rimane tale per tutti gli istanti di tempo, cioè $\Pi$ è una costante del moto: l'evoluzione temporale degli stati non può portare stati con autovalore $-1$ in stati con autovalore $1$, e viceversa.
+Questo comportamento degli stati sotto l'azione delle permutazioni delle particelle divide dunque lo spazio di Hilbert in due sottospazi ortogonali: se $\hilbert$ è lo spazio degli stati di una particella singola, allora lo spazio $\hilbert^n=\hilbert\otimes\cdots\otimes\hilbert$ composto dal prodotto di $n$ copie identiche di $\hilbert$ si suddivide in
+\begin{equation}
+    \hilbert^n=\hilbert_{(S)}\oplus\hilbert_{(A)}
+\end{equation}
+dove $(S)$ indica gli stati \emph{simmetrici}, con autovalore $1$, che non cambiano segno in seguito alla permutazione, e $(A)$ indica gli stati \emph{antisimmetrici}, che hanno autovalore $-1$ e invece cambiano segno.
+La proprietà di un sistema di particelle di possedere stati simmetrici o antisimmetrici dipende dalla natura delle particelle:
+\begin{itemize}
+    \item le particelle con stati simmetrici sono dette \emph{bosoni}, poich\'e seguono la statistica di Bose-Einstein;
+    \item le particelle con stati antisimmetrici sono dette \emph{fermioni}, poich\'e seguono invece la statistica di Fermi-Dirac.
+\end{itemize}
+La statistica a cui obbediscono in realtà dipende soltanto dallo spin delle particelle: le particelle con spin semi-intero sono fermioni, mentre quelle con spin intero sono bosoni.\footnote{
+    Ciascuna particella elementare ha un proprio spin caratteristico: ad esempio elettroni, neutrini e in generale tutti i quark e i leptoni hanno spin semi-intero e sono dunque fermioni, mentre le particelle mediatrici delle forze come i fotoni hanno spin intero.
+}
+Per le particelle composte, la statistica è determinata da quella delle particelle che le compongono: se una particella è composta (oltre al resto) da $k$ fermioni, scambiare due tali particelle composte equivale a scambiare $k$ coppie di fermioni, e questo determina il segno dello stato finale; lo scambio dei bosoni non ha invece alcun effetto.
