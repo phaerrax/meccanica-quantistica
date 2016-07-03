@@ -747,8 +747,20 @@ Queste relazioni definiscono la somma diretta di due algebre $\mathfrak{su}(2)$ 
 Il prodotto tensoriale dei due $SU(2)$ indica come i due gruppi delle rotazioni siano in un certo senso indipendenti.
 
 Consideriamo ora l'insieme di osservabili $\{\op{\vec J}_1^2,\op{\vec J}_2^2,\op J_{13},\op J_{23}\}$, che a meno di altre osservabili forma un sistema completo (di osservabili compatibili).
-Definiamo il momento angolare \emph{totale} del sistema fisico complessivo dei due, che è l'operatore $\op{\vec J}=\op{\vec J}_1+\op{\vec J}_2$: per linearità vale anche per tale operatore la relazione \eqref{eq:commutazione-momento-angolare}.
-Esso è dunque il generatore delle rotazioni di tutto il sistema, ed è questa la grandezza che si conserva se il sistema è isolato, per l'isotropia dello spazio, e non i due singoli $\op{\vec J}_i$.\footnote{
+Definiamo il \emph{momento angolare totale} del sistema composto dal sistema 1 e 2 come\footnote{
+    La ragione per cui il momento angolare totale è definito in questo modo, detto \emph{coprodotto} dei due $\op{\vec J}_i$, e non con una semplice somma sarà chiara nel capitolo \ref{ch:multi} quando tratteremo i sistemi con più particelle.
+    Per il momento, come giustificazione si può prendere il fatto che solo con questa definizione si ha che
+    \begin{equation}
+        \exp\Bigl(-\frac{i}{\hbar}\theta\scalar{\axis}{\op{\vec J}}\Bigr)=
+        \exp\Bigl(-\frac{i}{\hbar}\theta\scalar{\axis}{\op{\vec J_1}}\Bigr) \otimes \exp\Bigl(-\frac{i}{\hbar}\theta\scalar{\axis}{\op{\vec J_2}}\Bigr)
+    \end{equation}
+    mentre non è vero per $\op{\vec J}_1+\op{\vec J}_2$.
+}
+\begin{equation}
+    \op{\vec J} \defeq \op{\vec J}_1\otimes\op 1 + \op 1\otimes\op{\vec J}_2
+    \label{eq:momento-angolare-totale}
+\end{equation}
+che soddisfa le relazioni di commutazione $[\op J_i,\op J_j]=i\hbar\epsilon_{ijk}\op J_k$, ed è cos\`i il generatore delle rotazioni di tutto il sistema: è questa la grandezza che si conserva se il sistema è isolato, per l'isotropia dello spazio, e non i due singoli $\op{\vec J}_i$.\footnote{
 	Qui la notazione è un po' ambigua: da una parte abbiamo i due operatori $\op{\vec J}_1$ e $\op{\vec J}_2$ dei momenti angolari dei due sistemi, e dall'altra le componenti $\op J_i$ del momento angolare totale.
 	Si noti però che i primi due sono in grassetto, che è usato per indicare dei vettori, perciò dovrebbe risultare chiaro che $\op{\vec J}_k$ è un vettore e si riferisce perciò a uno dei sistemi, mentre $\op J_k$ è la componente di un vettore, in questo caso del momento totale $\op{\vec J}$.
 	Le componenti dei momenti angolari di ciascun sistema sono indicate con un doppio indice, come $\op J_{12}$.
@@ -756,39 +768,39 @@ Esso è dunque il generatore delle rotazioni di tutto il sistema, ed è questa l
 Troviamo poi le altre relazioni di commutazione $[\op J_i,\op{\vec J}_1^2]=0$ e $[\op J_i,\op{\vec J}_2^2]=0$, in quanto i quadrati $\op{\vec J}^2$, $\op{\vec J}_1^2$ e $\op{\vec J}_2^2$ dei momenti angolari sono quantità scalari cioè invarianti per rotazioni (un calcolo diretto verifica comunque tutto ciò).
 Per lo stesso motivo deve essere poi $[\op{\vec J}^2,\op J_{13}]\ne 0$, e lo stesso con $\op J_{23}$, poich\'e le rotazioni di uno solo dei due sistemi \emph{non} lasciano invariate (in generale) le grandezze scalari.
 Per costruire un altro sistema completo di osservabili compatibili, usando i nuovi operatori $\op{\vec J}$, dobbiamo allora prendere l'insieme $\{\op{\vec J}_1^2,\op{\vec J}_2^2,\op{\vec J}^2,\op J_3\}$, sempre a meno di altre osservabili.
-Con queste scelte troviamo quindi due basi per lo spazio degli stati: ignorando le altre osservabili, abbiamo
+Con queste scelte troviamo quindi due basi per lo spazio degli stati: ignorando i numeri quantici riferiti alle altre osservabili, abbiamo
 \begin{itemize}
-	\item la base con stati del tipo $\ket{l_1,l_2,m_1,m_2}$, dove $l_1$ è il numero quantico dell'autovalore di $\op{\vec J}_1^2$, $m_1$ di $\op J_{13}$ e cos\`i via;
-	\item la base con stati $\ket{l_1,l_2,l,m}$, dove $l$ e $m$ si riferiscono al momento angolare totale.
+	\item la base con stati del tipo $\ket{j_1,m_1,j_2,m_2}$, dove $j_1$ è il numero quantico dell'autovalore di $\op{\vec J}_1^2$, $m_1$ di $\op J_{13}$ e cos\`i via;
+	\item la base con stati $\ket{j_1,j_2,j,m}$, dove $j$ e $m$ si riferiscono al momento angolare totale.
 \end{itemize}
 La prima è detta \emph{base disaccoppiata}, mentre la seconda \emph{accoppiata}.
-Gli elementi della prima base, dato che le due coppie $l_i,m_i$ di autovalori si riferiscono a due operatori su spazi distinti, si scrivono anche come $\ket{l_1,m_1}\otimes\ket{l_2,m_2}$, coerentemente con il fatto che il gruppo delle rotazioni del sistema è $SU(2)\otimes SU(2)$: il gruppo $SU(2)$ ``di sinistra'' agisce sugli stati $\ket{l_1,m_1}$, mentre quello ``di destra'' sugli stati $\ket{l_2,m_2}$, indipendentemente l'uno dall'altro.
-Il gruppo prodotto $SU(2)\otimes SU(2)$ è però il gruppo di simmetria del sistema totale, e in generale le sue rappresentazioni non sono irriducibili, ma si possono scomporre nella somma di tante rappresentazioni di dimensione minore; di conseguenza lo spazio di rappresentazione, dato dalla base accoppiata, si suddivide in tanti sottospazi, ognuno caratterizzato dal peso $l$ della rappresentazione associata.
-La chiave del problema è trovare i vari pesi $l$ delle nuove rappresentazioni, che corrispondono agli autovalori $l(l+1)\hbar^2$ che il momento angolare totale $\op{\vec J}$ può assumere a partire dai due $\op{\vec J}_1$ e $\op{\vec J}_2$.
+Gli elementi della prima base, dato che le due coppie $j_i,m_i$ di autovalori si riferiscono a due operatori su spazi distinti, si scrivono anche come $\ket{j_1,m_1}\otimes\ket{j_2,m_2}$, coerentemente con il fatto che il gruppo delle rotazioni del sistema è $SU(2)\otimes SU(2)$: il gruppo $SU(2)$ ``di sinistra'' agisce sugli stati $\ket{j_1,m_1}$, mentre quello ``di destra'' sugli stati $\ket{j_2,m_2}$, indipendentemente l'uno dall'altro.
+Il gruppo prodotto $SU(2)\otimes SU(2)$ è però il gruppo di simmetria del sistema totale, e in generale le sue rappresentazioni non sono irriducibili, ma si possono scomporre nella somma di tante rappresentazioni di dimensione minore; di conseguenza lo spazio di rappresentazione, dato dalla base accoppiata, si suddivide in tanti sottospazi, ognuno caratterizzato dal peso $j$ della rappresentazione associata.
+La chiave del problema è trovare i vari pesi $j$ delle nuove rappresentazioni, che corrispondono agli autovalori $j(j+1)\hbar^2$ che il momento angolare totale $\op{\vec J}$ può assumere a partire dai due $\op{\vec J}_1$ e $\op{\vec J}_2$.
 Il passaggio tra le due basi definite è dato dalla trasformazione
 \begin{equation}
-	\ket{l_1,l_2,m_1,m_2}=\sum_{l,m}c_{l_1,l_2,m_1,m_2,l,m}\ket{l_1,l_2,l,m}
-	\label{eq:clebsh-gordan}
+    \ket{j,m}=\sum_{m_1=-j_1}^{j_1}\sum_{m_2=-j_2}^{j_2}\ket{j_1,m_1,j_2,m_2}\braket{j_1,m_1,j_2,m_2}{j,m}
+	\label{eq:sviluppo-clebsch-gordan}
 \end{equation}
-i cui coefficienti $c_{l_1,l_2,m_1,m_2,l,m}$ sono chiamati \emph{coefficienti di Clebsch-Gordan}.
+(sottintendendo $j_1,j_2$, che sono fissati, nello stato $\ket{j,m}$) i cui coefficienti $\braket{j_1,m_1,j_2,m_2}{j,m}$, che formano una matrice unitaria dato che sono relativi al passaggio tra due basi ortonormali, sono chiamati \emph{coefficienti di Clebsch-Gordan}.
+Notiamo subito, applicando $\op J_3=\op J_{13}\otimes\op 1+\op 1\otimes\op J_{23}$, che i coefficienti di Clebsch-Gordan sono nulli se $m\ne m_1+m_2$.
 
 Guardiamo ora ad alcuni semplici esempi di corrispondenza tra le due basi.
-Fissiamo i due numeri $l_1$ e $l_2$, ottenendo un sottospazio di dimensione $(2l_1+1)(2l_2+1)$ in cui variano i due indici $-l_1\le m_1\le l_1$ e $-l_2\le m_2\le l_2$.
-Con la base accoppiata, invece, l'unico indice di $\op J_3$ è $m$ che può variare tra $-l$ e $l$, ottenendo $2l+1$ stati.
-Chiaramente, però, $m=m_1+m_2$, dunque il massimo valore di $m$ può essere la somma dei massimi vaori possibili di $m_1$ e $m_2$, ossia $l_1+l_2$.
-Si ha inoltre che $l\ge m$, ma allora deve essere necessariamente $l=l_1+l_2$, poich\'e altrimenti sarebbero ammessi valori di $m_1+m_2$ maggiori di $l_1+l_2$ il che non è possibile con le combinazioni a disposizione.
-Lo stato $\ket{l_1,l_2,m_1=l_1,m_2=l_2}$ coincide con $\ket{l_1,l_2,l=l_1+l_2,m=l}$.
-Consideriamo allora l'autovalore subito minore, che ha $m=l_1+l_2-1$: a tale numero corrispondono gli stati, nella base disaccoppiata, $\ket{l_1,l_2,m_1=l_1-1,m_2=l_2}$ e $\ket{l_1,l_2,m_1=l_1,m_2=l_2-1}$ che possono dare tale $m$; nella base accoppiata troviamo invece $\ket{l_1,l_2,l=l_1+l_2,m=l-1}$ e un altro ad esso ortogonale, che si troverà allora nel sottospazio con $l$ diminuito di 1, ossia $\ket{l_1,l_2,l=l_1+l_2-1,m=l}$.
-Scendendo ulteriormente a $m=l_1+l_2-2$ troviamo come prima tre stati i cui $m_1,m_2$ possono dare questo risultato; nella base accoppiata troviamo invece gli stati del tipo $\ket{l_1,l_2,l=l_1+l_2-k,m=l_1+l_2-2}$ con $k=0,1,2$.
-Possiamo continuare cos\`i finch\'e è possibile scegliere i numeri $m_1$ e $m_2$, dato che sono in un numero finito: il minimo valore che $m$ può assumere risulta cos\`i $l=\abs{l_1-l_2}$.
+Fissiamo i due numeri $j_1$ e $j_2$, ottenendo un sottospazio di dimensione $(2j_1+1)(2j_2+1)$ in cui variano i due indici $-j_1\le m_1\le j_1$ e $-j_2\le m_2\le j_2$.
+Con la base accoppiata, invece, l'unico indice di $\op J_3$ è $m$ che può variare tra $-j$ e $j$, ottenendo $2j+1$ stati.
+Dato che deve risultare $m=m_1+m_2$, il massimo valore di $m$ può solo essere la somma dei massimi valori possibili di $m_1$ e $m_2$, ossia $j_1+j_2$.
+Si ha inoltre che $j\ge m$, ma allora deve essere necessariamente $j=j_1+j_2$, poich\'e altrimenti sarebbero ammessi valori di $m_1+m_2$ maggiori di $j_1+j_2$ il che non è possibile con le combinazioni a disposizione.
+Lo stato $\ket{j_1,m_1=j_1,j_2,m_2=j_2}$ coincide con $\ket{j_1,j_2,j=j_1+j_2,m=j}$.
+Consideriamo allora l'autovalore subito minore, che ha $m=j_1+j_2-1$: a tale numero corrispondono gli stati, nella base disaccoppiata, $\ket{j_1,m_1=j_1-1,j_2,m_2=j_2}$ e $\ket{j_1,m_1=j_1,j_2,m_2=j_2-1}$ che possono dare tale $m$; nella base accoppiata troviamo invece $\ket{j_1,j_2,j=j_1+j_2,m=j-1}$ e un altro ad esso ortogonale, che si troverà allora nel sottospazio con $j$ diminuito di 1, ossia $\ket{j_1,j_2,j=j_1+j_2-1,m=j}$.
+Scendendo ulteriormente a $m=j_1+j_2-2$ troviamo come prima tre stati i cui $m_1,m_2$ possono dare questo risultato; nella base accoppiata troviamo invece gli stati del tipo $\ket{j_1,j_2,j=j_1+j_2-k,m=j-2}$ con $k=0,1,2$.
+Possiamo continuare cos\`i finch\'e è possibile scegliere i numeri $m_1$ e $m_2$, dato che sono in un numero finito: il minimo valore che $m$ può assumere risulta cos\`i $j=\abs{j_1-j_2}$.
 In effetti, solo con questo valore possiamo avere l'uguaglianza
 \begin{equation}
-	\sum_{l=\abs{l_1-l_2}}^{l_1+l_2}(2l+1)=(2l_1+1)(2l_2+1)
+	\sum_{j=\abs{j_1-j_2}}^{j_1+j_2}(2j+1)=(2j_1+1)(2j_2+1)
 \end{equation}
 che mostra come i due spazi hanno davvero la stessa dimensione.
-In altri termini, indicata la rappresentazione con il suo peso $l$, la rappresentazione prodotto $l_1\otimes l_2$ si scompone nella somma
+In altri termini, indicata la rappresentazione con il suo peso $j$, la rappresentazione prodotto $j_1\otimes j_2$ si scompone nella somma
 \begin{equation}
-	l_1\otimes l_2=(l_1+l_2)\oplus(l_1+l_2-1)\oplus\cdots\oplus\abs{l_1-l_2}
+	j_1\otimes j_2=(j_1+j_2)\oplus(j_1+j_2-1)\oplus\cdots\oplus\abs{j_1-j_2}
 \end{equation}
-e gli stati della base accoppiata sono $\ket{l_1,l_2,l,m}$ con $\abs{l_1-l_2}\le l\le l_1+l_2$ e $-l\le m\le l$.
-
+e gli stati della base accoppiata sono $\ket{j_1,j_2,j,m}$ con $\abs{j_1-j_2}\le j\le j_1+j_2$ e $-j\le m\le j$.
