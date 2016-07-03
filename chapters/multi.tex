@@ -52,6 +52,7 @@ Notare come ogni operatore agisce soltanto sullo stato del ``proprio'' spazio, i
 Ogni operatore di ciascuno spazio, d'altronde, si estende ad un operatore sullo spazio composto in modo naturale: l'operatore $\op\xi^{(1)}$ può essere esteso all'operatore
 \begin{equation}
 	\op\xi^{(1\otimes 2)}=\op\xi^{(1)}\otimes 1^{(2)}
+    \label{eq:estensione-operatore-singola-particella}
 \end{equation}
 dove $1^{(2)}$ è l'identità dello spazio $\hilbert_2$.
 Analogamente gli operatori di $\hilbert_2$ si estendono ad operatori del tipo $1^{(1)}\otimes\op\eta^{(2)}$.
@@ -254,3 +255,13 @@ Si noti l'analogia con la formula del determinante: la funzione completamente an
 \end{equation}
 nota come \emph{determinante di Slater}.
 
+\begin{osservazione} \label{o:osservabili-scambio-particelle}
+    Cos\`i come una funzione d'onda che non è (anti)simmetrica rispetto allo scambio di due particelle identiche non ha un senso fisico, poich\'e non rispecchia il principio di indistinguibilità, lo stesso discorso si può fare per gli operatori.
+    Componendo i due spazi delle singole particelle ci ``portiamo dietro'' tutti gli operatori che agiscono sul singolo spazio, estesi come nella \eqref{eq:estensione-operatore-singola-particella}: anch'essi però perdono il loro significato fisico.
+    Se non possiamo distinguere le particelle infatti non ha più senso dire che la particella 1 ha spin $\frac12$ e la seconda ha spin $-\frac12$, e lo stesso per la posizione, l'impulso, il momento angolare etc. delle singole particelle.
+    Ricordiamo che gli operatori autoaggiunti corrispondono a una misura che si può fare sul sistema: non possiamo pretendere di misurare la posizione della particella 1, semmai possiamo fare la misura e scoprire che c'è una particella in una certa regione di spazio, ma non sappiamo se tale particella è la <<particella 1>>.
+    D'altro canto ha senso misurare lo spin totale, la posizione del centro di massa, e in generale le proprietà del sistema composto, quindi hanno senso gli operatori come $\op{\vec S}^{(1)}+\op{\vec S}^{(2)}$, $\frac12(\op{\vec x}^{(1)}+\op{\vec x}^{(2)})$, $\op{\vec p}^{(1)}+\op{\vec p}^{(2)}$ eccetera.
+    Questi operatori (e le funzioni di essi), come è evidente, commutano con $\op\Pi_{12}$.
+    Gli operatori che non corrispondono a delle misure possibili sul sistema, ossia quelli che si riferiscono a una particella specifica (o che dipendono da una certa ``numerazione'' delle particelle) restano comunque validi dal punto di vista matematico, cos\`i come le funzioni d'onda di singola particella: il principio da seguire è che \emph{questa numerazione non può avere alcuna conseguenza dal punto di vista fisico}.
+    Questo si estende ovviamente anche ai sistemi di più di due particelle identiche.
+\end{osservazione}
