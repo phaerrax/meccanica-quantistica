@@ -8,7 +8,6 @@ Il problema principale è capire come costruire lo spazio degli stati di tali si
 Sappiamo che con un grado di libertà possiamo associare ad ogni stato un raggio in uno spazio di Hilbert complesso, separabile e infinito dimensionale.
 Quando il sistema possiede più di una dimensione spaziale, tali dimensioni sono indipendenti e apportano ciascuna un grado di libertà; per ciascuna di esse abbiamo, ad esempio, un operatore della posizione e uno dell'impulso, e sappiamo già dai commutatori fondamentali che posizione e impulso di coordinate differenti commutano.
 Analogamente, componendo più particelle in un sistema ciascuna di esse ha associata la coppia di operatori posizione e impulso (ad esempio) e tutti quelli che ne derivano.
-/bin/bash: :wq: command not found
 \begin{equation}
 	\hilbert=\hilbert_1\otimes\hilbert_2\otimes\cdots\otimes\hilbert_d.
 \end{equation}
@@ -44,7 +43,6 @@ Quando non esiste una tale fattorizzazione, lo stato è detto \emph{entangled}.\
 	Il termine inglese è di uso comune, e raramente si trova tradotto in italiano.
 }
 
-<<<<<<< 1cc722c81d9e44b212ad338a4b45f028e61a59a3
 Gli operatori nello spazio composto in generale sono, anche qui, combinazioni lineari di prodotti diretti di operatori di ciascuno spazio: dati due operatori $\op\xi^{(1)}$ e $\op\eta^{(2)}$ rispettivamente su $\hilbert_1$ e su $\hilbert_2$, possiamo associare ad essi l'operatore $\op\xi^{(1)}\otimes\op\eta^{(2)}$ sullo spazio composto tale che
 \begin{equation}
 	(\op\xi^{(1)}\otimes\op\eta^{(2)})(\ket{A}\otimes\ket{B})=(\op\xi^{(1)}\ket{A})\otimes(\op\eta^{(2)}\ket{B}).
@@ -274,7 +272,7 @@ Ci aspettiamo di applicare quanto visto per l'elettrone nell'atomo di idrogeno a
 Anche considerando il nucleo come un punto materiale di massa infinita, e trascurando le svariate correzioni relativistiche come il momento degli elettroni e l'interazione dei loro spin con il campo del nucleo o tra loro stessi, rimane l'ostacolo dell'interazione elettrostatica tra le due particelle.
 Partiamo studiando questo problema avendo già svolto la trasformazione di coordinate nel moto relativo dei due elettroni rispetto al nucleo --- che consideriamo puntiforme e di massa infinita --- in cui l'hamiltoniano è
 \begin{equation}
-    \op H=\frac{\op{\vec p}_1^2}{2m}+\frac{\op{\vec p}_2^2}{2m}+\frac{Ze}{\op r_1}+\frac{Ze}{\op r_2}+\frac{e^2}{\norm{\op{\vec x}_1-\op{\vec x}_2}}
+    \op H=\frac{\op{\vec p}_1^2}{2m}+\frac{\op{\vec p}_2^2}{2m}-\frac{Ze^2}{\op r_1}-\frac{Ze^2}{\op r_2}+\frac{e^2}{\norm{\op{\vec x}_1-\op{\vec x}_2}}
     \label{eq:H-elio}
 \end{equation}
 con la solita notazione.
@@ -287,7 +285,7 @@ Per quest'ultimo, possiamo procedere cominciando dall'approssimazione a elettron
 Cominciamo con il primo metodo: scriviamo
 \begin{equation}
     \begin{gathered}
-        \op H^{(0)}\defeq\frac{\op{\vec p}_1^2}{2m}+\frac{\op{\vec p}_2^2}{2m}+\frac{Ze}{\op r_1}+\frac{Ze}{\op r_2}\\
+        \op H^{(0)}\defeq\frac{\op{\vec p}_1^2}{2m}+\frac{\op{\vec p}_2^2}{2m}-\frac{Ze^2}{\op r_1}-\frac{Ze^2}{\op r_2}\\
         \op H'\defeq\frac{e^2}{\norm{\op{\vec x}_1-\op{\vec x}_2}}
     \end{gathered}
     \label{eq:scomposizione-H-elio-perturbazione}
