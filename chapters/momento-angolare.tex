@@ -783,7 +783,14 @@ Il passaggio tra le due basi definite è dato dalla trasformazione
 	\label{eq:sviluppo-clebsch-gordan}
 \end{equation}
 (sottintendendo $j_1,j_2$, che sono fissati, nello stato $\ket{j,m}$) i cui coefficienti $\braket{j_1,m_1,j_2,m_2}{j,m}$, che formano una matrice unitaria dato che sono relativi al passaggio tra due basi ortonormali, sono chiamati \emph{coefficienti di Clebsch-Gordan}.
-Notiamo subito, applicando $\op J_3=\op J_{13}\otimes\op 1+\op 1\otimes\op J_{23}$, che i coefficienti di Clebsch-Gordan sono nulli se $m\ne m_1+m_2$.
+Notiamo subito, applicando $\op J_3=\op J_{13}\otimes\op 1+\op 1\otimes\op J_{23}$ alla \eqref{eq:sviluppo-clebsch-gordan}, che
+\begin{equation}
+    \begin{aligned}
+        J_3\ket{j,m}&=\sum_{m_1=-j_1}^{j_1}\sum_{m_2=-j_2}^{j_2}\braket{j_1,m_1,j_2,m_2}{j,m}(\op J_{13}\otimes\op 1+\op 1\otimes\op J_{23})\ket{j_1,m_1,j_2,m_2}\\
+        m\hbar\ket{j,m}&=\sum_{m_1=-j_1}^{j_1}\sum_{m_2=-j_2}^{j_2}\braket{j_1,m_1,j_2,m_2}{j,m}(m_1+m_2)\hbar\ket{j_1,m_1,j_2,m_2}\\
+    \end{aligned}
+\end{equation}
+quindi i coefficienti di Clebsch-Gordan sono nulli se $m\ne m_1+m_2$.
 
 Guardiamo ora ad alcuni semplici esempi di corrispondenza tra le due basi.
 Fissiamo i due numeri $j_1$ e $j_2$, ottenendo un sottospazio di dimensione $(2j_1+1)(2j_2+1)$ in cui variano i due indici $-j_1\le m_1\le j_1$ e $-j_2\le m_2\le j_2$.
@@ -804,3 +811,31 @@ In altri termini, indicata la rappresentazione con il suo peso $j$, la rappresen
 	j_1\otimes j_2=(j_1+j_2)\oplus(j_1+j_2-1)\oplus\cdots\oplus\abs{j_1-j_2}
 \end{equation}
 e gli stati della base accoppiata sono $\ket{j_1,j_2,j,m}$ con $\abs{j_1-j_2}\le j\le j_1+j_2$ e $-j\le m\le j$.
+
+Calcoliamo i coefficienti di Clebsch-Gordan per due momenti angolari $j_1=j_2=\frac12$: la base disaccoppiata è $\ket{\frac12,m_1,\frac12,m_2}$ con $m_1$ e $m_2$ che variano tra $-\frac12$ e $\frac12$, mentre quella accoppiata è composta da $\ket{\frac12,\frac12,s,m}$ con $s=0,1$ e $m$ che varia tra $-s$ e $s$; per brevità sottintenderemo i due valori di $j_1$ e $j_2$, e scriveremo $\ket{\pm,\pm}\defeq\ket{\frac12,\pm\frac12,\frac12,\pm\frac12}$.
+Prendiamo lo stato $\ket{1,1}$, nella base accoppiata: dato che $m=1$ si avrà per forza $m_1=m_2=\frac12$, quindi
+\begin{equation}
+    \ket{1,1}=\ket{+,+}.
+\end{equation}
+Da questo prendiamo l'operatore di discesa $\op J_{1-}\otimes\op 1+\op 1\otimes\op J_{2+}$ su $\ket{+,+}$, e otteniamo lo stato $\ket{+,-}+\ket{-,+}$; esso ha ancora $j=1$ (gli operatori di salite e discesa non modificano $j$) e ha $m=0$ pertanto, normalizzato, è
+\begin{equation}
+    \ket{1,0}=\frac1{\sqrt{2}}(\ket{+,-}+\ket{-,+}).
+\end{equation}
+Applicando nuovamente l'operatore di discesa si ottiene
+\begin{equation}
+    \ket{1,-1}=\ket{-,-}.
+\end{equation}
+Rimane dunque un solo stato, $\ket{0,0}$, ortogonale a questi tre: con il primo e il terzo non si ottiene niente, dato che hanno $m$ differenti; imponendo invece l'ortogonalità con il secondo si ottiene
+\begin{equation}
+    \ket{0,0}=\frac1{\sqrt{2}}(\ket{+,-}-\ket{-,+}).
+\end{equation}
+La matrice che riassume i sedici coefficienti di Clebsch-Gordan nella decomposizione $\frac12\otimes\frac12=1\oplus 0$ è dunque, ordinando le basi come $\{\ket{-,-},\ket{+,-},\ket{-,+},\ket{+,+}\}$ e $\{\ket{0,0},\ket{1,1},\ket{1,0},\ket{1,-1}\}$ è
+\begin{equation}
+    \begin{pmatrix}
+        0                 & 0 & 0                & 1 \\
+        \frac1{\sqrt{2}}  & 0 & \frac1{\sqrt{2}} & 0 \\
+        -\frac1{\sqrt{2}} & 0 & \frac1{\sqrt{2}} & 0 \\
+        0                 & 1 & 0                & 0 
+    \end{pmatrix}.
+    \label{eq:clebsch-gordan-spin-1/2}
+\end{equation}
