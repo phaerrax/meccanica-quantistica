@@ -525,3 +525,78 @@ Se ora $l=l'=0$ risulta anche qui che $\bra{n',0,0}(\op p_1u1+\op p_2u_2)e^{ik\o
 Nel caso specifico dell'atomo di idrogeno, la parità di uno stato è data dal momento angolare, ed è $(-1)^l$, perciò le transizioni con $\Delta l=0$ risultano proibita in quanto tra stati con la stessa parità.
 A causa della degenerazione dei livelli energetici, però, queste regole di selezione rimangono nascoste; diventano evidenti se invece all'atomo è applicato un campo elettrico esterno, in modo da rimuovere tali degenerazioni.
 
+\section{Struttura fine degli atomi idrogenoidi}
+Avendo a disposizione la teoria delle perturbazioni possiamo effettuare alcune correzioni alla teoria che abbiamo sviluppato per gli atomi idrogenoidi.
+Mentre allora abbiamo ricavato che i livelli energetici dipendono soltanto dal numero quantico $n$, le evidenze sperimentali (principalmente nella divisione delle linee spettrali che indicano la transizione tra due stati atomici) indicano che tali livelli possono dipendere anche dagli altri numeri quantici.
+La teoria sviluppata finora infatti trascura del tutto gli effetti relativistici, e queste divisioni dei livelli sono causa proprio di questi effetti: in questa sezione tratteremo alcuni di questi effetti come perturbazioni del primo ordine agli autostati degli atomi idrogenoidi:
+D'ora in poi sia $\op H_0$ l'hamiltoniano $\frac1{2m}\op{\vec p}^2+Ze^2\frac1{r}$ imperturbato.
+Assumeremo ancora che la massa ridotta sia uguale alla massa dell'elettrone e che il nucleo sia puntiforme.
+
+\subsection{Interazione spin-orbita}
+Trattando gli atomi idrogenoidi lo spin dell'elettrone non compariva in alcun modo nell'equazione di Schrödinger, e pertanto il suo unico ruolo era di raddoppiare la molteplicità degli stati.
+La presenza dello spin però conferisce all'elettrone un momento magnetico intrinseco $\op\vmu_s=-g_s\frac{\mu_B}{\hbar}\op{\vec S}$, che interagisce con il campo elettromagnetico generato dal nucleo: infatti passando dal sistema di riferimento in cui il nucleo è in quiete e genera il campo elettromagnetico $\vec E$ al sistema di riferimento in cui l'elettrone è in quiete, la trasformazione di Lorentz fa s\`i che tale campo elettrico sia avvertito dall'elettrone come un campo magnetico
+\begin{equation}
+    \vec B=-\frac1{c^2}\vec v\times\vec E.
+\end{equation}
+A causa di un effetto noto come \emph{precessione di Thomas}, dovuto al fatto che il sistema di riferimento in cui l'elettrone è in quiete non è inerziale ma ruota attorno al nucleo, il campo magnetico deve essere dimezzato, per cui abbiamo il termine perturbativo di interazione
+\begin{equation}
+    \op H_1=
+    -\frac12\scalar{\op\vmu_s}{\vec B}=
+    \frac12g_s\frac{\mu_B}{\hbar}\scalar{\op{\vec S}}{\vec B}=
+    -g_s\frac{\mu_B}{2\hbar mc^2}\scalar{\op{\vec S}}{\op{\vec p}\times\vec E}
+\end{equation}
+sostituendo a $\vec v$ il corrispondente operatore $\frac1{m}\op{\vec p}$.
+In generale per un campo elettrostatico centrale si ha
+\begin{equation}
+    \vec E(\vec x)=-\frac{\vec x}{r}\drp{\Phi}{r}(\vec x)
+\end{equation}
+per cui l'interazione tra il momento magnetico dell'elettrone e il campo magnetico è
+\begin{equation}
+    \op H_1=
+    \frac12g_s\frac{\mu_B}{\hbar}\frac1{mc^2r}\drp{\Phi}{r}\scalar{\op{\vec S}}{\op{\vec p}\times\op{\vec x}}=
+    -\frac{g_sq_e}{4m^2c^2}\frac1{r}\drp{\Phi}{r}\scalar{\op{\vec S}}{\op{\vec L}}.
+    \label{eq:interazione-spin-orbita}
+\end{equation}
+Il potenziale elettrostatico del nucleo è $\Phi(r)=\frac{Zq_e}{4\pi\epsilon_0r}$ dunque
+\begin{equation}
+    \op H_1=
+    \frac{Zg_sq_e^2}{16\pi\epsilon_0m^2c^2}\frac1{r^3}\scalar{\op{\vec S}}{\op{\vec L}}=
+    \frac{Zg_se^2}{4m^2c^2}\frac1{r^3}\scalar{\op{\vec S}}{\op{\vec L}}.
+    \label{eq:interazione-spin-orbita-coulomb}
+\end{equation}
+L'ordine in cui si scrive il prodotto scalare $\scalar{\op{\vec S}}{\op{\vec L}}$ è ininfluente dato che i due operatori commutano; d'ora in poi useremo inoltre l'approssimazione $g_s\approx 2$.
+L'operatore $\scalar{\op{\vec S}}{\op{\vec L}}$ \emph{non} è diagonale nella base disaccoppiata $\ket{n,l,m_l,s,m_s}$: notiamo però che, detto $\op{\vec J}=\op{\vec L}+\op{\vec S}$ il momento angolare totale dell'elettrone,
+\begin{equation}
+    \op{\vec J}^2=\op{\vec L}^2+2\scalar{\op{\vec L}}{\op{\vec S}}+\op{\vec S}^2
+\end{equation}
+da cui
+\begin{equation}
+    \scalar{\op{\vec S}}{\op{\vec L}}=\frac{\op{\vec J}^2-\op{\vec L}^2-\op{\vec S}^2}2
+\end{equation}
+e certamente questo operatore è diagonale nella base accoppiata $\ket{n,l,s,j,m_j}$: useremo dunque questa per calcolare il valore di aspettazione di $\op H_1$, che è la correzione al primo ordine da apportare agli autovalori di $\op H_0$.
+Ovviamente si ha
+\begin{equation}
+    \bra{n,l,s,j,m_j}\scalar{\op{\vec S}}{\op{\vec L}}\ket{n,l,s,j,m_j}=\frac{\hbar^2}2\bigl[j(j+1)-l(l+1)-s(s+1)\bigr]
+\end{equation}
+mentre
+\begin{equation}
+    \bra{n,l,s,j,m_j}\frac1{r^3}\ket{n,l,s,j,m_j}=\frac{Z^3}{a_0^3}\frac2{n^3l(l+1)(2l+1)}
+\end{equation}
+che vale per $l\ge 1$, in tal caso però si ha $\op{\vec L}=0$ quindi l'interazione spin-orbita non è contemplata.
+Di conseguenza la correzione è
+\begin{equation}
+    \begin{split}
+        \bra{n,l,s,j,m_j}\op H_1\ket{n,l,s,j,m_j}=&
+        \frac{Z^4e^2\hbar^2}{2m^2c^2a_0^3}\frac{j(j+1)-l(l+1)-s(s+1)}{n^3l(l+1)(2l+1)}=\\=&
+        \frac{Z^4e^8m}{2\hbar^4c^2}\frac{j(j+1)-l(l+1)-s(s+1)}{n^3l(l+1)(2l+1)}=\\=&
+        \frac{Z^2e^4m}{2\hbar^2n^2}\frac{Z^2e^4}{\hbar^2c^2}\frac{j(j+1)-l(l+1)-s(s+1)}{nl(l+1)(2l+1)}=\\=&
+        -E_n(Z\alpha)^2\frac{j(j+1)-l(l+1)-s(s+1)}{nl(l+1)(2l+1)}
+    \end{split}
+    \label{eq:correzione-spin-orbita}
+\end{equation}
+dove $E_n$ è l'autovalore di $H_0$ imperturbato e
+\begin{equation}
+    \alpha=\frac{e^2}{\hbar c}=\num{0.0072973525664(17)}\approx\frac1{137}
+    \label{eq:costante-struttura-fine}
+\end{equation}
+è la \emph{costante di struttura fine}.
