@@ -642,3 +642,61 @@ Per valutare il valore di aspettazione usiamo la base accoppiata, in linea con l
     \end{split}
     \label{eq:correzione-energia-cinetica-relativistica}
 \end{equation}
+
+\subsection{Termine di Darwin}
+L'ultimo termine che affrontiamo, che prende il nome da C.~G.~Darwin, è dovuto al fenomeno della \textit{Zitterbewegung}, una rapida oscillazione dell'elettrone dovuta all'interazione tra stati di energia positiva e negativa, ossia tra l'elettrone e un antielettrone virtuale; tale oscillazione avviene con una lunghezza d'onda pari alla lunghezza d'onda di Compton $\lambda_c=\frac{\hbar}{mc}=\SI{2.4263102389(16)e-12}{m}$.
+Il termine perturbativo vale
+\begin{equation}
+    \op H_3=\frac{Ze^2\hbar^2}{8m^2c^2}4\pi\delta^3(\op{\vec x}).
+    \label{eq:perturbazione-darwin}
+\end{equation}
+Chiaramente è impensabile di ricavare questo termine a questo livello, non potendo includere il fenomeno in alcun modo nella trattazione non relativistica --- come abbiamo fatto per l'interazione spin-orbita e l'energia cinetica relativistica.
+Possiamo però avvicinarci al risultato a meno di un fattore numerico di ordine 1 con il seguente ragionamento: preso atto della \textit{Zitterbewegung}, l'elettrone non risulta più localizzato in un punto $\vec x$ nello spazio ma, a causa delle sue oscillazioni, appare diffuso in una sfera di raggio $\lambda_c$.
+Di conseguenza l'energia potenziale elettrostatica non è più localizzata in $V(\vec x)$, ma possiamo prenderne la media sulla sfera di raggio $\lambda_c$ centrata in $\vec x$, che indichiamo con $B_{\lambda_c}(\vec x)$.
+È lecito assumere che il potenziale vari lentamente all'interno di tale sfera, per cui possiamo svilupparlo al secondo ordine come
+\begin{equation}
+    V(\vec x+\vec y)=V(\vec x)+\sum_{i=1}^3y_i\drp{V}{x_i}(\vec x)+\frac12\sum_{i=1}^3\sum_{j=1}^3y_iy_j\frac{\partial^2V}{\partial x_i\partial x_j}(\vec x)+o(\norm{\vec y}^2)
+\end{equation}
+per $\vec x+\vec y\in B_{\lambda_c}(\vec x)$ o equivalentemente $\vec y\in B_{\lambda_c}(0)$.
+Trascurando il resto $o(\norm{\vec y}^2)$, la media del potenziale è allora
+\begin{multline}
+    \avg{V}=
+    \frac1{\frac43\pi\lambda_c^3}\int_{B_{\lambda_c}(0)} V(\vec x+\vec y)\,\dd^3y=\\=
+    \frac3{4\pi\lambda_c^3}\biggl[V(\vec x)\int_{B_{\lambda_c}(0)}\,\dd^3y+\sum_{i=1}^3\drp{V}{x_i}(\vec x)\int_{B_{\lambda_c}(0)} y_i\,\dd^3y+\frac12\sum_{i=1}^3\sum_{j=1}^3\frac{\partial^2V}{\partial x_i\partial x_j}(\vec x)\int_{B_{\lambda_c}(0)} y_iy_j\,\dd^3y\biggr].
+\end{multline}
+Il secondo dei tre integrali è nullo per $i=1,2,3$ per ragioni di simmetria, cos\`i come il terzo se $i\ne j$; se invece in quest'ultimo $i=j$, il risultato non cambia se $i$ è $1$, $2$ o $3$: scegliendo $i=3$ si può calcolare come
+\begin{equation}
+    \int_{B_{\lambda_c}(0)}y_i^2\,\dd^3y=
+    2\pi\int_0^{\lambda_c}\int_0^\pi r^4\cos^2\theta \sin\theta\,\dd\theta\,\dd r=
+    2\pi\biggl[\frac{r^5}5\biggr]_0^{\lambda_c}\biggl[-\frac{\cos^3\theta}3\biggr]_0^\pi=
+    2\pi\frac{\lambda_c^5}5\frac23=
+    \frac{4\pi\lambda_c^5}{15}
+\end{equation}
+dunque
+\begin{equation}
+    \avg{V}=
+    V(\vec x)+\frac{\lambda_c^2}{10}\lap V(\vec x).
+\end{equation}
+Per il potenziale coulombiano, si ha
+\begin{equation}
+    \lap V(\vec x)=
+    -Ze^2\lap\frac1{r}=
+    4\pi Ze^2\delta^3(\vec x)
+\end{equation}
+perciò risulta infine
+\begin{equation}
+    \avg{V}=
+    V(\vec x)+\frac{Ze^2\lambda_c^2}{10}4\pi\delta^3(\vec x)=
+    V(\vec x)+\frac{Ze^2\hbar^2}{10m^2c^2}4\pi\delta^3(\vec x)
+\end{equation}
+e il secondo addendo sarebbe il termine da aggiungere come perturbazione; otteniamo il termine esatto \eqref{eq:perturbazione-darwin} moltiplicando per $\frac54$.
+
+Calcoliamo dunque il valore di aspettazione, sempre nella base accoppiata: la presenza della $\delta^3(\vec x)$ fa s\`i che la correzione si applichi soltanto agli stati con $l=0$, dato che per $r\to 0$ si ha $\psi_{n,l,m_l}(r,\theta,\phi)\propto r^l$.
+\begin{multline}
+    \bra{n,l,s,j,m_j}\op H_3\ket{n,l,s,j,m_j}=
+    \frac{Ze^2\hbar^2}{8m^2c^2}4\pi\abs{\psi_{n,0,m_l}(0)}^2=\\=
+    \frac{Ze^2\hbar^2}{8m^2c^2}4\biggl(\frac{Z}{na_0}\biggr)^3=
+    \frac{Z^4e^8m}{2c^2n^3\hbar^4}=
+    -E_n(Z\alpha)^2\frac1{n}.
+    \label{eq:correzione-darwin}
+\end{multline}
