@@ -600,3 +600,45 @@ dove $E_n$ è l'autovalore di $H_0$ imperturbato e
     \label{eq:costante-struttura-fine}
 \end{equation}
 è la \emph{costante di struttura fine}.
+
+\subsection{Correzione relativistica dell'impulso}
+Con le costanti a disposizione $\hbar$, $e$, possiamo costruire una grandezza con le dimensioni di una velocità,
+\begin{equation}
+    \frac{e^2}{\hbar}\approx\SI{2.18769e6}{\meter\per\second}
+    \label{eq:velocita-tipica-elettrone}
+\end{equation}
+che rappresenta, come ordine di grandezza, la velocità tipica di un elettrone attorno a un nucleo atomico.
+Il suo valore è meno dell'1\% della velocità della luce (il suo rapporto con $c$ non è altro che la costante di struttura fine definita poco sopra), che giustifica la trattazione non relativistica, almeno in prima approssimazione, con l'equazione di Schrödinger.
+Ora miglioriamo la precisione di questa approssimazione sviluppando la formula relativistica dell'energia cinetica ad un ordine superiore:
+\begin{multline}
+    T=
+    \sqrt{m^2c^4+\vec{p}^2c^2}-mc^2=
+    \biggl(\sqrt{1+\frac{\vec{p}^2}{m^2c^2}}-1\biggr)mc^2\approx\\\approx
+    \biggl[1+\frac12\frac{\vec{p}^2}{m^2c^2}-\frac18\biggl(\frac{\vec{p}^2}{m^2c^2}\biggr)^2-1\biggr]mc^2=
+    \frac{\vec{p}^2}{2m}-\frac{(\vec{p}^2)^2}{8m^3c^2}
+    \label{eq:energia-cinetica-relativistica}
+\end{multline}
+da cui ricaviamo il termine di perturbazione
+\begin{equation}
+    \op H_2=-\frac{(\op{\vec p}^2)^2}{8m^3c^2}.
+    \label{eq:perturbazione-energia-cinetica-relativistica}
+\end{equation}
+Questo termine può essere facilmente risolto osservando che
+\begin{equation}
+    (\op{\vec p}^2)^2=(2m)^2\biggl(\op H_0+\frac{Ze^2}{r}\biggr)
+\end{equation}
+per cui
+\begin{equation}
+    \op H_2=-\frac1{2mc^2}\biggl(\op H_0^2+2\op H_0\frac{Ze^2}{r}+\frac{Z^2e^4}{r^2}\biggr).
+\end{equation}
+Per valutare il valore di aspettazione usiamo la base accoppiata, in linea con l'interazione spin-orbita (ma usare questa o la disaccoppiata qui è indifferente); per le formule \eqref{eq:valore-medio-r^-1-idrogeno} e \eqref{eq:valore-medio-r^-2-idrogeno} abbiamo allora
+\begin{equation}
+    \begin{split}
+        \bra{n,l,s,j,m_j}\op H_2\ket{n,l,s,j,m_j}&=
+        -\frac1{2mc^2}\biggl[E_n^2+2Ze^2E_n\frac{Z}{a_0n^2}+Z^2e^4\frac{2Z^2}{n^3(2l+1)a_0^2}\biggr]=\\&=
+        -\frac1{2mc^2}\biggl[\frac{Z^4e^8m^2}{4\hbar^4n^4}-\frac{Z^4e^8m^2}{\hbar^4n^4}+\frac{2Z^4m^2e^8}{\hbar^4n^3(2l+1)}\biggr]=\\&=
+        -\frac{Z^4e^8m}{2n^2\hbar^4c^2}\biggl[-\frac3{4n^2}+\frac{2}{n(2l+1)}\biggr]=\\&=
+        -E_n(Z\alpha)^2\biggl[\frac3{4n^2}-\frac{2}{n(2l+1)}\biggr].
+    \end{split}
+    \label{eq:correzione-energia-cinetica-relativistica}
+\end{equation}
