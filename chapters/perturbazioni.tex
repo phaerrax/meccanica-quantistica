@@ -700,3 +700,67 @@ Calcoliamo dunque il valore di aspettazione, sempre nella base accoppiata: la pr
     -E_n(Z\alpha)^2\frac1{n}.
     \label{eq:correzione-darwin}
 \end{multline}
+
+\subsection{Riepilogo}
+Riassumiamo le tre correzioni per un elettrone, fissando quindi $s=\frac12$.
+Dobbiamo distinguere i casi $l\ne 0$ e $l=0$: nel primo si applica l'interazione spin-orbita ma non il termine di Darwin, viceversa per il secondo.
+\begin{itemize}
+    \item Per $l\ne 0$ e $j=l+s=l+\frac12$ si ha
+        \begin{equation}
+            \begin{split}
+                \Delta E&=
+                -E_n(Z\alpha)^2\biggl[\frac{(l+\frac12)(l+\frac32)-l(l+1)-\frac34}{nl(l+1)(2l+1)}+\frac3{4n^2}-\frac2{n(2l+1)}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[\frac1{n(l+1)(2l+1)}+\frac3{4n^2}-\frac2{n(2l+1)}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[\frac3{4n^2}+\frac{1-2(l+1)}{n(l+1)(2l+1)}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[\frac3{4n^2}-\frac1{n(l+1)}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[\frac3{4n^2}-\frac1{n(j+\frac12)}\biggr].
+            \end{split}
+        \end{equation}
+    \item Per $l\ne 0$ e $j=l-\frac12$ si ha
+        \begin{equation}
+            \begin{split}
+                \Delta E&=
+                -E_n(Z\alpha)^2\biggl[\frac{(l-\frac12)(l+\frac12)-l(l+1)-\frac34}{nl(l+1)(2l+1)}+\frac3{4n^2}-\frac2{n(2l+1)}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[-\frac1{nl(2l+1)}\frac3{4n^2}-\frac2{n(2l+1)}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[\frac3{4n^2}-\frac{1+2l}{nl(2l+1)}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[\frac3{4n^2}-\frac1{nl}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[\frac3{4n^2}-\frac1{n(j+\frac12)}\biggr].
+            \end{split}
+        \end{equation}
+    \item Per $l=0$ (e per forza $j=\frac12$) infine si ha
+        \begin{equation}
+            \Delta E=
+            -E_n(Z\alpha)^2\biggl(\frac3{4n^2}-\frac2{n}+\frac1{n}\biggr)=
+            -E_n(Z\alpha)^2\biggl(\frac3{4n^2}-\frac1{n}\biggr)=
+            -E_n(Z\alpha)^2\biggl[\frac3{4n^2}-\frac1{n(j+\frac12)}\biggr].
+        \end{equation}
+\end{itemize}
+Dato che il termine correttivo ha un fattore $(Z\alpha)^2$, si è soliti dire che è una correzione di ordine $\alpha^2$ agli autovalori.
+I livelli energetici corretti all'ordine $\alpha^2$ sono dunque
+\begin{equation}
+    E_n+\Delta E=
+    E_n\biggl[1-(Z\alpha)^2\biggl(\frac3{4n^2}-\frac1{n(j+\frac12)}\biggr)\biggr].
+    \label{eq:energia-idrogenoidi-struttura-fine}
+\end{equation}
+Dato che $j+\frac12=l+s+\frac12=l+1\le n$, si ha
+\begin{equation}
+    \frac3{4n^2}-\frac1{n(j+\frac12)}\le
+    \frac3{4n^2}-\frac1{n^2}=
+    -\frac1{4n^2}
+\end{equation}
+di conseguenza
+\begin{equation}
+    \Delta E=
+    \abs{E_n}(Z\alpha)^2\biggl[\frac3{4n^2}-\frac1{n(j+\frac12)}\biggr]\le
+    -\abs{E_n}(Z\alpha)^2\frac1{4n^2}
+\end{equation}
+perciò la correzione è sempre negativa, ossia il suo effetto è abbassare tutti i livelli energetici imperturbati.
+La correzione relativa $\Delta E/E$ è maggiore per gli orbitali $2s_{\frac12}$ e $2p_{\frac12}$, per cui vale $\frac5{16}(Z\alpha)^2$ (circa $\num{1.7e-5}$ per l'idrogeno); assolutamente invece è maggiore ovviamente per lo stato fondamentale, per cui vale approssimativamente $\SI{1.81e-4}{\electronvolt}$.
+Può sorprendere come si sia arrivati allo stesso risultato in tutti e tre i casi: questo risultato oltretutto non dipende da $l$, ma da $j$ (oltre che, ovviamente, da $n$).
+La degenerazione su $l$ non è ancora del tutto rimossa: orbitali con differenti valori $l$ che danno lo stesso $j$ (ad esempio gli orbitali $2s_{\frac12}$ e $2p_{\frac12}$) hanno ancora la stessa energia.
+Chiaramente questi risultati sono validi per valori piccoli di $Z\alpha$, vale a dire per atomi con piccolo numero atomico: all'aumentare di $Z$ perdono valore, e altri effetti di ordine minore che qui non sono inclusi diventano più rilevanti.
+
+Questi risultati trovano una conferma nell'equazione di Dirac, la cui teoria comprende in pieno gli effetti relativistici: se si approssima l'equazione di Dirac per $Z\alpha\ll 1$ si ottengono (oltre all'hamiltoniano $\op H_0$) proprio i tre termini che abbiamo aggiunto come perturbazione; inoltre i livelli energetici \eqref{eq:energia-idrogenoidi-struttura-fine} coincidono con gli autovalori dell'hamiltoniano relativistico degli atomi idrogenoidi sviluppati in serie all'ordine $(Z\alpha)^4$.\footnote{
+    Nell'espressione dell'energia non relativistica $E_n$ è già presente un fattore $c^2(Z\alpha)^2$, perciò la correzione perturbativa contiene in totale un fattore $(Z\alpha)^4$.
+}
+La teoria relativistica di Dirac non è comunque l'ultima parola sull'atomo di idrogeno: sono esclusi da essa il momento magnetico anomalo dell'elettrone, per il quale $g_s$ non è esattamente $2$, l'interazione tra i momenti magnetici di spin dell'elettrone e del nucleo (che porta alla \emph{struttura iperfine}), e il \emph{Lamb shift}.
