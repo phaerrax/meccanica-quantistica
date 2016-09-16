@@ -536,13 +536,16 @@ Assumeremo ancora che la massa ridotta sia uguale alla massa dell'elettrone e ch
 Trattando gli atomi idrogenoidi lo spin dell'elettrone non compariva in alcun modo nell'equazione di Schrödinger, e pertanto il suo unico ruolo era di raddoppiare la molteplicità degli stati.
 La presenza dello spin però conferisce all'elettrone un momento magnetico intrinseco $\op\vmu_s=-g_s\frac{\mu_B}{\hbar}\op{\vec S}$, che interagisce con il campo elettromagnetico generato dal nucleo: infatti passando dal sistema di riferimento in cui il nucleo è in quiete e genera il campo elettromagnetico $\vec E$ al sistema di riferimento in cui l'elettrone è in quiete, la trasformazione di Lorentz fa s\`i che tale campo elettrico sia avvertito dall'elettrone come un campo magnetico
 \begin{equation}
-    \vec B=-\frac1{c^2}\vec v\times\vec E.
+    \vec B=-\frac1{2c^2}\vec v\times\vec E.
 \end{equation}
-A causa di un effetto noto come \emph{precessione di Thomas}, dovuto al fatto che il sistema di riferimento in cui l'elettrone è in quiete non è inerziale ma ruota attorno al nucleo, il campo magnetico deve essere dimezzato, per cui abbiamo il termine perturbativo di interazione
+in cui il fattore $\frac12$ è dovuto all'effetto noto come \emph{precessione di Thomas}, dato che il sistema di riferimento in cui l'elettrone è in quiete non è inerziale ma ruota attorno al nucleo.\footnote{
+    Per il calcolo della precessione di Thomas si veda \cite[app.~O]{eisberg-resnick}.
+}
+Il termine perturbativo è dunque
 \begin{equation}
     \op H_1=
-    -\frac12\scalar{\op\vmu_s}{\vec B}=
-    \frac12g_s\frac{\mu_B}{\hbar}\scalar{\op{\vec S}}{\vec B}=
+    -\scalar{\op\vmu_s}{\vec B}=
+    g_s\frac{\mu_B}{\hbar}\scalar{\op{\vec S}}{\vec B}=
     -g_s\frac{\mu_B}{2\hbar mc^2}\scalar{\op{\vec S}}{\op{\vec p}\times\vec E}
 \end{equation}
 sostituendo a $\vec v$ il corrispondente operatore $\frac1{m}\op{\vec p}$.
