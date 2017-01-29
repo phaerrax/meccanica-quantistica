@@ -25,16 +25,6 @@
 \usepackage[bibstyle=numeric,backend=biber]{biblatex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Margini
-\usepackage[big]{layaureo}
-% Piccola correzione del margine superiore
-\newlength{\customTopMargin}
-\setlength{\customTopMargin}{\Gm@tmargin+\headsep}
-\newgeometry{top=\customTopMargin}
-% Definisce delle nuove impostazioni per geometry. Gli altri margini etc. sono già impostati
-% da layaureo e vanno bene cosi`. Serve solo reimpostare 'top' con il nuovo valore.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Impostazioni e caricamento di pgfplots
 \usepackage{pgfplots}
 	\pgfplotsset{compat=newest}
@@ -54,6 +44,21 @@
 \usepackage{tikz-3dplot}
 	\tdplotsetmaincoords{75}{60} % Angoli di orientazione degli assi in 3d
 	
+% Impostazioni di esternalizzazione di tikz
+\usetikzlibrary{external}
+\usepgfplotslibrary{external}
+\tikzexternalize[prefix=tex/]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Margini
+\usepackage[big]{layaureo}
+% Piccola correzione del margine superiore
+\newlength{\customTopMargin}
+\setlength{\customTopMargin}{\Gm@tmargin+\headsep}
+\newgeometry{top=\customTopMargin}
+% Definisce delle nuove impostazioni per geometry. Gli altri margini etc. sono già impostati
+% da layaureo e vanno bene cosi`. Serve solo reimpostare 'top' con il nuovo valore.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Formattazione del testo
 % Impostazione della grandezza del font nei vari ambienti
